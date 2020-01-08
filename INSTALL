@@ -1,0 +1,10 @@
+To install the C implementation of the Revolve algorithm (around 10
+times faster than the Python version), use the following commands:
+
+cd algorithms/
+python -m setup install
+
+Note to Plafrim users: this requires gcc >= 5, you need to load
+a recent compiler first with
+
+module load compiler/gcc
