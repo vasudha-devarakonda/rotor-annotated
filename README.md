@@ -1,0 +1,105 @@
+# rotor: Rematerializing Optimally with pyTORch
+
+## Description
+
+**Purpose:** This code is meant to replace torch/utils/checkpoint.py,
+by providing more efficient checkpointing strategies. The algorithm is
+easier to tune, as the required parameter as input is the available
+memory instead of the number of segments.
+
+## Installation
+
+rotor can be used as is. For more performance when computing optimal
+checkpointing sequences, it is best to compile the C implementation of
+the main algorithms. This can be done with 
+```
+cd algorithms
+python setup.py install
+```
+## Usage
+
+### Standard usage
+The main class is `rotor.Checkpointable`. To use it:
+* Describe your module as a `torch.Sequential` module
+* Create a sequential module from it:
+  ```
+  chk = Checkpointable(module)
+  ```
+* Provide a sample input to perform timing and memory
+  measurements of your module
+  ```
+  input = torch.randn(shape)
+  chk.measure(input)
+  ```
+* Compute the optimal sequence for a given memory limit (in bytes)
+  ```
+  chk.compute_sequence(500*1024*1024)
+  ```
+* Use the Checkpointable as a module
+  ```
+  output = chk(input)
+  output.backward()
+  grad = input.grad
+  ```
+
+As an alternative, the sample input and memory limit can be specified
+in the construction of Checkpointable:
+```
+input = torch.randn(shape)
+chk = Checkpointable(module, input, 500*1024*1024)
+output = chk(input)
+```
+
+Or only the sample input:
+```
+input = torch.randn(shape)
+chk = Checkpointable(module, input)
+chk.compute_sequence(500*1024*1024)
+output = chk(input)
+```
+
+### Implemented models
+Rotor also contains a suitable adaptation of the main models available
+in `torchvision`: ResNet, VGG, Inception, and Densenet, available
+respectively as `rotor.resnet`, `rotor.vgg`, `rotor.inception`, and
+`rotor.densenet`. Each of these modules has the same interface as the
+corresponfing `torchvision` version.
+
+
+### Complete example
+
+Here is a complete working example: 
+
+```
+import rotor
+import torch
+
+net = rotor.resnet.resnet18()
+net_check = rotor.Checkpointable(net)
+shape = (1, 3, 224, 224)
+sample = torch.rand(*shape)
+net_check.measure(sample)
+net_check.compute_sequence(mem_limit = 100*1024*1024)
+
+data = torch.rand(*shape)
+data.requires_grad = True
+result = net_check(data).sum()
+result.backward()
+grad = data.grad
+```
+
+### Notes: 
+* As of now, for technical reasons rotor does not use the
+  `save_for_backward()` interface that detects when tensors are
+  changed between the forward and the backward phase. Make sure to not
+  modify the tensors.
+
+* Just like `torch/utils/checkpoint.py`, `Checkpointable` preserves RNG
+  states by default at each checkpoint, and restores it during the
+  backward phase.
+  
+* Unclear to us how to portably get CPU resource usage information.
+  Our code (`memory.py`) uses `import resource` to allow measuring
+  resource usage even when not running on CUDA. If portability to
+  non-Unix platforms is important, either this will require to
+  remove this feature or use a more portable alternative.
