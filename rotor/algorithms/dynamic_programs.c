@@ -77,7 +77,7 @@ persistent_compute_table(PyObject *self, PyObject *args)
   Py_DECREF(chain_length_param); 
 
   // TODO: Can be optimized by only allocating memory for l >= i
-  // TODO: float / int instead of double / long ? 
+  // TODO: float / int instead of double / long ?
 #define OPT(m, i, l) opt[(m)*(chain_length+1)*(chain_length+1) + (i) * (chain_length+1) + (l)]
   double * opt = calloc((mmax+1) * (chain_length+1) * (chain_length+1), sizeof(double));
 
@@ -225,9 +225,11 @@ floating_compute_table(PyObject *self, PyObject *args)
   const long m_factor = (chain_length+1) * (chain_length+2) * (2*chain_length+6) / 12;
 
   // Defined for 0 <= s <= t <= l <= chain_length, for all m
+#undef OPT
 #define OPT(m, s, t, l) opt[floating_index_in_array(m_factor, (m), chain_length - (s), (t) - (s), (l) - (t))]
   double * opt = calloc((mmax+1) * m_factor, sizeof(double));
 
+#undef WHAT
 #define WHAT(m, s, t, l) what[floating_index_in_array(m_factor, (m), chain_length - (s), (t) - (s), (l) - (t))]
   index_t * what = calloc((mmax+1) * m_factor, sizeof(index_t));
 
@@ -378,7 +380,8 @@ griewank_heterogeneous_compute_table(PyObject *self, PyObject *args)
   Py_DECREF(chain_length_param); 
 
   // TODO: Can be optimized by only allocating memory for l >= i
-  // TODO: float / int instead of double / long ? 
+  // TODO: float / int instead of double / long ?
+#undef OPT
 #define OPT(m, i, l) opt[(m)*(chain_length+1)*(chain_length+1) + (i) * (chain_length+1) + (l)]
   double * opt = calloc((mmax+1) * (chain_length+1) * (chain_length+1), sizeof(double));
 
