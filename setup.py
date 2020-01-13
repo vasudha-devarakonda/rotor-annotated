@@ -4,8 +4,9 @@ packages = find_packages()
 
 
 def run_setup():
-    extensions = Extension('dynamic_programs',
-                           sources = ['rotor/algorithms/dynamic_programs.c'])
+    extensions = [Extension('dynamic_programs',
+                            sources = ['rotor/algorithms/dynamic_programs.c'])]
+    
 
     setup (name = 'rotor',
            version = '0.1',
