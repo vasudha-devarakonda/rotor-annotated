@@ -1,11 +1,11 @@
 
 __all__ = ["persistent", "floating",
            "chen_sqrt", "no_checkpoint",
-           "simulate_sequence", "default_arguments",
+           "simulate_sequence", "Chain",
            "parse_arguments", "sequence", "griewank",
            "griewank_heterogeneous" ]
 
-from .parameters import parse_arguments, default_arguments
+from .parameters import parse_arguments, Chain
 from .persistent import persistent
 from .utils import chen_sqrt, no_checkpoint, simulate_sequence
 from .floating import floating

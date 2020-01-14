@@ -1,9 +1,6 @@
 #!/usr/bin/python
 
-from . import parameters
 from .sequence import *
-
-import numpy as np
 
 try:
     import dynamic_programs as dp
@@ -129,16 +126,11 @@ def compute_table(chain, mmax):
 
 
 # Computes the optimal sequence, recursive helper function
-def floating_rec(chain, s, t, l, cmem, params, opt_table = None, rec_depth = 0):
+def floating_rec(chain, s, t, l, cmem, opt_table):
     if cmem < 0:
         raise ValueError("Can not process a chain with negative memory {cmem}".format(cmem=cmem))
-    if opt_table == None:
-        if c_version_present and not params.force_python:
-            opt_table = dp.floating_compute_table(chain, cmem)
-        else: 
-            opt_table = compute_table(chain, cmem)
     opt, what = opt_table
-    sequence = Sequence(Function("Floating", s, t, l, cmem), params)
+    sequence = Sequence(Function("Floating", s, t, l, cmem))
     if opt[cmem][(s, t, l)] == float("inf"):
         raise ValueError("Can not process this chain from index {s} to {l} throught {t} with memory {cmem}".format(s=s, t=t, l=l, cmem=cmem))
     if s == l:
@@ -152,8 +144,7 @@ def floating_rec(chain, s, t, l, cmem, params, opt_table = None, rec_depth = 0):
     if what[cmem][(s, t, l)][0]:
         assert s == t
         sequence.insert(ForwardEnable(s))
-        sequence.insert_sequence(floating_rec(chain, s+1, t+1, l, cmem - chain.cbweigth[s+1],
-                                                      params, opt_table = opt_table, rec_depth = rec_depth+1))
+        sequence.insert_sequence(floating_rec(chain, s+1, t+1, l, cmem - chain.cbweigth[s+1], opt_table))
         sequence.insert(Backward(s))
     else:
         (sp, r, tp) = what[cmem][(s, t, l)][1]
@@ -165,12 +156,17 @@ def floating_rec(chain, s, t, l, cmem, params, opt_table = None, rec_depth = 0):
             if k != r: sequence.insert(ForwardNograd(k))
             else: sequence.insert(ForwardCheck(k))
         mp = cmem - chain.cweigth[r] + chain.cweigth[s]
-        sequence.insert_sequence(floating_rec(chain, sp, tp, l, mp - chain.cweigth[sp],
-                                                      params, opt_table = opt_table, rec_depth = rec_depth+1))
-        sequence.insert_sequence(floating_rec(chain, r, t, tp-1, mp, params, opt_table = opt_table, rec_depth = rec_depth+1))
+        sequence.insert_sequence(floating_rec(chain, sp, tp, l, mp - chain.cweigth[sp], opt_table))
+        sequence.insert_sequence(floating_rec(chain, r, t, tp-1, mp, opt_table))
     return sequence
                         
 
 # Computes the optimal sequence for the given parameters
-def floating(params):
-    return floating_rec(params.chain, 0, 0, params.chain.length, params.cm - params.chain.cweigth[0], params)
+def floating(chain, memory_limit, force_python = False):
+    cmem = memory_limit - chain.cweigth[0]
+    if c_version_present and not force_python:
+        opt_table = dp.floating_compute_table(chain, cmem)
+    else: 
+        opt_table = compute_table(chain, cmem)
+
+    return floating_rec(chain, 0, 0, chain.length, cmem, opt_table)

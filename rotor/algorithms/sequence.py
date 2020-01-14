@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-from . import parameters
-
 import math
 import os
 import sys
@@ -24,11 +22,11 @@ class Forward(Operation):
     def __repr__(self):
         return "{n}_{i}".format(n=self.name, i=self.index)
 
-    def cost(self, params):
-        if params.isHeterogeneous:
-            return params.chain.fweigth[self.index]
+    def cost(self, chain):
+        if chain is not None:
+            return chain.fweigth[self.index]
         else:
-            return params.uf
+            return 1
 
 class ForwardEnable(Forward):
     def __init__(self, index):
@@ -52,11 +50,11 @@ class Forwards(Operation):
     def __repr__(self):
         return "F_{i}->{j}".format(i=self.index[0], j=self.index[1])
 
-    def cost(self, params):
-        if params.isHeterogeneous:
-            return sum(params.chain.fweigth[self.index[0]:self.index[1]+1])
+    def cost(self, chain):
+        if chain is not None:
+            return sum(chain.fweigth[self.index[0]:self.index[1]+1])
         else:
-            return (self.index[1] - self.index[0] + 1) * params.uf
+            return (self.index[1] - self.index[0] + 1)
 
 def isForward(op):
     return type(op) is Forward or type(op) is Forwards
@@ -69,11 +67,11 @@ class Backward(Operation):
     def __repr__(self):
         return "B_{i}".format(i=self.index)
 
-    def cost(self, params):
-        if params.isHeterogeneous:
-            return params.chain.bweigth[self.index]
+    def cost(self, chain):
+        if chain is not None:
+            return chain.bweigth[self.index]
         else:
-            return params.ub
+            return 1
         
 class Loss(Operation):
     def __init__(self):
@@ -82,7 +80,7 @@ class Loss(Operation):
     def __repr__(self):
         return "L"
 
-    def cost(self, params):
+    def cost(self, chain):
         return 0
     
 class MemoryAccess(Operation):
@@ -92,7 +90,7 @@ class MemoryAccess(Operation):
     def __repr__(self):
         return "{n}_{i}".format(n=self.name, i=self.index)
 
-    def cost(self, params):
+    def cost(self, chain):
         return 0
 
 class WriteMemory(MemoryAccess):
@@ -122,11 +120,9 @@ class Function:
 
 
 class Sequence:
-    def __init__(self, function, params):
+    def __init__(self, function):
         self.sequence = [] #List of Operation and Sequence
         self.function = function #Description the function (name and parameters)
-        self.makespan = 0 #Makespan to be updated
-        self.params = params
 
     def __repr__(self):
         return repr(self.list_operations())
@@ -143,15 +139,12 @@ class Sequence:
 
     def insert(self, operation):
         self.sequence.append(operation)
-        self.makespan += operation.cost(self.params)
 
     def remove(self, operation_index):
-        self.makespan -= self.sequence[operation_index].cost(self.params)
         del self.sequence[operation_index]
 
     def insert_sequence(self, sequence):
         self.sequence.append(sequence)
-        self.makespan += sequence.makespan
 
     def shift(self, value):
         for x in self.sequence:
@@ -164,6 +157,9 @@ class Sequence:
                 self.remove(0)
         return self
 
+    def get_makespan(self, chain):
+        return sum(op.cost(chain) for op in self.list_operations())
+
     def withoutSuffix(self): 
         ops = self.list_operations()
         endOfFirstPhase = [i for i in range(len(ops)) if type(ops[i]) is Loss][0]
@@ -175,7 +171,7 @@ class Sequence:
             return (self, None)
         chainLength = ops[endOfFirstPhase - 1].index   ## Some assumption here about the sequence (finishes with Forward_L
         startOfFwdEnableChain = ops[lastIndex+1].index ## And starts with B_L), but should be fine in practice
-        result = Sequence(Function("Strip", self.function.name, *self.function.args, startOfFwdEnableChain), self.params)
+        result = Sequence(Function("Strip", self.function.name, *self.function.args, startOfFwdEnableChain))
         for i in range(lastIndex+1): 
             result.insert(ops[i])
         result.insert(Loss())
