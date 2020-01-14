@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-from . import parameters
 from .sequence import *
 
 try:
@@ -70,7 +69,7 @@ def compute_table(chain, mmax):
 
 
 # Computes the optimal sequence, recursive helper function
-def persistent_rec(chain, lmin, lmax, cmem, params, opt_hete = None):
+def persistent_rec(chain, lmin, lmax, cmem, opt_table):
     """ chain : the class describing the AC graph
         lmin : index of the first forward to execute
         lmax : upper bound index of the last forward to execute (not included)
@@ -78,23 +77,8 @@ def persistent_rec(chain, lmin, lmax, cmem, params, opt_hete = None):
         Return the optimal sequence of makespan Opt_hete[cmem][lmin][lmax-lmin]"""
     if cmem <= 0:
         raise ValueError("Can not process a chain with negative memory {cmem}".format(cmem=cmem))
-    if opt_hete == None:
-        if c_version_present and not params.force_python:
-            opt_hete = dp.persistent_compute_table(chain, cmem)
-        else: 
-            opt_hete = compute_table(chain, cmem)
-        if params.print_table: 
-            file =  open(params.print_table, "w")
-            for (m, t) in enumerate(opt_hete[0]):
-                print(m, file=file)
-                for i, t2 in enumerate(t):
-                    print("  ", i, " ".join("{}:{:4.2f}".format(k, t2[k]) for k in t2), file=file)
-            for (m, t) in enumerate(opt_hete[1]):
-                print(m, file=file)
-                for i, t2 in enumerate(t):
-                    print("  ", i, " ".join("{}:{}".format(k, t2[k]) for k in t2), file=file)
-    opt, what = opt_hete
-    sequence = Sequence(Function("Persistent", lmax-lmin, cmem), params)
+    opt, what = opt_table
+    sequence = Sequence(Function("Persistent", lmax-lmin, cmem))
     if opt[cmem][lmin][lmax] == float("inf"):
         raise ValueError("Can not process this chain from index {lmin} to {lmax} with memory {cmem}".format(lmin=lmin, lmax=lmax, cmem=cmem))
     if lmin == lmax:
@@ -107,23 +91,28 @@ def persistent_rec(chain, lmin, lmax, cmem, params, opt_hete = None):
     
     if what[cmem][lmin][lmax][0]:
         sequence.insert(ForwardEnable(lmin))
-        sequence.insert_sequence(persistent_rec(chain, lmin+1, lmax, cmem - chain.cbweigth[lmin+1], params, opt_hete = opt_hete))
+        sequence.insert_sequence(persistent_rec(chain, lmin+1, lmax, cmem - chain.cbweigth[lmin+1], opt_table))
         sequence.insert(Backward(lmin))
     else:
         j = what[cmem][lmin][lmax][1]
         sequence.insert(ForwardCheck(lmin))
         for k in range(lmin+1, j): sequence.insert(ForwardNograd(k))
-        sequence.insert_sequence(persistent_rec(chain, j, lmax, cmem - chain.cweigth[j], params, opt_hete = opt_hete))
-        sequence.insert_sequence(persistent_rec(chain, lmin, j-1, cmem, params, opt_hete = opt_hete))
+        sequence.insert_sequence(persistent_rec(chain, j, lmax, cmem - chain.cweigth[j], opt_table))
+        sequence.insert_sequence(persistent_rec(chain, lmin, j-1, cmem, opt_table))
     return sequence
                         
 # Computes the optimal sequence for the given parameters
-def persistent(params):
-    return persistent_rec(params.chain, 0, params.chain.length, params.cm - params.chain.cweigth[0], params)
+def persistent(chain, memory_limit, force_python = False):
+    if c_version_present and not force_python:
+        opt_table = dp.persistent_compute_table(chain, memory_limit)
+    else: 
+        opt_table = compute_table(chain, memory_limit)
+    return persistent_rec(chain, 0, chain.length, memory_limit - chain.cweigth[0], opt_table)
 
 
 if __name__ == '__main__':
     from .utils import simulate_sequence
+    from . import parameters
     
     params = parameters.parse_arguments()
     start_time = time.time()

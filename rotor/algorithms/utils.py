@@ -1,4 +1,3 @@
-from . import parameters
 from .sequence import *
 
 
@@ -7,20 +6,19 @@ def argmin(iterable):
 
 
 # Computes the sequential sequence
-def chen_sqrt(params, segments = None):
-    l = params.chain.length
-    nb_segments = round(math.sqrt(l)) if segments is None else segments
-    segment_size = l // nb_segments
-    sequence = Sequence(Function("ChenSqrt", l, nb_segments), params)
+def chen_sqrt(length, segments = None):
+    nb_segments = round(math.sqrt(length)) if segments is None else segments
+    segment_size = length // nb_segments
+    sequence = Sequence(Function("ChenSqrt", length, nb_segments))
     for start in range(0, segment_size * (nb_segments - 1), segment_size):
         end = start + segment_size - 1
         sequence.insert(ForwardCheck(start))
         for i in range(start + 1, end + 1):
             sequence.insert(ForwardNograd(i))
-    for i in range(end + 1, l):
+    for i in range(end + 1, length):
         sequence.insert(ForwardEnable(i))
     sequence.insert(Loss())
-    for i in range(l-1, end, -1):
+    for i in range(length-1, end, -1):
         sequence.insert(Backward(i))
     for start in range(segment_size * (nb_segments - 2), -1, -segment_size):
         end = start + segment_size - 1
@@ -32,13 +30,12 @@ def chen_sqrt(params, segments = None):
     return sequence
 
 # Computes a sequence which saves everything to memory, and thus does not recompute anything
-def no_checkpoint(params):
-    l = params.chain.length
-    sequence = Sequence(Function("noCheckpoint", l, None), params)
-    for i in range(l): 
+def no_checkpoint(length):
+    sequence = Sequence(Function("noCheckpoint", length, None))
+    for i in range(length): 
         sequence.insert(ForwardEnable(i))
     sequence.insert(Loss())
-    for i in range(l-1, -1, -1): 
+    for i in range(length-1, -1, -1): 
         sequence.insert(Backward(i))
     return sequence
         

@@ -5,8 +5,8 @@ from .sequence import *
 from .utils import argmin
 import argparse
 
-def convert_griewank_to_rotor(seq, params):
-    res = Sequence(Function("Conversion", seq.function.name, *seq.function.args), params)
+def convert_griewank_to_rotor(seq, length):
+    res = Sequence(Function("Conversion", seq.function.name, *seq.function.args))
     ops = seq.list_operations()
 
     idx = 0
@@ -37,7 +37,7 @@ def convert_griewank_to_rotor(seq, params):
                 assert isForward(ops[idx+1])
                 pleaseSaveNextFwd = True
         elif type(op) is Backward:
-            if op.index == params.chain.length:
+            if op.index == length:
                 res.insert(Loss())
             else:
                 res.insert(ForwardEnable(op.index))
@@ -48,11 +48,11 @@ def convert_griewank_to_rotor(seq, params):
 
     return res
 
-def convert_griewank_to_rotor_xbar(seq, params):
-    res = Sequence(Function("Conversion Xbar", seq.function.name, *seq.function.args), params)
+def convert_griewank_to_rotor_xbar(seq, length):
+    res = Sequence(Function("Conversion Xbar", seq.function.name, *seq.function.args))
     ops = seq.list_operations()
 
-    ## lastValueSaved = {i: None for i in range(0, params.chain.length + 1)}
+    ## lastValueSaved = {i: None for i in range(0, length + 1)}
     idx = 0
     nb_ops = len(ops)
     pleaseSaveNextFwd = True
@@ -90,7 +90,7 @@ def convert_griewank_to_rotor_xbar(seq, params):
                 doNotDoNextFwd = True
                 pleaseSaveNextFwd = True
         elif type(op) is Backward:
-            if op.index == params.chain.length:
+            if op.index == length:
                 res.insert(Loss())
             else:
                 res.insert(ForwardEnable(op.index))
@@ -102,18 +102,12 @@ def convert_griewank_to_rotor_xbar(seq, params):
     return res
 
 
-def get_opt_0_table(lmax, mmax, params, file_name=None):
-    """ Return the Opt_0 table
-        for every Opt_0[l][m] with l = 0...lmax and m = 0...mmax
+def get_opt_table(lmax, mmax):
+    """ Return the Optimal table:
+        every Opt[l][m] with l = 0...lmax and m = 0...mmax
         The computation uses a dynamic program"""
-    if file_name != None:
-        f = open(file_name, "w")
-        f.write("#size max = %d\n" % lmax)
-        f.write("#mem max = %d\n" % mmax)
-        f.write("#size\tmem\topt_0\n")
-        f.flush()
-    uf = params.uf
-    ub = params.ub
+    uf = 1
+    ub = 1
    
     # Build table
     ## print(mmax,lmax)
@@ -121,38 +115,25 @@ def get_opt_0_table(lmax, mmax, params, file_name=None):
     # Initialize borders of the table
     for m in range(mmax + 1):
         opt[0][m] = ub
-        if file_name != None:
-            f.write("%d\t%d\t%.2f\n" % (0, m, opt[0][m]))
     for m in range(1, mmax + 1):
         opt[1][m] = uf + 2 * ub
-        if file_name != None:
-           f.write("%d\t%d\t%.2f\n" % (1, m, opt[1][m]))
     for l in range(1, lmax + 1):
         opt[l][1] = (l+1) * ub + l * (l + 1) / 2 * uf
-        if file_name != None:
-            f.write("%d\t%d\t%.2f\n" % (l, 1, opt[l][1]))
-    if file_name != None:
-        f.flush()
     # Compute everything
     for m in range(2, mmax + 1):
         for l in range(2, lmax + 1):
-            opt[l][m] = min([j * uf + opt[l - j][m-1] + opt[j-1][m] for j in range(1, l)])
-            if file_name != None:
-                f.write("%d\t%d\t%.2f\n" % (l, m, opt[l][m]))
-        if file_name != None:
-            f.flush()
+            opt[l][m] = min(j * uf + opt[l - j][m-1] + opt[j-1][m] for j in range(1, l))
     return opt
 
 
-def griewank_rec(l, cmem, params, opt_0 = None):
+def griewank_rec(l, cmem, opt_table):
     """ l : number of forward step to execute in the AC graph
         cmem : number of available memory slots
-        Return the optimal sequence of makespan Opt_0(l, cmem)"""
+        Return the optimal sequence of makespan Opt_table(l, cmem)"""
     if cmem == 0:
         raise ValueError("Can not process a chain without memory")
-    if opt_0 == None:
-        opt_0 = get_opt_0_table(l, cmem, params)
-    sequence = Sequence(Function("Griewank", l, cmem), params)
+    uf = 1
+    sequence = Sequence(Function("Griewank", l, cmem))
     if l == 0:
         sequence.insert(Backward(0))
         sequence.insert(DiscardMemory(0))
@@ -176,44 +157,38 @@ def griewank_rec(l, cmem, params, opt_0 = None):
         sequence.insert(Backward(0))
         sequence.insert(DiscardMemory(0))
         return sequence
-    list_mem = [j*params.uf + opt_0[l-j][cmem-1] + opt_0[j-1][cmem] for j in range(1,l)]
+    list_mem = [j * uf + opt_table[l-j][cmem-1] + opt_table[j-1][cmem] for j in range(1,l)]
     jmin = 1 + argmin(list_mem)
     sequence.insert(WriteMemory(0))
     sequence.insert(Forwards(0, jmin - 1))
-    sequence.insert_sequence(griewank_rec(l - jmin, cmem - 1, params, opt_0 = opt_0).shift(jmin))
+    sequence.insert_sequence(griewank_rec(l - jmin, cmem - 1, opt_table).shift(jmin))
     sequence.insert(ReadMemory(0))
-    sequence.insert_sequence(griewank_rec(jmin-1, cmem, params, opt_0 = opt_0).remove_useless_write())
+    sequence.insert_sequence(griewank_rec(jmin-1, cmem, opt_table).remove_useless_write())
     return sequence
 
 
-def griewank(params, useXbar = False, showInputs = False):
-    max_peak = max(max(params.chain.fwd_tmp), max(params.chain.bwd_tmp))
-    available_mem = params.cm - max_peak
+def griewank(chain, memory_limit, useXbar = False, showInputs = False):
+    max_peak = max(max(chain.fwd_tmp), max(chain.bwd_tmp))
+    available_mem = memory_limit - max_peak
     if useXbar:
-        sizes = sorted(params.chain.cbweigth, reverse = True)
+        sizes = sorted(chain.cbweigth, reverse = True)
     else: 
-        sizes = sorted(params.chain.cweigth, reverse = True)
+        sizes = sorted(chain.cweigth, reverse = True)
     nb_slots = 0
     sum = 0
     while sum < available_mem and nb_slots < len(sizes):
         sum += sizes[nb_slots]
         nb_slots += 1
 
-    hom_params = argparse.Namespace()
-    hom_params.l = params.chain.length
-    hom_params.cm = nb_slots
-    hom_params.ub = 1
-    hom_params.uf = 1
-    hom_params.concat = 0
-    hom_params.print = None
-    hom_params.isHeterogeneous = False
-    if showInputs: print("Hom Inputs: {l} {cm}".format(l=hom_params.l, cm=hom_params.cm), file=sys.stderr)
-        
-    seq = griewank_rec(hom_params.l, hom_params.cm, hom_params)
+    if showInputs: print("Hom Inputs: {l} {cm}".format(l=chain.length, cm=nb_slots), file=sys.stderr)
+
+    opt_table = get_opt_table(chain.length, nb_slots)
+
+    seq = griewank_rec(chain.length, nb_slots, opt_table)
     if useXbar:
-        converted = convert_griewank_to_rotor_xbar(seq, params)
+        converted = convert_griewank_to_rotor_xbar(seq, chain.length)
     else: 
-        converted = convert_griewank_to_rotor(seq, params)
+        converted = convert_griewank_to_rotor(seq, chain.length)
     return converted
 
 

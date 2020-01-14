@@ -69,20 +69,15 @@ def compute_table(chain, mmax):
     return opt
 
 
-def griewank_heterogeneous_rec(chain, lmin, lmax, cmem, params, opt_hete = None):
+def griewank_heterogeneous_rec(chain, lmin, lmax, cmem, opt_table):
     """ chain : the class describing the AC graph
         lmin : index of the first forward to execute
         lmax : upper bound index of the last forward to execute (not included)
         cmem : number of available memory slots
         Return the optimal sequence of makespan Opt_hete[cmem][lmin][lmax-lmin]"""
-    if opt_hete == None:
-        if c_version_present and not params.force_python:
-            opt_hete = dp.griewank_heterogeneous_compute_table(chain, cmem)
-        else: 
-            opt_hete = compute_table(chain, cmem)
-    sequence = Sequence(Function("Griewank Heterogeneous", lmin, lmax, cmem), params)
+    sequence = Sequence(Function("Griewank Heterogeneous", lmin, lmax, cmem))
     sequence.isStraightforward = True
-    if opt_hete[cmem][lmin][lmax-lmin] == float("inf"):
+    if opt_table[cmem][lmin][lmax-lmin] == float("inf"):
         raise ValueError("Can not process this chain from index {lmin} to {lmax} with memory {cmem}".format(lmin=lmin, lmax=lmax, cmem=cmem))
     if lmin == lmax:
         sequence.insert(Backward(lmin))
@@ -94,7 +89,7 @@ def griewank_heterogeneous_rec(chain, lmin, lmax, cmem, params, opt_hete = None)
         sequence.insert(ReadMemory(lmin))
         sequence.insert(Backward(lmin))
         return sequence
-    list_mem = [sum(chain.fweigth[lmin:j]) + opt_hete[cmem-chain.cweigth[lmin]][j][lmax-j] + opt_hete[cmem][lmin][j-lmin-1] for j in range(lmin+1, lmax+1)]
+    list_mem = [sum(chain.fweigth[lmin:j]) + opt_table[cmem-chain.cweigth[lmin]][j][lmax-j] + opt_table[cmem][lmin][j-lmin-1] for j in range(lmin+1, lmax+1)]
     no_checkpoint = sum(chain.bweigth[lmin:lmax+1]) + sum([sum(chain.fweigth[lmin:j]) for j in range(lmin+1,lmax+1)])
     if no_checkpoint <= min(list_mem):
         sequence.insert(WriteMemory(lmin))
@@ -109,42 +104,42 @@ def griewank_heterogeneous_rec(chain, lmin, lmax, cmem, params, opt_hete = None)
         jmin = lmin + argmin(list_mem) + 1
         sequence.insert(WriteMemory(lmin))
         sequence.insert(Forwards(lmin, jmin-1))
-        sequence.insert_sequence(griewank_heterogeneous_rec(chain, jmin, lmax, cmem - chain.cweigth[lmin], params, opt_hete = opt_hete))
+        sequence.insert_sequence(griewank_heterogeneous_rec(chain, jmin, lmax, cmem - chain.cweigth[lmin], opt_table))
         sequence.insert(ReadMemory(lmin))
-        sequence.insert_sequence(griewank_heterogeneous_rec(chain, lmin, jmin-1, cmem, params, opt_hete = opt_hete).remove_useless_write())
+        sequence.insert_sequence(griewank_heterogeneous_rec(chain, lmin, jmin-1, cmem, opt_table).remove_useless_write())
     return sequence
 
 
-def griewank_heterogeneous(params, useXbar = False, showInputs = False):
-    max_peak = max(max(params.chain.fwd_tmp), max(params.chain.bwd_tmp))
-    available_mem = params.cm - max_peak
+def griewank_heterogeneous(chain, memory_limit, useXbar = False, showInputs = False, force_python = False):
+    max_peak = max(max(chain.fwd_tmp), max(chain.bwd_tmp))
+    available_mem = memory_limit - max_peak
 
     if available_mem <= 0: 
-        raise ValueError("Can not execute: memory {p} smaller than maximum peak {max_peak}".format(p=params.cm, max_peak = max_peak))
+        raise ValueError("Can not execute: memory {p} smaller than maximum peak {max_peak}".format(p=memory_limit, max_peak = max_peak))
 
-    length = params.chain.length
+    length = chain.length
     if useXbar:
-        sizes = params.chain.cbweigth
+        sizes = chain.cbweigth
     else: 
-        sizes = params.chain.cweigth
-    het_params = parameters.default_arguments(available_mem, 
-                                              params.chain.fweigth,
-                                              params.chain.bweigth[:length],
-                                              sizes,
-                                              sizes,
-                                              ### ^ In Griewank Heterogeneous, this is the size of y_i, it is the same as x_i
-                                              [0] * length,
-                                              [0] * length)
+        sizes = chain.cweigth
+
+
+    converted_chain = parameters.Chain(chain.fweigth, chain.bweigth, sizes, sizes, [0] * length, [0] * (length+1))
+    ### ^ In Griewank Heterogeneous, cbw is the size of y_i, it is the same as x_i
 
     if showInputs: 
-        print("Modified Inputs: %d -s '%s'" % (het_params.cm, het_params.chain), file=sys.stderr)
+        print("Modified Inputs: %d -s '%s'" % (available_mem, converted_chain), file=sys.stderr)
 
-
-    seq = griewank_heterogeneous_rec(het_params.chain, 0, het_params.chain.length, het_params.cm, het_params)
-    if useXbar:
-        converted = convert_griewank_to_rotor_xbar(seq, params)
+    if c_version_present and not force_python:
+        opt_hete = dp.griewank_heterogeneous_compute_table(converted_chain, available_mem)
     else: 
-        converted = convert_griewank_to_rotor(seq, params)
+        opt_hete = compute_table(converted_chain, available_mem)
+        
+    seq = griewank_heterogeneous_rec(converted_chain, 0, length, available_mem, opt_hete)
+    if useXbar:
+        converted = convert_griewank_to_rotor_xbar(seq, length)
+    else: 
+        converted = convert_griewank_to_rotor(seq, length)
     return converted
 
 

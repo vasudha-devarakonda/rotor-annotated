@@ -204,7 +204,7 @@ class Checkpointable(torch.nn.Module):
         self.force_python = force_python
         self.preserve_rng_state = preserve_rng_state
         self.all_values = None
-        self.params = None
+        self.chain = None
         self.sequence = None
 
         if input is not None:
@@ -249,8 +249,7 @@ class Checkpointable(torch.nn.Module):
             mem_slots = None
             self.mem_unit = 1
             
-        self.params = alg.default_arguments(mem_slots, fwd_time, bwd_time, x_sizes, xbar_sizes, fwd_tmp, bwd_tmp)
-        self.params.force_python = self.force_python
+        self.chain = alg.Chain(fwd_time, bwd_time + [0], x_sizes, xbar_sizes, fwd_tmp, bwd_tmp + [0])
 
     def check_sequence(self):
         if self.sequence is None: 
@@ -261,38 +260,41 @@ class Checkpointable(torch.nn.Module):
         if mem_slots: self.mem_slots = mem_slots
         if force_python is not None: self.force_python = force_python
         self.makeParams(mem_limit)
-        if self.verbosity > 2: print("Inputs: %d -s '%s'" % (self.params.cm, self.params.chain), file=sys.stderr)
+        if self.verbosity > 2: print("Inputs: %d -s '%s'" % (self.mem_slots, self.chain), file=sys.stderr)
 
         if floating:
-            self.sequence = alg.floating(self.params)
+            self.sequence = alg.floating(self.chain, self.mem_slots, force_python = force_python)
         else: 
-            self.sequence = alg.persistent(self.params)
+            self.sequence = alg.persistent(self.chain, self.mem_slots, force_python = force_python)
 
     def get_expected_memory(self):
         self.check_sequence()
-        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.params.chain, display = False)
+        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = False)
 
         return exp_memory * self.mem_unit
 
     def get_expected_makespan(self):
         self.check_sequence()
-        return self.sequence.makespan
+        return self.sequence.get_makespan(self.chain)
 
     def compute_seq_sequence(self, segments = None):
         self.makeParams(None)
-        self.sequence = alg.chen_sqrt(self.params, segments)
+        self.sequence = alg.chen_sqrt(self.chain.length, segments)
 
     def compute_pytorch_sequence(self):
         self.makeParams(None)
-        self.sequence = alg.no_checkpoint(self.params)    
+        self.sequence = alg.no_checkpoint(self.chain.length)    
 
     def compute_homogeneous_sequence(self, mem_limit, mem_slots = None, useXbar = False):
+        if mem_slots: self.mem_slots = mem_slots
         self.makeParams(mem_limit)
-        self.sequence = alg.griewank(self.params, useXbar, showInputs = self.verbosity > 2)
+        self.sequence = alg.griewank(self.chain, self.mem_slots, useXbar, showInputs = self.verbosity > 2)
 
     def compute_heterogeneous_sequence(self, mem_limit, mem_slots = None, useXbar = False):
+        if mem_slots: self.mem_slots = mem_slots
         self.makeParams(mem_limit)
-        self.sequence = alg.griewank_heterogeneous(self.params, useXbar, showInputs = self.verbosity > 2)
+        self.sequence = alg.griewank_heterogeneous(self.chain, self.mem_slots, useXbar,
+                                                   showInputs = self.verbosity > 2)
         
         
         
