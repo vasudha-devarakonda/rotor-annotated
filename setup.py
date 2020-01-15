@@ -11,6 +11,7 @@ def run_setup():
     setup (name = 'rotor',
            version = '0.1',
            description = 'Rematerialize Optimally with pyTORch',
+           install_requires = ['psutil'],
            packages = packages,
            ext_modules = extensions)
 

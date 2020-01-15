@@ -9,13 +9,16 @@ memory instead of the number of segments.
 
 ## Installation
 
-rotor can be used as is. For more performance when computing optimal
-checkpointing sequences, it is best to compile the C implementation of
-the main algorithms. This can be done with 
+Beside the obvious requirement on `pytorch`, `rotor` has only one
+prerequisite: `psutil`. For installation, just run
+
 ```
-cd algorithms
 python setup.py install
 ```
+
+This will also compile the C extension which contains faster
+implementations of the dynamic programs. 
+
 ## Usage
 
 ### Standard usage
@@ -43,7 +46,7 @@ The main class is `rotor.Checkpointable`. To use it:
   ```
 
 As an alternative, the sample input and memory limit can be specified
-in the construction of Checkpointable:
+in the construction of `Checkpointable`:
 ```
 input = torch.randn(shape)
 chk = Checkpointable(module, input, 500*1024*1024)
@@ -63,12 +66,14 @@ Rotor also contains a suitable adaptation of the main models available
 in `torchvision`: ResNet, VGG, Inception, and Densenet, available
 respectively as `rotor.resnet`, `rotor.vgg`, `rotor.inception`, and
 `rotor.densenet`. Each of these modules has the same interface as the
-corresponfing `torchvision` version.
+corresponding `torchvision` version.
 
 
 ### Complete example
 
-Here is a complete working example: 
+Here is a complete working example, which runs ResNet18 with a batch
+size of 32 with a memory usage of 700MB, whereas making the same run
+without checkpointing would use 843MB:
 
 ```
 import rotor
@@ -76,10 +81,10 @@ import torch
 
 net = rotor.resnet.resnet18()
 net_check = rotor.Checkpointable(net)
-shape = (1, 3, 224, 224)
+shape = (32, 3, 224, 224)
 sample = torch.rand(*shape)
 net_check.measure(sample)
-net_check.compute_sequence(mem_limit = 100*1024*1024)
+net_check.compute_sequence(mem_limit = 700*1024*1024)
 
 data = torch.rand(*shape)
 data.requires_grad = True
