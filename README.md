@@ -31,7 +31,7 @@ The main class is `rotor.Checkpointable`. To use it:
 * Provide a sample input to perform timing and memory
   measurements of your module
   ```
-  input = torch.randn(shape)
+  input = torch.rand(shape)
   chk.measure(input)
   ```
 * Compute the optimal sequence for a given memory limit (in bytes)
@@ -48,14 +48,14 @@ The main class is `rotor.Checkpointable`. To use it:
 As an alternative, the sample input and memory limit can be specified
 in the construction of `Checkpointable`:
 ```
-input = torch.randn(shape)
+input = torch.rand(shape)
 chk = Checkpointable(module, input, 500*1024*1024)
 output = chk(input)
 ```
 
 Or only the sample input:
 ```
-input = torch.randn(shape)
+input = torch.rand(shape)
 chk = Checkpointable(module, input)
 chk.compute_sequence(500*1024*1024)
 output = chk(input)
@@ -79,14 +79,16 @@ without checkpointing would use 843MB:
 import rotor
 import torch
 
+device = torch.device("cuda")
 net = rotor.resnet.resnet18()
+net.to(device=device)
 net_check = rotor.Checkpointable(net)
 shape = (32, 3, 224, 224)
-sample = torch.rand(*shape)
+sample = torch.rand(*shape, device=device)
 net_check.measure(sample)
 net_check.compute_sequence(mem_limit = 700*1024*1024)
 
-data = torch.rand(*shape)
+data = torch.rand(*shape, device=device)
 data.requires_grad = True
 result = net_check(data).sum()
 result.backward()
