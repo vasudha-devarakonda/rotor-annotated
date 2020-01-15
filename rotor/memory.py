@@ -2,7 +2,6 @@ import torch
 import sys
 import psutil
 import os
-import resource as rs
 from . import timing
 from . import inspection
 
@@ -66,13 +65,6 @@ class MeasureMemory:
             self.max_memory = max(self.max_memory, result)
         return result
         
-    def setLimit(self, limit):
-        if self.cuda:
-            raise NotImplementedError("setting mem limit on CUDA")
-        else:
-            (soft, hard) = rs.getrlimit(rs.RLIMIT_DATA)
-            rs.setrlimit(rs.RLIMIT_DATA, (limit, hard))
-
     def maximumValue(self):
         if self.cuda:
             return MemSize(torch.cuda.max_memory_allocated(self.device))
