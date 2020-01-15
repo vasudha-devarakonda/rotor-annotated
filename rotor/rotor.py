@@ -46,6 +46,29 @@ class TensorStorage:
         keyList = " ".join(keyToStr(k) for k in self.storage.keys())
         return "Size {}, keys {}".format(len(self.storage), keyList)
 
+    # These methods are useful to be able to use save_for_backward()
+    # for all the tensors that are kept between the forward and backward
+    # phases. For the moment it is a noop (see commented sections below) 
+    # because it does not work properly for our case. The missing feature
+    # is the possibility to perform 
+    # 
+    # y = f(x)
+    # save_for_backward(x, y)
+    # 
+    # in the forward phase, and then 
+    # 
+    # x, y = saved_tensors
+    # y.backward(grad)
+    # grad = x.grad
+    #
+    # in the backward phase. As of now, this results in `x.grad` being
+    # `None` instead of containing useful data (see $580)
+    # 
+    # If this feature can not be implemented, this restricts the set of possible
+    # checkpointing stategies. It is actually still possible to compute the
+    # optimal sequence in this restricted set, so we would (only) have to adapt
+    # our algorithms. 
+
     def serialize(self):
         self.result = tuple()
         def save(tensors):
