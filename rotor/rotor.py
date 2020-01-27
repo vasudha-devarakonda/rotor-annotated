@@ -323,10 +323,10 @@ class Checkpointable(torch.nn.Module):
         
     def display(self):
         self.check_sequence()
-        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.params.chain, display = self.verbosity > 3)
+        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = self.verbosity > 3)
         if self.verbosity > 0:
             if self.verbosity > 1: print("Actions:", repr(self.sequence), file=sys.stderr)
-            print("Expected makespan:", self.sequence.makespan,
+            print("Expected makespan:", self.get_expected_makespan(),
                   "memory: %d/%d, %s (%d)" % (exp_memory, self.mem_slots, memory.MemSize(exp_memory * self.mem_unit), exp_memory * self.mem_unit), file=sys.stderr)
         
 
