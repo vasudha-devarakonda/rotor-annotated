@@ -99,6 +99,15 @@ class MeasureMemory:
         else: 
             return MemSize(torch.cuda.memory_cached(self.device))
 
+    def measure(self, func, *args):
+        self.diffFromLast()
+        self.resetMax()
+        maxBefore = self.maximumValue()
+        result = func(*args)
+        usage = self.diffFromLast()
+        maxUsage = self.maximumValue() - maxBefore
+
+        return result, usage, maxUsage
 
 class DisplayMemory:
     def __init__(self, device, maxLabelSize = 45):

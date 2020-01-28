@@ -130,64 +130,47 @@ def measure_everything(named_modules, input, min_duration = 30):
 
     timer = timing.make_timer(input.device)
     memUsage = memory.MeasureMemory(input.device)
+
+    def perform_measure(func, prologue = None):
+        def complete_func():
+            if prologue: prologue()
+            return func()
+
+        _, usage, maxUsage = memUsage.measure(complete_func)
+        duration = timer.measure_median(func)
+        if duration < min_duration: 
+            number_repetitions = 1 + int(min_duration // duration)
+            duration = timer.measure_median(func, iterations = number_repetitions)
+        return duration, int(usage), int(maxUsage)
+
     
     for name, module in named_modules:
-        timer.start()
-        memUsage.diffFromLast()
-        memUsage.resetMax()
-        maxBefore = memUsage.maximumValue()
-        
         x = detach_variable(x)
-        with torch.enable_grad(): 
-            xbar = module(x)
-
-        timer.end()
-        usage = int(memUsage.diffFromLast())
-        fwd_duration = timer.elapsed()
-        maxUsageFwd = memUsage.maximumValue() - maxBefore
-
-        if fwd_duration < min_duration:
-            number_repetitions = 1 + int(min_duration // fwd_duration)
-            timer.start()
-            for _ in range(number_repetitions): 
+        
+        def forwardOp():
+            nonlocal xbar
+            with torch.enable_grad(): 
                 xbar = module(x)
-            timer.end()
-            fwd_duration = timer.elapsed() / number_repetitions
 
+        fwd_duration, usage, maxUsageFwd = perform_measure(forwardOp)
         
-        memUsage.resetMax()
-        maxBefore = memUsage.maximumValue()
-        
-        args = make_gradient_for(xbar)
-        
-        timer.start()
-        torch.autograd.backward(xbar, grad_tensors=args)
-        timer.end()
+        args = None
+            
+        def backwardOp():
+            torch.autograd.backward(xbar, grad_tensors=args, retain_graph = True)
 
-        maxUsageBwd = memUsage.maximumValue() - maxBefore
-        
-        bwd_duration = timer.elapsed()
-        
-        if bwd_duration < min_duration:
-            xbar = module(x)
-            number_repetitions = 1 + int(min_duration // bwd_duration)
-            timer.start()
-            for _ in range(number_repetitions): 
-                torch.autograd.backward(xbar, grad_tensors = args, retain_graph = True)
-            timer.end()
-            bwd_duration = timer.elapsed() / number_repetitions
-        
+        def makeGrad():
+            nonlocal args
+            args = make_gradient_for(xbar)
+
+        bwd_duration, _, maxUsageBwd = perform_measure(backwardOp,
+                                                       prologue = makeGrad)
         result_x.append(tensorMsize(xbar))
         xbarSize = max(usage, tensorMsize(xbar))
         result_xbar.append(xbarSize)
         result_fwdTime.append(fwd_duration)
         result_bwdTime.append(bwd_duration)
 
-        # m = memory.MemSize
-        # fmt = "Memory for {:<45}: input {:>12} x {:>12} xbar {:>12} maxF {:>12} maxB {:>12} sumF {:>12} sumB {:>12}"
-        # print(fmt.format(name, m(tensorMsize(x)), m(tensorMsize(xbar)), m(xbarSize), maxUsageFwd, maxUsageBwd, 
-        #                  m(xbarSize), m(tensorMsize(x) + tensorMsize(xbar))))
-        # del m
         
         result_tmpFwd.append(int(maxUsageFwd) - xbarSize) # input was already in memory when starting experiment
         result_tmpBwd.append(int(maxUsageBwd) - (tensorMsize(x) + tensorMsize(xbar))) # input x_i and xb_i+1 were in memory, y_i+1 and y_i were added.

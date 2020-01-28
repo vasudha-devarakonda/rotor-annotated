@@ -1,9 +1,23 @@
 import torch
 import sys
 import time
+import statistics
 
+class Timer:
+    def measure(self, func, iterations = 1):
+        self.start()
+        for _ in range(iterations):
+            func()
+        self.end()
+        return self.elapsed() / iterations
 
-class TimerSys:
+    def measure_median(self, func, samples = 3, **kwargs):
+        values = []
+        for _ in range(samples):
+            values.append(self.measure(func, **kwargs))
+        return statistics.median(values)
+            
+class TimerSys(Timer):
     def __init__(self):
         self.reset()
 
@@ -27,7 +41,7 @@ class TimerSys:
         self.start()
         return result
 
-class TimerCuda:
+class TimerCuda(Timer):
     def __init__(self, device):
         self.device = device
         self.stream = torch.cuda.current_stream(device)
