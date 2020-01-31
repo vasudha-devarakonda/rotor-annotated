@@ -1,7 +1,4 @@
-
-__all__ = ["resnet", "vgg", "inception", "densenet" ]
-
-from . import resnet
-from . import vgg
-from . import inception
-from . import densenet
+from .resnet import *
+from .vgg import *
+from .inception import *
+from .densenet import *
