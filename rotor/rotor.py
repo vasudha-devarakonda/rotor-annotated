@@ -220,8 +220,8 @@ class Checkpointable(torch.nn.Module):
                  mem_slots = 500, verbosity = 0, force_python = False, preserve_rng_state = True):
         super(Checkpointable, self).__init__()
         self.model = model
-        self.named_modules = inspection.extract_children_from_sequential(model)
-        self.names, self.functions = (list(vals) for vals in zip(*self.named_modules))
+        self.modules_and_names = inspection.extract_children_from_sequential(model)
+        self.names, self.functions = (list(vals) for vals in zip(*self.modules_and_names))
         self.verbosity = verbosity
         self.mem_slots = mem_slots
         self.force_python = force_python
@@ -236,7 +236,7 @@ class Checkpointable(torch.nn.Module):
             self.compute_sequence(mem_limit)
         
     def measure(self, input):
-        self.all_values = inspection.measure_everything(self.named_modules, input)
+        self.all_values = inspection.measure_everything(self.modules_and_names, input)
         self.params = None   ## Forget old params, they are out of date now.
         self.sequence = None
         
