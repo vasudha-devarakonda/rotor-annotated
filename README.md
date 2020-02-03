@@ -80,7 +80,7 @@ import rotor
 import torch
 
 device = torch.device("cuda")
-net = rotor.resnet.resnet18()
+net = rotor.models.resnet18()
 net.to(device=device)
 net_check = rotor.Checkpointable(net)
 shape = (32, 3, 224, 224)
