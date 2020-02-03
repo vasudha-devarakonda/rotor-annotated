@@ -55,7 +55,7 @@ class _DenseBlock(nn.Sequential):
 class _Transition(nn.Sequential):
     def __init__(self, num_input_features, num_output_features):
         super(_Transition, self).__init__()
-        self.add_module('norm', attachReLU(nn.BatchNorm2d)(num_input_features))
+        self.add_module('norm', BatchNorm2dAndReLU(num_input_features))
         self.add_module('conv', nn.Conv2d(num_input_features, num_output_features,
                                           kernel_size=1, stride=1, bias=False))
         self.add_module('pool', nn.AvgPool2d(kernel_size=2, stride=2))
@@ -84,7 +84,7 @@ class DenseNet(nn.Sequential):
         self.add_module('features', nn.Sequential(OrderedDict([
             ('conv0', nn.Conv2d(3, num_init_features, kernel_size=7, stride=2,
                                 padding=3, bias=False)),
-            ('norm0', attachReLU(nn.BatchNorm2d)(num_init_features)),
+            ('norm0', BatchNorm2dAndReLU(num_init_features)),
             ('pool0', nn.MaxPool2d(kernel_size=3, stride=2, padding=1)),
         ])))
 
@@ -103,7 +103,7 @@ class DenseNet(nn.Sequential):
                 num_features = num_features // 2
 
         # Final batch norm
-        self.features.add_module('norm5', attachReLU(nn.BatchNorm2d)(num_features))
+        self.features.add_module('norm5', BatchNorm2dAndReLU(num_features))
         self.add_module('avgpool', nn.AdaptiveAvgPool2d((1,1)))
         self.add_module('flatten', Flatten())
         # Linear layer

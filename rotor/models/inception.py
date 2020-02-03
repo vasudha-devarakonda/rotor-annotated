@@ -331,4 +331,4 @@ class BasicConv2d(nn.Sequential):
     def __init__(self, in_channels, out_channels, **kwargs):
         super(BasicConv2d, self).__init__()
         self.add_module('conv', nn.Conv2d(in_channels, out_channels, bias=False, **kwargs))
-        self.add_module('bn', attachReLU(nn.BatchNorm2d)(out_channels, eps=0.001))
+        self.add_module('bn', BatchNorm2dAndReLU(out_channels, eps=0.001))

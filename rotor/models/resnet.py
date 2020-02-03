@@ -4,7 +4,8 @@ from .utils import *
 import math
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
-           'resnet152', 'resnext50_32x4d', 'resnext101_32x8d']
+           'resnet152', 'resnext50_32x4d', 'resnext101_32x8d',
+           'resnet200', 'resnet1001']
 
 ## Copied and adapted from the torchvision package from conda
 ## torchvision-cpu           0.3.0             py36_cuNone_1
@@ -139,7 +140,7 @@ class ResNet(nn.Sequential):
         super(ResNet, self).__init__()
         self.add_module('conv1', nn.Conv2d(3, self.inplanes, kernel_size=7, stride=2, padding=3,
                                            bias=False))
-        self.add_module('bn1', attachReLU(norm_layer)(self.inplanes))
+        self.add_module('bn1', ReLUatEnd(norm_layer(self.inplanes)))
         self.add_module('maxpool', nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
         self.add_module('layer1', self._make_layer(block, 64, layers[0]))
         self.add_module('layer2', self._make_layer(block, 128, layers[1], stride=2,
@@ -199,6 +200,7 @@ def _resnet(arch, block, layers, pretrained, progress, **kwargs):
     if pretrained:
         state_dict = load_state_dict_from_url(model_urls[arch],
                                               progress=progress)
+        include_string_in_keys(".module", ["bn1"], state_dict)
         model.load_state_dict(state_dict)
     return model
 
@@ -338,12 +340,12 @@ class PreActResNet(nn.Sequential):
         moduleList = []
         #super(PreActResNet, self).__init__()
         moduleList.append(nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1, bias=False))
-        moduleList.append(attachReLU(nn.BatchNorm2d)(16))
+        moduleList.append(ReLUatEnd(nn.BatchNorm2d(16)))
         moduleList.extend(self._make_layer(block, 64, layers[0]))
         moduleList.extend(self._make_layer(block, 128, layers[1], stride=2))
         moduleList.extend(self._make_layer(block, 256, layers[2], stride=2))
         #moduleList.extend(self._make_layer(block, 512, layers[3], stride=2))
-        moduleList.append(attachReLU(nn.BatchNorm2d)(256 * block.expansion))
+        moduleList.append(ReLUatEnd(nn.BatchNorm2d(256 * block.expansion)))
         moduleList.append(nn.AdaptiveAvgPool2d((1, 1)))
         moduleList.append(Flatten())
         moduleList.append(nn.Linear(256 * block.expansion, num_classes))
