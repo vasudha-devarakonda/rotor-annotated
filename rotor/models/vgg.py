@@ -31,11 +31,9 @@ class VGG(nn.Sequential):
         self.add_module('avgpool', nn.AdaptiveAvgPool2d((7, 7)))
         self.add_module('flatten', Flatten())
         self.add_module('classifier', nn.Sequential(
-            attachReLU(nn.Linear)(512 * 7 * 7, 4096),
-            None, ## Adding 'None' modules to have consistent module numbering compared to pretrained data
+            ReLUatEnd(nn.Linear(512 * 7 * 7, 4096)),
             nn.Dropout(),
-            attachReLU(nn.Linear)(4096, 4096),
-            None,
+            ReLUatEnd(nn.Linear(4096, 4096)),
             nn.Dropout(),
             nn.Linear(4096, num_classes),
         ))
@@ -65,12 +63,54 @@ def make_layers(cfg, batch_norm=False):
             layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
         else:
             if batch_norm:
-                layers += [nn.Conv2d(in_channels, v, kernel_size=3, padding=1), attachReLU(nn.BatchNorm2d)(v), None]
+                layers += [nn.Conv2d(in_channels, v, kernel_size=3, padding=1), BatchNorm2dAndReLU(v)]
             else:
-                layers += [attachReLU(nn.Conv2d)(in_channels, v, kernel_size=3, padding=1), None]
+                layers += [ReLUatEnd(nn.Conv2d(in_channels, v, kernel_size=3, padding=1))]
             in_channels = v
     return nn.Sequential(*layers)
 
+# Keep track of which indices were chaged in the make_layers Sequential modules
+# Compared to the original pretrained version
+def changed_indices(cfg, batch_norm = False):
+    removed = []
+    updated = []
+    current_index = 0
+    for v in cfg:
+        if v == 'M':
+            current_index += 1
+        else:
+            if batch_norm:
+                removed.append(current_index + 2)
+                current_index += 3
+            else:
+                updated.append(current_index)
+                removed.append(current_index + 1)
+                current_index += 2
+    return updated, removed
+
+# Renumber keys in a state_dict corresponding to a nn.Sequential module
+# To ensure that we can use the pretrained version
+def renumber_keys(prefix, scheme, state_dict):
+    for key in list(state_dict.keys()):
+        if key.startswith(prefix):
+            try:
+                start = key.index('.', len(prefix))
+                end   = key.index('.', start+1)
+                number = int(key[start+1:end])
+            except ValueError as e:
+                continue
+            new_number = scheme(number)
+            if new_number != number:
+                new_key = key[:start+1] + str(new_number) + key[end:]
+                state_dict[new_key] = state_dict[key]
+                del state_dict[key]
+
+# Specifif renumbering scheme to take into account the removal of some indices
+def remove_scheme(removed_indices):
+    def func(x):
+        assert x not in removed_indices
+        return x - sum(1 for y in removed_indices if y < x)
+    return func
 
 cfgs = {
     'A': [64, 'M', 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
@@ -87,7 +127,13 @@ def _vgg(arch, cfg, batch_norm, pretrained, progress, **kwargs):
     if pretrained:
         state_dict = load_state_dict_from_url(model_urls[arch],
                                               progress=progress)
+        updated, removed = changed_indices(cfgs[cfg], batch_norm=batch_norm)
+        include_string_in_keys('.module', ['classifier.0', 'classifier.3'], state_dict)
+        renumber_keys('classifier', remove_scheme([1, 4]), state_dict)
+        include_string_in_keys('.module', ['features.{}'.format(x) for x in updated], state_dict)
+        renumber_keys('features', remove_scheme(removed), state_dict)
         model.load_state_dict(state_dict)
+
     return model
 
 
