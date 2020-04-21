@@ -57,7 +57,7 @@ def memUsage(storage, chain):
 
 # Simulates the execution of the sequence
 # Returns the maximum memory usage 
-def simulate_sequence(sequence, l, chain=None, display=True):
+def simulate_sequence(sequence, l, chain=None, display=True, stopAtLoss=False):
     if chain: l = chain.length
     mem = ["x_0"]
     maxUsage = memUsage(mem, chain)
@@ -71,6 +71,8 @@ def simulate_sequence(sequence, l, chain=None, display=True):
             if input not in mem and inputalt not in mem:
                 raise ValueError("Before {op}: no {input} or {inputalt} in memory".format(op=op, input=input, inputalt=inputalt))
             mem.append("y_%d"%l)
+            if stopAtLoss:
+                return memUsage(mem, chain)
         else:
             index = op.index
             if opType is ForwardEnable:

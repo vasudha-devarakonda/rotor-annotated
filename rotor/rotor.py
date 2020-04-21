@@ -229,7 +229,8 @@ class Checkpointable(torch.nn.Module):
         self.all_values = None
         self.chain = None
         self.sequence = None
-
+        self.loss_tmp_memory_usage = 0
+        
         if input is not None:
             self.measure(input)
             if mem_limit is not None:
@@ -272,7 +273,7 @@ class Checkpointable(torch.nn.Module):
             mem_slots = None
             self.mem_unit = 1
             
-        self.chain = alg.Chain(fwd_time, bwd_time + [0], x_sizes, xbar_sizes, fwd_tmp, bwd_tmp + [0])
+        self.chain = alg.Chain(fwd_time, bwd_time + [0], x_sizes, xbar_sizes, fwd_tmp, bwd_tmp + [self.loss_tmp_memory_usage])
 
     def check_sequence(self):
         if self.sequence is None: 
@@ -300,9 +301,13 @@ class Checkpointable(torch.nn.Module):
     def get_expected_memory(self):
         self.check_sequence()
         exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = False)
-
         return exp_memory * self.mem_unit
 
+    def get_memory_used_during_loss(self): 
+        self.check_sequence()
+        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = False, stopAtLoss = True)
+        return exp_memory * self.mem_unit
+    
     def get_expected_makespan(self):
         self.check_sequence()
         return self.sequence.get_makespan(self.chain)
