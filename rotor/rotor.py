@@ -264,16 +264,17 @@ class Checkpointable(torch.nn.Module):
             xbar_sizes =  self.discretize(xbar_sizes)
             x_sizes    =  self.discretize(x_sizes) 
             fwd_tmp = self.discretize(fwd_tmp)
-            bwd_tmp = self.discretize(bwd_tmp)
+            bwd_tmp = self.discretize(bwd_tmp + [self.loss_tmp_memory_usage])
             mem_slots = self.mem_slots
             
             if self.verbosity > 0: print('Opt Checkpoint: length = {}, memory = {}, unit = {}, slots = {}, sum xb = {}'
                                     ''.format(len(self.functions), memory.MemSize(mem_limit), memory.MemSize(self.mem_unit), self.mem_slots, sum(xbar_sizes)), file=sys.stderr)
         else:
+            bwd_tmp = bwd_tmp + [0]
             mem_slots = None
             self.mem_unit = 1
             
-        self.chain = alg.Chain(fwd_time, bwd_time + [0], x_sizes, xbar_sizes, fwd_tmp, bwd_tmp + [self.loss_tmp_memory_usage])
+        self.chain = alg.Chain(fwd_time, bwd_time + [0], x_sizes, xbar_sizes, fwd_tmp, bwd_tmp)
 
     def check_sequence(self):
         if self.sequence is None: 
