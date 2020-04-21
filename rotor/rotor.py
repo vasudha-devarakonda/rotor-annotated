@@ -232,8 +232,8 @@ class Checkpointable(torch.nn.Module):
 
         if input is not None:
             self.measure(input)
-        if mem_limit is not None:
-            self.compute_sequence(mem_limit)
+            if mem_limit is not None:
+                self.compute_sequence(mem_limit)
         
     def measure(self, input):
         self.all_values = inspection.measure_everything(self.modules_and_names, input)
@@ -279,7 +279,9 @@ class Checkpointable(torch.nn.Module):
             raise(ValueError("Checkpointable: compute_sequence() should be called before forward()"))
 
         
-    def compute_sequence(self, mem_limit, mem_slots = None, force_python = None, floating = False):
+    def compute_sequence(self, mem_limit=None, mem_slots = None, force_python = None, floating = False):
+        if mem_limit is None:
+            mem_limit = int(memory.MeasureMemory(self.model.device).available() * 0.9)
         if mem_slots: self.mem_slots = mem_slots
         if force_python is not None: self.force_python = force_python
         self.makeParams(mem_limit)
@@ -331,16 +333,21 @@ class Checkpointable(torch.nn.Module):
         
 
     def forward(self, inputs):
-        self.check_sequence()
-        if self.verbosity > 0: 
-            self.display()
-        strippedSequence, startOfSuffix = self.sequence.withoutSuffix()
-        if self.verbosity > 1: print("Stripped sequence:", strippedSequence, file=sys.stderr)
-        inputs = CheckpointOptim.apply(self.functions, strippedSequence.list_operations(), self.names if self.verbosity > 3 else None, self.preserve_rng_state, inputs)
-        if startOfSuffix is not None: 
-            for i in range(startOfSuffix, len(self.functions)):
-                inputs = self.functions[i](inputs)
-        return inputs
-
+        if self.training: 
+            if self.all_values is None:
+                self.measure(inputs)
+            if self.sequence is None:
+                self.compute_sequence()
+            if self.verbosity > 0: 
+                self.display()
+            strippedSequence, startOfSuffix = self.sequence.withoutSuffix()
+            if self.verbosity > 1: print("Stripped sequence:", strippedSequence, file=sys.stderr)
+            inputs = CheckpointOptim.apply(self.functions, strippedSequence.list_operations(), self.names if self.verbosity > 3 else None, self.preserve_rng_state, inputs)
+            if startOfSuffix is not None: 
+                for i in range(startOfSuffix, len(self.functions)):
+                    inputs = self.functions[i](inputs)
+            return inputs
+        else:
+            return self.model(inputs)
 
 
