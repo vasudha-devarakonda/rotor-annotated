@@ -280,12 +280,12 @@ class Checkpointable(torch.nn.Module):
 
         
     def compute_sequence(self, mem_limit=None, mem_slots = None, force_python = None, floating = False):
+        device = next(self.model.parameters()).device
         if mem_limit is None:
-            device = next(self.model.parameters()).device
             mem_limit = int(memory.MeasureMemory(device).available() * 0.9)
         # Check that we can actually book this much memory
         torch.cuda.empty_cache()
-        tmp = torch.zeros(int(mem_limit/4), device=d)
+        tmp = torch.zeros(int(mem_limit/4), device=device)
         del tmp
         if mem_slots: self.mem_slots = mem_slots
         if force_python is not None: self.force_python = force_python
