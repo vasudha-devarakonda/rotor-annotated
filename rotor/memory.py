@@ -2,6 +2,7 @@ import torch
 import sys
 import psutil
 import os
+import subprocess
 from . import timing
 from . import inspection
 
@@ -71,14 +72,13 @@ class MeasureMemory:
         else:
             return MemSize(self.max_memory)
 
-    def totalAvailable(self):
-        if self.cuda:
-            return torch.cuda.get_device_properties(self.device).total_memory
-        else:
-            raise ValueError("total Available not implemented on CPUs")
-
     def available(self):
-        return self.totalAvailable() - self.currentValue()
+        assert self.cuda
+        result = subprocess.check_output(["nvidia-smi", "--query-gpu=memory.free", "--format=csv,nounits,noheader"])
+        l = [int(x) for x in result.strip().split(b"\n")]
+        index = self.device.index
+        if index is None: index = torch.cuda.current_device()
+        return l[index]*1024*1024 + torch.cuda.memory_cached(self.device) - torch.cuda.memory_allocated(self.device)
         
     ## Requires Pytorch >= 1.1.0
     def resetMax(self):
