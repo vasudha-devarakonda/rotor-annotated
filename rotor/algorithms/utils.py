@@ -85,8 +85,10 @@ def simulate_sequence(sequence, l, chain=None, display=True, stopAtLoss=False):
             if input not in mem and inputalt not in mem:
                 raise ValueError("Before {op}: no {input} or {inputalt} in memory".format(op=op, input=input, inputalt=inputalt))
             mem.append("y_%d"%l)
+            used = memUsage(mem, chain)
+            opUsage =  used + chain.bwd_tmp[l]
             if stopAtLoss:
-                return memUsage(mem, chain)
+                return used
         else:
             index = op.index
             if opType is ForwardEnable:
