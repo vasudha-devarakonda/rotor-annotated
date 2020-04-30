@@ -117,6 +117,7 @@ def measure_everything(named_modules, input, min_duration = 30):
             p.grad = torch.zeros_like(p)
 
     x = detach_variable(input)
+    x.requires_grad = True
     result_xbar = [ tensorMsize(input) ]
     result_fwdTime = []
     result_bwdTime = []
@@ -149,6 +150,7 @@ def measure_everything(named_modules, input, min_duration = 30):
         
         def forwardOp():
             nonlocal xbar
+            xbar = None
             with torch.enable_grad(): 
                 xbar = module(x)
 
@@ -157,6 +159,7 @@ def measure_everything(named_modules, input, min_duration = 30):
         args = None
             
         def backwardOp():
+            x.grad = None
             torch.autograd.backward(xbar, grad_tensors=args, retain_graph = True)
 
         def makeGrad():
