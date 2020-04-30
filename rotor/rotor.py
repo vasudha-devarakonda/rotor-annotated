@@ -321,6 +321,11 @@ class Checkpointable(torch.nn.Module):
         self.makeParams(None)
         self.sequence = alg.no_checkpoint(self.chain.length)    
 
+    def compute_min_sequence(self): 
+        self.makeParams(None)
+        self.sequence = alg.recompute_all(self.chain.length)    
+        
+
     def compute_homogeneous_sequence(self, mem_limit, mem_slots = None, useXbar = False):
         if mem_slots: self.mem_slots = mem_slots
         self.makeParams(mem_limit)
