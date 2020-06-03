@@ -270,7 +270,7 @@ class Checkpointable(torch.nn.Module):
             if self.verbosity > 0: print('Opt Checkpoint: length = {}, memory = {}, unit = {}, slots = {}, sum xb = {}'
                                     ''.format(len(self.functions), memory.MemSize(mem_limit), memory.MemSize(self.mem_unit), self.mem_slots, sum(xbar_sizes)), file=sys.stderr)
         else:
-            bwd_tmp = bwd_tmp + [0]
+            bwd_tmp = bwd_tmp + [self.loss_tmp_memory_usage]
             mem_slots = None
             self.mem_unit = 1
             
