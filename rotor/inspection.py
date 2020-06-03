@@ -156,32 +156,38 @@ def measure_everything(named_modules, input, min_duration = 30):
 
         fwd_duration, usage, maxUsageFwd = perform_measure(forwardOp)
         
-        args = None
-            
-        def backwardOp():
-            x.grad = None
-            torch.autograd.backward(xbar, grad_tensors=args, retain_graph = True)
-
-        def makeGrad():
-            nonlocal args
-            args = make_gradient_for(xbar)
-
-        bwd_duration, _, maxUsageBwd = perform_measure(backwardOp,
-                                                       prologue = makeGrad)
         result_x.append(tensorMsize(xbar))
         xbarSize = max(usage, tensorMsize(xbar))
         result_xbar.append(xbarSize)
         result_fwdTime.append(fwd_duration)
+
+        # with torch.enable_grad(): 
+        #     summary = xbar.sum()
+        # xbar = None
+
+        def backwardOp():
+            x.grad = None
+            args = make_gradient_for(xbar)
+            torch.autograd.backward(xbar, grad_tensors=args)
+            # summary.backward()
+
+        # memDisplay.printCurrentState("Measuring Bwd" + name)
+        # Measure backward only once, because precise timings are not needed since all 
+        # backwards are only performed once, no optimization available here
+        # Plus running bwd several times would require retain_graph=True, and 
+        # it might modify the memory usage
+        bwd_duration, _, maxUsageBwd = memUsage.measure(lambda: timer.measure(backwardOp))
         result_bwdTime.append(bwd_duration)
 
+        with torch.no_grad(): 
+            xbar = module(x)
         
         result_tmpFwd.append(int(maxUsageFwd) - xbarSize) # input was already in memory when starting experiment
         result_tmpBwd.append(int(maxUsageBwd) - (tensorMsize(x) + tensorMsize(xbar))) # input x_i and xb_i+1 were in memory, y_i+1 and y_i were added.
 
 
-        x = detach_variable(xbar)
+        x = detach_variable(xbar).requires_grad_()
         del xbar
-        del args
 
     for (_, m) in named_modules: 
         m.zero_grad()
