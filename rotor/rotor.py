@@ -270,7 +270,7 @@ class Checkpointable(torch.nn.Module):
             bwd_tmp = self.discretize(bwd_tmp + [self.loss_tmp_memory_usage])
             mem_slots = self.mem_slots
             
-            if self.verbosity > 0: print('Opt Checkpoint: length = {}, memory = {}, unit = {}, slots = {}, sum xb = {}'
+            if self.verbosity > 1: print('Opt Checkpoint: length = {}, memory = {}, unit = {}, slots = {}, sum xb = {}'
                                     ''.format(len(self.functions), memory.MemSize(mem_limit), memory.MemSize(self.mem_unit), self.mem_slots, sum(xbar_sizes)), file=sys.stderr)
         else:
             bwd_tmp = bwd_tmp + [self.loss_tmp_memory_usage]
@@ -344,7 +344,7 @@ class Checkpointable(torch.nn.Module):
         
     def display(self):
         self.check_sequence()
-        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = self.verbosity > 3)
+        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = self.verbosity > 5)
         if self.verbosity > 0:
             if self.verbosity > 1: print("Actions:", repr(self.sequence), file=sys.stderr)
             print("Expected makespan:", self.get_expected_makespan(),
