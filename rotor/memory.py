@@ -72,11 +72,12 @@ class MeasureMemory:
         else:
             return MemSize(self.max_memory)
 
-    def available(self):
+    def available(self, index=None):
         assert self.cuda
         result = subprocess.check_output(["nvidia-smi", "--query-gpu=memory.free", "--format=csv,nounits,noheader"])
         l = [int(x) for x in result.strip().split(b"\n")]
-        index = self.device.index
+        if index is None:
+            index = self.device.index
         if index is None: index = torch.cuda.current_device()
         return l[index]*1024*1024 + torch.cuda.memory_cached(self.device) - torch.cuda.memory_allocated(self.device)
         
