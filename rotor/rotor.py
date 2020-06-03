@@ -232,6 +232,7 @@ class Checkpointable(torch.nn.Module):
         self.chain = None
         self.sequence = None
         self.loss_tmp_memory_usage = 0
+        self.mem_limit = mem_limit
         
         if input is not None:
             self.measure(input)
@@ -355,7 +356,7 @@ class Checkpointable(torch.nn.Module):
             if self.all_values is None:
                 self.measure(inputs)
             if self.sequence is None:
-                self.compute_sequence()
+                self.compute_sequence(self.mem_limit)
             if self.verbosity > 0: 
                 self.display()
             strippedSequence, startOfSuffix = self.sequence.withoutSuffix()
