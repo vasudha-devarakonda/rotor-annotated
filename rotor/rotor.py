@@ -251,8 +251,17 @@ class Checkpointable(torch.nn.Module):
             print(fmt_string_h.format("Name", "Tf", "Tb", "xbar", "x", "tmpF", "tmpB"), file=sys.stderr)
             for val in zip(self.names, *self.all_values):
                 print(fmt_string.format(*val[0:3], *map(memory.MemSize, val[3:])), file=sys.stderr)
+            
+            self.compute_min_sequence()
+            mkspan_min_sequence = self.get_expected_makespan()
+            memory_min_sequence = self.get_expected_memory()
+            self.compute_pytorch_sequence()
+            mkspan_py_sequence = self.get_expected_makespan()
+            memory_py_sequence = self.get_expected_memory()
+            print("Min. memory usage:", memory.MemSize(memory_min_sequence))
+            print("Max. memory usage:", memory.MemSize(memory_py_sequence), " makespan ", mkspan_py_sequence)
+            self.sequence = None
 
-       
     def discretize(self, values): 
         return [ math.ceil(value / self.mem_unit) for value in values ]
                 
