@@ -157,7 +157,7 @@ class DisplayMemory:
             maxLength = max(maxLength, len(name))
             m.register_forward_hook(lambda x, y, z, n = name: self.progress.endFwd(n))
             m.register_forward_pre_hook(lambda x, y, n = name: self.progress.startFwd(n))
-            m.register_backward_hook(lambda x, y, z, n = name: self.progress.startBwd(n))
+            m.register_backward_hook(lambda x, y, z, n = name: self.progress.endBwd(n))
         self.setMaxLabelSize(maxLength + self.progress.additionalLength)
         self.progress.startFwd(None)
 
