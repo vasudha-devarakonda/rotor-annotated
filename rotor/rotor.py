@@ -183,13 +183,15 @@ class CheckpointOptim(torch.autograd.Function):
                 if type(op) is ForwardEnable:
                     input = detach_variable(input, True)
                     source = input
+                    if state: storage.rngStorage[op.index] = None # no longer needed, we will not do this forward again
 
                 if state: state.restore()
+                elif type(op) is ForwardCheck and preserve_rng_state:
+                    state = RngState(input)
+                    storage.rngStorage[op.index] = state
                 with torch.set_grad_enabled(type(op) is ForwardEnable):
                     input = functions[op.index](input)
-                if type(op) is ForwardCheck and preserve_rng_state: state = RngState(input)
-                else: state = None
-                storage.addValue(op.index+1, input, source, state)
+                storage.addValue(op.index+1, input, source) # not saving state now, state will be saved if needed just before next Fwd
                 if type(op) is ForwardNograd:
                     storage.deleteIndex(op.index)
                 del input
