@@ -183,13 +183,15 @@ class CheckpointOptim(torch.autograd.Function):
                 if type(op) is ForwardEnable:
                     input = detach_variable(input, True)
                     source = input
+                    if state: storage.rngStorage[op.index] = None # no longer needed, we will not do this forward again
 
                 if state: state.restore()
+                elif type(op) is ForwardCheck and preserve_rng_state:
+                    state = RngState(input)
+                    storage.rngStorage[op.index] = state
                 with torch.set_grad_enabled(type(op) is ForwardEnable):
                     input = functions[op.index](input)
-                if type(op) is ForwardCheck and preserve_rng_state: state = RngState(input)
-                else: state = None
-                storage.addValue(op.index+1, input, source, state)
+                storage.addValue(op.index+1, input, source) # not saving state now, state will be saved if needed just before next Fwd
                 if type(op) is ForwardNograd:
                     storage.deleteIndex(op.index)
                 del input
@@ -229,11 +231,13 @@ class Checkpointable(torch.nn.Module):
         self.all_values = None
         self.chain = None
         self.sequence = None
-
+        self.loss_tmp_memory_usage = 0
+        self.mem_limit = mem_limit
+        
         if input is not None:
             self.measure(input)
-        if mem_limit is not None:
-            self.compute_sequence(mem_limit)
+            if mem_limit is not None:
+                self.compute_sequence(mem_limit)
         
     def measure(self, input):
         self.all_values = inspection.measure_everything(self.modules_and_names, input)
@@ -247,8 +251,17 @@ class Checkpointable(torch.nn.Module):
             print(fmt_string_h.format("Name", "Tf", "Tb", "xbar", "x", "tmpF", "tmpB"), file=sys.stderr)
             for val in zip(self.names, *self.all_values):
                 print(fmt_string.format(*val[0:3], *map(memory.MemSize, val[3:])), file=sys.stderr)
+            
+            self.compute_min_sequence()
+            mkspan_min_sequence = self.get_expected_makespan()
+            memory_min_sequence = self.get_expected_memory()
+            self.compute_pytorch_sequence()
+            mkspan_py_sequence = self.get_expected_makespan()
+            memory_py_sequence = self.get_expected_memory()
+            print("Min. memory usage:", memory.MemSize(memory_min_sequence))
+            print("Max. memory usage:", memory.MemSize(memory_py_sequence), " makespan ", mkspan_py_sequence)
+            self.sequence = None
 
-       
     def discretize(self, values): 
         return [ math.ceil(value / self.mem_unit) for value in values ]
                 
@@ -263,23 +276,31 @@ class Checkpointable(torch.nn.Module):
             xbar_sizes =  self.discretize(xbar_sizes)
             x_sizes    =  self.discretize(x_sizes) 
             fwd_tmp = self.discretize(fwd_tmp)
-            bwd_tmp = self.discretize(bwd_tmp)
+            bwd_tmp = self.discretize(bwd_tmp + [self.loss_tmp_memory_usage])
             mem_slots = self.mem_slots
             
-            if self.verbosity > 0: print('Opt Checkpoint: length = {}, memory = {}, unit = {}, slots = {}, sum xb = {}'
+            if self.verbosity > 1: print('Opt Checkpoint: length = {}, memory = {}, unit = {}, slots = {}, sum xb = {}'
                                     ''.format(len(self.functions), memory.MemSize(mem_limit), memory.MemSize(self.mem_unit), self.mem_slots, sum(xbar_sizes)), file=sys.stderr)
         else:
+            bwd_tmp = bwd_tmp + [self.loss_tmp_memory_usage]
             mem_slots = None
             self.mem_unit = 1
             
-        self.chain = alg.Chain(fwd_time, bwd_time + [0], x_sizes, xbar_sizes, fwd_tmp, bwd_tmp + [0])
+        self.chain = alg.Chain(fwd_time, bwd_time + [0], x_sizes, xbar_sizes, fwd_tmp, bwd_tmp)
 
     def check_sequence(self):
         if self.sequence is None: 
             raise(ValueError("Checkpointable: compute_sequence() should be called before forward()"))
 
         
-    def compute_sequence(self, mem_limit, mem_slots = None, force_python = None, floating = False):
+    def compute_sequence(self, mem_limit=None, mem_slots = None, force_python = None, floating = False):
+        device = next(self.model.parameters()).device
+        if mem_limit is None:
+            mem_limit = int(memory.MeasureMemory(device).available() * 0.9)
+        # Check that we can actually book this much memory
+        # torch.cuda.empty_cache()
+        # tmp = torch.zeros(int(mem_limit/4), device=device)
+        # del tmp
         if mem_slots: self.mem_slots = mem_slots
         if force_python is not None: self.force_python = force_python
         self.makeParams(mem_limit)
@@ -293,9 +314,13 @@ class Checkpointable(torch.nn.Module):
     def get_expected_memory(self):
         self.check_sequence()
         exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = False)
-
         return exp_memory * self.mem_unit
 
+    def get_memory_used_during_loss(self): 
+        self.check_sequence()
+        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = False, stopAtLoss = True)
+        return exp_memory * self.mem_unit
+    
     def get_expected_makespan(self):
         self.check_sequence()
         return self.sequence.get_makespan(self.chain)
@@ -307,6 +332,11 @@ class Checkpointable(torch.nn.Module):
     def compute_pytorch_sequence(self):
         self.makeParams(None)
         self.sequence = alg.no_checkpoint(self.chain.length)    
+
+    def compute_min_sequence(self): 
+        self.makeParams(None)
+        self.sequence = alg.recompute_all(self.chain.length)    
+        
 
     def compute_homogeneous_sequence(self, mem_limit, mem_slots = None, useXbar = False):
         if mem_slots: self.mem_slots = mem_slots
@@ -323,7 +353,7 @@ class Checkpointable(torch.nn.Module):
         
     def display(self):
         self.check_sequence()
-        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = self.verbosity > 3)
+        exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = self.verbosity > 5)
         if self.verbosity > 0:
             if self.verbosity > 1: print("Actions:", repr(self.sequence), file=sys.stderr)
             print("Expected makespan:", self.get_expected_makespan(),
@@ -331,16 +361,21 @@ class Checkpointable(torch.nn.Module):
         
 
     def forward(self, inputs):
-        self.check_sequence()
-        if self.verbosity > 0: 
-            self.display()
-        strippedSequence, startOfSuffix = self.sequence.withoutSuffix()
-        if self.verbosity > 1: print("Stripped sequence:", strippedSequence, file=sys.stderr)
-        inputs = CheckpointOptim.apply(self.functions, strippedSequence.list_operations(), self.names if self.verbosity > 3 else None, self.preserve_rng_state, inputs)
-        if startOfSuffix is not None: 
-            for i in range(startOfSuffix, len(self.functions)):
-                inputs = self.functions[i](inputs)
-        return inputs
-
+        if self.training: 
+            if self.all_values is None:
+                self.measure(inputs)
+            if self.sequence is None:
+                self.compute_sequence(self.mem_limit)
+            if self.verbosity > 0: 
+                self.display()
+            strippedSequence, startOfSuffix = self.sequence.withoutSuffix()
+            if self.verbosity > 1: print("Stripped sequence:", strippedSequence, file=sys.stderr)
+            inputs = CheckpointOptim.apply(self.functions, strippedSequence.list_operations(), self.names if self.verbosity > 3 else None, self.preserve_rng_state, inputs)
+            if startOfSuffix is not None: 
+                for i in range(startOfSuffix, len(self.functions)):
+                    inputs = self.functions[i](inputs)
+            return inputs
+        else:
+            return self.model(inputs)
 
 

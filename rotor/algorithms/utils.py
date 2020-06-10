@@ -38,7 +38,21 @@ def no_checkpoint(length):
     for i in range(length-1, -1, -1): 
         sequence.insert(Backward(i))
     return sequence
-        
+
+# Computes a sequence which uses the smallest possible amount of memory
+def recompute_all(length):
+    sequence = Sequence(Function("RecomputeAll", length, None))
+
+    for j in reversed(range(length + 1)):
+        sequence.insert(ForwardCheck(0))
+        for i in range(1, j):
+            sequence.insert(ForwardNograd(i))
+        if j == length: 
+            sequence.insert(Loss())
+        else:
+            sequence.insert(ForwardEnable(j))
+            sequence.insert(Backward(j))
+    return sequence
 
 ## Code to estimate the makespan and memory usage of a given sequence
 def elementUsage(e, chain):
@@ -57,7 +71,7 @@ def memUsage(storage, chain):
 
 # Simulates the execution of the sequence
 # Returns the maximum memory usage 
-def simulate_sequence(sequence, l, chain=None, display=True):
+def simulate_sequence(sequence, l, chain=None, display=True, stopAtLoss=False):
     if chain: l = chain.length
     mem = ["x_0"]
     maxUsage = memUsage(mem, chain)
@@ -71,6 +85,10 @@ def simulate_sequence(sequence, l, chain=None, display=True):
             if input not in mem and inputalt not in mem:
                 raise ValueError("Before {op}: no {input} or {inputalt} in memory".format(op=op, input=input, inputalt=inputalt))
             mem.append("y_%d"%l)
+            used = memUsage(mem, chain)
+            opUsage =  used + chain.bwd_tmp[l]
+            if stopAtLoss:
+                return used
         else:
             index = op.index
             if opType is ForwardEnable:
@@ -80,12 +98,12 @@ def simulate_sequence(sequence, l, chain=None, display=True):
                     raise ValueError("Before {op}: no {input} or {inputalt} in memory".format(op=op, input=input, inputalt=inputalt))
                 else:
                     mem.append("xb_%d"%(index+1))
-                opUsage = memUsage(mem, chain) + chain.fwd_tmp[index]
+                opUsage = memUsage(mem, chain) + (chain.fwd_tmp[index] if chain else 0)
             if opType is ForwardNograd:
                 input = "x_%d" % index
                 inputalt = "xb_%d" % index
                 mem.append("x_%d"%(index+1))
-                opUsage = memUsage(mem, chain) + chain.fwd_tmp[index]
+                opUsage = memUsage(mem, chain) + (chain.fwd_tmp[index] if chain else 0)
                 if input in mem:
                     mem.remove(input)
                 elif inputalt in mem:
@@ -99,7 +117,7 @@ def simulate_sequence(sequence, l, chain=None, display=True):
                     raise ValueError("Before {op}: no {input} or {inputalt} in memory".format(op=op, input=input, inputalt=inputalt))
                 else:
                     mem.append("x_%d"%(index+1))
-                opUsage = memUsage(mem, chain) + chain.fwd_tmp[index]
+                opUsage = memUsage(mem, chain) + (chain.fwd_tmp[index] if chain else 0)
             if opType is Backward:
                 yinput = "y_%d"%(index+1)
                 xbinput = "xb_%d"%(index+1)
@@ -109,7 +127,7 @@ def simulate_sequence(sequence, l, chain=None, display=True):
                     raise ValueError("Before {op}: no {yinput} or {xbinput} in memory".format(op=op, yinput=yinput, xbinput=xbinput))
                 else:
                     mem.append("y_%d"%index)
-                    opUsage = memUsage(mem, chain) + chain.bwd_tmp[index]
+                    opUsage = memUsage(mem, chain) + (chain.bwd_tmp[index] if chain else 0)
                     if input in mem:
                         mem.remove(input)
                     elif inputalt not in mem:

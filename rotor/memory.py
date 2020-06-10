@@ -2,6 +2,7 @@ import torch
 import sys
 import psutil
 import os
+import subprocess
 from . import timing
 from . import inspection
 
@@ -71,6 +72,15 @@ class MeasureMemory:
         else:
             return MemSize(self.max_memory)
 
+    def available(self, index=None):
+        assert self.cuda
+        result = subprocess.check_output(["nvidia-smi", "--query-gpu=memory.free", "--format=csv,nounits,noheader"])
+        l = [int(x) for x in result.strip().split(b"\n")]
+        if index is None:
+            index = self.device.index
+        if index is None: index = torch.cuda.current_device()
+        return l[index]*1024*1024 + torch.cuda.memory_cached(self.device) - torch.cuda.memory_allocated(self.device)
+        
     ## Requires Pytorch >= 1.1.0
     def resetMax(self):
         if self.cuda:
@@ -147,7 +157,7 @@ class DisplayMemory:
             maxLength = max(maxLength, len(name))
             m.register_forward_hook(lambda x, y, z, n = name: self.progress.endFwd(n))
             m.register_forward_pre_hook(lambda x, y, n = name: self.progress.startFwd(n))
-            m.register_backward_hook(lambda x, y, z, n = name: self.progress.startBwd(n))
+            m.register_backward_hook(lambda x, y, z, n = name: self.progress.endBwd(n))
         self.setMaxLabelSize(maxLength + self.progress.additionalLength)
         self.progress.startFwd(None)
 

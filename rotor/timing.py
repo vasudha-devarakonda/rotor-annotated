@@ -103,3 +103,7 @@ class ProgressTimer:
         assert(self.ongoingBwd is None)
         self.print("Fwd " + name)
 
+    def endBwd(self, name):
+        self.ongoingBwd = name
+        self.endOngoing()
+        self.ongoingBwd = None
