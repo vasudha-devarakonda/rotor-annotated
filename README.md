@@ -7,6 +7,10 @@ by providing more efficient checkpointing strategies. The algorithm is
 easier to tune, as the required parameter as input is the available
 memory instead of the number of segments.
 
+For more details about the algorithm inside `rotor`, and for
+experimental validation, see our paper at
+https://hal.inria.fr/hal-02352969.
+
 ## Installation
 
 Beside the obvious requirement on `pytorch`, `rotor` has only one
