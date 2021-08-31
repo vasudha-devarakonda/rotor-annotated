@@ -116,8 +116,7 @@ def measure_everything(named_modules, input, min_duration = 30):
         for p in m.parameters():
             p.grad = torch.zeros_like(p)
 
-    x = detach_variable(input)
-    x.requires_grad = True
+    x = detach_variable(input, force_required_grad=True)
     result_xbar = [ tensorMsize(input) ]
     result_fwdTime = []
     result_bwdTime = []
@@ -129,8 +128,9 @@ def measure_everything(named_modules, input, min_duration = 30):
     torch.autograd.backward(y, grad_tensors = make_gradient_for(y))
     del y
 
-    timer = timing.make_timer(input.device)
-    memUsage = memory.MeasureMemory(input.device)
+    device = get_device(input)
+    timer = timing.make_timer(device)
+    memUsage = memory.MeasureMemory(device)
 
     def perform_measure(func, prologue = None):
         def complete_func():
@@ -166,7 +166,7 @@ def measure_everything(named_modules, input, min_duration = 30):
         # xbar = None
 
         def backwardOp():
-            x.grad = None
+            remove_gradients(x)
             args = make_gradient_for(xbar)
             torch.autograd.backward(xbar, grad_tensors=args)
             # summary.backward()
@@ -186,7 +186,7 @@ def measure_everything(named_modules, input, min_duration = 30):
         result_tmpBwd.append(int(maxUsageBwd) - (tensorMsize(x) + tensorMsize(xbar))) # input x_i and xb_i+1 were in memory, y_i+1 and y_i were added.
 
 
-        x = detach_variable(xbar).requires_grad_()
+        x = detach_variable(xbar, force_required_grad=True)
         del xbar
 
     for (_, m) in named_modules: 

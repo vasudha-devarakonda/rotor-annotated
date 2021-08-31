@@ -26,6 +26,22 @@ def check_backward_validity(inputs):
         warnings.warn("None of the inputs have requires_grad=True. Gradients will be None")
 
 
+def get_device(inputs):
+    if isinstance(inputs, torch.Tensor):
+        return inputs.device
+    else:
+        result = None
+        for inp in inputs:
+            if  isinstance(inp, torch.Tensor):
+                if result is None:
+                    result = inp.device
+                if result != inp.device:
+                    raise ValueError("Two Tensors in the input have"
+                                     " different devices {} and {}".format(result, inp.device))
+        if result is None:
+            raise ValueError("At least one input should be a Tensor")
+        return result
+
 def ensure_tuple(output):
     if isinstance(output, torch.Tensor):
         return (output,)
@@ -37,6 +53,14 @@ def get_gradients(inputs):
     else:
         return tuple(inp.grad if isinstance(inp, torch.Tensor) else inp
                      for inp in inputs)
+
+def remove_gradients(inputs):
+    if isinstance(inputs, torch.Tensor):
+        inputs.grad = None
+    else:
+        for inp in inputs:
+            if isinstance(inp, torch.Tensor):
+                inp.grad = None
 
 class EmptyManager:
     def __enter__(self):
