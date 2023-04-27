@@ -135,7 +135,9 @@ class CheckpointOptim(torch.autograd.Function):
                 # A theorem says: ForwardEnable operations are never done twice. So there is no
                 # need to save the RNG state here.
                 storage.addValue(op.index, input, sourceOfCurrent)
-                input = detach_variable(input, True)
+                # It is possible that the input to the first layer does not require grad, so we do
+                # not force it. Other inputs must require grad even if they were obtained with Fn.
+                input = detach_variable(input, op.index > 0)
                 sourceOfCurrent = input
                 with torch.enable_grad():
                     input = functions[op.index](input)
@@ -150,7 +152,7 @@ class CheckpointOptim(torch.autograd.Function):
             elif type(op) is Loss:
                 lossOperationIndex = idx
                 break
-            elif type(op) is Backward:
+           elif type(op) is Backward:
                 raise ValueError("Encountered Backward op {op} in Forward phase, index {idx}".format(op=op, idx=idx))
             else:
                 raise AttributeError("Unknown operation type {t} {op}".format(t=type(op), op=op))
@@ -187,7 +189,7 @@ class CheckpointOptim(torch.autograd.Function):
                 state = storage.getRng(op.index)
                 source = None
                 if type(op) is ForwardEnable:
-                    input = detach_variable(input, True)
+                    input = detach_variable(input, op.index > 0)
                     source = input
                     if state: storage.rngStorage[op.index] = None # no longer needed, we will not do this forward again
 
@@ -209,12 +211,13 @@ class CheckpointOptim(torch.autograd.Function):
                 src_index = op.index + 1
                 torch.autograd.backward(storage.getValue(src_index), grad_tensors=args)
                 args = get_gradients(storage.getSource(src_index))
-                assert args is not None
+                # Symetrically to Fe: the result of B_0 may be None if the input of Fe_0 does not require grad
+                assert op.index == 0 or args is not None
                 storage.deleteIndex(src_index)
                 
             idx += 1
 
-        if isinstance(args, torch.Tensor): 
+        if isinstance(args, torch.Tensor) or args is None:
             return (None, None, None, None, args, ctx.fake_input)
         else: 
             return (None, None, None, None, *args, ctx.fake_input)

@@ -74,13 +74,9 @@ def test_with_rotor():
         assert(not is_frozen(i) == any(p.grad is not None for p in seq[i].parameters()))
 
 
+# Another test, this time without frozen layers, but with integer input
 def make_seq_int_input(length):
     seq = nn.Sequential(nn.Embedding(10, 30), *(nn.Linear(30, 30) for _ in range(length-1)))
-
-    for idx, m in enumerate(seq):
-        if is_frozen(idx):
-            for p in m.parameters():
-                p.requires_grad = False
 
     return seq
 
@@ -107,7 +103,7 @@ def test_with_rotor_int():
     y.backward()
     print(x.requires_grad, x.grad)
     for i in range(length):
-        assert(not is_frozen(i) == any(p.grad is not None for p in seq[i].parameters()))
+        assert(any(p.grad is not None for p in seq[i].parameters()))
 
 
 if __name__ == "__main__":
