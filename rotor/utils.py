@@ -21,9 +21,9 @@ def detach_variable(inputs, force_required_grad = False):
         raise RuntimeError(
             "Only Tensor or tuple of Tensors is supported. Got Unsupported input type: ", type(inputs).__name__)
     
+# Check that at least one input requires grad
 def check_backward_validity(inputs):
-    if not any(inp.requires_grad for inp in inputs):
-        warnings.warn("None of the inputs have requires_grad=True. Gradients will be None")
+    return any(inp.requires_grad for inp in inputs)
 
 
 def get_device(inputs):

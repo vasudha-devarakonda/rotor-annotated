@@ -111,14 +111,20 @@ class CheckpointOptim(torch.autograd.Function):
     sequence, with some recomputation when values are missing.
     """
 
-    
+
+    # We use a 'fake_input' to ensure that the backward is correctly
+    # executed even if arg does not require_grad. We need this because
+    # the Parameters (which require grad) are hidden inside
+    # 'functions', and this autograd wrongly believe that the output
+    # should not require grad either.
     @staticmethod
-    def forward(ctx, functions, sequence, names, preserve_rng_state, arg):
+    def forward(ctx, functions, sequence, names, preserve_rng_state, arg, fake_input):
         check_backward_validity(arg)
         input = arg
         ctx.run_function = functions
         ctx.names = names
         ctx.preserve_rng_state = preserve_rng_state
+        ctx.fake_input = fake_input
         storage = TensorStorage()
         storage.addValue(0, arg, None)
         sourceOfCurrent = None
@@ -209,9 +215,9 @@ class CheckpointOptim(torch.autograd.Function):
             idx += 1
 
         if isinstance(args, torch.Tensor): 
-            return (None, None, None, None, args)
+            return (None, None, None, None, args, ctx.fake_input)
         else: 
-            return (None, None, None, None, *args)
+            return (None, None, None, None, *args, ctx.fake_input)
             
 
 
@@ -228,6 +234,7 @@ class Checkpointable(torch.nn.Module):
         self.mem_slots = mem_slots
         self.force_python = force_python
         self.preserve_rng_state = preserve_rng_state
+        self.prologue = None
         self.all_values = None
         self.chain = None
         self.sequence = None
@@ -239,7 +246,33 @@ class Checkpointable(torch.nn.Module):
             if mem_limit is not None:
                 self.compute_sequence(mem_limit)
         
+
+    # If the first layers of the model are 'frozen' (their parameters
+    # require no grad) and the input does not require grad either,
+    # these layers do not need to be part of the checkpointed model
+    # This function identifies the frozen layers, and removes them
+    # from self.functions and self.modules_and_names
+    def identify_prologue(self, input):
+        if input.requires_grad:
+            return
+        input = detach_variable(input)
+        idx = -1
+        with torch.enable_grad():
+            while not input.requires_grad:
+                idx += 1
+                input = self.functions[idx](input)
+        if self.verbosity > 2 and idx > 0:
+            print("Prologue identified, excluding layers:", *self.names[:idx])
+        self.prologue = torch.nn.Sequential(*self.functions[:idx])
+        self.modules_and_names = self.modules_and_names[idx:]
+        self.functions = self.functions[idx:]
+        self.names = self.names[idx:]
+
     def measure(self, input):
+        self.identify_prologue(input)
+        if self.prologue:
+            input = self.prologue(input)
+
         self.all_values = inspection.measure_everything(self.modules_and_names, input)
         self.params = None   ## Forget old params, they are out of date now.
         self.sequence = None
@@ -370,7 +403,12 @@ class Checkpointable(torch.nn.Module):
                 self.display()
             strippedSequence, startOfSuffix = self.sequence.withoutSuffix()
             if self.verbosity > 1: print("Stripped sequence:", strippedSequence, file=sys.stderr)
-            inputs = CheckpointOptim.apply(self.functions, strippedSequence.list_operations(), self.names if self.verbosity > 3 else None, self.preserve_rng_state, inputs)
+            if self.prologue:
+                inputs = self.prologue(inputs)
+            fake_input = None if check_backward_validity(inputs) else torch.ones(1).requires_grad_()
+            inputs = CheckpointOptim.apply(self.functions, strippedSequence.list_operations(),
+                                           self.names if self.verbosity > 3 else None, self.preserve_rng_state,
+                                           inputs, fake_input)
             if startOfSuffix is not None: 
                 for i in range(startOfSuffix, len(self.functions)):
                     inputs = self.functions[i](inputs)

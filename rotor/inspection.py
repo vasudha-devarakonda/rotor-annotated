@@ -112,11 +112,12 @@ def make_gradient_for(x):
 ## Measure execution time and memory usage
 ## just by running each block in sequence
 def measure_everything(named_modules, input, min_duration = 30):
-    for (_, m) in named_modules: 
+    for (_, m) in named_modules:
         for p in m.parameters():
-            p.grad = torch.zeros_like(p)
+            if p.requires_grad:
+                p.grad = torch.zeros_like(p)
 
-    x = detach_variable(input, force_required_grad=True)
+    x = detach_variable(input, force_required_grad=False)
     result_xbar = [ tensorMsize(input) ]
     result_fwdTime = []
     result_bwdTime = []
@@ -147,7 +148,7 @@ def measure_everything(named_modules, input, min_duration = 30):
     
     for name, module in named_modules:
         x = detach_variable(x)
-        
+
         def forwardOp():
             nonlocal xbar
             xbar = None
@@ -155,7 +156,8 @@ def measure_everything(named_modules, input, min_duration = 30):
                 xbar = module(x)
 
         fwd_duration, usage, maxUsageFwd = perform_measure(forwardOp)
-        
+
+        xbar_requires_grad = xbar.requires_grad
         result_x.append(tensorMsize(xbar))
         xbarSize = max(usage, tensorMsize(xbar))
         result_xbar.append(xbarSize)
@@ -185,8 +187,7 @@ def measure_everything(named_modules, input, min_duration = 30):
         result_tmpFwd.append(int(maxUsageFwd) - xbarSize) # input was already in memory when starting experiment
         result_tmpBwd.append(int(maxUsageBwd) - (tensorMsize(x) + tensorMsize(xbar))) # input x_i and xb_i+1 were in memory, y_i+1 and y_i were added.
 
-
-        x = detach_variable(xbar, force_required_grad=True)
+        x = detach_variable(xbar, force_required_grad=xbar_requires_grad)
         del xbar
 
     for (_, m) in named_modules: 
