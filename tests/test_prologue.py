@@ -48,11 +48,7 @@ def test_with_seq():
 
 from rotor.algorithms.sequence import *
 
-def test_with_rotor():
-    x = torch.randn([1, 1, 100])
-    seq = make_seq(length)
-    chk = rotor.Checkpointable(seq, mem_limit=1024*1024*1024, verbosity=5)
-    chk.measure(x)
+def hardcode_sequence(chk):
     core_length = len(chk.functions)
     sequence = Sequence(Function("HardCoded"))
     for i in range(core_length-1):
@@ -64,6 +60,14 @@ def test_with_rotor():
     for i in reversed(range(core_length-1)):
         sequence.insert(Backward(i))
     chk.sequence = sequence
+
+
+def test_with_rotor():
+    x = torch.randn([1, 1, 100])
+    seq = make_seq(length)
+    chk = rotor.Checkpointable(seq, mem_limit=1024*1024*1024, verbosity=5)
+    chk.measure(x)
+    hardcode_sequence(chk)
     print(chk.sequence)
     print(x.requires_grad)
     y = chk(x).sum()
@@ -86,17 +90,7 @@ def test_with_rotor_int():
     seq = make_seq_int_input(length)
     chk = rotor.Checkpointable(seq, mem_limit=1024*1024*1024, verbosity=5)
     chk.measure(x)
-    core_length = len(chk.functions)
-    sequence = Sequence(Function("HardCoded"))
-    for i in range(core_length-1):
-        sequence.insert(ForwardEnable(i))
-    sequence.insert(ForwardCheck(core_length-1))
-    sequence.insert(Loss())
-    sequence.insert(ForwardEnable(core_length-1))
-    sequence.insert(Backward(core_length-1))
-    for i in reversed(range(core_length-1)):
-        sequence.insert(Backward(i))
-    chk.sequence = sequence
+    hardcode_sequence(chk)
     print(chk.sequence)
     print(x.requires_grad)
     y = chk(x).sum()

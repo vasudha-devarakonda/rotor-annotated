@@ -157,7 +157,7 @@ def measure_everything(named_modules, input, min_duration = 30):
 
         fwd_duration, usage, maxUsageFwd = perform_measure(forwardOp)
 
-        xbar_requires_grad = xbar.requires_grad
+        xbar_requires_grad = does_require_grad(xbar)
         result_x.append(tensorMsize(xbar))
         xbarSize = max(usage, tensorMsize(xbar))
         result_xbar.append(xbarSize)

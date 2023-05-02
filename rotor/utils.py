@@ -22,8 +22,13 @@ def detach_variable(inputs, force_required_grad = False):
             "Only Tensor or tuple of Tensors is supported. Got Unsupported input type: ", type(inputs).__name__)
     
 # Check that at least one input requires grad
-def check_backward_validity(inputs):
-    return any(inp.requires_grad for inp in inputs)
+def does_require_grad(inputs):
+    if isinstance(inputs, torch.Tensor):
+        return inputs.requires_grad
+    if isinstance(inputs, tuple):
+        return any(inp.requires_grad for inp in inputs)
+    raise RuntimeError(
+        "Only Tensor or tuple of Tensors is supported. Got Unsupported input type: ", type(inputs).__name__)
 
 
 def get_device(inputs):

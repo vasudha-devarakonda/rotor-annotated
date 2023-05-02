@@ -118,15 +118,15 @@ class CheckpointOptim(torch.autograd.Function):
     # 'functions', and this autograd wrongly believe that the output
     # should not require grad either.
     @staticmethod
-    def forward(ctx, functions, sequence, names, preserve_rng_state, arg, fake_input):
-        check_backward_validity(arg)
-        input = arg
+    def forward(ctx, functions, sequence, names, preserve_rng_state, fake_input, *args):
+        input = args
+        if len(input) == 1: input = input[0] # Only use tuples if more than one input Tensor
         ctx.run_function = functions
         ctx.names = names
         ctx.preserve_rng_state = preserve_rng_state
         ctx.fake_input = fake_input
         storage = TensorStorage()
-        storage.addValue(0, arg, None)
+        storage.addValue(0, input, None)
         sourceOfCurrent = None
         for idx, op in enumerate(sequence):
             if names: print(op, names[op.index] if hasattr(op, 'index') else "", file=sys.stderr)
@@ -148,11 +148,10 @@ class CheckpointOptim(torch.autograd.Function):
                 with torch.no_grad():
                     input = functions[op.index](input)
                 sourceOfCurrent = None
-                
             elif type(op) is Loss:
                 lossOperationIndex = idx
                 break
-           elif type(op) is Backward:
+            elif type(op) is Backward:
                 raise ValueError("Encountered Backward op {op} in Forward phase, index {idx}".format(op=op, idx=idx))
             else:
                 raise AttributeError("Unknown operation type {t} {op}".format(t=type(op), op=op))
@@ -218,9 +217,9 @@ class CheckpointOptim(torch.autograd.Function):
             idx += 1
 
         if isinstance(args, torch.Tensor) or args is None:
-            return (None, None, None, None, args, ctx.fake_input)
-        else: 
-            return (None, None, None, None, *args, ctx.fake_input)
+            return (None, None, None, None, ctx.fake_input, args)
+        else:
+            return (None, None, None, None, ctx.fake_input, *args)
             
 
 
@@ -256,12 +255,12 @@ class Checkpointable(torch.nn.Module):
     # This function identifies the frozen layers, and removes them
     # from self.functions and self.modules_and_names
     def identify_prologue(self, input):
-        if input.requires_grad:
+        if does_require_grad(input):
             return
         input = detach_variable(input)
         idx = -1
         with torch.enable_grad():
-            while not input.requires_grad:
+            while not does_require_grad(input):
                 idx += 1
                 input = self.functions[idx](input)
         if self.verbosity > 2 and idx > 0:
@@ -408,10 +407,10 @@ class Checkpointable(torch.nn.Module):
             if self.verbosity > 1: print("Stripped sequence:", strippedSequence, file=sys.stderr)
             if self.prologue:
                 inputs = self.prologue(inputs)
-            fake_input = None if check_backward_validity(inputs) else torch.ones(1).requires_grad_()
+            fake_input = None if does_require_grad(inputs) else torch.ones(1).requires_grad_()
             inputs = CheckpointOptim.apply(self.functions, strippedSequence.list_operations(),
                                            self.names if self.verbosity > 3 else None, self.preserve_rng_state,
-                                           inputs, fake_input)
+                                           fake_input, *ensure_tuple(inputs))
             if startOfSuffix is not None: 
                 for i in range(startOfSuffix, len(self.functions)):
                     inputs = self.functions[i](inputs)
