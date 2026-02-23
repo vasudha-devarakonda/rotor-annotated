@@ -5,7 +5,7 @@ import math
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152', 'resnext50_32x4d', 'resnext101_32x8d',
-           'resnet200', 'resnet1001']
+           'resnet200']
 
 ## Copied and adapted from the torchvision package from conda
 ## torchvision-cpu           0.3.0             py36_cuNone_1
@@ -47,7 +47,7 @@ class BasicBlock(nn.Module):
         # Both self.conv1 and self.downsample layers downsample the input when stride != 1
         self.conv1 = conv3x3(inplanes, planes, stride)
         self.bn1 = norm_layer(planes)
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU()
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = norm_layer(planes)
         self.downsample = downsample
@@ -88,7 +88,7 @@ class Bottleneck(nn.Module):
         self.bn2 = norm_layer(width)
         self.conv3 = conv1x1(width, planes * self.expansion)
         self.bn3 = norm_layer(planes * self.expansion)
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU()
         self.downsample = downsample
         self.stride = stride
 
@@ -117,7 +117,7 @@ class Bottleneck(nn.Module):
 
 class ResNet(nn.Sequential):
 
-    def __init__(self, block, layers, num_classes=1000, zero_init_residual=False,
+    def __init__(self, block, layers, num_classes=100, zero_init_residual=False,
                  groups=1, width_per_group=64, replace_stride_with_dilation=None,
                  norm_layer=None):
 
@@ -138,10 +138,9 @@ class ResNet(nn.Sequential):
         self.base_width = width_per_group
 
         super(ResNet, self).__init__()
-        self.add_module('conv1', nn.Conv2d(3, self.inplanes, kernel_size=7, stride=2, padding=3,
+        self.add_module('conv1', nn.Conv2d(3, self.inplanes, kernel_size=3, stride=1, padding=1,
                                            bias=False))
         self.add_module('bn1', ReLUatEnd(norm_layer(self.inplanes)))
-        self.add_module('maxpool', nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
         self.add_module('layer1', self._make_layer(block, 64, layers[0]))
         self.add_module('layer2', self._make_layer(block, 128, layers[1], stride=2,
                                                    dilate=replace_stride_with_dilation[0]))
@@ -152,24 +151,6 @@ class ResNet(nn.Sequential):
         self.add_module('avgpool', nn.AdaptiveAvgPool2d((1, 1)))
         self.add_module('flatten', Flatten())
         self.add_module('fc', nn.Linear(512 * block.expansion, num_classes))
-
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-            elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
-                nn.init.constant_(m.weight, 1)
-                nn.init.constant_(m.bias, 0)
-
-                
-        # Zero-initialize the last BN in each residual branch,
-        # so that the residual branch starts with zeros, and each residual block behaves like an identity.
-        # This improves the model by 0.2~0.3% according to https://arxiv.org/abs/1706.02677
-        if zero_init_residual:
-            for m in self.modules():
-                if isinstance(m, Bottleneck):
-                    nn.init.constant_(m.bn3.weight, 0)
-                elif isinstance(m, BasicBlock):
-                    nn.init.constant_(m.bn2.weight, 0)
 
     def _make_layer(self, block, planes, blocks, stride=1, dilate=False):
         norm_layer = self._norm_layer
@@ -289,97 +270,5 @@ def resnext101_32x8d(pretrained=False, progress=True, **kwargs):
 
 def resnet200(pretrained = False, **kwargs):
     model = ResNet(Bottleneck, [3, 24, 36, 3], **kwargs)
-    return model
-
-
-class PreActBottleneck(nn.Module):
-    expansion = 4
-
-    def __init__(self, inplanes, planes, stride=1, downsample=None):
-        super(PreActBottleneck, self).__init__()
-        self.bn1 = nn.BatchNorm2d(inplanes)
-        self.relu1 = nn.ReLU(inplace=True)
-        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, bias=False)
-        self.bn2 = nn.BatchNorm2d(planes)
-        self.relu2 = nn.ReLU(inplace=True)
-        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride,
-                               padding=1, bias=False)
-        self.bn3 = nn.BatchNorm2d(planes)
-        self.relu3 = nn.ReLU(inplace=True)
-        self.conv3 = nn.Conv2d(planes, planes * 4, kernel_size=1, bias=False)
-
-        self.downsample = downsample
-        self.stride = stride
-
-    def forward(self, x):
-        residual = x
-        out = self.bn1(x)
-        out = self.relu1(out)
-        out = self.conv1(out)
-        out = self.bn2(out)
-        out = self.relu2(out)
-        out = self.conv2(out)
-
-        out = self.bn3(out)
-        out = self.relu3(out)
-        out = self.conv3(out)
-
-        if self.downsample is not None:
-            residual = self.downsample(x)
-
-        out += residual
-        return out    
-
-class PreActResNet(nn.Sequential):
-
-    def __init__(self, block, layers, num_classes=10, image_size = 224):
-        #self.inplanes = 16
-        if type(image_size) is int: 
-            image_size = (image_size, image_size)
-        self.inplanes = 16
-        moduleList = []
-        #super(PreActResNet, self).__init__()
-        moduleList.append(nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1, bias=False))
-        moduleList.append(ReLUatEnd(nn.BatchNorm2d(16)))
-        moduleList.extend(self._make_layer(block, 64, layers[0]))
-        moduleList.extend(self._make_layer(block, 128, layers[1], stride=2))
-        moduleList.extend(self._make_layer(block, 256, layers[2], stride=2))
-        #moduleList.extend(self._make_layer(block, 512, layers[3], stride=2))
-        moduleList.append(ReLUatEnd(nn.BatchNorm2d(256 * block.expansion)))
-        moduleList.append(nn.AdaptiveAvgPool2d((1, 1)))
-        moduleList.append(Flatten())
-        moduleList.append(nn.Linear(256 * block.expansion, num_classes))
-
-        for m in moduleList:
-            if isinstance(m, nn.Conv2d):
-                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
-                m.weight.data.normal_(0, math.sqrt(2. / n))
-            elif isinstance(m, nn.BatchNorm2d):
-                m.weight.data.fill_(1)
-                m.bias.data.zero_()
-
-        super(PreActResNet, self).__init__(*moduleList)
-
-    def _make_layer(self, block, planes, blocks, stride=1):
-        downsample = None
-        if stride != 1 or self.inplanes != planes * block.expansion:
-            downsample = nn.Sequential(
-                nn.BatchNorm2d(self.inplanes),
-                nn.Conv2d(self.inplanes, planes * block.expansion,
-                          kernel_size=1, stride=stride, bias=False),
-            )
-
-        layers = []
-        layers.append(block(self.inplanes, planes, stride, downsample))
-        self.inplanes = planes * block.expansion
-        for i in range(1, blocks):
-            layers.append(block(self.inplanes, planes))
-
-        return layers
-            
-
-def resnet1001(pretrained=False, **kwargs):
-
-    model = PreActResNet(PreActBottleneck, [111, 111, 111], **kwargs)
     return model
 

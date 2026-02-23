@@ -3,7 +3,7 @@ import numpy as np
 from .utils import *
 from . import timing
 from . import memory
-
+torch.manual_seed(seed=42)
 ## Allows a module that inherits from Sequential
 ## to specify that it overrides the forward() method
 ## and thus should be considered as a single block
@@ -137,7 +137,7 @@ def measure_everything(named_modules, input, min_duration = 30):
         def complete_func():
             if prologue: prologue()
             return func()
-
+        # print("ghere its is called")
         _, usage, maxUsage = memUsage.measure(complete_func)
         duration = timer.measure_median(func)
         if duration < min_duration: 

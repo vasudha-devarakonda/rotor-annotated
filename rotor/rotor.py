@@ -1,5 +1,6 @@
 import torch
 import warnings
+import os
 
 from . import memory
 from . import inspection
@@ -9,8 +10,13 @@ from .utils import *
 
 import sys
 import math
+def tensorMsize(t):
+    if isinstance(t, torch.Tensor):
+        return t.element_size() * np.prod(t.shape)
+    else:
+        return sum(tensorMsize(u) for u in t)
 
-
+_recorded_to_file = False
 class TensorStorage:
     def __init__(self):
         self.storage = {}  ## storage[i] stores the input of functions[i]
@@ -172,50 +178,82 @@ class CheckpointOptim(torch.autograd.Function):
 
     @staticmethod
     def backward(ctx, *args):
+        global _recorded_to_file  # module-level flag
+
         names = ctx.names
         preserve_rng_state = ctx.preserve_rng_state
         sequence = ctx.sequence
         functions = ctx.run_function
         storage = ctx.storage
         storage.deserialize(ctx.saved_tensors)
-
+        num_recomp = 0
+        recomp = []
+        recomp_size = 0
         idx = 0
+
         while idx < len(sequence):
             op = sequence[idx]
-            if names: print(op, names[op.index] if hasattr(op, 'index') else "", "Usage: ", storage, file=sys.stderr)
+            if names:
+                print(op, names[op.index] if hasattr(op, 'index') else "", "Usage: ", storage, file=sys.stderr)
+
             if isinstance(op, Forward):
                 input = storage.getValue(op.index)
                 state = storage.getRng(op.index)
                 source = None
+
                 if type(op) is ForwardEnable:
                     input = detach_variable(input, op.index > 0)
                     source = input
-                    if state: storage.rngStorage[op.index] = None # no longer needed, we will not do this forward again
-
-                if state: state.restore()
+                    if state:
+                        storage.rngStorage[op.index] = None
+                start_mem = torch.cuda.memory_allocated()
+                if state:
+                    state.restore()
                 elif type(op) is ForwardCheck and preserve_rng_state:
                     state = RngState(input)
                     storage.rngStorage[op.index] = state
+
                 with torch.set_grad_enabled(type(op) is ForwardEnable):
+                    # print(f"recomputing {functions[op.index]}")
+                    num_recomp += 1
+                    recomp.append(functions[op.index].__class__)
+                    start_mem = torch.cuda.memory_allocated()
+                    # print(f"the module recomputed {functions[op.index]}")
                     input = functions[op.index](input)
-                storage.addValue(op.index+1, input, source) # not saving state now, state will be saved if needed just before next Fwd
+                    torch.cuda.synchronize()
+                    end_memory =  torch.cuda.memory_allocated()
+                    recomp_size += (end_memory - start_mem)
+                storage.addValue(op.index + 1, input, source)
                 if type(op) is ForwardNograd:
                     storage.deleteIndex(op.index)
                 del input
 
             elif type(op) is Loss:
-                raise ValueError("Encountered Loss op {op} in Backward phase, index {idx}".format(op=op, idx=idx))
+                raise ValueError(f"Encountered Loss op {op} in Backward phase, index {idx}")
 
             elif type(op) is Backward:
                 src_index = op.index + 1
                 torch.autograd.backward(storage.getValue(src_index), grad_tensors=args)
                 args = get_gradients(storage.getSource(src_index))
-                # Symetrically to Fe: the result of B_0 may be None if the input of Fe_0 does not require grad
                 assert op.index == 0 or args is not None
                 storage.deleteIndex(src_index)
-                
+
             idx += 1
 
+        # Write stats to test.txt only once per process
+        if not _recorded_to_file:
+            _recorded_to_file = True
+            try:
+                if not os.path.exists("test.txt"):
+                    with open("test.txt", "w") as f:
+                        f.write(f"num_recomp: {num_recomp}\n")
+                        f.write(f"recomp: {recomp}\n")
+                        f.write(f"recomp_size (bytes): {recomp_size / (1024*1024)} MB\n")
+            except Exception as e:
+                # ignore any errors to avoid extra overhead
+                pass
+
+        # Return gradients + stats as before
         if isinstance(args, torch.Tensor) or args is None:
             return (None, None, None, None, ctx.fake_input, args)
         else:
@@ -306,14 +344,12 @@ class Checkpointable(torch.nn.Module):
         fwd_time, bwd_time, xbar_sizes, x_sizes, fwd_tmp, bwd_tmp = self.all_values
             
         if mem_limit is not None:
-            
             self.mem_unit = mem_limit // self.mem_slots
             xbar_sizes =  self.discretize(xbar_sizes)
             x_sizes    =  self.discretize(x_sizes) 
             fwd_tmp = self.discretize(fwd_tmp)
             bwd_tmp = self.discretize(bwd_tmp + [self.loss_tmp_memory_usage])
             mem_slots = self.mem_slots
-            
             if self.verbosity > 1: print('Opt Checkpoint: length = {}, memory = {}, unit = {}, slots = {}, sum xb = {}'
                                     ''.format(len(self.functions), memory.MemSize(mem_limit), memory.MemSize(self.mem_unit), self.mem_slots, sum(xbar_sizes)), file=sys.stderr)
         else:
@@ -336,16 +372,20 @@ class Checkpointable(torch.nn.Module):
         # torch.cuda.empty_cache()
         # tmp = torch.zeros(int(mem_limit/4), device=device)
         # del tmp
+        print(f"================================== {mem_limit} =================================")
         if mem_slots: self.mem_slots = mem_slots
         if force_python is not None: self.force_python = force_python
         self.makeParams(mem_limit)
         if self.verbosity > 2: print("Inputs: %d -s '%s'" % (self.mem_slots, self.chain), file=sys.stderr)
-
         if floating:
             self.sequence = alg.floating(self.chain, self.mem_slots, force_python = force_python)
         else: 
             self.sequence = alg.persistent(self.chain, self.mem_slots, force_python = force_python)
-
+        print(self.sequence)
+        
+        
+        
+        
     def get_expected_memory(self):
         self.check_sequence()
         exp_memory = alg.simulate_sequence(self.sequence, None, chain=self.chain, display = False)
@@ -417,5 +457,4 @@ class Checkpointable(torch.nn.Module):
             return inputs
         else:
             return self.model(inputs)
-
 

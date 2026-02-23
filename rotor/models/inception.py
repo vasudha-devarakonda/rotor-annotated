@@ -74,19 +74,18 @@ def inception_v3(pretrained=False, progress=True, **kwargs):
 
 class Inception3(nn.Sequential):
 
-    def __init__(self, num_classes=1000, aux_logits=True, transform_input=False):
+    def __init__(self, num_classes=100, aux_logits=False, transform_input=False):
         super(Inception3, self).__init__()
         self.aux_logits = aux_logits
         self.transform_input = transform_input
         if transform_input:
             self.add_module('transform', TransformInput())
-        self.add_module('Conv2d_1a_3x3', BasicConv2d(3, 32, kernel_size=3, stride=2))
+        self.add_module('Conv2d_1a_3x3', BasicConv2d(3, 32, kernel_size=3, padding=1))
         self.add_module('Conv2d_2a_3x3', BasicConv2d(32, 32, kernel_size=3))
         self.add_module('Conv2d_2b_3x3', BasicConv2d(32, 64, kernel_size=3, padding=1))
-        self.add_module('MaxPool2d_2c', nn.MaxPool2d(kernel_size=3, stride=2))
+        # self.add_module('MaxPool2d_2c', nn.MaxPool2d(kernel_size=3, stride=2))
         self.add_module('Conv2d_3b_1x1', BasicConv2d(64, 80, kernel_size=1))
         self.add_module('Conv2d_4a_3x3', BasicConv2d(80, 192, kernel_size=3))
-        self.add_module('MaxPool2d_4b', nn.MaxPool2d(kernel_size=3, stride=2))
         self.add_module('Mixed_5b', InceptionA(192, pool_features=32))
         self.add_module('Mixed_5c', InceptionA(256, pool_features=64))
         self.add_module('Mixed_5d', InceptionA(288, pool_features=64))
@@ -149,7 +148,7 @@ class InceptionA(nn.Module):
         self.branch3x3dbl_2 = BasicConv2d(64, 96, kernel_size=3, padding=1)
         self.branch3x3dbl_3 = BasicConv2d(96, 96, kernel_size=3, padding=1)
 
-        self.branch_pool = BasicConv2d(in_channels, pool_features, kernel_size=1)
+        self.branch_pool = BasicConv2d(in_channels, pool_features, kernel_size=3, padding=1)
 
     def forward(self, x):
         branch1x1 = self.branch1x1(x)
@@ -331,4 +330,4 @@ class BasicConv2d(nn.Sequential):
     def __init__(self, in_channels, out_channels, **kwargs):
         super(BasicConv2d, self).__init__()
         self.add_module('conv', nn.Conv2d(in_channels, out_channels, bias=False, **kwargs))
-        self.add_module('bn', BatchNorm2dAndReLU(out_channels, eps=0.001))
+        self.add_module('bn', BatchNorm2dAndReLU(out_channels, eps=1e-05))
