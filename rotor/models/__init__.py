@@ -5,3 +5,5 @@ from .densenet import *
 from .inceptionv4 import *
 from .googlenet import *
 from .gpt2 import *
+from .opt import *
+from .pythia import *
