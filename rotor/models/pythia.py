@@ -21,9 +21,10 @@ import torch.utils.checkpoint
 from torch import nn
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 from torch.nn import functional as F
-
+from typing import Optional, List
+from typing import Optional, Tuple, Union
 from ..utils import is_flash_attn_2_available, is_flash_attn_greater_or_equal_2_10
-
+# from transformers.modeling_attn_mask_utils import get_head_mask
 
 if is_flash_attn_2_available():
     from flash_attn import flash_attn_func, flash_attn_varlen_func
@@ -35,14 +36,27 @@ _REAL_CHECKPOINT_FOR_DOC = "EleutherAI/gpt-neox-20b"
 _CONFIG_FOR_DOC = "GPTNeoXConfig"
 
 
-class NewGELUActivation(nn.Module):
+class GELUActivation(nn.Module):
     """
-    Implementation of the GELU activation function currently in Google BERT repo (identical to OpenAI GPT). Also see
-    the Gaussian Error Linear Units paper: https://arxiv.org/abs/1606.08415
+    Original Implementation of the GELU activation function in Google BERT repo when initially created. For
+    information: OpenAI GPT's GELU is slightly different (and gives slightly different results): 0.5 * x * (1 +
+    torch.tanh(math.sqrt(2 / math.pi) * (x + 0.044715 * torch.pow(x, 3)))) This is now written in C in nn.functional
+    Also see the Gaussian Error Linear Units paper: https://arxiv.org/abs/1606.08415
     """
 
+    def __init__(self, use_gelu_python: bool = False):
+        super().__init__()
+        if use_gelu_python:
+            self.act = self._gelu_python
+        else:
+            self.act = nn.functional.gelu
+
+    def _gelu_python(self, input: Tensor) -> Tensor:
+        return input * 0.5 * (1.0 + torch.erf(input / math.sqrt(2.0)))
+
     def forward(self, input: Tensor) -> Tensor:
-        return 0.5 * input * (1.0 + torch.tanh(math.sqrt(2.0 / math.pi) * (input + 0.044715 * torch.pow(input, 3.0))))
+        return self.act(input)
+
 
 
 # Copied from transformers.models.llama.modeling_llama._get_unpad_data
@@ -654,7 +668,7 @@ class GPTNeoXMLP(nn.Module):
         super().__init__()
         self.dense_h_to_4h = nn.Linear(config.hidden_size, config.intermediate_size)
         self.dense_4h_to_h = nn.Linear(config.intermediate_size, config.hidden_size)
-        self.act = NewGELUActivation()
+        self.act = GELUActivation()
 
     def forward(self, hidden_states):
         hidden_states = self.dense_h_to_4h(hidden_states)
@@ -724,27 +738,139 @@ class GPTNeoXLayer(nn.Module):
             outputs = (hidden_states,) + outputs[1:]  # hidden_states, (attn_weights)
 
         return outputs
+    
+    
+    
+    
 class GPTNeoXLayerWrapper(nn.Module):
     def __init__(self, layer: GPTNeoXLayer):
         super().__init__()
         self.layer = layer
 
-    def forward(self, hidden_states, **kwargs):
-        outputs = self.layer(hidden_states, **kwargs)
-        return outputs[0]  
+    def forward(self, inputs):
+        """
+        inputs: dict with keys 'hidden_states', optionally 'attention_mask', 'past_key_values', etc.
+        """
+        hidden_states = inputs["hidden_states"]
+        attention_mask = inputs.get("attention_mask", None)
+        outputs = self.layer(
+            hidden_states,
+            attention_mask=attention_mask,
+        )
 
+        hidden_states = outputs[0]
+
+        return {
+            "hidden_states": hidden_states,
+            "attention_mask": attention_mask,
+        }
+
+class TokenEmbedding(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.config = config
+        self.embed_in = nn.Embedding(config.vocab_size, config.hidden_size)
+
+    def forward(
+        self,
+        input_ids: Optional[torch.LongTensor] = None,
+        attention_mask: Optional[torch.FloatTensor] = None,
+        position_ids: Optional[torch.LongTensor] = None,
+        head_mask: Optional[torch.FloatTensor] = None,
+        inputs_embeds: Optional[torch.FloatTensor] = None,
+        past_key_values: Optional[Tuple[Tuple[torch.FloatTensor]]] = None,
+        use_cache: Optional[bool] = None,
+        output_attentions: Optional[bool] = None,
+        output_hidden_states: Optional[bool] = None,
+        return_dict: Optional[bool] = None,
+    ):
+        output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
+        output_hidden_states = (
+            output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
+        )
+        return_dict = return_dict if return_dict is not None else self.config.use_return_dict
+        use_cache = use_cache if use_cache is not None else self.config.use_cache
+
+        if input_ids is not None and inputs_embeds is not None:
+            raise ValueError("You cannot specify both input_ids and inputs_embeds at the same time")
+        elif input_ids is not None:
+        
+            input_shape = input_ids.size()
+        elif inputs_embeds is not None:
+            input_shape = inputs_embeds.size()[:-1]
+        else:
+            raise ValueError("You have to specify either input_ids or inputs_embeds")
+
+        batch_size, seq_length = input_shape
+
+        if past_key_values is None:
+            past_length = 0
+            past_key_values = tuple([None] * self.config.num_hidden_layers)
+        else:
+            past_length = past_key_values[0][0].size(-2)
+
+        if position_ids is None:
+            device = input_ids.device if input_ids is not None else inputs_embeds.device
+            position_ids = torch.arange(past_length, seq_length + past_length, dtype=torch.long, device=device)
+            position_ids = position_ids.unsqueeze(0)
+
+        if attention_mask is not None:
+            assert batch_size > 0, "batch_size has to be defined and > 0"
+            attention_mask = attention_mask.view(batch_size, -1)
+            if self._use_flash_attention_2:
+                attention_mask = attention_mask if 0 in attention_mask else None
+            else:
+                attention_mask = attention_mask[:, None, None, :]
+                attention_mask = attention_mask.to(dtype=self.dtype)  # fp16 compatibility
+                attention_mask = (1.0 - attention_mask) * torch.finfo(self.dtype).min
+
+
+        if inputs_embeds is None:
+            inputs_embeds = self.embed_in(input_ids)
+        hidden_states = inputs_embeds
+
+        return {
+            "hidden_states": hidden_states,
+            "attention_mask": attention_mask,
+        }
+    
+    
+class DropOutLayer(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.dropout = nn.Dropout(config.hidden_dropout)
+        self.config = config
+
+    def forward(self, inputs):
+        hidden_states = inputs["hidden_states"]
+        attention_mask = inputs["attention_mask"]
+        hidden_states = self.dropout(hidden_states)
+
+        return {
+            "hidden_states": hidden_states,
+            "attention_mask": attention_mask,
+        }
+            
+class LayerNormWrapper(nn.Module):
+    def __init__(self, hidden_size, eps=1e-5):
+        super().__init__()
+        self.ln = nn.LayerNorm(hidden_size, eps=eps)
+
+    def forward(self, inputs):
+        hidden_states = inputs["hidden_states"]
+        hidden_states = self.ln(hidden_states)
+        return hidden_states    
+    
+      
 class GPTNeoXForCausalLM(nn.Sequential):
     def __init__(self, config):
         super().__init__()
-class GPTNeoXForCausalLM(nn.Sequential):
-    def __init__(self, config):
-        super().__init__()
-        self.add_module("embed_in", nn.Embedding(config.vocab_size, config.hidden_size))
-        self.add_module("emb_dropout", nn.Dropout(config.hidden_dropout))
+        self.add_module("embed_in",TokenEmbedding(config))
+        self.add_module("emb_dropout", DropOutLayer(config))
         self.add_module("layers", nn.Sequential(
             *[GPTNeoXLayerWrapper(GPTNeoXLayer(config)) for _ in range(config.num_hidden_layers)]
         ))
-        self.add_module("final_layer_norm", nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps))
+        self.add_module("final_layer_norm", LayerNormWrapper(config.hidden_size, eps=config.layer_norm_eps))
         self.add_module("embed_out", nn.Linear(config.hidden_size, config.vocab_size, bias=False))
     def get_input_embeddings(self):
         return self.token_emb
