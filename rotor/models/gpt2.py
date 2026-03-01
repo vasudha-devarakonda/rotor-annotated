@@ -624,7 +624,7 @@ class GPT2(nn.Sequential):
 
         self.add_module("token_emb", TokenEmbedding(config))
         self.add_module("dropout",nn.Dropout(config.embd_pdrop))
-        self.add_module("blocks", nn.Sequential(
+        self.add_module("transformer=h", nn.Sequential(
             *[GPT2Block(config) for _ in range(config.n_layer)]
         ))
         self.add_module("ln_f", nn.LayerNorm(config.hidden_size))

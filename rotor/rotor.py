@@ -15,7 +15,28 @@ def tensorMsize(t):
         return t.element_size() * np.prod(t.shape)
     else:
         return sum(tensorMsize(u) for u in t)
+def safe_backward(tensors):
+    """
+    Safely call backward on tensors that require grad.
+    Supports Tensor, list, tuple, or nested structures.
+    """
+    def flatten_and_keep_grads(x):
+        if isinstance(x, torch.Tensor):
+            return [x] if x.is_floating_point() and x.requires_grad else []
+        elif isinstance(x, (list, tuple)):
+            result = []
+            for t in x:
+                result.extend(flatten_and_keep_grads(t))
+            return result
+        else:
+            return []
 
+    tensors_grad = flatten_and_keep_grads(tensors)
+    if tensors_grad:
+        grad_args = [torch.ones_like(t) for t in tensors_grad]
+        torch.autograd.backward(tensors_grad, grad_tensors=grad_args)
+    else:
+        print("Warning: no tensors require grad, skipping backward.")
 _recorded_to_file = False
 class TensorStorage:
     def __init__(self):
@@ -233,7 +254,7 @@ class CheckpointOptim(torch.autograd.Function):
 
             elif type(op) is Backward:
                 src_index = op.index + 1
-                torch.autograd.backward(storage.getValue(src_index), grad_tensors=args)
+                safe_backward(storage.getValue(src_index))
                 args = get_gradients(storage.getSource(src_index))
                 assert op.index == 0 or args is not None
                 storage.deleteIndex(src_index)

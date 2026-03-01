@@ -60,10 +60,16 @@ class GoogleNet(nn.Sequential):
         super().__init__()
 
 
-        self.add_module("pre_layer", nn.Sequential(
-            BasicConv2d(3, 64, kernel_size=3, padding=1),
-            BasicConv2d(64, 64, kernel_size=3, padding=1),
-            BasicConv2d(64, 192, kernel_size=3, padding=1),
+        self.add_module("prelayer", nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, padding=1, bias=False),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=False),
+            nn.Conv2d(64, 64, kernel_size=3, padding=1, bias=False),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=False),
+            nn.Conv2d(64, 192, kernel_size=3, padding=1, bias=False),
+            nn.BatchNorm2d(192),
+            nn.ReLU(inplace=False),
         ))
 
 

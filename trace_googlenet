@@ -1,0 +1,1198 @@
+>>GoogleNet--0
+>>Sequential-prelayer-1
+  >>Conv2d-prelayer.0-2
+------>
+convolution-0
+<------
+  <<Conv2d-prelayer.0-2
+  >>BatchNorm2d-prelayer.1-3
+------>
+native_batch_norm-1
+<------
+  <<BatchNorm2d-prelayer.1-3
+  >>ReLU-prelayer.2-4
+------>
+relu_-2
+<------
+  <<ReLU-prelayer.2-4
+  >>Conv2d-prelayer.3-5
+------>
+convolution-3
+<------
+  <<Conv2d-prelayer.3-5
+  >>BatchNorm2d-prelayer.4-6
+------>
+native_batch_norm-4
+<------
+  <<BatchNorm2d-prelayer.4-6
+  >>ReLU-prelayer.5-7
+------>
+relu_-5
+<------
+  <<ReLU-prelayer.5-7
+  >>Conv2d-prelayer.6-8
+------>
+convolution-6
+<------
+  <<Conv2d-prelayer.6-8
+  >>BatchNorm2d-prelayer.7-9
+------>
+native_batch_norm-7
+<------
+  <<BatchNorm2d-prelayer.7-9
+  >>ReLU-prelayer.8-10
+------>
+relu_-8
+<------
+  <<ReLU-prelayer.8-10
+<<Sequential-prelayer-1
+>>MaxPool2d-maxpool-65
+------>
+max_pool2d_with_indices-9
+<------
+<<MaxPool2d-maxpool-65
+>>Inception-a3-11
+  >>Sequential-a3.b1-12
+    >>Conv2d-a3.b1.0-13
+------>
+convolution-10
+<------
+    <<Conv2d-a3.b1.0-13
+    >>BatchNorm2d-a3.b1.1-14
+------>
+native_batch_norm-11
+<------
+    <<BatchNorm2d-a3.b1.1-14
+    >>ReLU-a3.b1.2-15
+------>
+relu_-12
+<------
+    <<ReLU-a3.b1.2-15
+  <<Sequential-a3.b1-12
+  >>Sequential-a3.b2-16
+    >>Conv2d-a3.b2.0-17
+------>
+convolution-13
+<------
+    <<Conv2d-a3.b2.0-17
+    >>BatchNorm2d-a3.b2.1-18
+------>
+native_batch_norm-14
+<------
+    <<BatchNorm2d-a3.b2.1-18
+    >>ReLU-a3.b2.2-19
+------>
+relu_-15
+<------
+    <<ReLU-a3.b2.2-19
+    >>Conv2d-a3.b2.3-20
+------>
+convolution-16
+<------
+    <<Conv2d-a3.b2.3-20
+    >>BatchNorm2d-a3.b2.4-21
+------>
+native_batch_norm-17
+<------
+    <<BatchNorm2d-a3.b2.4-21
+    >>ReLU-a3.b2.5-22
+------>
+relu_-18
+<------
+    <<ReLU-a3.b2.5-22
+  <<Sequential-a3.b2-16
+  >>Sequential-a3.b3-23
+    >>Conv2d-a3.b3.0-24
+------>
+convolution-19
+<------
+    <<Conv2d-a3.b3.0-24
+    >>BatchNorm2d-a3.b3.1-25
+------>
+native_batch_norm-20
+<------
+    <<BatchNorm2d-a3.b3.1-25
+    >>ReLU-a3.b3.2-26
+------>
+relu_-21
+<------
+    <<ReLU-a3.b3.2-26
+    >>Conv2d-a3.b3.3-27
+------>
+convolution-22
+<------
+    <<Conv2d-a3.b3.3-27
+    >>BatchNorm2d-a3.b3.4-28
+------>
+native_batch_norm-23
+<------
+    <<BatchNorm2d-a3.b3.4-28
+    >>ReLU-a3.b3.5-29
+------>
+relu_-24
+<------
+    <<ReLU-a3.b3.5-29
+    >>Conv2d-a3.b3.6-30
+------>
+convolution-25
+<------
+    <<Conv2d-a3.b3.6-30
+    >>BatchNorm2d-a3.b3.7-31
+------>
+native_batch_norm-26
+<------
+    <<BatchNorm2d-a3.b3.7-31
+    >>ReLU-a3.b3.8-32
+------>
+relu_-27
+<------
+    <<ReLU-a3.b3.8-32
+  <<Sequential-a3.b3-23
+  >>Sequential-a3.b4-33
+    >>MaxPool2d-a3.b4.0-34
+------>
+max_pool2d_with_indices-28
+<------
+    <<MaxPool2d-a3.b4.0-34
+    >>Conv2d-a3.b4.1-35
+------>
+convolution-29
+<------
+    <<Conv2d-a3.b4.1-35
+    >>BatchNorm2d-a3.b4.2-36
+------>
+native_batch_norm-30
+<------
+    <<BatchNorm2d-a3.b4.2-36
+    >>ReLU-a3.b4.3-37
+------>
+relu_-31
+<------
+    <<ReLU-a3.b4.3-37
+  <<Sequential-a3.b4-33
+------>
+cat-32
+<------
+<<Inception-a3-11
+>>Inception-b3-38
+  >>Sequential-b3.b1-39
+    >>Conv2d-b3.b1.0-40
+------>
+convolution-33
+<------
+    <<Conv2d-b3.b1.0-40
+    >>BatchNorm2d-b3.b1.1-41
+------>
+native_batch_norm-34
+<------
+    <<BatchNorm2d-b3.b1.1-41
+    >>ReLU-b3.b1.2-42
+------>
+relu_-35
+<------
+    <<ReLU-b3.b1.2-42
+  <<Sequential-b3.b1-39
+  >>Sequential-b3.b2-43
+    >>Conv2d-b3.b2.0-44
+------>
+convolution-36
+<------
+    <<Conv2d-b3.b2.0-44
+    >>BatchNorm2d-b3.b2.1-45
+------>
+native_batch_norm-37
+<------
+    <<BatchNorm2d-b3.b2.1-45
+    >>ReLU-b3.b2.2-46
+------>
+relu_-38
+<------
+    <<ReLU-b3.b2.2-46
+    >>Conv2d-b3.b2.3-47
+------>
+convolution-39
+<------
+    <<Conv2d-b3.b2.3-47
+    >>BatchNorm2d-b3.b2.4-48
+------>
+native_batch_norm-40
+<------
+    <<BatchNorm2d-b3.b2.4-48
+    >>ReLU-b3.b2.5-49
+------>
+relu_-41
+<------
+    <<ReLU-b3.b2.5-49
+  <<Sequential-b3.b2-43
+  >>Sequential-b3.b3-50
+    >>Conv2d-b3.b3.0-51
+------>
+convolution-42
+<------
+    <<Conv2d-b3.b3.0-51
+    >>BatchNorm2d-b3.b3.1-52
+------>
+native_batch_norm-43
+<------
+    <<BatchNorm2d-b3.b3.1-52
+    >>ReLU-b3.b3.2-53
+------>
+relu_-44
+<------
+    <<ReLU-b3.b3.2-53
+    >>Conv2d-b3.b3.3-54
+------>
+convolution-45
+<------
+    <<Conv2d-b3.b3.3-54
+    >>BatchNorm2d-b3.b3.4-55
+------>
+native_batch_norm-46
+<------
+    <<BatchNorm2d-b3.b3.4-55
+    >>ReLU-b3.b3.5-56
+------>
+relu_-47
+<------
+    <<ReLU-b3.b3.5-56
+    >>Conv2d-b3.b3.6-57
+------>
+convolution-48
+<------
+    <<Conv2d-b3.b3.6-57
+    >>BatchNorm2d-b3.b3.7-58
+------>
+native_batch_norm-49
+<------
+    <<BatchNorm2d-b3.b3.7-58
+    >>ReLU-b3.b3.8-59
+------>
+relu_-50
+<------
+    <<ReLU-b3.b3.8-59
+  <<Sequential-b3.b3-50
+  >>Sequential-b3.b4-60
+    >>MaxPool2d-b3.b4.0-61
+------>
+max_pool2d_with_indices-51
+<------
+    <<MaxPool2d-b3.b4.0-61
+    >>Conv2d-b3.b4.1-62
+------>
+convolution-52
+<------
+    <<Conv2d-b3.b4.1-62
+    >>BatchNorm2d-b3.b4.2-63
+------>
+native_batch_norm-53
+<------
+    <<BatchNorm2d-b3.b4.2-63
+    >>ReLU-b3.b4.3-64
+------>
+relu_-54
+<------
+    <<ReLU-b3.b4.3-64
+  <<Sequential-b3.b4-60
+------>
+cat-55
+<------
+<<Inception-b3-38
+>>MaxPool2d-maxpool-65
+------>
+max_pool2d_with_indices-56
+<------
+<<MaxPool2d-maxpool-65
+>>Inception-a4-66
+  >>Sequential-a4.b1-67
+    >>Conv2d-a4.b1.0-68
+------>
+convolution-57
+<------
+    <<Conv2d-a4.b1.0-68
+    >>BatchNorm2d-a4.b1.1-69
+------>
+native_batch_norm-58
+<------
+    <<BatchNorm2d-a4.b1.1-69
+    >>ReLU-a4.b1.2-70
+------>
+relu_-59
+<------
+    <<ReLU-a4.b1.2-70
+  <<Sequential-a4.b1-67
+  >>Sequential-a4.b2-71
+    >>Conv2d-a4.b2.0-72
+------>
+convolution-60
+<------
+    <<Conv2d-a4.b2.0-72
+    >>BatchNorm2d-a4.b2.1-73
+------>
+native_batch_norm-61
+<------
+    <<BatchNorm2d-a4.b2.1-73
+    >>ReLU-a4.b2.2-74
+------>
+relu_-62
+<------
+    <<ReLU-a4.b2.2-74
+    >>Conv2d-a4.b2.3-75
+------>
+convolution-63
+<------
+    <<Conv2d-a4.b2.3-75
+    >>BatchNorm2d-a4.b2.4-76
+------>
+native_batch_norm-64
+<------
+    <<BatchNorm2d-a4.b2.4-76
+    >>ReLU-a4.b2.5-77
+------>
+relu_-65
+<------
+    <<ReLU-a4.b2.5-77
+  <<Sequential-a4.b2-71
+  >>Sequential-a4.b3-78
+    >>Conv2d-a4.b3.0-79
+------>
+convolution-66
+<------
+    <<Conv2d-a4.b3.0-79
+    >>BatchNorm2d-a4.b3.1-80
+------>
+native_batch_norm-67
+<------
+    <<BatchNorm2d-a4.b3.1-80
+    >>ReLU-a4.b3.2-81
+------>
+relu_-68
+<------
+    <<ReLU-a4.b3.2-81
+    >>Conv2d-a4.b3.3-82
+------>
+convolution-69
+<------
+    <<Conv2d-a4.b3.3-82
+    >>BatchNorm2d-a4.b3.4-83
+------>
+native_batch_norm-70
+<------
+    <<BatchNorm2d-a4.b3.4-83
+    >>ReLU-a4.b3.5-84
+------>
+relu_-71
+<------
+    <<ReLU-a4.b3.5-84
+    >>Conv2d-a4.b3.6-85
+------>
+convolution-72
+<------
+    <<Conv2d-a4.b3.6-85
+    >>BatchNorm2d-a4.b3.7-86
+------>
+native_batch_norm-73
+<------
+    <<BatchNorm2d-a4.b3.7-86
+    >>ReLU-a4.b3.8-87
+------>
+relu_-74
+<------
+    <<ReLU-a4.b3.8-87
+  <<Sequential-a4.b3-78
+  >>Sequential-a4.b4-88
+    >>MaxPool2d-a4.b4.0-89
+------>
+max_pool2d_with_indices-75
+<------
+    <<MaxPool2d-a4.b4.0-89
+    >>Conv2d-a4.b4.1-90
+------>
+convolution-76
+<------
+    <<Conv2d-a4.b4.1-90
+    >>BatchNorm2d-a4.b4.2-91
+------>
+native_batch_norm-77
+<------
+    <<BatchNorm2d-a4.b4.2-91
+    >>ReLU-a4.b4.3-92
+------>
+relu_-78
+<------
+    <<ReLU-a4.b4.3-92
+  <<Sequential-a4.b4-88
+------>
+cat-79
+<------
+<<Inception-a4-66
+>>Inception-b4-93
+  >>Sequential-b4.b1-94
+    >>Conv2d-b4.b1.0-95
+------>
+convolution-80
+<------
+    <<Conv2d-b4.b1.0-95
+    >>BatchNorm2d-b4.b1.1-96
+------>
+native_batch_norm-81
+<------
+    <<BatchNorm2d-b4.b1.1-96
+    >>ReLU-b4.b1.2-97
+------>
+relu_-82
+<------
+    <<ReLU-b4.b1.2-97
+  <<Sequential-b4.b1-94
+  >>Sequential-b4.b2-98
+    >>Conv2d-b4.b2.0-99
+------>
+convolution-83
+<------
+    <<Conv2d-b4.b2.0-99
+    >>BatchNorm2d-b4.b2.1-100
+------>
+native_batch_norm-84
+<------
+    <<BatchNorm2d-b4.b2.1-100
+    >>ReLU-b4.b2.2-101
+------>
+relu_-85
+<------
+    <<ReLU-b4.b2.2-101
+    >>Conv2d-b4.b2.3-102
+------>
+convolution-86
+<------
+    <<Conv2d-b4.b2.3-102
+    >>BatchNorm2d-b4.b2.4-103
+------>
+native_batch_norm-87
+<------
+    <<BatchNorm2d-b4.b2.4-103
+    >>ReLU-b4.b2.5-104
+------>
+relu_-88
+<------
+    <<ReLU-b4.b2.5-104
+  <<Sequential-b4.b2-98
+  >>Sequential-b4.b3-105
+    >>Conv2d-b4.b3.0-106
+------>
+convolution-89
+<------
+    <<Conv2d-b4.b3.0-106
+    >>BatchNorm2d-b4.b3.1-107
+------>
+native_batch_norm-90
+<------
+    <<BatchNorm2d-b4.b3.1-107
+    >>ReLU-b4.b3.2-108
+------>
+relu_-91
+<------
+    <<ReLU-b4.b3.2-108
+    >>Conv2d-b4.b3.3-109
+------>
+convolution-92
+<------
+    <<Conv2d-b4.b3.3-109
+    >>BatchNorm2d-b4.b3.4-110
+------>
+native_batch_norm-93
+<------
+    <<BatchNorm2d-b4.b3.4-110
+    >>ReLU-b4.b3.5-111
+------>
+relu_-94
+<------
+    <<ReLU-b4.b3.5-111
+    >>Conv2d-b4.b3.6-112
+------>
+convolution-95
+<------
+    <<Conv2d-b4.b3.6-112
+    >>BatchNorm2d-b4.b3.7-113
+------>
+native_batch_norm-96
+<------
+    <<BatchNorm2d-b4.b3.7-113
+    >>ReLU-b4.b3.8-114
+------>
+relu_-97
+<------
+    <<ReLU-b4.b3.8-114
+  <<Sequential-b4.b3-105
+  >>Sequential-b4.b4-115
+    >>MaxPool2d-b4.b4.0-116
+------>
+max_pool2d_with_indices-98
+<------
+    <<MaxPool2d-b4.b4.0-116
+    >>Conv2d-b4.b4.1-117
+------>
+convolution-99
+<------
+    <<Conv2d-b4.b4.1-117
+    >>BatchNorm2d-b4.b4.2-118
+------>
+native_batch_norm-100
+<------
+    <<BatchNorm2d-b4.b4.2-118
+    >>ReLU-b4.b4.3-119
+------>
+relu_-101
+<------
+    <<ReLU-b4.b4.3-119
+  <<Sequential-b4.b4-115
+------>
+cat-102
+<------
+<<Inception-b4-93
+>>Inception-c4-120
+  >>Sequential-c4.b1-121
+    >>Conv2d-c4.b1.0-122
+------>
+convolution-103
+<------
+    <<Conv2d-c4.b1.0-122
+    >>BatchNorm2d-c4.b1.1-123
+------>
+native_batch_norm-104
+<------
+    <<BatchNorm2d-c4.b1.1-123
+    >>ReLU-c4.b1.2-124
+------>
+relu_-105
+<------
+    <<ReLU-c4.b1.2-124
+  <<Sequential-c4.b1-121
+  >>Sequential-c4.b2-125
+    >>Conv2d-c4.b2.0-126
+------>
+convolution-106
+<------
+    <<Conv2d-c4.b2.0-126
+    >>BatchNorm2d-c4.b2.1-127
+------>
+native_batch_norm-107
+<------
+    <<BatchNorm2d-c4.b2.1-127
+    >>ReLU-c4.b2.2-128
+------>
+relu_-108
+<------
+    <<ReLU-c4.b2.2-128
+    >>Conv2d-c4.b2.3-129
+------>
+convolution-109
+<------
+    <<Conv2d-c4.b2.3-129
+    >>BatchNorm2d-c4.b2.4-130
+------>
+native_batch_norm-110
+<------
+    <<BatchNorm2d-c4.b2.4-130
+    >>ReLU-c4.b2.5-131
+------>
+relu_-111
+<------
+    <<ReLU-c4.b2.5-131
+  <<Sequential-c4.b2-125
+  >>Sequential-c4.b3-132
+    >>Conv2d-c4.b3.0-133
+------>
+convolution-112
+<------
+    <<Conv2d-c4.b3.0-133
+    >>BatchNorm2d-c4.b3.1-134
+------>
+native_batch_norm-113
+<------
+    <<BatchNorm2d-c4.b3.1-134
+    >>ReLU-c4.b3.2-135
+------>
+relu_-114
+<------
+    <<ReLU-c4.b3.2-135
+    >>Conv2d-c4.b3.3-136
+------>
+convolution-115
+<------
+    <<Conv2d-c4.b3.3-136
+    >>BatchNorm2d-c4.b3.4-137
+------>
+native_batch_norm-116
+<------
+    <<BatchNorm2d-c4.b3.4-137
+    >>ReLU-c4.b3.5-138
+------>
+relu_-117
+<------
+    <<ReLU-c4.b3.5-138
+    >>Conv2d-c4.b3.6-139
+------>
+convolution-118
+<------
+    <<Conv2d-c4.b3.6-139
+    >>BatchNorm2d-c4.b3.7-140
+------>
+native_batch_norm-119
+<------
+    <<BatchNorm2d-c4.b3.7-140
+    >>ReLU-c4.b3.8-141
+------>
+relu_-120
+<------
+    <<ReLU-c4.b3.8-141
+  <<Sequential-c4.b3-132
+  >>Sequential-c4.b4-142
+    >>MaxPool2d-c4.b4.0-143
+------>
+max_pool2d_with_indices-121
+<------
+    <<MaxPool2d-c4.b4.0-143
+    >>Conv2d-c4.b4.1-144
+------>
+convolution-122
+<------
+    <<Conv2d-c4.b4.1-144
+    >>BatchNorm2d-c4.b4.2-145
+------>
+native_batch_norm-123
+<------
+    <<BatchNorm2d-c4.b4.2-145
+    >>ReLU-c4.b4.3-146
+------>
+relu_-124
+<------
+    <<ReLU-c4.b4.3-146
+  <<Sequential-c4.b4-142
+------>
+cat-125
+<------
+<<Inception-c4-120
+>>Inception-d4-147
+  >>Sequential-d4.b1-148
+    >>Conv2d-d4.b1.0-149
+------>
+convolution-126
+<------
+    <<Conv2d-d4.b1.0-149
+    >>BatchNorm2d-d4.b1.1-150
+------>
+native_batch_norm-127
+<------
+    <<BatchNorm2d-d4.b1.1-150
+    >>ReLU-d4.b1.2-151
+------>
+relu_-128
+<------
+    <<ReLU-d4.b1.2-151
+  <<Sequential-d4.b1-148
+  >>Sequential-d4.b2-152
+    >>Conv2d-d4.b2.0-153
+------>
+convolution-129
+<------
+    <<Conv2d-d4.b2.0-153
+    >>BatchNorm2d-d4.b2.1-154
+------>
+native_batch_norm-130
+<------
+    <<BatchNorm2d-d4.b2.1-154
+    >>ReLU-d4.b2.2-155
+------>
+relu_-131
+<------
+    <<ReLU-d4.b2.2-155
+    >>Conv2d-d4.b2.3-156
+------>
+convolution-132
+<------
+    <<Conv2d-d4.b2.3-156
+    >>BatchNorm2d-d4.b2.4-157
+------>
+native_batch_norm-133
+<------
+    <<BatchNorm2d-d4.b2.4-157
+    >>ReLU-d4.b2.5-158
+------>
+relu_-134
+<------
+    <<ReLU-d4.b2.5-158
+  <<Sequential-d4.b2-152
+  >>Sequential-d4.b3-159
+    >>Conv2d-d4.b3.0-160
+------>
+convolution-135
+<------
+    <<Conv2d-d4.b3.0-160
+    >>BatchNorm2d-d4.b3.1-161
+------>
+native_batch_norm-136
+<------
+    <<BatchNorm2d-d4.b3.1-161
+    >>ReLU-d4.b3.2-162
+------>
+relu_-137
+<------
+    <<ReLU-d4.b3.2-162
+    >>Conv2d-d4.b3.3-163
+------>
+convolution-138
+<------
+    <<Conv2d-d4.b3.3-163
+    >>BatchNorm2d-d4.b3.4-164
+------>
+native_batch_norm-139
+<------
+    <<BatchNorm2d-d4.b3.4-164
+    >>ReLU-d4.b3.5-165
+------>
+relu_-140
+<------
+    <<ReLU-d4.b3.5-165
+    >>Conv2d-d4.b3.6-166
+------>
+convolution-141
+<------
+    <<Conv2d-d4.b3.6-166
+    >>BatchNorm2d-d4.b3.7-167
+------>
+native_batch_norm-142
+<------
+    <<BatchNorm2d-d4.b3.7-167
+    >>ReLU-d4.b3.8-168
+------>
+relu_-143
+<------
+    <<ReLU-d4.b3.8-168
+  <<Sequential-d4.b3-159
+  >>Sequential-d4.b4-169
+    >>MaxPool2d-d4.b4.0-170
+------>
+max_pool2d_with_indices-144
+<------
+    <<MaxPool2d-d4.b4.0-170
+    >>Conv2d-d4.b4.1-171
+------>
+convolution-145
+<------
+    <<Conv2d-d4.b4.1-171
+    >>BatchNorm2d-d4.b4.2-172
+------>
+native_batch_norm-146
+<------
+    <<BatchNorm2d-d4.b4.2-172
+    >>ReLU-d4.b4.3-173
+------>
+relu_-147
+<------
+    <<ReLU-d4.b4.3-173
+  <<Sequential-d4.b4-169
+------>
+cat-148
+<------
+<<Inception-d4-147
+>>Inception-e4-174
+  >>Sequential-e4.b1-175
+    >>Conv2d-e4.b1.0-176
+------>
+convolution-149
+<------
+    <<Conv2d-e4.b1.0-176
+    >>BatchNorm2d-e4.b1.1-177
+------>
+native_batch_norm-150
+<------
+    <<BatchNorm2d-e4.b1.1-177
+    >>ReLU-e4.b1.2-178
+------>
+relu_-151
+<------
+    <<ReLU-e4.b1.2-178
+  <<Sequential-e4.b1-175
+  >>Sequential-e4.b2-179
+    >>Conv2d-e4.b2.0-180
+------>
+convolution-152
+<------
+    <<Conv2d-e4.b2.0-180
+    >>BatchNorm2d-e4.b2.1-181
+------>
+native_batch_norm-153
+<------
+    <<BatchNorm2d-e4.b2.1-181
+    >>ReLU-e4.b2.2-182
+------>
+relu_-154
+<------
+    <<ReLU-e4.b2.2-182
+    >>Conv2d-e4.b2.3-183
+------>
+convolution-155
+<------
+    <<Conv2d-e4.b2.3-183
+    >>BatchNorm2d-e4.b2.4-184
+------>
+native_batch_norm-156
+<------
+    <<BatchNorm2d-e4.b2.4-184
+    >>ReLU-e4.b2.5-185
+------>
+relu_-157
+<------
+    <<ReLU-e4.b2.5-185
+  <<Sequential-e4.b2-179
+  >>Sequential-e4.b3-186
+    >>Conv2d-e4.b3.0-187
+------>
+convolution-158
+<------
+    <<Conv2d-e4.b3.0-187
+    >>BatchNorm2d-e4.b3.1-188
+------>
+native_batch_norm-159
+<------
+    <<BatchNorm2d-e4.b3.1-188
+    >>ReLU-e4.b3.2-189
+------>
+relu_-160
+<------
+    <<ReLU-e4.b3.2-189
+    >>Conv2d-e4.b3.3-190
+------>
+convolution-161
+<------
+    <<Conv2d-e4.b3.3-190
+    >>BatchNorm2d-e4.b3.4-191
+------>
+native_batch_norm-162
+<------
+    <<BatchNorm2d-e4.b3.4-191
+    >>ReLU-e4.b3.5-192
+------>
+relu_-163
+<------
+    <<ReLU-e4.b3.5-192
+    >>Conv2d-e4.b3.6-193
+------>
+convolution-164
+<------
+    <<Conv2d-e4.b3.6-193
+    >>BatchNorm2d-e4.b3.7-194
+------>
+native_batch_norm-165
+<------
+    <<BatchNorm2d-e4.b3.7-194
+    >>ReLU-e4.b3.8-195
+------>
+relu_-166
+<------
+    <<ReLU-e4.b3.8-195
+  <<Sequential-e4.b3-186
+  >>Sequential-e4.b4-196
+    >>MaxPool2d-e4.b4.0-197
+------>
+max_pool2d_with_indices-167
+<------
+    <<MaxPool2d-e4.b4.0-197
+    >>Conv2d-e4.b4.1-198
+------>
+convolution-168
+<------
+    <<Conv2d-e4.b4.1-198
+    >>BatchNorm2d-e4.b4.2-199
+------>
+native_batch_norm-169
+<------
+    <<BatchNorm2d-e4.b4.2-199
+    >>ReLU-e4.b4.3-200
+------>
+relu_-170
+<------
+    <<ReLU-e4.b4.3-200
+  <<Sequential-e4.b4-196
+------>
+cat-171
+<------
+<<Inception-e4-174
+>>MaxPool2d-maxpool-65
+------>
+max_pool2d_with_indices-172
+<------
+<<MaxPool2d-maxpool-65
+>>Inception-a5-201
+  >>Sequential-a5.b1-202
+    >>Conv2d-a5.b1.0-203
+------>
+convolution-173
+<------
+    <<Conv2d-a5.b1.0-203
+    >>BatchNorm2d-a5.b1.1-204
+------>
+native_batch_norm-174
+<------
+    <<BatchNorm2d-a5.b1.1-204
+    >>ReLU-a5.b1.2-205
+------>
+relu_-175
+<------
+    <<ReLU-a5.b1.2-205
+  <<Sequential-a5.b1-202
+  >>Sequential-a5.b2-206
+    >>Conv2d-a5.b2.0-207
+------>
+convolution-176
+<------
+    <<Conv2d-a5.b2.0-207
+    >>BatchNorm2d-a5.b2.1-208
+------>
+native_batch_norm-177
+<------
+    <<BatchNorm2d-a5.b2.1-208
+    >>ReLU-a5.b2.2-209
+------>
+relu_-178
+<------
+    <<ReLU-a5.b2.2-209
+    >>Conv2d-a5.b2.3-210
+------>
+convolution-179
+<------
+    <<Conv2d-a5.b2.3-210
+    >>BatchNorm2d-a5.b2.4-211
+------>
+native_batch_norm-180
+<------
+    <<BatchNorm2d-a5.b2.4-211
+    >>ReLU-a5.b2.5-212
+------>
+relu_-181
+<------
+    <<ReLU-a5.b2.5-212
+  <<Sequential-a5.b2-206
+  >>Sequential-a5.b3-213
+    >>Conv2d-a5.b3.0-214
+------>
+convolution-182
+<------
+    <<Conv2d-a5.b3.0-214
+    >>BatchNorm2d-a5.b3.1-215
+------>
+native_batch_norm-183
+<------
+    <<BatchNorm2d-a5.b3.1-215
+    >>ReLU-a5.b3.2-216
+------>
+relu_-184
+<------
+    <<ReLU-a5.b3.2-216
+    >>Conv2d-a5.b3.3-217
+------>
+convolution-185
+<------
+    <<Conv2d-a5.b3.3-217
+    >>BatchNorm2d-a5.b3.4-218
+------>
+native_batch_norm-186
+<------
+    <<BatchNorm2d-a5.b3.4-218
+    >>ReLU-a5.b3.5-219
+------>
+relu_-187
+<------
+    <<ReLU-a5.b3.5-219
+    >>Conv2d-a5.b3.6-220
+------>
+convolution-188
+<------
+    <<Conv2d-a5.b3.6-220
+    >>BatchNorm2d-a5.b3.7-221
+------>
+native_batch_norm-189
+<------
+    <<BatchNorm2d-a5.b3.7-221
+    >>ReLU-a5.b3.8-222
+------>
+relu_-190
+<------
+    <<ReLU-a5.b3.8-222
+  <<Sequential-a5.b3-213
+  >>Sequential-a5.b4-223
+    >>MaxPool2d-a5.b4.0-224
+------>
+max_pool2d_with_indices-191
+<------
+    <<MaxPool2d-a5.b4.0-224
+    >>Conv2d-a5.b4.1-225
+------>
+convolution-192
+<------
+    <<Conv2d-a5.b4.1-225
+    >>BatchNorm2d-a5.b4.2-226
+------>
+native_batch_norm-193
+<------
+    <<BatchNorm2d-a5.b4.2-226
+    >>ReLU-a5.b4.3-227
+------>
+relu_-194
+<------
+    <<ReLU-a5.b4.3-227
+  <<Sequential-a5.b4-223
+------>
+cat-195
+<------
+<<Inception-a5-201
+>>Inception-b5-228
+  >>Sequential-b5.b1-229
+    >>Conv2d-b5.b1.0-230
+------>
+convolution-196
+<------
+    <<Conv2d-b5.b1.0-230
+    >>BatchNorm2d-b5.b1.1-231
+------>
+native_batch_norm-197
+<------
+    <<BatchNorm2d-b5.b1.1-231
+    >>ReLU-b5.b1.2-232
+------>
+relu_-198
+<------
+    <<ReLU-b5.b1.2-232
+  <<Sequential-b5.b1-229
+  >>Sequential-b5.b2-233
+    >>Conv2d-b5.b2.0-234
+------>
+convolution-199
+<------
+    <<Conv2d-b5.b2.0-234
+    >>BatchNorm2d-b5.b2.1-235
+------>
+native_batch_norm-200
+<------
+    <<BatchNorm2d-b5.b2.1-235
+    >>ReLU-b5.b2.2-236
+------>
+relu_-201
+<------
+    <<ReLU-b5.b2.2-236
+    >>Conv2d-b5.b2.3-237
+------>
+convolution-202
+<------
+    <<Conv2d-b5.b2.3-237
+    >>BatchNorm2d-b5.b2.4-238
+------>
+native_batch_norm-203
+<------
+    <<BatchNorm2d-b5.b2.4-238
+    >>ReLU-b5.b2.5-239
+------>
+relu_-204
+<------
+    <<ReLU-b5.b2.5-239
+  <<Sequential-b5.b2-233
+  >>Sequential-b5.b3-240
+    >>Conv2d-b5.b3.0-241
+------>
+convolution-205
+<------
+    <<Conv2d-b5.b3.0-241
+    >>BatchNorm2d-b5.b3.1-242
+------>
+native_batch_norm-206
+<------
+    <<BatchNorm2d-b5.b3.1-242
+    >>ReLU-b5.b3.2-243
+------>
+relu_-207
+<------
+    <<ReLU-b5.b3.2-243
+    >>Conv2d-b5.b3.3-244
+------>
+convolution-208
+<------
+    <<Conv2d-b5.b3.3-244
+    >>BatchNorm2d-b5.b3.4-245
+------>
+native_batch_norm-209
+<------
+    <<BatchNorm2d-b5.b3.4-245
+    >>ReLU-b5.b3.5-246
+------>
+relu_-210
+<------
+    <<ReLU-b5.b3.5-246
+    >>Conv2d-b5.b3.6-247
+------>
+convolution-211
+<------
+    <<Conv2d-b5.b3.6-247
+    >>BatchNorm2d-b5.b3.7-248
+------>
+native_batch_norm-212
+<------
+    <<BatchNorm2d-b5.b3.7-248
+    >>ReLU-b5.b3.8-249
+------>
+relu_-213
+<------
+    <<ReLU-b5.b3.8-249
+  <<Sequential-b5.b3-240
+  >>Sequential-b5.b4-250
+    >>MaxPool2d-b5.b4.0-251
+------>
+max_pool2d_with_indices-214
+<------
+    <<MaxPool2d-b5.b4.0-251
+    >>Conv2d-b5.b4.1-252
+------>
+convolution-215
+<------
+    <<Conv2d-b5.b4.1-252
+    >>BatchNorm2d-b5.b4.2-253
+------>
+native_batch_norm-216
+<------
+    <<BatchNorm2d-b5.b4.2-253
+    >>ReLU-b5.b4.3-254
+------>
+relu_-217
+<------
+    <<ReLU-b5.b4.3-254
+  <<Sequential-b5.b4-250
+------>
+cat-218
+<------
+<<Inception-b5-228
+>>AdaptiveAvgPool2d-avgpool-255
+------>
+mean-219
+<------
+<<AdaptiveAvgPool2d-avgpool-255
+>>Dropout2d-dropout-256
+------>
+mul-220
+<------
+<<Dropout2d-dropout-256
+------>
+view-221
+<------
+>>Linear-linear-257
+------>
+t-222
+<------
+------>
+addmm-223
+<------
+<<Linear-linear-257
+<<GoogleNet--0
+------>
+_log_softmax-224
+<------
+------>
+nll_loss_forward-225
+<------

@@ -325,9 +325,17 @@ class InceptionAux(nn.Module):
         return x
 
 
-class BasicConv2d(nn.Sequential):
+class BasicConv2d(nn.Module):
 
-    def __init__(self, in_channels, out_channels, **kwargs):
-        super(BasicConv2d, self).__init__()
-        self.add_module('conv', nn.Conv2d(in_channels, out_channels, bias=False, **kwargs))
-        self.add_module('bn', BatchNorm2dAndReLU(out_channels, eps=1e-05))
+    def __init__(self, input_channels, output_channels, **kwargs):
+        super().__init__()
+        self.conv = nn.Conv2d(input_channels, output_channels, bias=False, **kwargs)
+        self.bn = nn.BatchNorm2d(output_channels)
+        self.relu = nn.ReLU(inplace=True)
+
+    def forward(self, x):
+        x = self.conv(x)
+        x = self.bn(x)
+        x = self.relu(x)
+
+        return x

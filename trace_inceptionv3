@@ -1,0 +1,1801 @@
+>>InceptionV3--0
+>>BasicConv2d-Conv2d_1a_3x3-1
+  >>Conv2d-Conv2d_1a_3x3.conv-2
+------>
+convolution-0
+<------
+  <<Conv2d-Conv2d_1a_3x3.conv-2
+  >>BatchNorm2d-Conv2d_1a_3x3.bn-3
+------>
+native_batch_norm-1
+<------
+  <<BatchNorm2d-Conv2d_1a_3x3.bn-3
+  >>ReLU-Conv2d_1a_3x3.relu-4
+------>
+relu_-2
+<------
+  <<ReLU-Conv2d_1a_3x3.relu-4
+<<BasicConv2d-Conv2d_1a_3x3-1
+>>BasicConv2d-Conv2d_2a_3x3-5
+  >>Conv2d-Conv2d_2a_3x3.conv-6
+------>
+convolution-3
+<------
+  <<Conv2d-Conv2d_2a_3x3.conv-6
+  >>BatchNorm2d-Conv2d_2a_3x3.bn-7
+------>
+native_batch_norm-4
+<------
+  <<BatchNorm2d-Conv2d_2a_3x3.bn-7
+  >>ReLU-Conv2d_2a_3x3.relu-8
+------>
+relu_-5
+<------
+  <<ReLU-Conv2d_2a_3x3.relu-8
+<<BasicConv2d-Conv2d_2a_3x3-5
+>>BasicConv2d-Conv2d_2b_3x3-9
+  >>Conv2d-Conv2d_2b_3x3.conv-10
+------>
+convolution-6
+<------
+  <<Conv2d-Conv2d_2b_3x3.conv-10
+  >>BatchNorm2d-Conv2d_2b_3x3.bn-11
+------>
+native_batch_norm-7
+<------
+  <<BatchNorm2d-Conv2d_2b_3x3.bn-11
+  >>ReLU-Conv2d_2b_3x3.relu-12
+------>
+relu_-8
+<------
+  <<ReLU-Conv2d_2b_3x3.relu-12
+<<BasicConv2d-Conv2d_2b_3x3-9
+>>BasicConv2d-Conv2d_3b_1x1-13
+  >>Conv2d-Conv2d_3b_1x1.conv-14
+------>
+convolution-9
+<------
+  <<Conv2d-Conv2d_3b_1x1.conv-14
+  >>BatchNorm2d-Conv2d_3b_1x1.bn-15
+------>
+native_batch_norm-10
+<------
+  <<BatchNorm2d-Conv2d_3b_1x1.bn-15
+  >>ReLU-Conv2d_3b_1x1.relu-16
+------>
+relu_-11
+<------
+  <<ReLU-Conv2d_3b_1x1.relu-16
+<<BasicConv2d-Conv2d_3b_1x1-13
+>>BasicConv2d-Conv2d_4a_3x3-17
+  >>Conv2d-Conv2d_4a_3x3.conv-18
+------>
+convolution-12
+<------
+  <<Conv2d-Conv2d_4a_3x3.conv-18
+  >>BatchNorm2d-Conv2d_4a_3x3.bn-19
+------>
+native_batch_norm-13
+<------
+  <<BatchNorm2d-Conv2d_4a_3x3.bn-19
+  >>ReLU-Conv2d_4a_3x3.relu-20
+------>
+relu_-14
+<------
+  <<ReLU-Conv2d_4a_3x3.relu-20
+<<BasicConv2d-Conv2d_4a_3x3-17
+>>InceptionA-Mixed_5b-21
+  >>BasicConv2d-Mixed_5b.branch1x1-22
+    >>Conv2d-Mixed_5b.branch1x1.conv-23
+------>
+convolution-15
+<------
+    <<Conv2d-Mixed_5b.branch1x1.conv-23
+    >>BatchNorm2d-Mixed_5b.branch1x1.bn-24
+------>
+native_batch_norm-16
+<------
+    <<BatchNorm2d-Mixed_5b.branch1x1.bn-24
+    >>ReLU-Mixed_5b.branch1x1.relu-25
+------>
+relu_-17
+<------
+    <<ReLU-Mixed_5b.branch1x1.relu-25
+  <<BasicConv2d-Mixed_5b.branch1x1-22
+  >>Sequential-Mixed_5b.branch5x5-26
+    >>BasicConv2d-Mixed_5b.branch5x5.0-27
+      >>Conv2d-Mixed_5b.branch5x5.0.conv-28
+------>
+convolution-18
+<------
+      <<Conv2d-Mixed_5b.branch5x5.0.conv-28
+      >>BatchNorm2d-Mixed_5b.branch5x5.0.bn-29
+------>
+native_batch_norm-19
+<------
+      <<BatchNorm2d-Mixed_5b.branch5x5.0.bn-29
+      >>ReLU-Mixed_5b.branch5x5.0.relu-30
+------>
+relu_-20
+<------
+      <<ReLU-Mixed_5b.branch5x5.0.relu-30
+    <<BasicConv2d-Mixed_5b.branch5x5.0-27
+    >>BasicConv2d-Mixed_5b.branch5x5.1-31
+      >>Conv2d-Mixed_5b.branch5x5.1.conv-32
+------>
+convolution-21
+<------
+      <<Conv2d-Mixed_5b.branch5x5.1.conv-32
+      >>BatchNorm2d-Mixed_5b.branch5x5.1.bn-33
+------>
+native_batch_norm-22
+<------
+      <<BatchNorm2d-Mixed_5b.branch5x5.1.bn-33
+      >>ReLU-Mixed_5b.branch5x5.1.relu-34
+------>
+relu_-23
+<------
+      <<ReLU-Mixed_5b.branch5x5.1.relu-34
+    <<BasicConv2d-Mixed_5b.branch5x5.1-31
+  <<Sequential-Mixed_5b.branch5x5-26
+  >>Sequential-Mixed_5b.branch3x3-35
+    >>BasicConv2d-Mixed_5b.branch3x3.0-36
+      >>Conv2d-Mixed_5b.branch3x3.0.conv-37
+------>
+convolution-24
+<------
+      <<Conv2d-Mixed_5b.branch3x3.0.conv-37
+      >>BatchNorm2d-Mixed_5b.branch3x3.0.bn-38
+------>
+native_batch_norm-25
+<------
+      <<BatchNorm2d-Mixed_5b.branch3x3.0.bn-38
+      >>ReLU-Mixed_5b.branch3x3.0.relu-39
+------>
+relu_-26
+<------
+      <<ReLU-Mixed_5b.branch3x3.0.relu-39
+    <<BasicConv2d-Mixed_5b.branch3x3.0-36
+    >>BasicConv2d-Mixed_5b.branch3x3.1-40
+      >>Conv2d-Mixed_5b.branch3x3.1.conv-41
+------>
+convolution-27
+<------
+      <<Conv2d-Mixed_5b.branch3x3.1.conv-41
+      >>BatchNorm2d-Mixed_5b.branch3x3.1.bn-42
+------>
+native_batch_norm-28
+<------
+      <<BatchNorm2d-Mixed_5b.branch3x3.1.bn-42
+      >>ReLU-Mixed_5b.branch3x3.1.relu-43
+------>
+relu_-29
+<------
+      <<ReLU-Mixed_5b.branch3x3.1.relu-43
+    <<BasicConv2d-Mixed_5b.branch3x3.1-40
+    >>BasicConv2d-Mixed_5b.branch3x3.2-44
+      >>Conv2d-Mixed_5b.branch3x3.2.conv-45
+------>
+convolution-30
+<------
+      <<Conv2d-Mixed_5b.branch3x3.2.conv-45
+      >>BatchNorm2d-Mixed_5b.branch3x3.2.bn-46
+------>
+native_batch_norm-31
+<------
+      <<BatchNorm2d-Mixed_5b.branch3x3.2.bn-46
+      >>ReLU-Mixed_5b.branch3x3.2.relu-47
+------>
+relu_-32
+<------
+      <<ReLU-Mixed_5b.branch3x3.2.relu-47
+    <<BasicConv2d-Mixed_5b.branch3x3.2-44
+  <<Sequential-Mixed_5b.branch3x3-35
+  >>Sequential-Mixed_5b.branchpool-48
+    >>AvgPool2d-Mixed_5b.branchpool.0-49
+------>
+avg_pool2d-33
+<------
+    <<AvgPool2d-Mixed_5b.branchpool.0-49
+    >>BasicConv2d-Mixed_5b.branchpool.1-50
+      >>Conv2d-Mixed_5b.branchpool.1.conv-51
+------>
+convolution-34
+<------
+      <<Conv2d-Mixed_5b.branchpool.1.conv-51
+      >>BatchNorm2d-Mixed_5b.branchpool.1.bn-52
+------>
+native_batch_norm-35
+<------
+      <<BatchNorm2d-Mixed_5b.branchpool.1.bn-52
+      >>ReLU-Mixed_5b.branchpool.1.relu-53
+------>
+relu_-36
+<------
+      <<ReLU-Mixed_5b.branchpool.1.relu-53
+    <<BasicConv2d-Mixed_5b.branchpool.1-50
+  <<Sequential-Mixed_5b.branchpool-48
+------>
+cat-37
+<------
+<<InceptionA-Mixed_5b-21
+>>InceptionA-Mixed_5c-54
+  >>BasicConv2d-Mixed_5c.branch1x1-55
+    >>Conv2d-Mixed_5c.branch1x1.conv-56
+------>
+convolution-38
+<------
+    <<Conv2d-Mixed_5c.branch1x1.conv-56
+    >>BatchNorm2d-Mixed_5c.branch1x1.bn-57
+------>
+native_batch_norm-39
+<------
+    <<BatchNorm2d-Mixed_5c.branch1x1.bn-57
+    >>ReLU-Mixed_5c.branch1x1.relu-58
+------>
+relu_-40
+<------
+    <<ReLU-Mixed_5c.branch1x1.relu-58
+  <<BasicConv2d-Mixed_5c.branch1x1-55
+  >>Sequential-Mixed_5c.branch5x5-59
+    >>BasicConv2d-Mixed_5c.branch5x5.0-60
+      >>Conv2d-Mixed_5c.branch5x5.0.conv-61
+------>
+convolution-41
+<------
+      <<Conv2d-Mixed_5c.branch5x5.0.conv-61
+      >>BatchNorm2d-Mixed_5c.branch5x5.0.bn-62
+------>
+native_batch_norm-42
+<------
+      <<BatchNorm2d-Mixed_5c.branch5x5.0.bn-62
+      >>ReLU-Mixed_5c.branch5x5.0.relu-63
+------>
+relu_-43
+<------
+      <<ReLU-Mixed_5c.branch5x5.0.relu-63
+    <<BasicConv2d-Mixed_5c.branch5x5.0-60
+    >>BasicConv2d-Mixed_5c.branch5x5.1-64
+      >>Conv2d-Mixed_5c.branch5x5.1.conv-65
+------>
+convolution-44
+<------
+      <<Conv2d-Mixed_5c.branch5x5.1.conv-65
+      >>BatchNorm2d-Mixed_5c.branch5x5.1.bn-66
+------>
+native_batch_norm-45
+<------
+      <<BatchNorm2d-Mixed_5c.branch5x5.1.bn-66
+      >>ReLU-Mixed_5c.branch5x5.1.relu-67
+------>
+relu_-46
+<------
+      <<ReLU-Mixed_5c.branch5x5.1.relu-67
+    <<BasicConv2d-Mixed_5c.branch5x5.1-64
+  <<Sequential-Mixed_5c.branch5x5-59
+  >>Sequential-Mixed_5c.branch3x3-68
+    >>BasicConv2d-Mixed_5c.branch3x3.0-69
+      >>Conv2d-Mixed_5c.branch3x3.0.conv-70
+------>
+convolution-47
+<------
+      <<Conv2d-Mixed_5c.branch3x3.0.conv-70
+      >>BatchNorm2d-Mixed_5c.branch3x3.0.bn-71
+------>
+native_batch_norm-48
+<------
+      <<BatchNorm2d-Mixed_5c.branch3x3.0.bn-71
+      >>ReLU-Mixed_5c.branch3x3.0.relu-72
+------>
+relu_-49
+<------
+      <<ReLU-Mixed_5c.branch3x3.0.relu-72
+    <<BasicConv2d-Mixed_5c.branch3x3.0-69
+    >>BasicConv2d-Mixed_5c.branch3x3.1-73
+      >>Conv2d-Mixed_5c.branch3x3.1.conv-74
+------>
+convolution-50
+<------
+      <<Conv2d-Mixed_5c.branch3x3.1.conv-74
+      >>BatchNorm2d-Mixed_5c.branch3x3.1.bn-75
+------>
+native_batch_norm-51
+<------
+      <<BatchNorm2d-Mixed_5c.branch3x3.1.bn-75
+      >>ReLU-Mixed_5c.branch3x3.1.relu-76
+------>
+relu_-52
+<------
+      <<ReLU-Mixed_5c.branch3x3.1.relu-76
+    <<BasicConv2d-Mixed_5c.branch3x3.1-73
+    >>BasicConv2d-Mixed_5c.branch3x3.2-77
+      >>Conv2d-Mixed_5c.branch3x3.2.conv-78
+------>
+convolution-53
+<------
+      <<Conv2d-Mixed_5c.branch3x3.2.conv-78
+      >>BatchNorm2d-Mixed_5c.branch3x3.2.bn-79
+------>
+native_batch_norm-54
+<------
+      <<BatchNorm2d-Mixed_5c.branch3x3.2.bn-79
+      >>ReLU-Mixed_5c.branch3x3.2.relu-80
+------>
+relu_-55
+<------
+      <<ReLU-Mixed_5c.branch3x3.2.relu-80
+    <<BasicConv2d-Mixed_5c.branch3x3.2-77
+  <<Sequential-Mixed_5c.branch3x3-68
+  >>Sequential-Mixed_5c.branchpool-81
+    >>AvgPool2d-Mixed_5c.branchpool.0-82
+------>
+avg_pool2d-56
+<------
+    <<AvgPool2d-Mixed_5c.branchpool.0-82
+    >>BasicConv2d-Mixed_5c.branchpool.1-83
+      >>Conv2d-Mixed_5c.branchpool.1.conv-84
+------>
+convolution-57
+<------
+      <<Conv2d-Mixed_5c.branchpool.1.conv-84
+      >>BatchNorm2d-Mixed_5c.branchpool.1.bn-85
+------>
+native_batch_norm-58
+<------
+      <<BatchNorm2d-Mixed_5c.branchpool.1.bn-85
+      >>ReLU-Mixed_5c.branchpool.1.relu-86
+------>
+relu_-59
+<------
+      <<ReLU-Mixed_5c.branchpool.1.relu-86
+    <<BasicConv2d-Mixed_5c.branchpool.1-83
+  <<Sequential-Mixed_5c.branchpool-81
+------>
+cat-60
+<------
+<<InceptionA-Mixed_5c-54
+>>InceptionA-Mixed_5d-87
+  >>BasicConv2d-Mixed_5d.branch1x1-88
+    >>Conv2d-Mixed_5d.branch1x1.conv-89
+------>
+convolution-61
+<------
+    <<Conv2d-Mixed_5d.branch1x1.conv-89
+    >>BatchNorm2d-Mixed_5d.branch1x1.bn-90
+------>
+native_batch_norm-62
+<------
+    <<BatchNorm2d-Mixed_5d.branch1x1.bn-90
+    >>ReLU-Mixed_5d.branch1x1.relu-91
+------>
+relu_-63
+<------
+    <<ReLU-Mixed_5d.branch1x1.relu-91
+  <<BasicConv2d-Mixed_5d.branch1x1-88
+  >>Sequential-Mixed_5d.branch5x5-92
+    >>BasicConv2d-Mixed_5d.branch5x5.0-93
+      >>Conv2d-Mixed_5d.branch5x5.0.conv-94
+------>
+convolution-64
+<------
+      <<Conv2d-Mixed_5d.branch5x5.0.conv-94
+      >>BatchNorm2d-Mixed_5d.branch5x5.0.bn-95
+------>
+native_batch_norm-65
+<------
+      <<BatchNorm2d-Mixed_5d.branch5x5.0.bn-95
+      >>ReLU-Mixed_5d.branch5x5.0.relu-96
+------>
+relu_-66
+<------
+      <<ReLU-Mixed_5d.branch5x5.0.relu-96
+    <<BasicConv2d-Mixed_5d.branch5x5.0-93
+    >>BasicConv2d-Mixed_5d.branch5x5.1-97
+      >>Conv2d-Mixed_5d.branch5x5.1.conv-98
+------>
+convolution-67
+<------
+      <<Conv2d-Mixed_5d.branch5x5.1.conv-98
+      >>BatchNorm2d-Mixed_5d.branch5x5.1.bn-99
+------>
+native_batch_norm-68
+<------
+      <<BatchNorm2d-Mixed_5d.branch5x5.1.bn-99
+      >>ReLU-Mixed_5d.branch5x5.1.relu-100
+------>
+relu_-69
+<------
+      <<ReLU-Mixed_5d.branch5x5.1.relu-100
+    <<BasicConv2d-Mixed_5d.branch5x5.1-97
+  <<Sequential-Mixed_5d.branch5x5-92
+  >>Sequential-Mixed_5d.branch3x3-101
+    >>BasicConv2d-Mixed_5d.branch3x3.0-102
+      >>Conv2d-Mixed_5d.branch3x3.0.conv-103
+------>
+convolution-70
+<------
+      <<Conv2d-Mixed_5d.branch3x3.0.conv-103
+      >>BatchNorm2d-Mixed_5d.branch3x3.0.bn-104
+------>
+native_batch_norm-71
+<------
+      <<BatchNorm2d-Mixed_5d.branch3x3.0.bn-104
+      >>ReLU-Mixed_5d.branch3x3.0.relu-105
+------>
+relu_-72
+<------
+      <<ReLU-Mixed_5d.branch3x3.0.relu-105
+    <<BasicConv2d-Mixed_5d.branch3x3.0-102
+    >>BasicConv2d-Mixed_5d.branch3x3.1-106
+      >>Conv2d-Mixed_5d.branch3x3.1.conv-107
+------>
+convolution-73
+<------
+      <<Conv2d-Mixed_5d.branch3x3.1.conv-107
+      >>BatchNorm2d-Mixed_5d.branch3x3.1.bn-108
+------>
+native_batch_norm-74
+<------
+      <<BatchNorm2d-Mixed_5d.branch3x3.1.bn-108
+      >>ReLU-Mixed_5d.branch3x3.1.relu-109
+------>
+relu_-75
+<------
+      <<ReLU-Mixed_5d.branch3x3.1.relu-109
+    <<BasicConv2d-Mixed_5d.branch3x3.1-106
+    >>BasicConv2d-Mixed_5d.branch3x3.2-110
+      >>Conv2d-Mixed_5d.branch3x3.2.conv-111
+------>
+convolution-76
+<------
+      <<Conv2d-Mixed_5d.branch3x3.2.conv-111
+      >>BatchNorm2d-Mixed_5d.branch3x3.2.bn-112
+------>
+native_batch_norm-77
+<------
+      <<BatchNorm2d-Mixed_5d.branch3x3.2.bn-112
+      >>ReLU-Mixed_5d.branch3x3.2.relu-113
+------>
+relu_-78
+<------
+      <<ReLU-Mixed_5d.branch3x3.2.relu-113
+    <<BasicConv2d-Mixed_5d.branch3x3.2-110
+  <<Sequential-Mixed_5d.branch3x3-101
+  >>Sequential-Mixed_5d.branchpool-114
+    >>AvgPool2d-Mixed_5d.branchpool.0-115
+------>
+avg_pool2d-79
+<------
+    <<AvgPool2d-Mixed_5d.branchpool.0-115
+    >>BasicConv2d-Mixed_5d.branchpool.1-116
+      >>Conv2d-Mixed_5d.branchpool.1.conv-117
+------>
+convolution-80
+<------
+      <<Conv2d-Mixed_5d.branchpool.1.conv-117
+      >>BatchNorm2d-Mixed_5d.branchpool.1.bn-118
+------>
+native_batch_norm-81
+<------
+      <<BatchNorm2d-Mixed_5d.branchpool.1.bn-118
+      >>ReLU-Mixed_5d.branchpool.1.relu-119
+------>
+relu_-82
+<------
+      <<ReLU-Mixed_5d.branchpool.1.relu-119
+    <<BasicConv2d-Mixed_5d.branchpool.1-116
+  <<Sequential-Mixed_5d.branchpool-114
+------>
+cat-83
+<------
+<<InceptionA-Mixed_5d-87
+>>InceptionB-Mixed_6a-120
+  >>BasicConv2d-Mixed_6a.branch3x3-121
+    >>Conv2d-Mixed_6a.branch3x3.conv-122
+------>
+convolution-84
+<------
+    <<Conv2d-Mixed_6a.branch3x3.conv-122
+    >>BatchNorm2d-Mixed_6a.branch3x3.bn-123
+------>
+native_batch_norm-85
+<------
+    <<BatchNorm2d-Mixed_6a.branch3x3.bn-123
+    >>ReLU-Mixed_6a.branch3x3.relu-124
+------>
+relu_-86
+<------
+    <<ReLU-Mixed_6a.branch3x3.relu-124
+  <<BasicConv2d-Mixed_6a.branch3x3-121
+  >>Sequential-Mixed_6a.branch3x3stack-125
+    >>BasicConv2d-Mixed_6a.branch3x3stack.0-126
+      >>Conv2d-Mixed_6a.branch3x3stack.0.conv-127
+------>
+convolution-87
+<------
+      <<Conv2d-Mixed_6a.branch3x3stack.0.conv-127
+      >>BatchNorm2d-Mixed_6a.branch3x3stack.0.bn-128
+------>
+native_batch_norm-88
+<------
+      <<BatchNorm2d-Mixed_6a.branch3x3stack.0.bn-128
+      >>ReLU-Mixed_6a.branch3x3stack.0.relu-129
+------>
+relu_-89
+<------
+      <<ReLU-Mixed_6a.branch3x3stack.0.relu-129
+    <<BasicConv2d-Mixed_6a.branch3x3stack.0-126
+    >>BasicConv2d-Mixed_6a.branch3x3stack.1-130
+      >>Conv2d-Mixed_6a.branch3x3stack.1.conv-131
+------>
+convolution-90
+<------
+      <<Conv2d-Mixed_6a.branch3x3stack.1.conv-131
+      >>BatchNorm2d-Mixed_6a.branch3x3stack.1.bn-132
+------>
+native_batch_norm-91
+<------
+      <<BatchNorm2d-Mixed_6a.branch3x3stack.1.bn-132
+      >>ReLU-Mixed_6a.branch3x3stack.1.relu-133
+------>
+relu_-92
+<------
+      <<ReLU-Mixed_6a.branch3x3stack.1.relu-133
+    <<BasicConv2d-Mixed_6a.branch3x3stack.1-130
+    >>BasicConv2d-Mixed_6a.branch3x3stack.2-134
+      >>Conv2d-Mixed_6a.branch3x3stack.2.conv-135
+------>
+convolution-93
+<------
+      <<Conv2d-Mixed_6a.branch3x3stack.2.conv-135
+      >>BatchNorm2d-Mixed_6a.branch3x3stack.2.bn-136
+------>
+native_batch_norm-94
+<------
+      <<BatchNorm2d-Mixed_6a.branch3x3stack.2.bn-136
+      >>ReLU-Mixed_6a.branch3x3stack.2.relu-137
+------>
+relu_-95
+<------
+      <<ReLU-Mixed_6a.branch3x3stack.2.relu-137
+    <<BasicConv2d-Mixed_6a.branch3x3stack.2-134
+  <<Sequential-Mixed_6a.branch3x3stack-125
+  >>MaxPool2d-Mixed_6a.branchpool-138
+------>
+max_pool2d_with_indices-96
+<------
+  <<MaxPool2d-Mixed_6a.branchpool-138
+------>
+cat-97
+<------
+<<InceptionB-Mixed_6a-120
+>>InceptionC-Mixed_6b-139
+  >>BasicConv2d-Mixed_6b.branch1x1-140
+    >>Conv2d-Mixed_6b.branch1x1.conv-141
+------>
+convolution-98
+<------
+    <<Conv2d-Mixed_6b.branch1x1.conv-141
+    >>BatchNorm2d-Mixed_6b.branch1x1.bn-142
+------>
+native_batch_norm-99
+<------
+    <<BatchNorm2d-Mixed_6b.branch1x1.bn-142
+    >>ReLU-Mixed_6b.branch1x1.relu-143
+------>
+relu_-100
+<------
+    <<ReLU-Mixed_6b.branch1x1.relu-143
+  <<BasicConv2d-Mixed_6b.branch1x1-140
+  >>Sequential-Mixed_6b.branch7x7-144
+    >>BasicConv2d-Mixed_6b.branch7x7.0-145
+      >>Conv2d-Mixed_6b.branch7x7.0.conv-146
+------>
+convolution-101
+<------
+      <<Conv2d-Mixed_6b.branch7x7.0.conv-146
+      >>BatchNorm2d-Mixed_6b.branch7x7.0.bn-147
+------>
+native_batch_norm-102
+<------
+      <<BatchNorm2d-Mixed_6b.branch7x7.0.bn-147
+      >>ReLU-Mixed_6b.branch7x7.0.relu-148
+------>
+relu_-103
+<------
+      <<ReLU-Mixed_6b.branch7x7.0.relu-148
+    <<BasicConv2d-Mixed_6b.branch7x7.0-145
+    >>BasicConv2d-Mixed_6b.branch7x7.1-149
+      >>Conv2d-Mixed_6b.branch7x7.1.conv-150
+------>
+convolution-104
+<------
+      <<Conv2d-Mixed_6b.branch7x7.1.conv-150
+      >>BatchNorm2d-Mixed_6b.branch7x7.1.bn-151
+------>
+native_batch_norm-105
+<------
+      <<BatchNorm2d-Mixed_6b.branch7x7.1.bn-151
+      >>ReLU-Mixed_6b.branch7x7.1.relu-152
+------>
+relu_-106
+<------
+      <<ReLU-Mixed_6b.branch7x7.1.relu-152
+    <<BasicConv2d-Mixed_6b.branch7x7.1-149
+    >>BasicConv2d-Mixed_6b.branch7x7.2-153
+      >>Conv2d-Mixed_6b.branch7x7.2.conv-154
+------>
+convolution-107
+<------
+      <<Conv2d-Mixed_6b.branch7x7.2.conv-154
+      >>BatchNorm2d-Mixed_6b.branch7x7.2.bn-155
+------>
+native_batch_norm-108
+<------
+      <<BatchNorm2d-Mixed_6b.branch7x7.2.bn-155
+      >>ReLU-Mixed_6b.branch7x7.2.relu-156
+------>
+relu_-109
+<------
+      <<ReLU-Mixed_6b.branch7x7.2.relu-156
+    <<BasicConv2d-Mixed_6b.branch7x7.2-153
+  <<Sequential-Mixed_6b.branch7x7-144
+  >>Sequential-Mixed_6b.branch7x7stack-157
+    >>BasicConv2d-Mixed_6b.branch7x7stack.0-158
+      >>Conv2d-Mixed_6b.branch7x7stack.0.conv-159
+------>
+convolution-110
+<------
+      <<Conv2d-Mixed_6b.branch7x7stack.0.conv-159
+      >>BatchNorm2d-Mixed_6b.branch7x7stack.0.bn-160
+------>
+native_batch_norm-111
+<------
+      <<BatchNorm2d-Mixed_6b.branch7x7stack.0.bn-160
+      >>ReLU-Mixed_6b.branch7x7stack.0.relu-161
+------>
+relu_-112
+<------
+      <<ReLU-Mixed_6b.branch7x7stack.0.relu-161
+    <<BasicConv2d-Mixed_6b.branch7x7stack.0-158
+    >>BasicConv2d-Mixed_6b.branch7x7stack.1-162
+      >>Conv2d-Mixed_6b.branch7x7stack.1.conv-163
+------>
+convolution-113
+<------
+      <<Conv2d-Mixed_6b.branch7x7stack.1.conv-163
+      >>BatchNorm2d-Mixed_6b.branch7x7stack.1.bn-164
+------>
+native_batch_norm-114
+<------
+      <<BatchNorm2d-Mixed_6b.branch7x7stack.1.bn-164
+      >>ReLU-Mixed_6b.branch7x7stack.1.relu-165
+------>
+relu_-115
+<------
+      <<ReLU-Mixed_6b.branch7x7stack.1.relu-165
+    <<BasicConv2d-Mixed_6b.branch7x7stack.1-162
+    >>BasicConv2d-Mixed_6b.branch7x7stack.2-166
+      >>Conv2d-Mixed_6b.branch7x7stack.2.conv-167
+------>
+convolution-116
+<------
+      <<Conv2d-Mixed_6b.branch7x7stack.2.conv-167
+      >>BatchNorm2d-Mixed_6b.branch7x7stack.2.bn-168
+------>
+native_batch_norm-117
+<------
+      <<BatchNorm2d-Mixed_6b.branch7x7stack.2.bn-168
+      >>ReLU-Mixed_6b.branch7x7stack.2.relu-169
+------>
+relu_-118
+<------
+      <<ReLU-Mixed_6b.branch7x7stack.2.relu-169
+    <<BasicConv2d-Mixed_6b.branch7x7stack.2-166
+    >>BasicConv2d-Mixed_6b.branch7x7stack.3-170
+      >>Conv2d-Mixed_6b.branch7x7stack.3.conv-171
+------>
+convolution-119
+<------
+      <<Conv2d-Mixed_6b.branch7x7stack.3.conv-171
+      >>BatchNorm2d-Mixed_6b.branch7x7stack.3.bn-172
+------>
+native_batch_norm-120
+<------
+      <<BatchNorm2d-Mixed_6b.branch7x7stack.3.bn-172
+      >>ReLU-Mixed_6b.branch7x7stack.3.relu-173
+------>
+relu_-121
+<------
+      <<ReLU-Mixed_6b.branch7x7stack.3.relu-173
+    <<BasicConv2d-Mixed_6b.branch7x7stack.3-170
+    >>BasicConv2d-Mixed_6b.branch7x7stack.4-174
+      >>Conv2d-Mixed_6b.branch7x7stack.4.conv-175
+------>
+convolution-122
+<------
+      <<Conv2d-Mixed_6b.branch7x7stack.4.conv-175
+      >>BatchNorm2d-Mixed_6b.branch7x7stack.4.bn-176
+------>
+native_batch_norm-123
+<------
+      <<BatchNorm2d-Mixed_6b.branch7x7stack.4.bn-176
+      >>ReLU-Mixed_6b.branch7x7stack.4.relu-177
+------>
+relu_-124
+<------
+      <<ReLU-Mixed_6b.branch7x7stack.4.relu-177
+    <<BasicConv2d-Mixed_6b.branch7x7stack.4-174
+  <<Sequential-Mixed_6b.branch7x7stack-157
+  >>Sequential-Mixed_6b.branch_pool-178
+    >>AvgPool2d-Mixed_6b.branch_pool.0-179
+------>
+avg_pool2d-125
+<------
+    <<AvgPool2d-Mixed_6b.branch_pool.0-179
+    >>BasicConv2d-Mixed_6b.branch_pool.1-180
+      >>Conv2d-Mixed_6b.branch_pool.1.conv-181
+------>
+convolution-126
+<------
+      <<Conv2d-Mixed_6b.branch_pool.1.conv-181
+      >>BatchNorm2d-Mixed_6b.branch_pool.1.bn-182
+------>
+native_batch_norm-127
+<------
+      <<BatchNorm2d-Mixed_6b.branch_pool.1.bn-182
+      >>ReLU-Mixed_6b.branch_pool.1.relu-183
+------>
+relu_-128
+<------
+      <<ReLU-Mixed_6b.branch_pool.1.relu-183
+    <<BasicConv2d-Mixed_6b.branch_pool.1-180
+  <<Sequential-Mixed_6b.branch_pool-178
+------>
+cat-129
+<------
+<<InceptionC-Mixed_6b-139
+>>InceptionC-Mixed_6c-184
+  >>BasicConv2d-Mixed_6c.branch1x1-185
+    >>Conv2d-Mixed_6c.branch1x1.conv-186
+------>
+convolution-130
+<------
+    <<Conv2d-Mixed_6c.branch1x1.conv-186
+    >>BatchNorm2d-Mixed_6c.branch1x1.bn-187
+------>
+native_batch_norm-131
+<------
+    <<BatchNorm2d-Mixed_6c.branch1x1.bn-187
+    >>ReLU-Mixed_6c.branch1x1.relu-188
+------>
+relu_-132
+<------
+    <<ReLU-Mixed_6c.branch1x1.relu-188
+  <<BasicConv2d-Mixed_6c.branch1x1-185
+  >>Sequential-Mixed_6c.branch7x7-189
+    >>BasicConv2d-Mixed_6c.branch7x7.0-190
+      >>Conv2d-Mixed_6c.branch7x7.0.conv-191
+------>
+convolution-133
+<------
+      <<Conv2d-Mixed_6c.branch7x7.0.conv-191
+      >>BatchNorm2d-Mixed_6c.branch7x7.0.bn-192
+------>
+native_batch_norm-134
+<------
+      <<BatchNorm2d-Mixed_6c.branch7x7.0.bn-192
+      >>ReLU-Mixed_6c.branch7x7.0.relu-193
+------>
+relu_-135
+<------
+      <<ReLU-Mixed_6c.branch7x7.0.relu-193
+    <<BasicConv2d-Mixed_6c.branch7x7.0-190
+    >>BasicConv2d-Mixed_6c.branch7x7.1-194
+      >>Conv2d-Mixed_6c.branch7x7.1.conv-195
+------>
+convolution-136
+<------
+      <<Conv2d-Mixed_6c.branch7x7.1.conv-195
+      >>BatchNorm2d-Mixed_6c.branch7x7.1.bn-196
+------>
+native_batch_norm-137
+<------
+      <<BatchNorm2d-Mixed_6c.branch7x7.1.bn-196
+      >>ReLU-Mixed_6c.branch7x7.1.relu-197
+------>
+relu_-138
+<------
+      <<ReLU-Mixed_6c.branch7x7.1.relu-197
+    <<BasicConv2d-Mixed_6c.branch7x7.1-194
+    >>BasicConv2d-Mixed_6c.branch7x7.2-198
+      >>Conv2d-Mixed_6c.branch7x7.2.conv-199
+------>
+convolution-139
+<------
+      <<Conv2d-Mixed_6c.branch7x7.2.conv-199
+      >>BatchNorm2d-Mixed_6c.branch7x7.2.bn-200
+------>
+native_batch_norm-140
+<------
+      <<BatchNorm2d-Mixed_6c.branch7x7.2.bn-200
+      >>ReLU-Mixed_6c.branch7x7.2.relu-201
+------>
+relu_-141
+<------
+      <<ReLU-Mixed_6c.branch7x7.2.relu-201
+    <<BasicConv2d-Mixed_6c.branch7x7.2-198
+  <<Sequential-Mixed_6c.branch7x7-189
+  >>Sequential-Mixed_6c.branch7x7stack-202
+    >>BasicConv2d-Mixed_6c.branch7x7stack.0-203
+      >>Conv2d-Mixed_6c.branch7x7stack.0.conv-204
+------>
+convolution-142
+<------
+      <<Conv2d-Mixed_6c.branch7x7stack.0.conv-204
+      >>BatchNorm2d-Mixed_6c.branch7x7stack.0.bn-205
+------>
+native_batch_norm-143
+<------
+      <<BatchNorm2d-Mixed_6c.branch7x7stack.0.bn-205
+      >>ReLU-Mixed_6c.branch7x7stack.0.relu-206
+------>
+relu_-144
+<------
+      <<ReLU-Mixed_6c.branch7x7stack.0.relu-206
+    <<BasicConv2d-Mixed_6c.branch7x7stack.0-203
+    >>BasicConv2d-Mixed_6c.branch7x7stack.1-207
+      >>Conv2d-Mixed_6c.branch7x7stack.1.conv-208
+------>
+convolution-145
+<------
+      <<Conv2d-Mixed_6c.branch7x7stack.1.conv-208
+      >>BatchNorm2d-Mixed_6c.branch7x7stack.1.bn-209
+------>
+native_batch_norm-146
+<------
+      <<BatchNorm2d-Mixed_6c.branch7x7stack.1.bn-209
+      >>ReLU-Mixed_6c.branch7x7stack.1.relu-210
+------>
+relu_-147
+<------
+      <<ReLU-Mixed_6c.branch7x7stack.1.relu-210
+    <<BasicConv2d-Mixed_6c.branch7x7stack.1-207
+    >>BasicConv2d-Mixed_6c.branch7x7stack.2-211
+      >>Conv2d-Mixed_6c.branch7x7stack.2.conv-212
+------>
+convolution-148
+<------
+      <<Conv2d-Mixed_6c.branch7x7stack.2.conv-212
+      >>BatchNorm2d-Mixed_6c.branch7x7stack.2.bn-213
+------>
+native_batch_norm-149
+<------
+      <<BatchNorm2d-Mixed_6c.branch7x7stack.2.bn-213
+      >>ReLU-Mixed_6c.branch7x7stack.2.relu-214
+------>
+relu_-150
+<------
+      <<ReLU-Mixed_6c.branch7x7stack.2.relu-214
+    <<BasicConv2d-Mixed_6c.branch7x7stack.2-211
+    >>BasicConv2d-Mixed_6c.branch7x7stack.3-215
+      >>Conv2d-Mixed_6c.branch7x7stack.3.conv-216
+------>
+convolution-151
+<------
+      <<Conv2d-Mixed_6c.branch7x7stack.3.conv-216
+      >>BatchNorm2d-Mixed_6c.branch7x7stack.3.bn-217
+------>
+native_batch_norm-152
+<------
+      <<BatchNorm2d-Mixed_6c.branch7x7stack.3.bn-217
+      >>ReLU-Mixed_6c.branch7x7stack.3.relu-218
+------>
+relu_-153
+<------
+      <<ReLU-Mixed_6c.branch7x7stack.3.relu-218
+    <<BasicConv2d-Mixed_6c.branch7x7stack.3-215
+    >>BasicConv2d-Mixed_6c.branch7x7stack.4-219
+      >>Conv2d-Mixed_6c.branch7x7stack.4.conv-220
+------>
+convolution-154
+<------
+      <<Conv2d-Mixed_6c.branch7x7stack.4.conv-220
+      >>BatchNorm2d-Mixed_6c.branch7x7stack.4.bn-221
+------>
+native_batch_norm-155
+<------
+      <<BatchNorm2d-Mixed_6c.branch7x7stack.4.bn-221
+      >>ReLU-Mixed_6c.branch7x7stack.4.relu-222
+------>
+relu_-156
+<------
+      <<ReLU-Mixed_6c.branch7x7stack.4.relu-222
+    <<BasicConv2d-Mixed_6c.branch7x7stack.4-219
+  <<Sequential-Mixed_6c.branch7x7stack-202
+  >>Sequential-Mixed_6c.branch_pool-223
+    >>AvgPool2d-Mixed_6c.branch_pool.0-224
+------>
+avg_pool2d-157
+<------
+    <<AvgPool2d-Mixed_6c.branch_pool.0-224
+    >>BasicConv2d-Mixed_6c.branch_pool.1-225
+      >>Conv2d-Mixed_6c.branch_pool.1.conv-226
+------>
+convolution-158
+<------
+      <<Conv2d-Mixed_6c.branch_pool.1.conv-226
+      >>BatchNorm2d-Mixed_6c.branch_pool.1.bn-227
+------>
+native_batch_norm-159
+<------
+      <<BatchNorm2d-Mixed_6c.branch_pool.1.bn-227
+      >>ReLU-Mixed_6c.branch_pool.1.relu-228
+------>
+relu_-160
+<------
+      <<ReLU-Mixed_6c.branch_pool.1.relu-228
+    <<BasicConv2d-Mixed_6c.branch_pool.1-225
+  <<Sequential-Mixed_6c.branch_pool-223
+------>
+cat-161
+<------
+<<InceptionC-Mixed_6c-184
+>>InceptionC-Mixed_6d-229
+  >>BasicConv2d-Mixed_6d.branch1x1-230
+    >>Conv2d-Mixed_6d.branch1x1.conv-231
+------>
+convolution-162
+<------
+    <<Conv2d-Mixed_6d.branch1x1.conv-231
+    >>BatchNorm2d-Mixed_6d.branch1x1.bn-232
+------>
+native_batch_norm-163
+<------
+    <<BatchNorm2d-Mixed_6d.branch1x1.bn-232
+    >>ReLU-Mixed_6d.branch1x1.relu-233
+------>
+relu_-164
+<------
+    <<ReLU-Mixed_6d.branch1x1.relu-233
+  <<BasicConv2d-Mixed_6d.branch1x1-230
+  >>Sequential-Mixed_6d.branch7x7-234
+    >>BasicConv2d-Mixed_6d.branch7x7.0-235
+      >>Conv2d-Mixed_6d.branch7x7.0.conv-236
+------>
+convolution-165
+<------
+      <<Conv2d-Mixed_6d.branch7x7.0.conv-236
+      >>BatchNorm2d-Mixed_6d.branch7x7.0.bn-237
+------>
+native_batch_norm-166
+<------
+      <<BatchNorm2d-Mixed_6d.branch7x7.0.bn-237
+      >>ReLU-Mixed_6d.branch7x7.0.relu-238
+------>
+relu_-167
+<------
+      <<ReLU-Mixed_6d.branch7x7.0.relu-238
+    <<BasicConv2d-Mixed_6d.branch7x7.0-235
+    >>BasicConv2d-Mixed_6d.branch7x7.1-239
+      >>Conv2d-Mixed_6d.branch7x7.1.conv-240
+------>
+convolution-168
+<------
+      <<Conv2d-Mixed_6d.branch7x7.1.conv-240
+      >>BatchNorm2d-Mixed_6d.branch7x7.1.bn-241
+------>
+native_batch_norm-169
+<------
+      <<BatchNorm2d-Mixed_6d.branch7x7.1.bn-241
+      >>ReLU-Mixed_6d.branch7x7.1.relu-242
+------>
+relu_-170
+<------
+      <<ReLU-Mixed_6d.branch7x7.1.relu-242
+    <<BasicConv2d-Mixed_6d.branch7x7.1-239
+    >>BasicConv2d-Mixed_6d.branch7x7.2-243
+      >>Conv2d-Mixed_6d.branch7x7.2.conv-244
+------>
+convolution-171
+<------
+      <<Conv2d-Mixed_6d.branch7x7.2.conv-244
+      >>BatchNorm2d-Mixed_6d.branch7x7.2.bn-245
+------>
+native_batch_norm-172
+<------
+      <<BatchNorm2d-Mixed_6d.branch7x7.2.bn-245
+      >>ReLU-Mixed_6d.branch7x7.2.relu-246
+------>
+relu_-173
+<------
+      <<ReLU-Mixed_6d.branch7x7.2.relu-246
+    <<BasicConv2d-Mixed_6d.branch7x7.2-243
+  <<Sequential-Mixed_6d.branch7x7-234
+  >>Sequential-Mixed_6d.branch7x7stack-247
+    >>BasicConv2d-Mixed_6d.branch7x7stack.0-248
+      >>Conv2d-Mixed_6d.branch7x7stack.0.conv-249
+------>
+convolution-174
+<------
+      <<Conv2d-Mixed_6d.branch7x7stack.0.conv-249
+      >>BatchNorm2d-Mixed_6d.branch7x7stack.0.bn-250
+------>
+native_batch_norm-175
+<------
+      <<BatchNorm2d-Mixed_6d.branch7x7stack.0.bn-250
+      >>ReLU-Mixed_6d.branch7x7stack.0.relu-251
+------>
+relu_-176
+<------
+      <<ReLU-Mixed_6d.branch7x7stack.0.relu-251
+    <<BasicConv2d-Mixed_6d.branch7x7stack.0-248
+    >>BasicConv2d-Mixed_6d.branch7x7stack.1-252
+      >>Conv2d-Mixed_6d.branch7x7stack.1.conv-253
+------>
+convolution-177
+<------
+      <<Conv2d-Mixed_6d.branch7x7stack.1.conv-253
+      >>BatchNorm2d-Mixed_6d.branch7x7stack.1.bn-254
+------>
+native_batch_norm-178
+<------
+      <<BatchNorm2d-Mixed_6d.branch7x7stack.1.bn-254
+      >>ReLU-Mixed_6d.branch7x7stack.1.relu-255
+------>
+relu_-179
+<------
+      <<ReLU-Mixed_6d.branch7x7stack.1.relu-255
+    <<BasicConv2d-Mixed_6d.branch7x7stack.1-252
+    >>BasicConv2d-Mixed_6d.branch7x7stack.2-256
+      >>Conv2d-Mixed_6d.branch7x7stack.2.conv-257
+------>
+convolution-180
+<------
+      <<Conv2d-Mixed_6d.branch7x7stack.2.conv-257
+      >>BatchNorm2d-Mixed_6d.branch7x7stack.2.bn-258
+------>
+native_batch_norm-181
+<------
+      <<BatchNorm2d-Mixed_6d.branch7x7stack.2.bn-258
+      >>ReLU-Mixed_6d.branch7x7stack.2.relu-259
+------>
+relu_-182
+<------
+      <<ReLU-Mixed_6d.branch7x7stack.2.relu-259
+    <<BasicConv2d-Mixed_6d.branch7x7stack.2-256
+    >>BasicConv2d-Mixed_6d.branch7x7stack.3-260
+      >>Conv2d-Mixed_6d.branch7x7stack.3.conv-261
+------>
+convolution-183
+<------
+      <<Conv2d-Mixed_6d.branch7x7stack.3.conv-261
+      >>BatchNorm2d-Mixed_6d.branch7x7stack.3.bn-262
+------>
+native_batch_norm-184
+<------
+      <<BatchNorm2d-Mixed_6d.branch7x7stack.3.bn-262
+      >>ReLU-Mixed_6d.branch7x7stack.3.relu-263
+------>
+relu_-185
+<------
+      <<ReLU-Mixed_6d.branch7x7stack.3.relu-263
+    <<BasicConv2d-Mixed_6d.branch7x7stack.3-260
+    >>BasicConv2d-Mixed_6d.branch7x7stack.4-264
+      >>Conv2d-Mixed_6d.branch7x7stack.4.conv-265
+------>
+convolution-186
+<------
+      <<Conv2d-Mixed_6d.branch7x7stack.4.conv-265
+      >>BatchNorm2d-Mixed_6d.branch7x7stack.4.bn-266
+------>
+native_batch_norm-187
+<------
+      <<BatchNorm2d-Mixed_6d.branch7x7stack.4.bn-266
+      >>ReLU-Mixed_6d.branch7x7stack.4.relu-267
+------>
+relu_-188
+<------
+      <<ReLU-Mixed_6d.branch7x7stack.4.relu-267
+    <<BasicConv2d-Mixed_6d.branch7x7stack.4-264
+  <<Sequential-Mixed_6d.branch7x7stack-247
+  >>Sequential-Mixed_6d.branch_pool-268
+    >>AvgPool2d-Mixed_6d.branch_pool.0-269
+------>
+avg_pool2d-189
+<------
+    <<AvgPool2d-Mixed_6d.branch_pool.0-269
+    >>BasicConv2d-Mixed_6d.branch_pool.1-270
+      >>Conv2d-Mixed_6d.branch_pool.1.conv-271
+------>
+convolution-190
+<------
+      <<Conv2d-Mixed_6d.branch_pool.1.conv-271
+      >>BatchNorm2d-Mixed_6d.branch_pool.1.bn-272
+------>
+native_batch_norm-191
+<------
+      <<BatchNorm2d-Mixed_6d.branch_pool.1.bn-272
+      >>ReLU-Mixed_6d.branch_pool.1.relu-273
+------>
+relu_-192
+<------
+      <<ReLU-Mixed_6d.branch_pool.1.relu-273
+    <<BasicConv2d-Mixed_6d.branch_pool.1-270
+  <<Sequential-Mixed_6d.branch_pool-268
+------>
+cat-193
+<------
+<<InceptionC-Mixed_6d-229
+>>InceptionC-Mixed_6e-274
+  >>BasicConv2d-Mixed_6e.branch1x1-275
+    >>Conv2d-Mixed_6e.branch1x1.conv-276
+------>
+convolution-194
+<------
+    <<Conv2d-Mixed_6e.branch1x1.conv-276
+    >>BatchNorm2d-Mixed_6e.branch1x1.bn-277
+------>
+native_batch_norm-195
+<------
+    <<BatchNorm2d-Mixed_6e.branch1x1.bn-277
+    >>ReLU-Mixed_6e.branch1x1.relu-278
+------>
+relu_-196
+<------
+    <<ReLU-Mixed_6e.branch1x1.relu-278
+  <<BasicConv2d-Mixed_6e.branch1x1-275
+  >>Sequential-Mixed_6e.branch7x7-279
+    >>BasicConv2d-Mixed_6e.branch7x7.0-280
+      >>Conv2d-Mixed_6e.branch7x7.0.conv-281
+------>
+convolution-197
+<------
+      <<Conv2d-Mixed_6e.branch7x7.0.conv-281
+      >>BatchNorm2d-Mixed_6e.branch7x7.0.bn-282
+------>
+native_batch_norm-198
+<------
+      <<BatchNorm2d-Mixed_6e.branch7x7.0.bn-282
+      >>ReLU-Mixed_6e.branch7x7.0.relu-283
+------>
+relu_-199
+<------
+      <<ReLU-Mixed_6e.branch7x7.0.relu-283
+    <<BasicConv2d-Mixed_6e.branch7x7.0-280
+    >>BasicConv2d-Mixed_6e.branch7x7.1-284
+      >>Conv2d-Mixed_6e.branch7x7.1.conv-285
+------>
+convolution-200
+<------
+      <<Conv2d-Mixed_6e.branch7x7.1.conv-285
+      >>BatchNorm2d-Mixed_6e.branch7x7.1.bn-286
+------>
+native_batch_norm-201
+<------
+      <<BatchNorm2d-Mixed_6e.branch7x7.1.bn-286
+      >>ReLU-Mixed_6e.branch7x7.1.relu-287
+------>
+relu_-202
+<------
+      <<ReLU-Mixed_6e.branch7x7.1.relu-287
+    <<BasicConv2d-Mixed_6e.branch7x7.1-284
+    >>BasicConv2d-Mixed_6e.branch7x7.2-288
+      >>Conv2d-Mixed_6e.branch7x7.2.conv-289
+------>
+convolution-203
+<------
+      <<Conv2d-Mixed_6e.branch7x7.2.conv-289
+      >>BatchNorm2d-Mixed_6e.branch7x7.2.bn-290
+------>
+native_batch_norm-204
+<------
+      <<BatchNorm2d-Mixed_6e.branch7x7.2.bn-290
+      >>ReLU-Mixed_6e.branch7x7.2.relu-291
+------>
+relu_-205
+<------
+      <<ReLU-Mixed_6e.branch7x7.2.relu-291
+    <<BasicConv2d-Mixed_6e.branch7x7.2-288
+  <<Sequential-Mixed_6e.branch7x7-279
+  >>Sequential-Mixed_6e.branch7x7stack-292
+    >>BasicConv2d-Mixed_6e.branch7x7stack.0-293
+      >>Conv2d-Mixed_6e.branch7x7stack.0.conv-294
+------>
+convolution-206
+<------
+      <<Conv2d-Mixed_6e.branch7x7stack.0.conv-294
+      >>BatchNorm2d-Mixed_6e.branch7x7stack.0.bn-295
+------>
+native_batch_norm-207
+<------
+      <<BatchNorm2d-Mixed_6e.branch7x7stack.0.bn-295
+      >>ReLU-Mixed_6e.branch7x7stack.0.relu-296
+------>
+relu_-208
+<------
+      <<ReLU-Mixed_6e.branch7x7stack.0.relu-296
+    <<BasicConv2d-Mixed_6e.branch7x7stack.0-293
+    >>BasicConv2d-Mixed_6e.branch7x7stack.1-297
+      >>Conv2d-Mixed_6e.branch7x7stack.1.conv-298
+------>
+convolution-209
+<------
+      <<Conv2d-Mixed_6e.branch7x7stack.1.conv-298
+      >>BatchNorm2d-Mixed_6e.branch7x7stack.1.bn-299
+------>
+native_batch_norm-210
+<------
+      <<BatchNorm2d-Mixed_6e.branch7x7stack.1.bn-299
+      >>ReLU-Mixed_6e.branch7x7stack.1.relu-300
+------>
+relu_-211
+<------
+      <<ReLU-Mixed_6e.branch7x7stack.1.relu-300
+    <<BasicConv2d-Mixed_6e.branch7x7stack.1-297
+    >>BasicConv2d-Mixed_6e.branch7x7stack.2-301
+      >>Conv2d-Mixed_6e.branch7x7stack.2.conv-302
+------>
+convolution-212
+<------
+      <<Conv2d-Mixed_6e.branch7x7stack.2.conv-302
+      >>BatchNorm2d-Mixed_6e.branch7x7stack.2.bn-303
+------>
+native_batch_norm-213
+<------
+      <<BatchNorm2d-Mixed_6e.branch7x7stack.2.bn-303
+      >>ReLU-Mixed_6e.branch7x7stack.2.relu-304
+------>
+relu_-214
+<------
+      <<ReLU-Mixed_6e.branch7x7stack.2.relu-304
+    <<BasicConv2d-Mixed_6e.branch7x7stack.2-301
+    >>BasicConv2d-Mixed_6e.branch7x7stack.3-305
+      >>Conv2d-Mixed_6e.branch7x7stack.3.conv-306
+------>
+convolution-215
+<------
+      <<Conv2d-Mixed_6e.branch7x7stack.3.conv-306
+      >>BatchNorm2d-Mixed_6e.branch7x7stack.3.bn-307
+------>
+native_batch_norm-216
+<------
+      <<BatchNorm2d-Mixed_6e.branch7x7stack.3.bn-307
+      >>ReLU-Mixed_6e.branch7x7stack.3.relu-308
+------>
+relu_-217
+<------
+      <<ReLU-Mixed_6e.branch7x7stack.3.relu-308
+    <<BasicConv2d-Mixed_6e.branch7x7stack.3-305
+    >>BasicConv2d-Mixed_6e.branch7x7stack.4-309
+      >>Conv2d-Mixed_6e.branch7x7stack.4.conv-310
+------>
+convolution-218
+<------
+      <<Conv2d-Mixed_6e.branch7x7stack.4.conv-310
+      >>BatchNorm2d-Mixed_6e.branch7x7stack.4.bn-311
+------>
+native_batch_norm-219
+<------
+      <<BatchNorm2d-Mixed_6e.branch7x7stack.4.bn-311
+      >>ReLU-Mixed_6e.branch7x7stack.4.relu-312
+------>
+relu_-220
+<------
+      <<ReLU-Mixed_6e.branch7x7stack.4.relu-312
+    <<BasicConv2d-Mixed_6e.branch7x7stack.4-309
+  <<Sequential-Mixed_6e.branch7x7stack-292
+  >>Sequential-Mixed_6e.branch_pool-313
+    >>AvgPool2d-Mixed_6e.branch_pool.0-314
+------>
+avg_pool2d-221
+<------
+    <<AvgPool2d-Mixed_6e.branch_pool.0-314
+    >>BasicConv2d-Mixed_6e.branch_pool.1-315
+      >>Conv2d-Mixed_6e.branch_pool.1.conv-316
+------>
+convolution-222
+<------
+      <<Conv2d-Mixed_6e.branch_pool.1.conv-316
+      >>BatchNorm2d-Mixed_6e.branch_pool.1.bn-317
+------>
+native_batch_norm-223
+<------
+      <<BatchNorm2d-Mixed_6e.branch_pool.1.bn-317
+      >>ReLU-Mixed_6e.branch_pool.1.relu-318
+------>
+relu_-224
+<------
+      <<ReLU-Mixed_6e.branch_pool.1.relu-318
+    <<BasicConv2d-Mixed_6e.branch_pool.1-315
+  <<Sequential-Mixed_6e.branch_pool-313
+------>
+cat-225
+<------
+<<InceptionC-Mixed_6e-274
+>>InceptionD-Mixed_7a-319
+  >>Sequential-Mixed_7a.branch3x3-320
+    >>BasicConv2d-Mixed_7a.branch3x3.0-321
+      >>Conv2d-Mixed_7a.branch3x3.0.conv-322
+------>
+convolution-226
+<------
+      <<Conv2d-Mixed_7a.branch3x3.0.conv-322
+      >>BatchNorm2d-Mixed_7a.branch3x3.0.bn-323
+------>
+native_batch_norm-227
+<------
+      <<BatchNorm2d-Mixed_7a.branch3x3.0.bn-323
+      >>ReLU-Mixed_7a.branch3x3.0.relu-324
+------>
+relu_-228
+<------
+      <<ReLU-Mixed_7a.branch3x3.0.relu-324
+    <<BasicConv2d-Mixed_7a.branch3x3.0-321
+    >>BasicConv2d-Mixed_7a.branch3x3.1-325
+      >>Conv2d-Mixed_7a.branch3x3.1.conv-326
+------>
+convolution-229
+<------
+      <<Conv2d-Mixed_7a.branch3x3.1.conv-326
+      >>BatchNorm2d-Mixed_7a.branch3x3.1.bn-327
+------>
+native_batch_norm-230
+<------
+      <<BatchNorm2d-Mixed_7a.branch3x3.1.bn-327
+      >>ReLU-Mixed_7a.branch3x3.1.relu-328
+------>
+relu_-231
+<------
+      <<ReLU-Mixed_7a.branch3x3.1.relu-328
+    <<BasicConv2d-Mixed_7a.branch3x3.1-325
+  <<Sequential-Mixed_7a.branch3x3-320
+  >>Sequential-Mixed_7a.branch7x7-329
+    >>BasicConv2d-Mixed_7a.branch7x7.0-330
+      >>Conv2d-Mixed_7a.branch7x7.0.conv-331
+------>
+convolution-232
+<------
+      <<Conv2d-Mixed_7a.branch7x7.0.conv-331
+      >>BatchNorm2d-Mixed_7a.branch7x7.0.bn-332
+------>
+native_batch_norm-233
+<------
+      <<BatchNorm2d-Mixed_7a.branch7x7.0.bn-332
+      >>ReLU-Mixed_7a.branch7x7.0.relu-333
+------>
+relu_-234
+<------
+      <<ReLU-Mixed_7a.branch7x7.0.relu-333
+    <<BasicConv2d-Mixed_7a.branch7x7.0-330
+    >>BasicConv2d-Mixed_7a.branch7x7.1-334
+      >>Conv2d-Mixed_7a.branch7x7.1.conv-335
+------>
+convolution-235
+<------
+      <<Conv2d-Mixed_7a.branch7x7.1.conv-335
+      >>BatchNorm2d-Mixed_7a.branch7x7.1.bn-336
+------>
+native_batch_norm-236
+<------
+      <<BatchNorm2d-Mixed_7a.branch7x7.1.bn-336
+      >>ReLU-Mixed_7a.branch7x7.1.relu-337
+------>
+relu_-237
+<------
+      <<ReLU-Mixed_7a.branch7x7.1.relu-337
+    <<BasicConv2d-Mixed_7a.branch7x7.1-334
+    >>BasicConv2d-Mixed_7a.branch7x7.2-338
+      >>Conv2d-Mixed_7a.branch7x7.2.conv-339
+------>
+convolution-238
+<------
+      <<Conv2d-Mixed_7a.branch7x7.2.conv-339
+      >>BatchNorm2d-Mixed_7a.branch7x7.2.bn-340
+------>
+native_batch_norm-239
+<------
+      <<BatchNorm2d-Mixed_7a.branch7x7.2.bn-340
+      >>ReLU-Mixed_7a.branch7x7.2.relu-341
+------>
+relu_-240
+<------
+      <<ReLU-Mixed_7a.branch7x7.2.relu-341
+    <<BasicConv2d-Mixed_7a.branch7x7.2-338
+    >>BasicConv2d-Mixed_7a.branch7x7.3-342
+      >>Conv2d-Mixed_7a.branch7x7.3.conv-343
+------>
+convolution-241
+<------
+      <<Conv2d-Mixed_7a.branch7x7.3.conv-343
+      >>BatchNorm2d-Mixed_7a.branch7x7.3.bn-344
+------>
+native_batch_norm-242
+<------
+      <<BatchNorm2d-Mixed_7a.branch7x7.3.bn-344
+      >>ReLU-Mixed_7a.branch7x7.3.relu-345
+------>
+relu_-243
+<------
+      <<ReLU-Mixed_7a.branch7x7.3.relu-345
+    <<BasicConv2d-Mixed_7a.branch7x7.3-342
+  <<Sequential-Mixed_7a.branch7x7-329
+  >>AvgPool2d-Mixed_7a.branchpool-346
+------>
+avg_pool2d-244
+<------
+  <<AvgPool2d-Mixed_7a.branchpool-346
+------>
+cat-245
+<------
+<<InceptionD-Mixed_7a-319
+>>InceptionE-Mixed_7b-347
+  >>BasicConv2d-Mixed_7b.branch1x1-348
+    >>Conv2d-Mixed_7b.branch1x1.conv-349
+------>
+convolution-246
+<------
+    <<Conv2d-Mixed_7b.branch1x1.conv-349
+    >>BatchNorm2d-Mixed_7b.branch1x1.bn-350
+------>
+native_batch_norm-247
+<------
+    <<BatchNorm2d-Mixed_7b.branch1x1.bn-350
+    >>ReLU-Mixed_7b.branch1x1.relu-351
+------>
+relu_-248
+<------
+    <<ReLU-Mixed_7b.branch1x1.relu-351
+  <<BasicConv2d-Mixed_7b.branch1x1-348
+  >>BasicConv2d-Mixed_7b.branch3x3_1-352
+    >>Conv2d-Mixed_7b.branch3x3_1.conv-353
+------>
+convolution-249
+<------
+    <<Conv2d-Mixed_7b.branch3x3_1.conv-353
+    >>BatchNorm2d-Mixed_7b.branch3x3_1.bn-354
+------>
+native_batch_norm-250
+<------
+    <<BatchNorm2d-Mixed_7b.branch3x3_1.bn-354
+    >>ReLU-Mixed_7b.branch3x3_1.relu-355
+------>
+relu_-251
+<------
+    <<ReLU-Mixed_7b.branch3x3_1.relu-355
+  <<BasicConv2d-Mixed_7b.branch3x3_1-352
+  >>BasicConv2d-Mixed_7b.branch3x3_2a-356
+    >>Conv2d-Mixed_7b.branch3x3_2a.conv-357
+------>
+convolution-252
+<------
+    <<Conv2d-Mixed_7b.branch3x3_2a.conv-357
+    >>BatchNorm2d-Mixed_7b.branch3x3_2a.bn-358
+------>
+native_batch_norm-253
+<------
+    <<BatchNorm2d-Mixed_7b.branch3x3_2a.bn-358
+    >>ReLU-Mixed_7b.branch3x3_2a.relu-359
+------>
+relu_-254
+<------
+    <<ReLU-Mixed_7b.branch3x3_2a.relu-359
+  <<BasicConv2d-Mixed_7b.branch3x3_2a-356
+  >>BasicConv2d-Mixed_7b.branch3x3_2b-360
+    >>Conv2d-Mixed_7b.branch3x3_2b.conv-361
+------>
+convolution-255
+<------
+    <<Conv2d-Mixed_7b.branch3x3_2b.conv-361
+    >>BatchNorm2d-Mixed_7b.branch3x3_2b.bn-362
+------>
+native_batch_norm-256
+<------
+    <<BatchNorm2d-Mixed_7b.branch3x3_2b.bn-362
+    >>ReLU-Mixed_7b.branch3x3_2b.relu-363
+------>
+relu_-257
+<------
+    <<ReLU-Mixed_7b.branch3x3_2b.relu-363
+  <<BasicConv2d-Mixed_7b.branch3x3_2b-360
+------>
+cat-258
+<------
+  >>BasicConv2d-Mixed_7b.branch3x3stack_1-364
+    >>Conv2d-Mixed_7b.branch3x3stack_1.conv-365
+------>
+convolution-259
+<------
+    <<Conv2d-Mixed_7b.branch3x3stack_1.conv-365
+    >>BatchNorm2d-Mixed_7b.branch3x3stack_1.bn-366
+------>
+native_batch_norm-260
+<------
+    <<BatchNorm2d-Mixed_7b.branch3x3stack_1.bn-366
+    >>ReLU-Mixed_7b.branch3x3stack_1.relu-367
+------>
+relu_-261
+<------
+    <<ReLU-Mixed_7b.branch3x3stack_1.relu-367
+  <<BasicConv2d-Mixed_7b.branch3x3stack_1-364
+  >>BasicConv2d-Mixed_7b.branch3x3stack_2-368
+    >>Conv2d-Mixed_7b.branch3x3stack_2.conv-369
+------>
+convolution-262
+<------
+    <<Conv2d-Mixed_7b.branch3x3stack_2.conv-369
+    >>BatchNorm2d-Mixed_7b.branch3x3stack_2.bn-370
+------>
+native_batch_norm-263
+<------
+    <<BatchNorm2d-Mixed_7b.branch3x3stack_2.bn-370
+    >>ReLU-Mixed_7b.branch3x3stack_2.relu-371
+------>
+relu_-264
+<------
+    <<ReLU-Mixed_7b.branch3x3stack_2.relu-371
+  <<BasicConv2d-Mixed_7b.branch3x3stack_2-368
+  >>BasicConv2d-Mixed_7b.branch3x3stack_3a-372
+    >>Conv2d-Mixed_7b.branch3x3stack_3a.conv-373
+------>
+convolution-265
+<------
+    <<Conv2d-Mixed_7b.branch3x3stack_3a.conv-373
+    >>BatchNorm2d-Mixed_7b.branch3x3stack_3a.bn-374
+------>
+native_batch_norm-266
+<------
+    <<BatchNorm2d-Mixed_7b.branch3x3stack_3a.bn-374
+    >>ReLU-Mixed_7b.branch3x3stack_3a.relu-375
+------>
+relu_-267
+<------
+    <<ReLU-Mixed_7b.branch3x3stack_3a.relu-375
+  <<BasicConv2d-Mixed_7b.branch3x3stack_3a-372
+  >>BasicConv2d-Mixed_7b.branch3x3stack_3b-376
+    >>Conv2d-Mixed_7b.branch3x3stack_3b.conv-377
+------>
+convolution-268
+<------
+    <<Conv2d-Mixed_7b.branch3x3stack_3b.conv-377
+    >>BatchNorm2d-Mixed_7b.branch3x3stack_3b.bn-378
+------>
+native_batch_norm-269
+<------
+    <<BatchNorm2d-Mixed_7b.branch3x3stack_3b.bn-378
+    >>ReLU-Mixed_7b.branch3x3stack_3b.relu-379
+------>
+relu_-270
+<------
+    <<ReLU-Mixed_7b.branch3x3stack_3b.relu-379
+  <<BasicConv2d-Mixed_7b.branch3x3stack_3b-376
+------>
+cat-271
+<------
+  >>Sequential-Mixed_7b.branch_pool-380
+    >>AvgPool2d-Mixed_7b.branch_pool.0-381
+------>
+avg_pool2d-272
+<------
+    <<AvgPool2d-Mixed_7b.branch_pool.0-381
+    >>BasicConv2d-Mixed_7b.branch_pool.1-382
+      >>Conv2d-Mixed_7b.branch_pool.1.conv-383
+------>
+convolution-273
+<------
+      <<Conv2d-Mixed_7b.branch_pool.1.conv-383
+      >>BatchNorm2d-Mixed_7b.branch_pool.1.bn-384
+------>
+native_batch_norm-274
+<------
+      <<BatchNorm2d-Mixed_7b.branch_pool.1.bn-384
+      >>ReLU-Mixed_7b.branch_pool.1.relu-385
+------>
+relu_-275
+<------
+      <<ReLU-Mixed_7b.branch_pool.1.relu-385
+    <<BasicConv2d-Mixed_7b.branch_pool.1-382
+  <<Sequential-Mixed_7b.branch_pool-380
+------>
+cat-276
+<------
+<<InceptionE-Mixed_7b-347
+>>InceptionE-Mixed_7c-386
+  >>BasicConv2d-Mixed_7c.branch1x1-387
+    >>Conv2d-Mixed_7c.branch1x1.conv-388
+------>
+convolution-277
+<------
+    <<Conv2d-Mixed_7c.branch1x1.conv-388
+    >>BatchNorm2d-Mixed_7c.branch1x1.bn-389
+------>
+native_batch_norm-278
+<------
+    <<BatchNorm2d-Mixed_7c.branch1x1.bn-389
+    >>ReLU-Mixed_7c.branch1x1.relu-390
+------>
+relu_-279
+<------
+    <<ReLU-Mixed_7c.branch1x1.relu-390
+  <<BasicConv2d-Mixed_7c.branch1x1-387
+  >>BasicConv2d-Mixed_7c.branch3x3_1-391
+    >>Conv2d-Mixed_7c.branch3x3_1.conv-392
+------>
+convolution-280
+<------
+    <<Conv2d-Mixed_7c.branch3x3_1.conv-392
+    >>BatchNorm2d-Mixed_7c.branch3x3_1.bn-393
+------>
+native_batch_norm-281
+<------
+    <<BatchNorm2d-Mixed_7c.branch3x3_1.bn-393
+    >>ReLU-Mixed_7c.branch3x3_1.relu-394
+------>
+relu_-282
+<------
+    <<ReLU-Mixed_7c.branch3x3_1.relu-394
+  <<BasicConv2d-Mixed_7c.branch3x3_1-391
+  >>BasicConv2d-Mixed_7c.branch3x3_2a-395
+    >>Conv2d-Mixed_7c.branch3x3_2a.conv-396
+------>
+convolution-283
+<------
+    <<Conv2d-Mixed_7c.branch3x3_2a.conv-396
+    >>BatchNorm2d-Mixed_7c.branch3x3_2a.bn-397
+------>
+native_batch_norm-284
+<------
+    <<BatchNorm2d-Mixed_7c.branch3x3_2a.bn-397
+    >>ReLU-Mixed_7c.branch3x3_2a.relu-398
+------>
+relu_-285
+<------
+    <<ReLU-Mixed_7c.branch3x3_2a.relu-398
+  <<BasicConv2d-Mixed_7c.branch3x3_2a-395
+  >>BasicConv2d-Mixed_7c.branch3x3_2b-399
+    >>Conv2d-Mixed_7c.branch3x3_2b.conv-400
+------>
+convolution-286
+<------
+    <<Conv2d-Mixed_7c.branch3x3_2b.conv-400
+    >>BatchNorm2d-Mixed_7c.branch3x3_2b.bn-401
+------>
+native_batch_norm-287
+<------
+    <<BatchNorm2d-Mixed_7c.branch3x3_2b.bn-401
+    >>ReLU-Mixed_7c.branch3x3_2b.relu-402
+------>
+relu_-288
+<------
+    <<ReLU-Mixed_7c.branch3x3_2b.relu-402
+  <<BasicConv2d-Mixed_7c.branch3x3_2b-399
+------>
+cat-289
+<------
+  >>BasicConv2d-Mixed_7c.branch3x3stack_1-403
+    >>Conv2d-Mixed_7c.branch3x3stack_1.conv-404
+------>
+convolution-290
+<------
+    <<Conv2d-Mixed_7c.branch3x3stack_1.conv-404
+    >>BatchNorm2d-Mixed_7c.branch3x3stack_1.bn-405
+------>
+native_batch_norm-291
+<------
+    <<BatchNorm2d-Mixed_7c.branch3x3stack_1.bn-405
+    >>ReLU-Mixed_7c.branch3x3stack_1.relu-406
+------>
+relu_-292
+<------
+    <<ReLU-Mixed_7c.branch3x3stack_1.relu-406
+  <<BasicConv2d-Mixed_7c.branch3x3stack_1-403
+  >>BasicConv2d-Mixed_7c.branch3x3stack_2-407
+    >>Conv2d-Mixed_7c.branch3x3stack_2.conv-408
+------>
+convolution-293
+<------
+    <<Conv2d-Mixed_7c.branch3x3stack_2.conv-408
+    >>BatchNorm2d-Mixed_7c.branch3x3stack_2.bn-409
+------>
+native_batch_norm-294
+<------
+    <<BatchNorm2d-Mixed_7c.branch3x3stack_2.bn-409
+    >>ReLU-Mixed_7c.branch3x3stack_2.relu-410
+------>
+relu_-295
+<------
+    <<ReLU-Mixed_7c.branch3x3stack_2.relu-410
+  <<BasicConv2d-Mixed_7c.branch3x3stack_2-407
+  >>BasicConv2d-Mixed_7c.branch3x3stack_3a-411
+    >>Conv2d-Mixed_7c.branch3x3stack_3a.conv-412
+------>
+convolution-296
+<------
+    <<Conv2d-Mixed_7c.branch3x3stack_3a.conv-412
+    >>BatchNorm2d-Mixed_7c.branch3x3stack_3a.bn-413
+------>
+native_batch_norm-297
+<------
+    <<BatchNorm2d-Mixed_7c.branch3x3stack_3a.bn-413
+    >>ReLU-Mixed_7c.branch3x3stack_3a.relu-414
+------>
+relu_-298
+<------
+    <<ReLU-Mixed_7c.branch3x3stack_3a.relu-414
+  <<BasicConv2d-Mixed_7c.branch3x3stack_3a-411
+  >>BasicConv2d-Mixed_7c.branch3x3stack_3b-415
+    >>Conv2d-Mixed_7c.branch3x3stack_3b.conv-416
+------>
+convolution-299
+<------
+    <<Conv2d-Mixed_7c.branch3x3stack_3b.conv-416
+    >>BatchNorm2d-Mixed_7c.branch3x3stack_3b.bn-417
+------>
+native_batch_norm-300
+<------
+    <<BatchNorm2d-Mixed_7c.branch3x3stack_3b.bn-417
+    >>ReLU-Mixed_7c.branch3x3stack_3b.relu-418
+------>
+relu_-301
+<------
+    <<ReLU-Mixed_7c.branch3x3stack_3b.relu-418
+  <<BasicConv2d-Mixed_7c.branch3x3stack_3b-415
+------>
+cat-302
+<------
+  >>Sequential-Mixed_7c.branch_pool-419
+    >>AvgPool2d-Mixed_7c.branch_pool.0-420
+------>
+avg_pool2d-303
+<------
+    <<AvgPool2d-Mixed_7c.branch_pool.0-420
+    >>BasicConv2d-Mixed_7c.branch_pool.1-421
+      >>Conv2d-Mixed_7c.branch_pool.1.conv-422
+------>
+convolution-304
+<------
+      <<Conv2d-Mixed_7c.branch_pool.1.conv-422
+      >>BatchNorm2d-Mixed_7c.branch_pool.1.bn-423
+------>
+native_batch_norm-305
+<------
+      <<BatchNorm2d-Mixed_7c.branch_pool.1.bn-423
+      >>ReLU-Mixed_7c.branch_pool.1.relu-424
+------>
+relu_-306
+<------
+      <<ReLU-Mixed_7c.branch_pool.1.relu-424
+    <<BasicConv2d-Mixed_7c.branch_pool.1-421
+  <<Sequential-Mixed_7c.branch_pool-419
+------>
+cat-307
+<------
+<<InceptionE-Mixed_7c-386
+>>AdaptiveAvgPool2d-avgpool-425
+------>
+mean-308
+<------
+<<AdaptiveAvgPool2d-avgpool-425
+>>Dropout2d-dropout-426
+------>
+mul-309
+<------
+<<Dropout2d-dropout-426
+------>
+view-310
+<------
+>>Linear-linear-427
+------>
+t-311
+<------
+------>
+addmm-312
+<------
+<<Linear-linear-427
+<<InceptionV3--0
+------>
+_log_softmax-313
+<------
+------>
+nll_loss_forward-314
+<------

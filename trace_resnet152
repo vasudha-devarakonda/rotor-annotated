@@ -1,0 +1,2689 @@
+>>ResNet--0
+>>Sequential-conv1-1
+  >>Conv2d-conv1.0-2
+------>
+convolution-0
+<------
+  <<Conv2d-conv1.0-2
+  >>BatchNorm2d-conv1.1-3
+------>
+native_batch_norm-1
+<------
+  <<BatchNorm2d-conv1.1-3
+  >>ReLU-conv1.2-4
+------>
+relu-2
+<------
+  <<ReLU-conv1.2-4
+<<Sequential-conv1-1
+>>Sequential-conv2_x-5
+  >>BottleNeck-conv2_x.0-6
+    >>Sequential-conv2_x.0.residual_function-7
+      >>Conv2d-conv2_x.0.residual_function.0-8
+------>
+convolution-3
+<------
+      <<Conv2d-conv2_x.0.residual_function.0-8
+      >>BatchNorm2d-conv2_x.0.residual_function.1-9
+------>
+native_batch_norm-4
+<------
+      <<BatchNorm2d-conv2_x.0.residual_function.1-9
+      >>ReLU-conv2_x.0.residual_function.2-10
+------>
+relu-5
+<------
+      <<ReLU-conv2_x.0.residual_function.2-10
+      >>Conv2d-conv2_x.0.residual_function.3-11
+------>
+convolution-6
+<------
+      <<Conv2d-conv2_x.0.residual_function.3-11
+      >>BatchNorm2d-conv2_x.0.residual_function.4-12
+------>
+native_batch_norm-7
+<------
+      <<BatchNorm2d-conv2_x.0.residual_function.4-12
+      >>ReLU-conv2_x.0.residual_function.5-13
+------>
+relu-8
+<------
+      <<ReLU-conv2_x.0.residual_function.5-13
+      >>Conv2d-conv2_x.0.residual_function.6-14
+------>
+convolution-9
+<------
+      <<Conv2d-conv2_x.0.residual_function.6-14
+      >>BatchNorm2d-conv2_x.0.residual_function.7-15
+------>
+native_batch_norm-10
+<------
+      <<BatchNorm2d-conv2_x.0.residual_function.7-15
+    <<Sequential-conv2_x.0.residual_function-7
+    >>Sequential-conv2_x.0.shortcut-16
+      >>Conv2d-conv2_x.0.shortcut.0-17
+------>
+convolution-11
+<------
+      <<Conv2d-conv2_x.0.shortcut.0-17
+      >>BatchNorm2d-conv2_x.0.shortcut.1-18
+------>
+native_batch_norm-12
+<------
+      <<BatchNorm2d-conv2_x.0.shortcut.1-18
+    <<Sequential-conv2_x.0.shortcut-16
+------>
+add-13
+<------
+------>
+relu-14
+<------
+  <<BottleNeck-conv2_x.0-6
+  >>BottleNeck-conv2_x.1-19
+    >>Sequential-conv2_x.1.residual_function-20
+      >>Conv2d-conv2_x.1.residual_function.0-21
+------>
+convolution-15
+<------
+      <<Conv2d-conv2_x.1.residual_function.0-21
+      >>BatchNorm2d-conv2_x.1.residual_function.1-22
+------>
+native_batch_norm-16
+<------
+      <<BatchNorm2d-conv2_x.1.residual_function.1-22
+      >>ReLU-conv2_x.1.residual_function.2-23
+------>
+relu-17
+<------
+      <<ReLU-conv2_x.1.residual_function.2-23
+      >>Conv2d-conv2_x.1.residual_function.3-24
+------>
+convolution-18
+<------
+      <<Conv2d-conv2_x.1.residual_function.3-24
+      >>BatchNorm2d-conv2_x.1.residual_function.4-25
+------>
+native_batch_norm-19
+<------
+      <<BatchNorm2d-conv2_x.1.residual_function.4-25
+      >>ReLU-conv2_x.1.residual_function.5-26
+------>
+relu-20
+<------
+      <<ReLU-conv2_x.1.residual_function.5-26
+      >>Conv2d-conv2_x.1.residual_function.6-27
+------>
+convolution-21
+<------
+      <<Conv2d-conv2_x.1.residual_function.6-27
+      >>BatchNorm2d-conv2_x.1.residual_function.7-28
+------>
+native_batch_norm-22
+<------
+      <<BatchNorm2d-conv2_x.1.residual_function.7-28
+    <<Sequential-conv2_x.1.residual_function-20
+    >>Sequential-conv2_x.1.shortcut-29
+    <<Sequential-conv2_x.1.shortcut-29
+------>
+add-23
+<------
+------>
+relu-24
+<------
+  <<BottleNeck-conv2_x.1-19
+  >>BottleNeck-conv2_x.2-30
+    >>Sequential-conv2_x.2.residual_function-31
+      >>Conv2d-conv2_x.2.residual_function.0-32
+------>
+convolution-25
+<------
+      <<Conv2d-conv2_x.2.residual_function.0-32
+      >>BatchNorm2d-conv2_x.2.residual_function.1-33
+------>
+native_batch_norm-26
+<------
+      <<BatchNorm2d-conv2_x.2.residual_function.1-33
+      >>ReLU-conv2_x.2.residual_function.2-34
+------>
+relu-27
+<------
+      <<ReLU-conv2_x.2.residual_function.2-34
+      >>Conv2d-conv2_x.2.residual_function.3-35
+------>
+convolution-28
+<------
+      <<Conv2d-conv2_x.2.residual_function.3-35
+      >>BatchNorm2d-conv2_x.2.residual_function.4-36
+------>
+native_batch_norm-29
+<------
+      <<BatchNorm2d-conv2_x.2.residual_function.4-36
+      >>ReLU-conv2_x.2.residual_function.5-37
+------>
+relu-30
+<------
+      <<ReLU-conv2_x.2.residual_function.5-37
+      >>Conv2d-conv2_x.2.residual_function.6-38
+------>
+convolution-31
+<------
+      <<Conv2d-conv2_x.2.residual_function.6-38
+      >>BatchNorm2d-conv2_x.2.residual_function.7-39
+------>
+native_batch_norm-32
+<------
+      <<BatchNorm2d-conv2_x.2.residual_function.7-39
+    <<Sequential-conv2_x.2.residual_function-31
+    >>Sequential-conv2_x.2.shortcut-40
+    <<Sequential-conv2_x.2.shortcut-40
+------>
+add-33
+<------
+------>
+relu-34
+<------
+  <<BottleNeck-conv2_x.2-30
+<<Sequential-conv2_x-5
+>>Sequential-conv3_x-41
+  >>BottleNeck-conv3_x.0-42
+    >>Sequential-conv3_x.0.residual_function-43
+      >>Conv2d-conv3_x.0.residual_function.0-44
+------>
+convolution-35
+<------
+      <<Conv2d-conv3_x.0.residual_function.0-44
+      >>BatchNorm2d-conv3_x.0.residual_function.1-45
+------>
+native_batch_norm-36
+<------
+      <<BatchNorm2d-conv3_x.0.residual_function.1-45
+      >>ReLU-conv3_x.0.residual_function.2-46
+------>
+relu-37
+<------
+      <<ReLU-conv3_x.0.residual_function.2-46
+      >>Conv2d-conv3_x.0.residual_function.3-47
+------>
+convolution-38
+<------
+      <<Conv2d-conv3_x.0.residual_function.3-47
+      >>BatchNorm2d-conv3_x.0.residual_function.4-48
+------>
+native_batch_norm-39
+<------
+      <<BatchNorm2d-conv3_x.0.residual_function.4-48
+      >>ReLU-conv3_x.0.residual_function.5-49
+------>
+relu-40
+<------
+      <<ReLU-conv3_x.0.residual_function.5-49
+      >>Conv2d-conv3_x.0.residual_function.6-50
+------>
+convolution-41
+<------
+      <<Conv2d-conv3_x.0.residual_function.6-50
+      >>BatchNorm2d-conv3_x.0.residual_function.7-51
+------>
+native_batch_norm-42
+<------
+      <<BatchNorm2d-conv3_x.0.residual_function.7-51
+    <<Sequential-conv3_x.0.residual_function-43
+    >>Sequential-conv3_x.0.shortcut-52
+      >>Conv2d-conv3_x.0.shortcut.0-53
+------>
+convolution-43
+<------
+      <<Conv2d-conv3_x.0.shortcut.0-53
+      >>BatchNorm2d-conv3_x.0.shortcut.1-54
+------>
+native_batch_norm-44
+<------
+      <<BatchNorm2d-conv3_x.0.shortcut.1-54
+    <<Sequential-conv3_x.0.shortcut-52
+------>
+add-45
+<------
+------>
+relu-46
+<------
+  <<BottleNeck-conv3_x.0-42
+  >>BottleNeck-conv3_x.1-55
+    >>Sequential-conv3_x.1.residual_function-56
+      >>Conv2d-conv3_x.1.residual_function.0-57
+------>
+convolution-47
+<------
+      <<Conv2d-conv3_x.1.residual_function.0-57
+      >>BatchNorm2d-conv3_x.1.residual_function.1-58
+------>
+native_batch_norm-48
+<------
+      <<BatchNorm2d-conv3_x.1.residual_function.1-58
+      >>ReLU-conv3_x.1.residual_function.2-59
+------>
+relu-49
+<------
+      <<ReLU-conv3_x.1.residual_function.2-59
+      >>Conv2d-conv3_x.1.residual_function.3-60
+------>
+convolution-50
+<------
+      <<Conv2d-conv3_x.1.residual_function.3-60
+      >>BatchNorm2d-conv3_x.1.residual_function.4-61
+------>
+native_batch_norm-51
+<------
+      <<BatchNorm2d-conv3_x.1.residual_function.4-61
+      >>ReLU-conv3_x.1.residual_function.5-62
+------>
+relu-52
+<------
+      <<ReLU-conv3_x.1.residual_function.5-62
+      >>Conv2d-conv3_x.1.residual_function.6-63
+------>
+convolution-53
+<------
+      <<Conv2d-conv3_x.1.residual_function.6-63
+      >>BatchNorm2d-conv3_x.1.residual_function.7-64
+------>
+native_batch_norm-54
+<------
+      <<BatchNorm2d-conv3_x.1.residual_function.7-64
+    <<Sequential-conv3_x.1.residual_function-56
+    >>Sequential-conv3_x.1.shortcut-65
+    <<Sequential-conv3_x.1.shortcut-65
+------>
+add-55
+<------
+------>
+relu-56
+<------
+  <<BottleNeck-conv3_x.1-55
+  >>BottleNeck-conv3_x.2-66
+    >>Sequential-conv3_x.2.residual_function-67
+      >>Conv2d-conv3_x.2.residual_function.0-68
+------>
+convolution-57
+<------
+      <<Conv2d-conv3_x.2.residual_function.0-68
+      >>BatchNorm2d-conv3_x.2.residual_function.1-69
+------>
+native_batch_norm-58
+<------
+      <<BatchNorm2d-conv3_x.2.residual_function.1-69
+      >>ReLU-conv3_x.2.residual_function.2-70
+------>
+relu-59
+<------
+      <<ReLU-conv3_x.2.residual_function.2-70
+      >>Conv2d-conv3_x.2.residual_function.3-71
+------>
+convolution-60
+<------
+      <<Conv2d-conv3_x.2.residual_function.3-71
+      >>BatchNorm2d-conv3_x.2.residual_function.4-72
+------>
+native_batch_norm-61
+<------
+      <<BatchNorm2d-conv3_x.2.residual_function.4-72
+      >>ReLU-conv3_x.2.residual_function.5-73
+------>
+relu-62
+<------
+      <<ReLU-conv3_x.2.residual_function.5-73
+      >>Conv2d-conv3_x.2.residual_function.6-74
+------>
+convolution-63
+<------
+      <<Conv2d-conv3_x.2.residual_function.6-74
+      >>BatchNorm2d-conv3_x.2.residual_function.7-75
+------>
+native_batch_norm-64
+<------
+      <<BatchNorm2d-conv3_x.2.residual_function.7-75
+    <<Sequential-conv3_x.2.residual_function-67
+    >>Sequential-conv3_x.2.shortcut-76
+    <<Sequential-conv3_x.2.shortcut-76
+------>
+add-65
+<------
+------>
+relu-66
+<------
+  <<BottleNeck-conv3_x.2-66
+  >>BottleNeck-conv3_x.3-77
+    >>Sequential-conv3_x.3.residual_function-78
+      >>Conv2d-conv3_x.3.residual_function.0-79
+------>
+convolution-67
+<------
+      <<Conv2d-conv3_x.3.residual_function.0-79
+      >>BatchNorm2d-conv3_x.3.residual_function.1-80
+------>
+native_batch_norm-68
+<------
+      <<BatchNorm2d-conv3_x.3.residual_function.1-80
+      >>ReLU-conv3_x.3.residual_function.2-81
+------>
+relu-69
+<------
+      <<ReLU-conv3_x.3.residual_function.2-81
+      >>Conv2d-conv3_x.3.residual_function.3-82
+------>
+convolution-70
+<------
+      <<Conv2d-conv3_x.3.residual_function.3-82
+      >>BatchNorm2d-conv3_x.3.residual_function.4-83
+------>
+native_batch_norm-71
+<------
+      <<BatchNorm2d-conv3_x.3.residual_function.4-83
+      >>ReLU-conv3_x.3.residual_function.5-84
+------>
+relu-72
+<------
+      <<ReLU-conv3_x.3.residual_function.5-84
+      >>Conv2d-conv3_x.3.residual_function.6-85
+------>
+convolution-73
+<------
+      <<Conv2d-conv3_x.3.residual_function.6-85
+      >>BatchNorm2d-conv3_x.3.residual_function.7-86
+------>
+native_batch_norm-74
+<------
+      <<BatchNorm2d-conv3_x.3.residual_function.7-86
+    <<Sequential-conv3_x.3.residual_function-78
+    >>Sequential-conv3_x.3.shortcut-87
+    <<Sequential-conv3_x.3.shortcut-87
+------>
+add-75
+<------
+------>
+relu-76
+<------
+  <<BottleNeck-conv3_x.3-77
+  >>BottleNeck-conv3_x.4-88
+    >>Sequential-conv3_x.4.residual_function-89
+      >>Conv2d-conv3_x.4.residual_function.0-90
+------>
+convolution-77
+<------
+      <<Conv2d-conv3_x.4.residual_function.0-90
+      >>BatchNorm2d-conv3_x.4.residual_function.1-91
+------>
+native_batch_norm-78
+<------
+      <<BatchNorm2d-conv3_x.4.residual_function.1-91
+      >>ReLU-conv3_x.4.residual_function.2-92
+------>
+relu-79
+<------
+      <<ReLU-conv3_x.4.residual_function.2-92
+      >>Conv2d-conv3_x.4.residual_function.3-93
+------>
+convolution-80
+<------
+      <<Conv2d-conv3_x.4.residual_function.3-93
+      >>BatchNorm2d-conv3_x.4.residual_function.4-94
+------>
+native_batch_norm-81
+<------
+      <<BatchNorm2d-conv3_x.4.residual_function.4-94
+      >>ReLU-conv3_x.4.residual_function.5-95
+------>
+relu-82
+<------
+      <<ReLU-conv3_x.4.residual_function.5-95
+      >>Conv2d-conv3_x.4.residual_function.6-96
+------>
+convolution-83
+<------
+      <<Conv2d-conv3_x.4.residual_function.6-96
+      >>BatchNorm2d-conv3_x.4.residual_function.7-97
+------>
+native_batch_norm-84
+<------
+      <<BatchNorm2d-conv3_x.4.residual_function.7-97
+    <<Sequential-conv3_x.4.residual_function-89
+    >>Sequential-conv3_x.4.shortcut-98
+    <<Sequential-conv3_x.4.shortcut-98
+------>
+add-85
+<------
+------>
+relu-86
+<------
+  <<BottleNeck-conv3_x.4-88
+  >>BottleNeck-conv3_x.5-99
+    >>Sequential-conv3_x.5.residual_function-100
+      >>Conv2d-conv3_x.5.residual_function.0-101
+------>
+convolution-87
+<------
+      <<Conv2d-conv3_x.5.residual_function.0-101
+      >>BatchNorm2d-conv3_x.5.residual_function.1-102
+------>
+native_batch_norm-88
+<------
+      <<BatchNorm2d-conv3_x.5.residual_function.1-102
+      >>ReLU-conv3_x.5.residual_function.2-103
+------>
+relu-89
+<------
+      <<ReLU-conv3_x.5.residual_function.2-103
+      >>Conv2d-conv3_x.5.residual_function.3-104
+------>
+convolution-90
+<------
+      <<Conv2d-conv3_x.5.residual_function.3-104
+      >>BatchNorm2d-conv3_x.5.residual_function.4-105
+------>
+native_batch_norm-91
+<------
+      <<BatchNorm2d-conv3_x.5.residual_function.4-105
+      >>ReLU-conv3_x.5.residual_function.5-106
+------>
+relu-92
+<------
+      <<ReLU-conv3_x.5.residual_function.5-106
+      >>Conv2d-conv3_x.5.residual_function.6-107
+------>
+convolution-93
+<------
+      <<Conv2d-conv3_x.5.residual_function.6-107
+      >>BatchNorm2d-conv3_x.5.residual_function.7-108
+------>
+native_batch_norm-94
+<------
+      <<BatchNorm2d-conv3_x.5.residual_function.7-108
+    <<Sequential-conv3_x.5.residual_function-100
+    >>Sequential-conv3_x.5.shortcut-109
+    <<Sequential-conv3_x.5.shortcut-109
+------>
+add-95
+<------
+------>
+relu-96
+<------
+  <<BottleNeck-conv3_x.5-99
+  >>BottleNeck-conv3_x.6-110
+    >>Sequential-conv3_x.6.residual_function-111
+      >>Conv2d-conv3_x.6.residual_function.0-112
+------>
+convolution-97
+<------
+      <<Conv2d-conv3_x.6.residual_function.0-112
+      >>BatchNorm2d-conv3_x.6.residual_function.1-113
+------>
+native_batch_norm-98
+<------
+      <<BatchNorm2d-conv3_x.6.residual_function.1-113
+      >>ReLU-conv3_x.6.residual_function.2-114
+------>
+relu-99
+<------
+      <<ReLU-conv3_x.6.residual_function.2-114
+      >>Conv2d-conv3_x.6.residual_function.3-115
+------>
+convolution-100
+<------
+      <<Conv2d-conv3_x.6.residual_function.3-115
+      >>BatchNorm2d-conv3_x.6.residual_function.4-116
+------>
+native_batch_norm-101
+<------
+      <<BatchNorm2d-conv3_x.6.residual_function.4-116
+      >>ReLU-conv3_x.6.residual_function.5-117
+------>
+relu-102
+<------
+      <<ReLU-conv3_x.6.residual_function.5-117
+      >>Conv2d-conv3_x.6.residual_function.6-118
+------>
+convolution-103
+<------
+      <<Conv2d-conv3_x.6.residual_function.6-118
+      >>BatchNorm2d-conv3_x.6.residual_function.7-119
+------>
+native_batch_norm-104
+<------
+      <<BatchNorm2d-conv3_x.6.residual_function.7-119
+    <<Sequential-conv3_x.6.residual_function-111
+    >>Sequential-conv3_x.6.shortcut-120
+    <<Sequential-conv3_x.6.shortcut-120
+------>
+add-105
+<------
+------>
+relu-106
+<------
+  <<BottleNeck-conv3_x.6-110
+  >>BottleNeck-conv3_x.7-121
+    >>Sequential-conv3_x.7.residual_function-122
+      >>Conv2d-conv3_x.7.residual_function.0-123
+------>
+convolution-107
+<------
+      <<Conv2d-conv3_x.7.residual_function.0-123
+      >>BatchNorm2d-conv3_x.7.residual_function.1-124
+------>
+native_batch_norm-108
+<------
+      <<BatchNorm2d-conv3_x.7.residual_function.1-124
+      >>ReLU-conv3_x.7.residual_function.2-125
+------>
+relu-109
+<------
+      <<ReLU-conv3_x.7.residual_function.2-125
+      >>Conv2d-conv3_x.7.residual_function.3-126
+------>
+convolution-110
+<------
+      <<Conv2d-conv3_x.7.residual_function.3-126
+      >>BatchNorm2d-conv3_x.7.residual_function.4-127
+------>
+native_batch_norm-111
+<------
+      <<BatchNorm2d-conv3_x.7.residual_function.4-127
+      >>ReLU-conv3_x.7.residual_function.5-128
+------>
+relu-112
+<------
+      <<ReLU-conv3_x.7.residual_function.5-128
+      >>Conv2d-conv3_x.7.residual_function.6-129
+------>
+convolution-113
+<------
+      <<Conv2d-conv3_x.7.residual_function.6-129
+      >>BatchNorm2d-conv3_x.7.residual_function.7-130
+------>
+native_batch_norm-114
+<------
+      <<BatchNorm2d-conv3_x.7.residual_function.7-130
+    <<Sequential-conv3_x.7.residual_function-122
+    >>Sequential-conv3_x.7.shortcut-131
+    <<Sequential-conv3_x.7.shortcut-131
+------>
+add-115
+<------
+------>
+relu-116
+<------
+  <<BottleNeck-conv3_x.7-121
+<<Sequential-conv3_x-41
+>>Sequential-conv4_x-132
+  >>BottleNeck-conv4_x.0-133
+    >>Sequential-conv4_x.0.residual_function-134
+      >>Conv2d-conv4_x.0.residual_function.0-135
+------>
+convolution-117
+<------
+      <<Conv2d-conv4_x.0.residual_function.0-135
+      >>BatchNorm2d-conv4_x.0.residual_function.1-136
+------>
+native_batch_norm-118
+<------
+      <<BatchNorm2d-conv4_x.0.residual_function.1-136
+      >>ReLU-conv4_x.0.residual_function.2-137
+------>
+relu-119
+<------
+      <<ReLU-conv4_x.0.residual_function.2-137
+      >>Conv2d-conv4_x.0.residual_function.3-138
+------>
+convolution-120
+<------
+      <<Conv2d-conv4_x.0.residual_function.3-138
+      >>BatchNorm2d-conv4_x.0.residual_function.4-139
+------>
+native_batch_norm-121
+<------
+      <<BatchNorm2d-conv4_x.0.residual_function.4-139
+      >>ReLU-conv4_x.0.residual_function.5-140
+------>
+relu-122
+<------
+      <<ReLU-conv4_x.0.residual_function.5-140
+      >>Conv2d-conv4_x.0.residual_function.6-141
+------>
+convolution-123
+<------
+      <<Conv2d-conv4_x.0.residual_function.6-141
+      >>BatchNorm2d-conv4_x.0.residual_function.7-142
+------>
+native_batch_norm-124
+<------
+      <<BatchNorm2d-conv4_x.0.residual_function.7-142
+    <<Sequential-conv4_x.0.residual_function-134
+    >>Sequential-conv4_x.0.shortcut-143
+      >>Conv2d-conv4_x.0.shortcut.0-144
+------>
+convolution-125
+<------
+      <<Conv2d-conv4_x.0.shortcut.0-144
+      >>BatchNorm2d-conv4_x.0.shortcut.1-145
+------>
+native_batch_norm-126
+<------
+      <<BatchNorm2d-conv4_x.0.shortcut.1-145
+    <<Sequential-conv4_x.0.shortcut-143
+------>
+add-127
+<------
+------>
+relu-128
+<------
+  <<BottleNeck-conv4_x.0-133
+  >>BottleNeck-conv4_x.1-146
+    >>Sequential-conv4_x.1.residual_function-147
+      >>Conv2d-conv4_x.1.residual_function.0-148
+------>
+convolution-129
+<------
+      <<Conv2d-conv4_x.1.residual_function.0-148
+      >>BatchNorm2d-conv4_x.1.residual_function.1-149
+------>
+native_batch_norm-130
+<------
+      <<BatchNorm2d-conv4_x.1.residual_function.1-149
+      >>ReLU-conv4_x.1.residual_function.2-150
+------>
+relu-131
+<------
+      <<ReLU-conv4_x.1.residual_function.2-150
+      >>Conv2d-conv4_x.1.residual_function.3-151
+------>
+convolution-132
+<------
+      <<Conv2d-conv4_x.1.residual_function.3-151
+      >>BatchNorm2d-conv4_x.1.residual_function.4-152
+------>
+native_batch_norm-133
+<------
+      <<BatchNorm2d-conv4_x.1.residual_function.4-152
+      >>ReLU-conv4_x.1.residual_function.5-153
+------>
+relu-134
+<------
+      <<ReLU-conv4_x.1.residual_function.5-153
+      >>Conv2d-conv4_x.1.residual_function.6-154
+------>
+convolution-135
+<------
+      <<Conv2d-conv4_x.1.residual_function.6-154
+      >>BatchNorm2d-conv4_x.1.residual_function.7-155
+------>
+native_batch_norm-136
+<------
+      <<BatchNorm2d-conv4_x.1.residual_function.7-155
+    <<Sequential-conv4_x.1.residual_function-147
+    >>Sequential-conv4_x.1.shortcut-156
+    <<Sequential-conv4_x.1.shortcut-156
+------>
+add-137
+<------
+------>
+relu-138
+<------
+  <<BottleNeck-conv4_x.1-146
+  >>BottleNeck-conv4_x.2-157
+    >>Sequential-conv4_x.2.residual_function-158
+      >>Conv2d-conv4_x.2.residual_function.0-159
+------>
+convolution-139
+<------
+      <<Conv2d-conv4_x.2.residual_function.0-159
+      >>BatchNorm2d-conv4_x.2.residual_function.1-160
+------>
+native_batch_norm-140
+<------
+      <<BatchNorm2d-conv4_x.2.residual_function.1-160
+      >>ReLU-conv4_x.2.residual_function.2-161
+------>
+relu-141
+<------
+      <<ReLU-conv4_x.2.residual_function.2-161
+      >>Conv2d-conv4_x.2.residual_function.3-162
+------>
+convolution-142
+<------
+      <<Conv2d-conv4_x.2.residual_function.3-162
+      >>BatchNorm2d-conv4_x.2.residual_function.4-163
+------>
+native_batch_norm-143
+<------
+      <<BatchNorm2d-conv4_x.2.residual_function.4-163
+      >>ReLU-conv4_x.2.residual_function.5-164
+------>
+relu-144
+<------
+      <<ReLU-conv4_x.2.residual_function.5-164
+      >>Conv2d-conv4_x.2.residual_function.6-165
+------>
+convolution-145
+<------
+      <<Conv2d-conv4_x.2.residual_function.6-165
+      >>BatchNorm2d-conv4_x.2.residual_function.7-166
+------>
+native_batch_norm-146
+<------
+      <<BatchNorm2d-conv4_x.2.residual_function.7-166
+    <<Sequential-conv4_x.2.residual_function-158
+    >>Sequential-conv4_x.2.shortcut-167
+    <<Sequential-conv4_x.2.shortcut-167
+------>
+add-147
+<------
+------>
+relu-148
+<------
+  <<BottleNeck-conv4_x.2-157
+  >>BottleNeck-conv4_x.3-168
+    >>Sequential-conv4_x.3.residual_function-169
+      >>Conv2d-conv4_x.3.residual_function.0-170
+------>
+convolution-149
+<------
+      <<Conv2d-conv4_x.3.residual_function.0-170
+      >>BatchNorm2d-conv4_x.3.residual_function.1-171
+------>
+native_batch_norm-150
+<------
+      <<BatchNorm2d-conv4_x.3.residual_function.1-171
+      >>ReLU-conv4_x.3.residual_function.2-172
+------>
+relu-151
+<------
+      <<ReLU-conv4_x.3.residual_function.2-172
+      >>Conv2d-conv4_x.3.residual_function.3-173
+------>
+convolution-152
+<------
+      <<Conv2d-conv4_x.3.residual_function.3-173
+      >>BatchNorm2d-conv4_x.3.residual_function.4-174
+------>
+native_batch_norm-153
+<------
+      <<BatchNorm2d-conv4_x.3.residual_function.4-174
+      >>ReLU-conv4_x.3.residual_function.5-175
+------>
+relu-154
+<------
+      <<ReLU-conv4_x.3.residual_function.5-175
+      >>Conv2d-conv4_x.3.residual_function.6-176
+------>
+convolution-155
+<------
+      <<Conv2d-conv4_x.3.residual_function.6-176
+      >>BatchNorm2d-conv4_x.3.residual_function.7-177
+------>
+native_batch_norm-156
+<------
+      <<BatchNorm2d-conv4_x.3.residual_function.7-177
+    <<Sequential-conv4_x.3.residual_function-169
+    >>Sequential-conv4_x.3.shortcut-178
+    <<Sequential-conv4_x.3.shortcut-178
+------>
+add-157
+<------
+------>
+relu-158
+<------
+  <<BottleNeck-conv4_x.3-168
+  >>BottleNeck-conv4_x.4-179
+    >>Sequential-conv4_x.4.residual_function-180
+      >>Conv2d-conv4_x.4.residual_function.0-181
+------>
+convolution-159
+<------
+      <<Conv2d-conv4_x.4.residual_function.0-181
+      >>BatchNorm2d-conv4_x.4.residual_function.1-182
+------>
+native_batch_norm-160
+<------
+      <<BatchNorm2d-conv4_x.4.residual_function.1-182
+      >>ReLU-conv4_x.4.residual_function.2-183
+------>
+relu-161
+<------
+      <<ReLU-conv4_x.4.residual_function.2-183
+      >>Conv2d-conv4_x.4.residual_function.3-184
+------>
+convolution-162
+<------
+      <<Conv2d-conv4_x.4.residual_function.3-184
+      >>BatchNorm2d-conv4_x.4.residual_function.4-185
+------>
+native_batch_norm-163
+<------
+      <<BatchNorm2d-conv4_x.4.residual_function.4-185
+      >>ReLU-conv4_x.4.residual_function.5-186
+------>
+relu-164
+<------
+      <<ReLU-conv4_x.4.residual_function.5-186
+      >>Conv2d-conv4_x.4.residual_function.6-187
+------>
+convolution-165
+<------
+      <<Conv2d-conv4_x.4.residual_function.6-187
+      >>BatchNorm2d-conv4_x.4.residual_function.7-188
+------>
+native_batch_norm-166
+<------
+      <<BatchNorm2d-conv4_x.4.residual_function.7-188
+    <<Sequential-conv4_x.4.residual_function-180
+    >>Sequential-conv4_x.4.shortcut-189
+    <<Sequential-conv4_x.4.shortcut-189
+------>
+add-167
+<------
+------>
+relu-168
+<------
+  <<BottleNeck-conv4_x.4-179
+  >>BottleNeck-conv4_x.5-190
+    >>Sequential-conv4_x.5.residual_function-191
+      >>Conv2d-conv4_x.5.residual_function.0-192
+------>
+convolution-169
+<------
+      <<Conv2d-conv4_x.5.residual_function.0-192
+      >>BatchNorm2d-conv4_x.5.residual_function.1-193
+------>
+native_batch_norm-170
+<------
+      <<BatchNorm2d-conv4_x.5.residual_function.1-193
+      >>ReLU-conv4_x.5.residual_function.2-194
+------>
+relu-171
+<------
+      <<ReLU-conv4_x.5.residual_function.2-194
+      >>Conv2d-conv4_x.5.residual_function.3-195
+------>
+convolution-172
+<------
+      <<Conv2d-conv4_x.5.residual_function.3-195
+      >>BatchNorm2d-conv4_x.5.residual_function.4-196
+------>
+native_batch_norm-173
+<------
+      <<BatchNorm2d-conv4_x.5.residual_function.4-196
+      >>ReLU-conv4_x.5.residual_function.5-197
+------>
+relu-174
+<------
+      <<ReLU-conv4_x.5.residual_function.5-197
+      >>Conv2d-conv4_x.5.residual_function.6-198
+------>
+convolution-175
+<------
+      <<Conv2d-conv4_x.5.residual_function.6-198
+      >>BatchNorm2d-conv4_x.5.residual_function.7-199
+------>
+native_batch_norm-176
+<------
+      <<BatchNorm2d-conv4_x.5.residual_function.7-199
+    <<Sequential-conv4_x.5.residual_function-191
+    >>Sequential-conv4_x.5.shortcut-200
+    <<Sequential-conv4_x.5.shortcut-200
+------>
+add-177
+<------
+------>
+relu-178
+<------
+  <<BottleNeck-conv4_x.5-190
+  >>BottleNeck-conv4_x.6-201
+    >>Sequential-conv4_x.6.residual_function-202
+      >>Conv2d-conv4_x.6.residual_function.0-203
+------>
+convolution-179
+<------
+      <<Conv2d-conv4_x.6.residual_function.0-203
+      >>BatchNorm2d-conv4_x.6.residual_function.1-204
+------>
+native_batch_norm-180
+<------
+      <<BatchNorm2d-conv4_x.6.residual_function.1-204
+      >>ReLU-conv4_x.6.residual_function.2-205
+------>
+relu-181
+<------
+      <<ReLU-conv4_x.6.residual_function.2-205
+      >>Conv2d-conv4_x.6.residual_function.3-206
+------>
+convolution-182
+<------
+      <<Conv2d-conv4_x.6.residual_function.3-206
+      >>BatchNorm2d-conv4_x.6.residual_function.4-207
+------>
+native_batch_norm-183
+<------
+      <<BatchNorm2d-conv4_x.6.residual_function.4-207
+      >>ReLU-conv4_x.6.residual_function.5-208
+------>
+relu-184
+<------
+      <<ReLU-conv4_x.6.residual_function.5-208
+      >>Conv2d-conv4_x.6.residual_function.6-209
+------>
+convolution-185
+<------
+      <<Conv2d-conv4_x.6.residual_function.6-209
+      >>BatchNorm2d-conv4_x.6.residual_function.7-210
+------>
+native_batch_norm-186
+<------
+      <<BatchNorm2d-conv4_x.6.residual_function.7-210
+    <<Sequential-conv4_x.6.residual_function-202
+    >>Sequential-conv4_x.6.shortcut-211
+    <<Sequential-conv4_x.6.shortcut-211
+------>
+add-187
+<------
+------>
+relu-188
+<------
+  <<BottleNeck-conv4_x.6-201
+  >>BottleNeck-conv4_x.7-212
+    >>Sequential-conv4_x.7.residual_function-213
+      >>Conv2d-conv4_x.7.residual_function.0-214
+------>
+convolution-189
+<------
+      <<Conv2d-conv4_x.7.residual_function.0-214
+      >>BatchNorm2d-conv4_x.7.residual_function.1-215
+------>
+native_batch_norm-190
+<------
+      <<BatchNorm2d-conv4_x.7.residual_function.1-215
+      >>ReLU-conv4_x.7.residual_function.2-216
+------>
+relu-191
+<------
+      <<ReLU-conv4_x.7.residual_function.2-216
+      >>Conv2d-conv4_x.7.residual_function.3-217
+------>
+convolution-192
+<------
+      <<Conv2d-conv4_x.7.residual_function.3-217
+      >>BatchNorm2d-conv4_x.7.residual_function.4-218
+------>
+native_batch_norm-193
+<------
+      <<BatchNorm2d-conv4_x.7.residual_function.4-218
+      >>ReLU-conv4_x.7.residual_function.5-219
+------>
+relu-194
+<------
+      <<ReLU-conv4_x.7.residual_function.5-219
+      >>Conv2d-conv4_x.7.residual_function.6-220
+------>
+convolution-195
+<------
+      <<Conv2d-conv4_x.7.residual_function.6-220
+      >>BatchNorm2d-conv4_x.7.residual_function.7-221
+------>
+native_batch_norm-196
+<------
+      <<BatchNorm2d-conv4_x.7.residual_function.7-221
+    <<Sequential-conv4_x.7.residual_function-213
+    >>Sequential-conv4_x.7.shortcut-222
+    <<Sequential-conv4_x.7.shortcut-222
+------>
+add-197
+<------
+------>
+relu-198
+<------
+  <<BottleNeck-conv4_x.7-212
+  >>BottleNeck-conv4_x.8-223
+    >>Sequential-conv4_x.8.residual_function-224
+      >>Conv2d-conv4_x.8.residual_function.0-225
+------>
+convolution-199
+<------
+      <<Conv2d-conv4_x.8.residual_function.0-225
+      >>BatchNorm2d-conv4_x.8.residual_function.1-226
+------>
+native_batch_norm-200
+<------
+      <<BatchNorm2d-conv4_x.8.residual_function.1-226
+      >>ReLU-conv4_x.8.residual_function.2-227
+------>
+relu-201
+<------
+      <<ReLU-conv4_x.8.residual_function.2-227
+      >>Conv2d-conv4_x.8.residual_function.3-228
+------>
+convolution-202
+<------
+      <<Conv2d-conv4_x.8.residual_function.3-228
+      >>BatchNorm2d-conv4_x.8.residual_function.4-229
+------>
+native_batch_norm-203
+<------
+      <<BatchNorm2d-conv4_x.8.residual_function.4-229
+      >>ReLU-conv4_x.8.residual_function.5-230
+------>
+relu-204
+<------
+      <<ReLU-conv4_x.8.residual_function.5-230
+      >>Conv2d-conv4_x.8.residual_function.6-231
+------>
+convolution-205
+<------
+      <<Conv2d-conv4_x.8.residual_function.6-231
+      >>BatchNorm2d-conv4_x.8.residual_function.7-232
+------>
+native_batch_norm-206
+<------
+      <<BatchNorm2d-conv4_x.8.residual_function.7-232
+    <<Sequential-conv4_x.8.residual_function-224
+    >>Sequential-conv4_x.8.shortcut-233
+    <<Sequential-conv4_x.8.shortcut-233
+------>
+add-207
+<------
+------>
+relu-208
+<------
+  <<BottleNeck-conv4_x.8-223
+  >>BottleNeck-conv4_x.9-234
+    >>Sequential-conv4_x.9.residual_function-235
+      >>Conv2d-conv4_x.9.residual_function.0-236
+------>
+convolution-209
+<------
+      <<Conv2d-conv4_x.9.residual_function.0-236
+      >>BatchNorm2d-conv4_x.9.residual_function.1-237
+------>
+native_batch_norm-210
+<------
+      <<BatchNorm2d-conv4_x.9.residual_function.1-237
+      >>ReLU-conv4_x.9.residual_function.2-238
+------>
+relu-211
+<------
+      <<ReLU-conv4_x.9.residual_function.2-238
+      >>Conv2d-conv4_x.9.residual_function.3-239
+------>
+convolution-212
+<------
+      <<Conv2d-conv4_x.9.residual_function.3-239
+      >>BatchNorm2d-conv4_x.9.residual_function.4-240
+------>
+native_batch_norm-213
+<------
+      <<BatchNorm2d-conv4_x.9.residual_function.4-240
+      >>ReLU-conv4_x.9.residual_function.5-241
+------>
+relu-214
+<------
+      <<ReLU-conv4_x.9.residual_function.5-241
+      >>Conv2d-conv4_x.9.residual_function.6-242
+------>
+convolution-215
+<------
+      <<Conv2d-conv4_x.9.residual_function.6-242
+      >>BatchNorm2d-conv4_x.9.residual_function.7-243
+------>
+native_batch_norm-216
+<------
+      <<BatchNorm2d-conv4_x.9.residual_function.7-243
+    <<Sequential-conv4_x.9.residual_function-235
+    >>Sequential-conv4_x.9.shortcut-244
+    <<Sequential-conv4_x.9.shortcut-244
+------>
+add-217
+<------
+------>
+relu-218
+<------
+  <<BottleNeck-conv4_x.9-234
+  >>BottleNeck-conv4_x.10-245
+    >>Sequential-conv4_x.10.residual_function-246
+      >>Conv2d-conv4_x.10.residual_function.0-247
+------>
+convolution-219
+<------
+      <<Conv2d-conv4_x.10.residual_function.0-247
+      >>BatchNorm2d-conv4_x.10.residual_function.1-248
+------>
+native_batch_norm-220
+<------
+      <<BatchNorm2d-conv4_x.10.residual_function.1-248
+      >>ReLU-conv4_x.10.residual_function.2-249
+------>
+relu-221
+<------
+      <<ReLU-conv4_x.10.residual_function.2-249
+      >>Conv2d-conv4_x.10.residual_function.3-250
+------>
+convolution-222
+<------
+      <<Conv2d-conv4_x.10.residual_function.3-250
+      >>BatchNorm2d-conv4_x.10.residual_function.4-251
+------>
+native_batch_norm-223
+<------
+      <<BatchNorm2d-conv4_x.10.residual_function.4-251
+      >>ReLU-conv4_x.10.residual_function.5-252
+------>
+relu-224
+<------
+      <<ReLU-conv4_x.10.residual_function.5-252
+      >>Conv2d-conv4_x.10.residual_function.6-253
+------>
+convolution-225
+<------
+      <<Conv2d-conv4_x.10.residual_function.6-253
+      >>BatchNorm2d-conv4_x.10.residual_function.7-254
+------>
+native_batch_norm-226
+<------
+      <<BatchNorm2d-conv4_x.10.residual_function.7-254
+    <<Sequential-conv4_x.10.residual_function-246
+    >>Sequential-conv4_x.10.shortcut-255
+    <<Sequential-conv4_x.10.shortcut-255
+------>
+add-227
+<------
+------>
+relu-228
+<------
+  <<BottleNeck-conv4_x.10-245
+  >>BottleNeck-conv4_x.11-256
+    >>Sequential-conv4_x.11.residual_function-257
+      >>Conv2d-conv4_x.11.residual_function.0-258
+------>
+convolution-229
+<------
+      <<Conv2d-conv4_x.11.residual_function.0-258
+      >>BatchNorm2d-conv4_x.11.residual_function.1-259
+------>
+native_batch_norm-230
+<------
+      <<BatchNorm2d-conv4_x.11.residual_function.1-259
+      >>ReLU-conv4_x.11.residual_function.2-260
+------>
+relu-231
+<------
+      <<ReLU-conv4_x.11.residual_function.2-260
+      >>Conv2d-conv4_x.11.residual_function.3-261
+------>
+convolution-232
+<------
+      <<Conv2d-conv4_x.11.residual_function.3-261
+      >>BatchNorm2d-conv4_x.11.residual_function.4-262
+------>
+native_batch_norm-233
+<------
+      <<BatchNorm2d-conv4_x.11.residual_function.4-262
+      >>ReLU-conv4_x.11.residual_function.5-263
+------>
+relu-234
+<------
+      <<ReLU-conv4_x.11.residual_function.5-263
+      >>Conv2d-conv4_x.11.residual_function.6-264
+------>
+convolution-235
+<------
+      <<Conv2d-conv4_x.11.residual_function.6-264
+      >>BatchNorm2d-conv4_x.11.residual_function.7-265
+------>
+native_batch_norm-236
+<------
+      <<BatchNorm2d-conv4_x.11.residual_function.7-265
+    <<Sequential-conv4_x.11.residual_function-257
+    >>Sequential-conv4_x.11.shortcut-266
+    <<Sequential-conv4_x.11.shortcut-266
+------>
+add-237
+<------
+------>
+relu-238
+<------
+  <<BottleNeck-conv4_x.11-256
+  >>BottleNeck-conv4_x.12-267
+    >>Sequential-conv4_x.12.residual_function-268
+      >>Conv2d-conv4_x.12.residual_function.0-269
+------>
+convolution-239
+<------
+      <<Conv2d-conv4_x.12.residual_function.0-269
+      >>BatchNorm2d-conv4_x.12.residual_function.1-270
+------>
+native_batch_norm-240
+<------
+      <<BatchNorm2d-conv4_x.12.residual_function.1-270
+      >>ReLU-conv4_x.12.residual_function.2-271
+------>
+relu-241
+<------
+      <<ReLU-conv4_x.12.residual_function.2-271
+      >>Conv2d-conv4_x.12.residual_function.3-272
+------>
+convolution-242
+<------
+      <<Conv2d-conv4_x.12.residual_function.3-272
+      >>BatchNorm2d-conv4_x.12.residual_function.4-273
+------>
+native_batch_norm-243
+<------
+      <<BatchNorm2d-conv4_x.12.residual_function.4-273
+      >>ReLU-conv4_x.12.residual_function.5-274
+------>
+relu-244
+<------
+      <<ReLU-conv4_x.12.residual_function.5-274
+      >>Conv2d-conv4_x.12.residual_function.6-275
+------>
+convolution-245
+<------
+      <<Conv2d-conv4_x.12.residual_function.6-275
+      >>BatchNorm2d-conv4_x.12.residual_function.7-276
+------>
+native_batch_norm-246
+<------
+      <<BatchNorm2d-conv4_x.12.residual_function.7-276
+    <<Sequential-conv4_x.12.residual_function-268
+    >>Sequential-conv4_x.12.shortcut-277
+    <<Sequential-conv4_x.12.shortcut-277
+------>
+add-247
+<------
+------>
+relu-248
+<------
+  <<BottleNeck-conv4_x.12-267
+  >>BottleNeck-conv4_x.13-278
+    >>Sequential-conv4_x.13.residual_function-279
+      >>Conv2d-conv4_x.13.residual_function.0-280
+------>
+convolution-249
+<------
+      <<Conv2d-conv4_x.13.residual_function.0-280
+      >>BatchNorm2d-conv4_x.13.residual_function.1-281
+------>
+native_batch_norm-250
+<------
+      <<BatchNorm2d-conv4_x.13.residual_function.1-281
+      >>ReLU-conv4_x.13.residual_function.2-282
+------>
+relu-251
+<------
+      <<ReLU-conv4_x.13.residual_function.2-282
+      >>Conv2d-conv4_x.13.residual_function.3-283
+------>
+convolution-252
+<------
+      <<Conv2d-conv4_x.13.residual_function.3-283
+      >>BatchNorm2d-conv4_x.13.residual_function.4-284
+------>
+native_batch_norm-253
+<------
+      <<BatchNorm2d-conv4_x.13.residual_function.4-284
+      >>ReLU-conv4_x.13.residual_function.5-285
+------>
+relu-254
+<------
+      <<ReLU-conv4_x.13.residual_function.5-285
+      >>Conv2d-conv4_x.13.residual_function.6-286
+------>
+convolution-255
+<------
+      <<Conv2d-conv4_x.13.residual_function.6-286
+      >>BatchNorm2d-conv4_x.13.residual_function.7-287
+------>
+native_batch_norm-256
+<------
+      <<BatchNorm2d-conv4_x.13.residual_function.7-287
+    <<Sequential-conv4_x.13.residual_function-279
+    >>Sequential-conv4_x.13.shortcut-288
+    <<Sequential-conv4_x.13.shortcut-288
+------>
+add-257
+<------
+------>
+relu-258
+<------
+  <<BottleNeck-conv4_x.13-278
+  >>BottleNeck-conv4_x.14-289
+    >>Sequential-conv4_x.14.residual_function-290
+      >>Conv2d-conv4_x.14.residual_function.0-291
+------>
+convolution-259
+<------
+      <<Conv2d-conv4_x.14.residual_function.0-291
+      >>BatchNorm2d-conv4_x.14.residual_function.1-292
+------>
+native_batch_norm-260
+<------
+      <<BatchNorm2d-conv4_x.14.residual_function.1-292
+      >>ReLU-conv4_x.14.residual_function.2-293
+------>
+relu-261
+<------
+      <<ReLU-conv4_x.14.residual_function.2-293
+      >>Conv2d-conv4_x.14.residual_function.3-294
+------>
+convolution-262
+<------
+      <<Conv2d-conv4_x.14.residual_function.3-294
+      >>BatchNorm2d-conv4_x.14.residual_function.4-295
+------>
+native_batch_norm-263
+<------
+      <<BatchNorm2d-conv4_x.14.residual_function.4-295
+      >>ReLU-conv4_x.14.residual_function.5-296
+------>
+relu-264
+<------
+      <<ReLU-conv4_x.14.residual_function.5-296
+      >>Conv2d-conv4_x.14.residual_function.6-297
+------>
+convolution-265
+<------
+      <<Conv2d-conv4_x.14.residual_function.6-297
+      >>BatchNorm2d-conv4_x.14.residual_function.7-298
+------>
+native_batch_norm-266
+<------
+      <<BatchNorm2d-conv4_x.14.residual_function.7-298
+    <<Sequential-conv4_x.14.residual_function-290
+    >>Sequential-conv4_x.14.shortcut-299
+    <<Sequential-conv4_x.14.shortcut-299
+------>
+add-267
+<------
+------>
+relu-268
+<------
+  <<BottleNeck-conv4_x.14-289
+  >>BottleNeck-conv4_x.15-300
+    >>Sequential-conv4_x.15.residual_function-301
+      >>Conv2d-conv4_x.15.residual_function.0-302
+------>
+convolution-269
+<------
+      <<Conv2d-conv4_x.15.residual_function.0-302
+      >>BatchNorm2d-conv4_x.15.residual_function.1-303
+------>
+native_batch_norm-270
+<------
+      <<BatchNorm2d-conv4_x.15.residual_function.1-303
+      >>ReLU-conv4_x.15.residual_function.2-304
+------>
+relu-271
+<------
+      <<ReLU-conv4_x.15.residual_function.2-304
+      >>Conv2d-conv4_x.15.residual_function.3-305
+------>
+convolution-272
+<------
+      <<Conv2d-conv4_x.15.residual_function.3-305
+      >>BatchNorm2d-conv4_x.15.residual_function.4-306
+------>
+native_batch_norm-273
+<------
+      <<BatchNorm2d-conv4_x.15.residual_function.4-306
+      >>ReLU-conv4_x.15.residual_function.5-307
+------>
+relu-274
+<------
+      <<ReLU-conv4_x.15.residual_function.5-307
+      >>Conv2d-conv4_x.15.residual_function.6-308
+------>
+convolution-275
+<------
+      <<Conv2d-conv4_x.15.residual_function.6-308
+      >>BatchNorm2d-conv4_x.15.residual_function.7-309
+------>
+native_batch_norm-276
+<------
+      <<BatchNorm2d-conv4_x.15.residual_function.7-309
+    <<Sequential-conv4_x.15.residual_function-301
+    >>Sequential-conv4_x.15.shortcut-310
+    <<Sequential-conv4_x.15.shortcut-310
+------>
+add-277
+<------
+------>
+relu-278
+<------
+  <<BottleNeck-conv4_x.15-300
+  >>BottleNeck-conv4_x.16-311
+    >>Sequential-conv4_x.16.residual_function-312
+      >>Conv2d-conv4_x.16.residual_function.0-313
+------>
+convolution-279
+<------
+      <<Conv2d-conv4_x.16.residual_function.0-313
+      >>BatchNorm2d-conv4_x.16.residual_function.1-314
+------>
+native_batch_norm-280
+<------
+      <<BatchNorm2d-conv4_x.16.residual_function.1-314
+      >>ReLU-conv4_x.16.residual_function.2-315
+------>
+relu-281
+<------
+      <<ReLU-conv4_x.16.residual_function.2-315
+      >>Conv2d-conv4_x.16.residual_function.3-316
+------>
+convolution-282
+<------
+      <<Conv2d-conv4_x.16.residual_function.3-316
+      >>BatchNorm2d-conv4_x.16.residual_function.4-317
+------>
+native_batch_norm-283
+<------
+      <<BatchNorm2d-conv4_x.16.residual_function.4-317
+      >>ReLU-conv4_x.16.residual_function.5-318
+------>
+relu-284
+<------
+      <<ReLU-conv4_x.16.residual_function.5-318
+      >>Conv2d-conv4_x.16.residual_function.6-319
+------>
+convolution-285
+<------
+      <<Conv2d-conv4_x.16.residual_function.6-319
+      >>BatchNorm2d-conv4_x.16.residual_function.7-320
+------>
+native_batch_norm-286
+<------
+      <<BatchNorm2d-conv4_x.16.residual_function.7-320
+    <<Sequential-conv4_x.16.residual_function-312
+    >>Sequential-conv4_x.16.shortcut-321
+    <<Sequential-conv4_x.16.shortcut-321
+------>
+add-287
+<------
+------>
+relu-288
+<------
+  <<BottleNeck-conv4_x.16-311
+  >>BottleNeck-conv4_x.17-322
+    >>Sequential-conv4_x.17.residual_function-323
+      >>Conv2d-conv4_x.17.residual_function.0-324
+------>
+convolution-289
+<------
+      <<Conv2d-conv4_x.17.residual_function.0-324
+      >>BatchNorm2d-conv4_x.17.residual_function.1-325
+------>
+native_batch_norm-290
+<------
+      <<BatchNorm2d-conv4_x.17.residual_function.1-325
+      >>ReLU-conv4_x.17.residual_function.2-326
+------>
+relu-291
+<------
+      <<ReLU-conv4_x.17.residual_function.2-326
+      >>Conv2d-conv4_x.17.residual_function.3-327
+------>
+convolution-292
+<------
+      <<Conv2d-conv4_x.17.residual_function.3-327
+      >>BatchNorm2d-conv4_x.17.residual_function.4-328
+------>
+native_batch_norm-293
+<------
+      <<BatchNorm2d-conv4_x.17.residual_function.4-328
+      >>ReLU-conv4_x.17.residual_function.5-329
+------>
+relu-294
+<------
+      <<ReLU-conv4_x.17.residual_function.5-329
+      >>Conv2d-conv4_x.17.residual_function.6-330
+------>
+convolution-295
+<------
+      <<Conv2d-conv4_x.17.residual_function.6-330
+      >>BatchNorm2d-conv4_x.17.residual_function.7-331
+------>
+native_batch_norm-296
+<------
+      <<BatchNorm2d-conv4_x.17.residual_function.7-331
+    <<Sequential-conv4_x.17.residual_function-323
+    >>Sequential-conv4_x.17.shortcut-332
+    <<Sequential-conv4_x.17.shortcut-332
+------>
+add-297
+<------
+------>
+relu-298
+<------
+  <<BottleNeck-conv4_x.17-322
+  >>BottleNeck-conv4_x.18-333
+    >>Sequential-conv4_x.18.residual_function-334
+      >>Conv2d-conv4_x.18.residual_function.0-335
+------>
+convolution-299
+<------
+      <<Conv2d-conv4_x.18.residual_function.0-335
+      >>BatchNorm2d-conv4_x.18.residual_function.1-336
+------>
+native_batch_norm-300
+<------
+      <<BatchNorm2d-conv4_x.18.residual_function.1-336
+      >>ReLU-conv4_x.18.residual_function.2-337
+------>
+relu-301
+<------
+      <<ReLU-conv4_x.18.residual_function.2-337
+      >>Conv2d-conv4_x.18.residual_function.3-338
+------>
+convolution-302
+<------
+      <<Conv2d-conv4_x.18.residual_function.3-338
+      >>BatchNorm2d-conv4_x.18.residual_function.4-339
+------>
+native_batch_norm-303
+<------
+      <<BatchNorm2d-conv4_x.18.residual_function.4-339
+      >>ReLU-conv4_x.18.residual_function.5-340
+------>
+relu-304
+<------
+      <<ReLU-conv4_x.18.residual_function.5-340
+      >>Conv2d-conv4_x.18.residual_function.6-341
+------>
+convolution-305
+<------
+      <<Conv2d-conv4_x.18.residual_function.6-341
+      >>BatchNorm2d-conv4_x.18.residual_function.7-342
+------>
+native_batch_norm-306
+<------
+      <<BatchNorm2d-conv4_x.18.residual_function.7-342
+    <<Sequential-conv4_x.18.residual_function-334
+    >>Sequential-conv4_x.18.shortcut-343
+    <<Sequential-conv4_x.18.shortcut-343
+------>
+add-307
+<------
+------>
+relu-308
+<------
+  <<BottleNeck-conv4_x.18-333
+  >>BottleNeck-conv4_x.19-344
+    >>Sequential-conv4_x.19.residual_function-345
+      >>Conv2d-conv4_x.19.residual_function.0-346
+------>
+convolution-309
+<------
+      <<Conv2d-conv4_x.19.residual_function.0-346
+      >>BatchNorm2d-conv4_x.19.residual_function.1-347
+------>
+native_batch_norm-310
+<------
+      <<BatchNorm2d-conv4_x.19.residual_function.1-347
+      >>ReLU-conv4_x.19.residual_function.2-348
+------>
+relu-311
+<------
+      <<ReLU-conv4_x.19.residual_function.2-348
+      >>Conv2d-conv4_x.19.residual_function.3-349
+------>
+convolution-312
+<------
+      <<Conv2d-conv4_x.19.residual_function.3-349
+      >>BatchNorm2d-conv4_x.19.residual_function.4-350
+------>
+native_batch_norm-313
+<------
+      <<BatchNorm2d-conv4_x.19.residual_function.4-350
+      >>ReLU-conv4_x.19.residual_function.5-351
+------>
+relu-314
+<------
+      <<ReLU-conv4_x.19.residual_function.5-351
+      >>Conv2d-conv4_x.19.residual_function.6-352
+------>
+convolution-315
+<------
+      <<Conv2d-conv4_x.19.residual_function.6-352
+      >>BatchNorm2d-conv4_x.19.residual_function.7-353
+------>
+native_batch_norm-316
+<------
+      <<BatchNorm2d-conv4_x.19.residual_function.7-353
+    <<Sequential-conv4_x.19.residual_function-345
+    >>Sequential-conv4_x.19.shortcut-354
+    <<Sequential-conv4_x.19.shortcut-354
+------>
+add-317
+<------
+------>
+relu-318
+<------
+  <<BottleNeck-conv4_x.19-344
+  >>BottleNeck-conv4_x.20-355
+    >>Sequential-conv4_x.20.residual_function-356
+      >>Conv2d-conv4_x.20.residual_function.0-357
+------>
+convolution-319
+<------
+      <<Conv2d-conv4_x.20.residual_function.0-357
+      >>BatchNorm2d-conv4_x.20.residual_function.1-358
+------>
+native_batch_norm-320
+<------
+      <<BatchNorm2d-conv4_x.20.residual_function.1-358
+      >>ReLU-conv4_x.20.residual_function.2-359
+------>
+relu-321
+<------
+      <<ReLU-conv4_x.20.residual_function.2-359
+      >>Conv2d-conv4_x.20.residual_function.3-360
+------>
+convolution-322
+<------
+      <<Conv2d-conv4_x.20.residual_function.3-360
+      >>BatchNorm2d-conv4_x.20.residual_function.4-361
+------>
+native_batch_norm-323
+<------
+      <<BatchNorm2d-conv4_x.20.residual_function.4-361
+      >>ReLU-conv4_x.20.residual_function.5-362
+------>
+relu-324
+<------
+      <<ReLU-conv4_x.20.residual_function.5-362
+      >>Conv2d-conv4_x.20.residual_function.6-363
+------>
+convolution-325
+<------
+      <<Conv2d-conv4_x.20.residual_function.6-363
+      >>BatchNorm2d-conv4_x.20.residual_function.7-364
+------>
+native_batch_norm-326
+<------
+      <<BatchNorm2d-conv4_x.20.residual_function.7-364
+    <<Sequential-conv4_x.20.residual_function-356
+    >>Sequential-conv4_x.20.shortcut-365
+    <<Sequential-conv4_x.20.shortcut-365
+------>
+add-327
+<------
+------>
+relu-328
+<------
+  <<BottleNeck-conv4_x.20-355
+  >>BottleNeck-conv4_x.21-366
+    >>Sequential-conv4_x.21.residual_function-367
+      >>Conv2d-conv4_x.21.residual_function.0-368
+------>
+convolution-329
+<------
+      <<Conv2d-conv4_x.21.residual_function.0-368
+      >>BatchNorm2d-conv4_x.21.residual_function.1-369
+------>
+native_batch_norm-330
+<------
+      <<BatchNorm2d-conv4_x.21.residual_function.1-369
+      >>ReLU-conv4_x.21.residual_function.2-370
+------>
+relu-331
+<------
+      <<ReLU-conv4_x.21.residual_function.2-370
+      >>Conv2d-conv4_x.21.residual_function.3-371
+------>
+convolution-332
+<------
+      <<Conv2d-conv4_x.21.residual_function.3-371
+      >>BatchNorm2d-conv4_x.21.residual_function.4-372
+------>
+native_batch_norm-333
+<------
+      <<BatchNorm2d-conv4_x.21.residual_function.4-372
+      >>ReLU-conv4_x.21.residual_function.5-373
+------>
+relu-334
+<------
+      <<ReLU-conv4_x.21.residual_function.5-373
+      >>Conv2d-conv4_x.21.residual_function.6-374
+------>
+convolution-335
+<------
+      <<Conv2d-conv4_x.21.residual_function.6-374
+      >>BatchNorm2d-conv4_x.21.residual_function.7-375
+------>
+native_batch_norm-336
+<------
+      <<BatchNorm2d-conv4_x.21.residual_function.7-375
+    <<Sequential-conv4_x.21.residual_function-367
+    >>Sequential-conv4_x.21.shortcut-376
+    <<Sequential-conv4_x.21.shortcut-376
+------>
+add-337
+<------
+------>
+relu-338
+<------
+  <<BottleNeck-conv4_x.21-366
+  >>BottleNeck-conv4_x.22-377
+    >>Sequential-conv4_x.22.residual_function-378
+      >>Conv2d-conv4_x.22.residual_function.0-379
+------>
+convolution-339
+<------
+      <<Conv2d-conv4_x.22.residual_function.0-379
+      >>BatchNorm2d-conv4_x.22.residual_function.1-380
+------>
+native_batch_norm-340
+<------
+      <<BatchNorm2d-conv4_x.22.residual_function.1-380
+      >>ReLU-conv4_x.22.residual_function.2-381
+------>
+relu-341
+<------
+      <<ReLU-conv4_x.22.residual_function.2-381
+      >>Conv2d-conv4_x.22.residual_function.3-382
+------>
+convolution-342
+<------
+      <<Conv2d-conv4_x.22.residual_function.3-382
+      >>BatchNorm2d-conv4_x.22.residual_function.4-383
+------>
+native_batch_norm-343
+<------
+      <<BatchNorm2d-conv4_x.22.residual_function.4-383
+      >>ReLU-conv4_x.22.residual_function.5-384
+------>
+relu-344
+<------
+      <<ReLU-conv4_x.22.residual_function.5-384
+      >>Conv2d-conv4_x.22.residual_function.6-385
+------>
+convolution-345
+<------
+      <<Conv2d-conv4_x.22.residual_function.6-385
+      >>BatchNorm2d-conv4_x.22.residual_function.7-386
+------>
+native_batch_norm-346
+<------
+      <<BatchNorm2d-conv4_x.22.residual_function.7-386
+    <<Sequential-conv4_x.22.residual_function-378
+    >>Sequential-conv4_x.22.shortcut-387
+    <<Sequential-conv4_x.22.shortcut-387
+------>
+add-347
+<------
+------>
+relu-348
+<------
+  <<BottleNeck-conv4_x.22-377
+  >>BottleNeck-conv4_x.23-388
+    >>Sequential-conv4_x.23.residual_function-389
+      >>Conv2d-conv4_x.23.residual_function.0-390
+------>
+convolution-349
+<------
+      <<Conv2d-conv4_x.23.residual_function.0-390
+      >>BatchNorm2d-conv4_x.23.residual_function.1-391
+------>
+native_batch_norm-350
+<------
+      <<BatchNorm2d-conv4_x.23.residual_function.1-391
+      >>ReLU-conv4_x.23.residual_function.2-392
+------>
+relu-351
+<------
+      <<ReLU-conv4_x.23.residual_function.2-392
+      >>Conv2d-conv4_x.23.residual_function.3-393
+------>
+convolution-352
+<------
+      <<Conv2d-conv4_x.23.residual_function.3-393
+      >>BatchNorm2d-conv4_x.23.residual_function.4-394
+------>
+native_batch_norm-353
+<------
+      <<BatchNorm2d-conv4_x.23.residual_function.4-394
+      >>ReLU-conv4_x.23.residual_function.5-395
+------>
+relu-354
+<------
+      <<ReLU-conv4_x.23.residual_function.5-395
+      >>Conv2d-conv4_x.23.residual_function.6-396
+------>
+convolution-355
+<------
+      <<Conv2d-conv4_x.23.residual_function.6-396
+      >>BatchNorm2d-conv4_x.23.residual_function.7-397
+------>
+native_batch_norm-356
+<------
+      <<BatchNorm2d-conv4_x.23.residual_function.7-397
+    <<Sequential-conv4_x.23.residual_function-389
+    >>Sequential-conv4_x.23.shortcut-398
+    <<Sequential-conv4_x.23.shortcut-398
+------>
+add-357
+<------
+------>
+relu-358
+<------
+  <<BottleNeck-conv4_x.23-388
+  >>BottleNeck-conv4_x.24-399
+    >>Sequential-conv4_x.24.residual_function-400
+      >>Conv2d-conv4_x.24.residual_function.0-401
+------>
+convolution-359
+<------
+      <<Conv2d-conv4_x.24.residual_function.0-401
+      >>BatchNorm2d-conv4_x.24.residual_function.1-402
+------>
+native_batch_norm-360
+<------
+      <<BatchNorm2d-conv4_x.24.residual_function.1-402
+      >>ReLU-conv4_x.24.residual_function.2-403
+------>
+relu-361
+<------
+      <<ReLU-conv4_x.24.residual_function.2-403
+      >>Conv2d-conv4_x.24.residual_function.3-404
+------>
+convolution-362
+<------
+      <<Conv2d-conv4_x.24.residual_function.3-404
+      >>BatchNorm2d-conv4_x.24.residual_function.4-405
+------>
+native_batch_norm-363
+<------
+      <<BatchNorm2d-conv4_x.24.residual_function.4-405
+      >>ReLU-conv4_x.24.residual_function.5-406
+------>
+relu-364
+<------
+      <<ReLU-conv4_x.24.residual_function.5-406
+      >>Conv2d-conv4_x.24.residual_function.6-407
+------>
+convolution-365
+<------
+      <<Conv2d-conv4_x.24.residual_function.6-407
+      >>BatchNorm2d-conv4_x.24.residual_function.7-408
+------>
+native_batch_norm-366
+<------
+      <<BatchNorm2d-conv4_x.24.residual_function.7-408
+    <<Sequential-conv4_x.24.residual_function-400
+    >>Sequential-conv4_x.24.shortcut-409
+    <<Sequential-conv4_x.24.shortcut-409
+------>
+add-367
+<------
+------>
+relu-368
+<------
+  <<BottleNeck-conv4_x.24-399
+  >>BottleNeck-conv4_x.25-410
+    >>Sequential-conv4_x.25.residual_function-411
+      >>Conv2d-conv4_x.25.residual_function.0-412
+------>
+convolution-369
+<------
+      <<Conv2d-conv4_x.25.residual_function.0-412
+      >>BatchNorm2d-conv4_x.25.residual_function.1-413
+------>
+native_batch_norm-370
+<------
+      <<BatchNorm2d-conv4_x.25.residual_function.1-413
+      >>ReLU-conv4_x.25.residual_function.2-414
+------>
+relu-371
+<------
+      <<ReLU-conv4_x.25.residual_function.2-414
+      >>Conv2d-conv4_x.25.residual_function.3-415
+------>
+convolution-372
+<------
+      <<Conv2d-conv4_x.25.residual_function.3-415
+      >>BatchNorm2d-conv4_x.25.residual_function.4-416
+------>
+native_batch_norm-373
+<------
+      <<BatchNorm2d-conv4_x.25.residual_function.4-416
+      >>ReLU-conv4_x.25.residual_function.5-417
+------>
+relu-374
+<------
+      <<ReLU-conv4_x.25.residual_function.5-417
+      >>Conv2d-conv4_x.25.residual_function.6-418
+------>
+convolution-375
+<------
+      <<Conv2d-conv4_x.25.residual_function.6-418
+      >>BatchNorm2d-conv4_x.25.residual_function.7-419
+------>
+native_batch_norm-376
+<------
+      <<BatchNorm2d-conv4_x.25.residual_function.7-419
+    <<Sequential-conv4_x.25.residual_function-411
+    >>Sequential-conv4_x.25.shortcut-420
+    <<Sequential-conv4_x.25.shortcut-420
+------>
+add-377
+<------
+------>
+relu-378
+<------
+  <<BottleNeck-conv4_x.25-410
+  >>BottleNeck-conv4_x.26-421
+    >>Sequential-conv4_x.26.residual_function-422
+      >>Conv2d-conv4_x.26.residual_function.0-423
+------>
+convolution-379
+<------
+      <<Conv2d-conv4_x.26.residual_function.0-423
+      >>BatchNorm2d-conv4_x.26.residual_function.1-424
+------>
+native_batch_norm-380
+<------
+      <<BatchNorm2d-conv4_x.26.residual_function.1-424
+      >>ReLU-conv4_x.26.residual_function.2-425
+------>
+relu-381
+<------
+      <<ReLU-conv4_x.26.residual_function.2-425
+      >>Conv2d-conv4_x.26.residual_function.3-426
+------>
+convolution-382
+<------
+      <<Conv2d-conv4_x.26.residual_function.3-426
+      >>BatchNorm2d-conv4_x.26.residual_function.4-427
+------>
+native_batch_norm-383
+<------
+      <<BatchNorm2d-conv4_x.26.residual_function.4-427
+      >>ReLU-conv4_x.26.residual_function.5-428
+------>
+relu-384
+<------
+      <<ReLU-conv4_x.26.residual_function.5-428
+      >>Conv2d-conv4_x.26.residual_function.6-429
+------>
+convolution-385
+<------
+      <<Conv2d-conv4_x.26.residual_function.6-429
+      >>BatchNorm2d-conv4_x.26.residual_function.7-430
+------>
+native_batch_norm-386
+<------
+      <<BatchNorm2d-conv4_x.26.residual_function.7-430
+    <<Sequential-conv4_x.26.residual_function-422
+    >>Sequential-conv4_x.26.shortcut-431
+    <<Sequential-conv4_x.26.shortcut-431
+------>
+add-387
+<------
+------>
+relu-388
+<------
+  <<BottleNeck-conv4_x.26-421
+  >>BottleNeck-conv4_x.27-432
+    >>Sequential-conv4_x.27.residual_function-433
+      >>Conv2d-conv4_x.27.residual_function.0-434
+------>
+convolution-389
+<------
+      <<Conv2d-conv4_x.27.residual_function.0-434
+      >>BatchNorm2d-conv4_x.27.residual_function.1-435
+------>
+native_batch_norm-390
+<------
+      <<BatchNorm2d-conv4_x.27.residual_function.1-435
+      >>ReLU-conv4_x.27.residual_function.2-436
+------>
+relu-391
+<------
+      <<ReLU-conv4_x.27.residual_function.2-436
+      >>Conv2d-conv4_x.27.residual_function.3-437
+------>
+convolution-392
+<------
+      <<Conv2d-conv4_x.27.residual_function.3-437
+      >>BatchNorm2d-conv4_x.27.residual_function.4-438
+------>
+native_batch_norm-393
+<------
+      <<BatchNorm2d-conv4_x.27.residual_function.4-438
+      >>ReLU-conv4_x.27.residual_function.5-439
+------>
+relu-394
+<------
+      <<ReLU-conv4_x.27.residual_function.5-439
+      >>Conv2d-conv4_x.27.residual_function.6-440
+------>
+convolution-395
+<------
+      <<Conv2d-conv4_x.27.residual_function.6-440
+      >>BatchNorm2d-conv4_x.27.residual_function.7-441
+------>
+native_batch_norm-396
+<------
+      <<BatchNorm2d-conv4_x.27.residual_function.7-441
+    <<Sequential-conv4_x.27.residual_function-433
+    >>Sequential-conv4_x.27.shortcut-442
+    <<Sequential-conv4_x.27.shortcut-442
+------>
+add-397
+<------
+------>
+relu-398
+<------
+  <<BottleNeck-conv4_x.27-432
+  >>BottleNeck-conv4_x.28-443
+    >>Sequential-conv4_x.28.residual_function-444
+      >>Conv2d-conv4_x.28.residual_function.0-445
+------>
+convolution-399
+<------
+      <<Conv2d-conv4_x.28.residual_function.0-445
+      >>BatchNorm2d-conv4_x.28.residual_function.1-446
+------>
+native_batch_norm-400
+<------
+      <<BatchNorm2d-conv4_x.28.residual_function.1-446
+      >>ReLU-conv4_x.28.residual_function.2-447
+------>
+relu-401
+<------
+      <<ReLU-conv4_x.28.residual_function.2-447
+      >>Conv2d-conv4_x.28.residual_function.3-448
+------>
+convolution-402
+<------
+      <<Conv2d-conv4_x.28.residual_function.3-448
+      >>BatchNorm2d-conv4_x.28.residual_function.4-449
+------>
+native_batch_norm-403
+<------
+      <<BatchNorm2d-conv4_x.28.residual_function.4-449
+      >>ReLU-conv4_x.28.residual_function.5-450
+------>
+relu-404
+<------
+      <<ReLU-conv4_x.28.residual_function.5-450
+      >>Conv2d-conv4_x.28.residual_function.6-451
+------>
+convolution-405
+<------
+      <<Conv2d-conv4_x.28.residual_function.6-451
+      >>BatchNorm2d-conv4_x.28.residual_function.7-452
+------>
+native_batch_norm-406
+<------
+      <<BatchNorm2d-conv4_x.28.residual_function.7-452
+    <<Sequential-conv4_x.28.residual_function-444
+    >>Sequential-conv4_x.28.shortcut-453
+    <<Sequential-conv4_x.28.shortcut-453
+------>
+add-407
+<------
+------>
+relu-408
+<------
+  <<BottleNeck-conv4_x.28-443
+  >>BottleNeck-conv4_x.29-454
+    >>Sequential-conv4_x.29.residual_function-455
+      >>Conv2d-conv4_x.29.residual_function.0-456
+------>
+convolution-409
+<------
+      <<Conv2d-conv4_x.29.residual_function.0-456
+      >>BatchNorm2d-conv4_x.29.residual_function.1-457
+------>
+native_batch_norm-410
+<------
+      <<BatchNorm2d-conv4_x.29.residual_function.1-457
+      >>ReLU-conv4_x.29.residual_function.2-458
+------>
+relu-411
+<------
+      <<ReLU-conv4_x.29.residual_function.2-458
+      >>Conv2d-conv4_x.29.residual_function.3-459
+------>
+convolution-412
+<------
+      <<Conv2d-conv4_x.29.residual_function.3-459
+      >>BatchNorm2d-conv4_x.29.residual_function.4-460
+------>
+native_batch_norm-413
+<------
+      <<BatchNorm2d-conv4_x.29.residual_function.4-460
+      >>ReLU-conv4_x.29.residual_function.5-461
+------>
+relu-414
+<------
+      <<ReLU-conv4_x.29.residual_function.5-461
+      >>Conv2d-conv4_x.29.residual_function.6-462
+------>
+convolution-415
+<------
+      <<Conv2d-conv4_x.29.residual_function.6-462
+      >>BatchNorm2d-conv4_x.29.residual_function.7-463
+------>
+native_batch_norm-416
+<------
+      <<BatchNorm2d-conv4_x.29.residual_function.7-463
+    <<Sequential-conv4_x.29.residual_function-455
+    >>Sequential-conv4_x.29.shortcut-464
+    <<Sequential-conv4_x.29.shortcut-464
+------>
+add-417
+<------
+------>
+relu-418
+<------
+  <<BottleNeck-conv4_x.29-454
+  >>BottleNeck-conv4_x.30-465
+    >>Sequential-conv4_x.30.residual_function-466
+      >>Conv2d-conv4_x.30.residual_function.0-467
+------>
+convolution-419
+<------
+      <<Conv2d-conv4_x.30.residual_function.0-467
+      >>BatchNorm2d-conv4_x.30.residual_function.1-468
+------>
+native_batch_norm-420
+<------
+      <<BatchNorm2d-conv4_x.30.residual_function.1-468
+      >>ReLU-conv4_x.30.residual_function.2-469
+------>
+relu-421
+<------
+      <<ReLU-conv4_x.30.residual_function.2-469
+      >>Conv2d-conv4_x.30.residual_function.3-470
+------>
+convolution-422
+<------
+      <<Conv2d-conv4_x.30.residual_function.3-470
+      >>BatchNorm2d-conv4_x.30.residual_function.4-471
+------>
+native_batch_norm-423
+<------
+      <<BatchNorm2d-conv4_x.30.residual_function.4-471
+      >>ReLU-conv4_x.30.residual_function.5-472
+------>
+relu-424
+<------
+      <<ReLU-conv4_x.30.residual_function.5-472
+      >>Conv2d-conv4_x.30.residual_function.6-473
+------>
+convolution-425
+<------
+      <<Conv2d-conv4_x.30.residual_function.6-473
+      >>BatchNorm2d-conv4_x.30.residual_function.7-474
+------>
+native_batch_norm-426
+<------
+      <<BatchNorm2d-conv4_x.30.residual_function.7-474
+    <<Sequential-conv4_x.30.residual_function-466
+    >>Sequential-conv4_x.30.shortcut-475
+    <<Sequential-conv4_x.30.shortcut-475
+------>
+add-427
+<------
+------>
+relu-428
+<------
+  <<BottleNeck-conv4_x.30-465
+  >>BottleNeck-conv4_x.31-476
+    >>Sequential-conv4_x.31.residual_function-477
+      >>Conv2d-conv4_x.31.residual_function.0-478
+------>
+convolution-429
+<------
+      <<Conv2d-conv4_x.31.residual_function.0-478
+      >>BatchNorm2d-conv4_x.31.residual_function.1-479
+------>
+native_batch_norm-430
+<------
+      <<BatchNorm2d-conv4_x.31.residual_function.1-479
+      >>ReLU-conv4_x.31.residual_function.2-480
+------>
+relu-431
+<------
+      <<ReLU-conv4_x.31.residual_function.2-480
+      >>Conv2d-conv4_x.31.residual_function.3-481
+------>
+convolution-432
+<------
+      <<Conv2d-conv4_x.31.residual_function.3-481
+      >>BatchNorm2d-conv4_x.31.residual_function.4-482
+------>
+native_batch_norm-433
+<------
+      <<BatchNorm2d-conv4_x.31.residual_function.4-482
+      >>ReLU-conv4_x.31.residual_function.5-483
+------>
+relu-434
+<------
+      <<ReLU-conv4_x.31.residual_function.5-483
+      >>Conv2d-conv4_x.31.residual_function.6-484
+------>
+convolution-435
+<------
+      <<Conv2d-conv4_x.31.residual_function.6-484
+      >>BatchNorm2d-conv4_x.31.residual_function.7-485
+------>
+native_batch_norm-436
+<------
+      <<BatchNorm2d-conv4_x.31.residual_function.7-485
+    <<Sequential-conv4_x.31.residual_function-477
+    >>Sequential-conv4_x.31.shortcut-486
+    <<Sequential-conv4_x.31.shortcut-486
+------>
+add-437
+<------
+------>
+relu-438
+<------
+  <<BottleNeck-conv4_x.31-476
+  >>BottleNeck-conv4_x.32-487
+    >>Sequential-conv4_x.32.residual_function-488
+      >>Conv2d-conv4_x.32.residual_function.0-489
+------>
+convolution-439
+<------
+      <<Conv2d-conv4_x.32.residual_function.0-489
+      >>BatchNorm2d-conv4_x.32.residual_function.1-490
+------>
+native_batch_norm-440
+<------
+      <<BatchNorm2d-conv4_x.32.residual_function.1-490
+      >>ReLU-conv4_x.32.residual_function.2-491
+------>
+relu-441
+<------
+      <<ReLU-conv4_x.32.residual_function.2-491
+      >>Conv2d-conv4_x.32.residual_function.3-492
+------>
+convolution-442
+<------
+      <<Conv2d-conv4_x.32.residual_function.3-492
+      >>BatchNorm2d-conv4_x.32.residual_function.4-493
+------>
+native_batch_norm-443
+<------
+      <<BatchNorm2d-conv4_x.32.residual_function.4-493
+      >>ReLU-conv4_x.32.residual_function.5-494
+------>
+relu-444
+<------
+      <<ReLU-conv4_x.32.residual_function.5-494
+      >>Conv2d-conv4_x.32.residual_function.6-495
+------>
+convolution-445
+<------
+      <<Conv2d-conv4_x.32.residual_function.6-495
+      >>BatchNorm2d-conv4_x.32.residual_function.7-496
+------>
+native_batch_norm-446
+<------
+      <<BatchNorm2d-conv4_x.32.residual_function.7-496
+    <<Sequential-conv4_x.32.residual_function-488
+    >>Sequential-conv4_x.32.shortcut-497
+    <<Sequential-conv4_x.32.shortcut-497
+------>
+add-447
+<------
+------>
+relu-448
+<------
+  <<BottleNeck-conv4_x.32-487
+  >>BottleNeck-conv4_x.33-498
+    >>Sequential-conv4_x.33.residual_function-499
+      >>Conv2d-conv4_x.33.residual_function.0-500
+------>
+convolution-449
+<------
+      <<Conv2d-conv4_x.33.residual_function.0-500
+      >>BatchNorm2d-conv4_x.33.residual_function.1-501
+------>
+native_batch_norm-450
+<------
+      <<BatchNorm2d-conv4_x.33.residual_function.1-501
+      >>ReLU-conv4_x.33.residual_function.2-502
+------>
+relu-451
+<------
+      <<ReLU-conv4_x.33.residual_function.2-502
+      >>Conv2d-conv4_x.33.residual_function.3-503
+------>
+convolution-452
+<------
+      <<Conv2d-conv4_x.33.residual_function.3-503
+      >>BatchNorm2d-conv4_x.33.residual_function.4-504
+------>
+native_batch_norm-453
+<------
+      <<BatchNorm2d-conv4_x.33.residual_function.4-504
+      >>ReLU-conv4_x.33.residual_function.5-505
+------>
+relu-454
+<------
+      <<ReLU-conv4_x.33.residual_function.5-505
+      >>Conv2d-conv4_x.33.residual_function.6-506
+------>
+convolution-455
+<------
+      <<Conv2d-conv4_x.33.residual_function.6-506
+      >>BatchNorm2d-conv4_x.33.residual_function.7-507
+------>
+native_batch_norm-456
+<------
+      <<BatchNorm2d-conv4_x.33.residual_function.7-507
+    <<Sequential-conv4_x.33.residual_function-499
+    >>Sequential-conv4_x.33.shortcut-508
+    <<Sequential-conv4_x.33.shortcut-508
+------>
+add-457
+<------
+------>
+relu-458
+<------
+  <<BottleNeck-conv4_x.33-498
+  >>BottleNeck-conv4_x.34-509
+    >>Sequential-conv4_x.34.residual_function-510
+      >>Conv2d-conv4_x.34.residual_function.0-511
+------>
+convolution-459
+<------
+      <<Conv2d-conv4_x.34.residual_function.0-511
+      >>BatchNorm2d-conv4_x.34.residual_function.1-512
+------>
+native_batch_norm-460
+<------
+      <<BatchNorm2d-conv4_x.34.residual_function.1-512
+      >>ReLU-conv4_x.34.residual_function.2-513
+------>
+relu-461
+<------
+      <<ReLU-conv4_x.34.residual_function.2-513
+      >>Conv2d-conv4_x.34.residual_function.3-514
+------>
+convolution-462
+<------
+      <<Conv2d-conv4_x.34.residual_function.3-514
+      >>BatchNorm2d-conv4_x.34.residual_function.4-515
+------>
+native_batch_norm-463
+<------
+      <<BatchNorm2d-conv4_x.34.residual_function.4-515
+      >>ReLU-conv4_x.34.residual_function.5-516
+------>
+relu-464
+<------
+      <<ReLU-conv4_x.34.residual_function.5-516
+      >>Conv2d-conv4_x.34.residual_function.6-517
+------>
+convolution-465
+<------
+      <<Conv2d-conv4_x.34.residual_function.6-517
+      >>BatchNorm2d-conv4_x.34.residual_function.7-518
+------>
+native_batch_norm-466
+<------
+      <<BatchNorm2d-conv4_x.34.residual_function.7-518
+    <<Sequential-conv4_x.34.residual_function-510
+    >>Sequential-conv4_x.34.shortcut-519
+    <<Sequential-conv4_x.34.shortcut-519
+------>
+add-467
+<------
+------>
+relu-468
+<------
+  <<BottleNeck-conv4_x.34-509
+  >>BottleNeck-conv4_x.35-520
+    >>Sequential-conv4_x.35.residual_function-521
+      >>Conv2d-conv4_x.35.residual_function.0-522
+------>
+convolution-469
+<------
+      <<Conv2d-conv4_x.35.residual_function.0-522
+      >>BatchNorm2d-conv4_x.35.residual_function.1-523
+------>
+native_batch_norm-470
+<------
+      <<BatchNorm2d-conv4_x.35.residual_function.1-523
+      >>ReLU-conv4_x.35.residual_function.2-524
+------>
+relu-471
+<------
+      <<ReLU-conv4_x.35.residual_function.2-524
+      >>Conv2d-conv4_x.35.residual_function.3-525
+------>
+convolution-472
+<------
+      <<Conv2d-conv4_x.35.residual_function.3-525
+      >>BatchNorm2d-conv4_x.35.residual_function.4-526
+------>
+native_batch_norm-473
+<------
+      <<BatchNorm2d-conv4_x.35.residual_function.4-526
+      >>ReLU-conv4_x.35.residual_function.5-527
+------>
+relu-474
+<------
+      <<ReLU-conv4_x.35.residual_function.5-527
+      >>Conv2d-conv4_x.35.residual_function.6-528
+------>
+convolution-475
+<------
+      <<Conv2d-conv4_x.35.residual_function.6-528
+      >>BatchNorm2d-conv4_x.35.residual_function.7-529
+------>
+native_batch_norm-476
+<------
+      <<BatchNorm2d-conv4_x.35.residual_function.7-529
+    <<Sequential-conv4_x.35.residual_function-521
+    >>Sequential-conv4_x.35.shortcut-530
+    <<Sequential-conv4_x.35.shortcut-530
+------>
+add-477
+<------
+------>
+relu-478
+<------
+  <<BottleNeck-conv4_x.35-520
+<<Sequential-conv4_x-132
+>>Sequential-conv5_x-531
+  >>BottleNeck-conv5_x.0-532
+    >>Sequential-conv5_x.0.residual_function-533
+      >>Conv2d-conv5_x.0.residual_function.0-534
+------>
+convolution-479
+<------
+      <<Conv2d-conv5_x.0.residual_function.0-534
+      >>BatchNorm2d-conv5_x.0.residual_function.1-535
+------>
+native_batch_norm-480
+<------
+      <<BatchNorm2d-conv5_x.0.residual_function.1-535
+      >>ReLU-conv5_x.0.residual_function.2-536
+------>
+relu-481
+<------
+      <<ReLU-conv5_x.0.residual_function.2-536
+      >>Conv2d-conv5_x.0.residual_function.3-537
+------>
+convolution-482
+<------
+      <<Conv2d-conv5_x.0.residual_function.3-537
+      >>BatchNorm2d-conv5_x.0.residual_function.4-538
+------>
+native_batch_norm-483
+<------
+      <<BatchNorm2d-conv5_x.0.residual_function.4-538
+      >>ReLU-conv5_x.0.residual_function.5-539
+------>
+relu-484
+<------
+      <<ReLU-conv5_x.0.residual_function.5-539
+      >>Conv2d-conv5_x.0.residual_function.6-540
+------>
+convolution-485
+<------
+      <<Conv2d-conv5_x.0.residual_function.6-540
+      >>BatchNorm2d-conv5_x.0.residual_function.7-541
+------>
+native_batch_norm-486
+<------
+      <<BatchNorm2d-conv5_x.0.residual_function.7-541
+    <<Sequential-conv5_x.0.residual_function-533
+    >>Sequential-conv5_x.0.shortcut-542
+      >>Conv2d-conv5_x.0.shortcut.0-543
+------>
+convolution-487
+<------
+      <<Conv2d-conv5_x.0.shortcut.0-543
+      >>BatchNorm2d-conv5_x.0.shortcut.1-544
+------>
+native_batch_norm-488
+<------
+      <<BatchNorm2d-conv5_x.0.shortcut.1-544
+    <<Sequential-conv5_x.0.shortcut-542
+------>
+add-489
+<------
+------>
+relu-490
+<------
+  <<BottleNeck-conv5_x.0-532
+  >>BottleNeck-conv5_x.1-545
+    >>Sequential-conv5_x.1.residual_function-546
+      >>Conv2d-conv5_x.1.residual_function.0-547
+------>
+convolution-491
+<------
+      <<Conv2d-conv5_x.1.residual_function.0-547
+      >>BatchNorm2d-conv5_x.1.residual_function.1-548
+------>
+native_batch_norm-492
+<------
+      <<BatchNorm2d-conv5_x.1.residual_function.1-548
+      >>ReLU-conv5_x.1.residual_function.2-549
+------>
+relu-493
+<------
+      <<ReLU-conv5_x.1.residual_function.2-549
+      >>Conv2d-conv5_x.1.residual_function.3-550
+------>
+convolution-494
+<------
+      <<Conv2d-conv5_x.1.residual_function.3-550
+      >>BatchNorm2d-conv5_x.1.residual_function.4-551
+------>
+native_batch_norm-495
+<------
+      <<BatchNorm2d-conv5_x.1.residual_function.4-551
+      >>ReLU-conv5_x.1.residual_function.5-552
+------>
+relu-496
+<------
+      <<ReLU-conv5_x.1.residual_function.5-552
+      >>Conv2d-conv5_x.1.residual_function.6-553
+------>
+convolution-497
+<------
+      <<Conv2d-conv5_x.1.residual_function.6-553
+      >>BatchNorm2d-conv5_x.1.residual_function.7-554
+------>
+native_batch_norm-498
+<------
+      <<BatchNorm2d-conv5_x.1.residual_function.7-554
+    <<Sequential-conv5_x.1.residual_function-546
+    >>Sequential-conv5_x.1.shortcut-555
+    <<Sequential-conv5_x.1.shortcut-555
+------>
+add-499
+<------
+------>
+relu-500
+<------
+  <<BottleNeck-conv5_x.1-545
+  >>BottleNeck-conv5_x.2-556
+    >>Sequential-conv5_x.2.residual_function-557
+      >>Conv2d-conv5_x.2.residual_function.0-558
+------>
+convolution-501
+<------
+      <<Conv2d-conv5_x.2.residual_function.0-558
+      >>BatchNorm2d-conv5_x.2.residual_function.1-559
+------>
+native_batch_norm-502
+<------
+      <<BatchNorm2d-conv5_x.2.residual_function.1-559
+      >>ReLU-conv5_x.2.residual_function.2-560
+------>
+relu-503
+<------
+      <<ReLU-conv5_x.2.residual_function.2-560
+      >>Conv2d-conv5_x.2.residual_function.3-561
+------>
+convolution-504
+<------
+      <<Conv2d-conv5_x.2.residual_function.3-561
+      >>BatchNorm2d-conv5_x.2.residual_function.4-562
+------>
+native_batch_norm-505
+<------
+      <<BatchNorm2d-conv5_x.2.residual_function.4-562
+      >>ReLU-conv5_x.2.residual_function.5-563
+------>
+relu-506
+<------
+      <<ReLU-conv5_x.2.residual_function.5-563
+      >>Conv2d-conv5_x.2.residual_function.6-564
+------>
+convolution-507
+<------
+      <<Conv2d-conv5_x.2.residual_function.6-564
+      >>BatchNorm2d-conv5_x.2.residual_function.7-565
+------>
+native_batch_norm-508
+<------
+      <<BatchNorm2d-conv5_x.2.residual_function.7-565
+    <<Sequential-conv5_x.2.residual_function-557
+    >>Sequential-conv5_x.2.shortcut-566
+    <<Sequential-conv5_x.2.shortcut-566
+------>
+add-509
+<------
+------>
+relu-510
+<------
+  <<BottleNeck-conv5_x.2-556
+<<Sequential-conv5_x-531
+>>AdaptiveAvgPool2d-avg_pool-567
+------>
+mean-511
+<------
+<<AdaptiveAvgPool2d-avg_pool-567
+------>
+view-512
+<------
+>>Linear-fc-568
+------>
+t-513
+<------
+------>
+addmm-514
+<------
+<<Linear-fc-568
+<<ResNet--0
+------>
+_log_softmax-515
+<------
+------>
+nll_loss_forward-516
+<------

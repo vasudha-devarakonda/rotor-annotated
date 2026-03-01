@@ -751,8 +751,7 @@ class GPTNeoXLayerWrapper(nn.Module):
         """
         inputs: dict with keys 'hidden_states', optionally 'attention_mask', 'past_key_values', etc.
         """
-        hidden_states = inputs["hidden_states"]
-        attention_mask = inputs.get("attention_mask", None)
+        hidden_states,attention_mask = inputs
         outputs = self.layer(
             hidden_states,
             attention_mask=attention_mask,
@@ -760,10 +759,7 @@ class GPTNeoXLayerWrapper(nn.Module):
 
         hidden_states = outputs[0]
 
-        return {
-            "hidden_states": hidden_states,
-            "attention_mask": attention_mask,
-        }
+        return (hidden_states,attention_mask)
 
 class TokenEmbedding(nn.Module):
     def __init__(self, config):
@@ -773,16 +769,16 @@ class TokenEmbedding(nn.Module):
 
     def forward(
         self,
-        input_ids: Optional[torch.LongTensor] = None,
-        attention_mask: Optional[torch.FloatTensor] = None,
-        position_ids: Optional[torch.LongTensor] = None,
-        head_mask: Optional[torch.FloatTensor] = None,
-        inputs_embeds: Optional[torch.FloatTensor] = None,
-        past_key_values: Optional[Tuple[Tuple[torch.FloatTensor]]] = None,
-        use_cache: Optional[bool] = None,
-        output_attentions: Optional[bool] = None,
-        output_hidden_states: Optional[bool] = None,
-        return_dict: Optional[bool] = None,
+        input_ids,
+        attention_mask= None,
+        position_ids=None,
+        head_mask= None,
+        inputs_embeds = None,
+        past_key_values= None,
+        use_cache= None,
+        output_attentions= None,
+        output_hidden_states = None,
+        return_dict= None,
     ):
         output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
         output_hidden_states = (
@@ -829,10 +825,8 @@ class TokenEmbedding(nn.Module):
             inputs_embeds = self.embed_in(input_ids)
         hidden_states = inputs_embeds
 
-        return {
-            "hidden_states": hidden_states,
-            "attention_mask": attention_mask,
-        }
+        return (hidden_states,attention_mask)
+
     
     
 class DropOutLayer(nn.Module):
@@ -842,14 +836,10 @@ class DropOutLayer(nn.Module):
         self.config = config
 
     def forward(self, inputs):
-        hidden_states = inputs["hidden_states"]
-        attention_mask = inputs["attention_mask"]
+        hidden_states,attention_mask  = inputs
         hidden_states = self.dropout(hidden_states)
 
-        return {
-            "hidden_states": hidden_states,
-            "attention_mask": attention_mask,
-        }
+        return (hidden_states,attention_mask)
             
 class LayerNormWrapper(nn.Module):
     def __init__(self, hidden_size, eps=1e-5):
@@ -857,7 +847,7 @@ class LayerNormWrapper(nn.Module):
         self.ln = nn.LayerNorm(hidden_size, eps=eps)
 
     def forward(self, inputs):
-        hidden_states = inputs["hidden_states"]
+        hidden_states, _ = inputs
         hidden_states = self.ln(hidden_states)
         return hidden_states    
     
@@ -866,8 +856,8 @@ class GPTNeoXForCausalLM(nn.Sequential):
     def __init__(self, config):
         super().__init__()
         self.add_module("embed_in",TokenEmbedding(config))
-        self.add_module("emb_dropout", DropOutLayer(config))
-        self.add_module("layers", nn.Sequential(
+        self.add_module("gpt_neox=emb_dropout", DropOutLayer(config))
+        self.add_module("gpt_neox=layers", nn.Sequential(
             *[GPTNeoXLayerWrapper(GPTNeoXLayer(config)) for _ in range(config.num_hidden_layers)]
         ))
         self.add_module("final_layer_norm", LayerNormWrapper(config.hidden_size, eps=config.layer_norm_eps))

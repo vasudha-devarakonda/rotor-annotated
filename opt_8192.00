@@ -1,0 +1,4 @@
+num_recomp: 11
+recomp: [<class 'rotor.models.opt.TokenEmbedding'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>]
+recomp_size (bytes): 4592.6689453125 MB
+

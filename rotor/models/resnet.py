@@ -138,15 +138,20 @@ class ResNet(nn.Sequential):
         self.base_width = width_per_group
 
         super(ResNet, self).__init__()
-        self.add_module('conv1', nn.Conv2d(3, self.inplanes, kernel_size=3, stride=1, padding=1,
-                                           bias=False))
-        self.add_module('bn1', ReLUatEnd(norm_layer(self.inplanes)))
-        self.add_module('layer1', self._make_layer(block, 64, layers[0]))
-        self.add_module('layer2', self._make_layer(block, 128, layers[1], stride=2,
+        self.add_module(
+            'conv1',
+            nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, padding=1, bias=False),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=False))
+            
+        )
+        self.add_module('conv2_x', self._make_layer(block, 64, layers[0]))
+        self.add_module('conv3_x', self._make_layer(block, 128, layers[1], stride=2,
                                                    dilate=replace_stride_with_dilation[0]))
-        self.add_module('layer3', self._make_layer(block, 256, layers[2], stride=2,
+        self.add_module('conv4_x', self._make_layer(block, 256, layers[2], stride=2,
                                                    dilate=replace_stride_with_dilation[1]))
-        self.add_module('layer4', self._make_layer(block, 512, layers[3], stride=2,
+        self.add_module('conv5_x', self._make_layer(block, 512, layers[3], stride=2,
                                                     dilate=replace_stride_with_dilation[2]))
         self.add_module('avgpool', nn.AdaptiveAvgPool2d((1, 1)))
         self.add_module('flatten', Flatten())

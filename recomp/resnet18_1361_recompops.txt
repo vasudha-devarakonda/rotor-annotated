@@ -1,0 +1,8 @@
+convolution-3
+native_batch_norm-4
+relu-5
+convolution-6
+native_batch_norm-7
+add-8
+relu-9
+----------------------

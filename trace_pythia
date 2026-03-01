@@ -1,0 +1,2763 @@
+>>GPTNeoXForCausalLM--0
+>>GPTNeoXModel-gpt_neox-1
+  >>Embedding-gpt_neox.embed_in-2
+------>
+embedding-0
+<------
+  <<Embedding-gpt_neox.embed_in-2
+  >>Dropout-gpt_neox.emb_dropout-3
+  <<Dropout-gpt_neox.emb_dropout-3
+    >>GPTNeoXLayer-gpt_neox.layers.0-5
+      >>LayerNorm-gpt_neox.layers.0.input_layernorm-6
+------>
+native_layer_norm-1
+<------
+      <<LayerNorm-gpt_neox.layers.0.input_layernorm-6
+      >>GPTNeoXAttention-gpt_neox.layers.0.attention-10
+        >>Linear-gpt_neox.layers.0.attention.query_key_value-12
+------>
+view-2
+<------
+------>
+t-3
+<------
+------>
+addmm-4
+<------
+------>
+view-5
+<------
+        <<Linear-gpt_neox.layers.0.attention.query_key_value-12
+------>
+view-6
+<------
+------>
+slice-7
+<------
+------>
+permute-8
+<------
+------>
+slice-9
+<------
+------>
+permute-10
+<------
+------>
+slice-11
+<------
+------>
+permute-12
+<------
+------>
+slice-13
+<------
+------>
+slice-14
+<------
+------>
+slice-15
+<------
+------>
+slice-16
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.0.attention.rotary_emb-11
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.0.attention.rotary_emb-11
+------>
+mul-17
+<------
+------>
+slice-18
+<------
+------>
+slice-19
+<------
+------>
+neg-20
+<------
+------>
+cat-21
+<------
+------>
+mul-22
+<------
+------>
+add-23
+<------
+------>
+mul-24
+<------
+------>
+slice-25
+<------
+------>
+slice-26
+<------
+------>
+neg-27
+<------
+------>
+cat-28
+<------
+------>
+mul-29
+<------
+------>
+add-30
+<------
+------>
+cat-31
+<------
+------>
+cat-32
+<------
+------>
+view-33
+<------
+------>
+view-34
+<------
+------>
+transpose-35
+<------
+------>
+baddbmm-36
+<------
+------>
+view-37
+<------
+------>
+where-38
+<------
+------>
+add-39
+<------
+------>
+_softmax-40
+<------
+        >>Dropout-gpt_neox.layers.0.attention.attention_dropout-14
+        <<Dropout-gpt_neox.layers.0.attention.attention_dropout-14
+------>
+expand-41
+<------
+------>
+view-42
+<------
+------>
+expand-43
+<------
+------>
+clone-44
+<------
+------>
+_unsafe_view-45
+<------
+------>
+bmm-46
+<------
+------>
+_unsafe_view-47
+<------
+------>
+permute-48
+<------
+------>
+clone-49
+<------
+------>
+view-50
+<------
+        >>Linear-gpt_neox.layers.0.attention.dense-13
+------>
+view-51
+<------
+------>
+t-52
+<------
+------>
+addmm-53
+<------
+------>
+view-54
+<------
+        <<Linear-gpt_neox.layers.0.attention.dense-13
+      <<GPTNeoXAttention-gpt_neox.layers.0.attention-10
+      >>Dropout-gpt_neox.layers.0.post_attention_dropout-8
+      <<Dropout-gpt_neox.layers.0.post_attention_dropout-8
+      >>LayerNorm-gpt_neox.layers.0.post_attention_layernorm-7
+------>
+native_layer_norm-55
+<------
+      <<LayerNorm-gpt_neox.layers.0.post_attention_layernorm-7
+      >>GPTNeoXMLP-gpt_neox.layers.0.mlp-15
+        >>Linear-gpt_neox.layers.0.mlp.dense_h_to_4h-16
+------>
+view-56
+<------
+------>
+t-57
+<------
+------>
+addmm-58
+<------
+------>
+view-59
+<------
+        <<Linear-gpt_neox.layers.0.mlp.dense_h_to_4h-16
+        >>GELUActivation-gpt_neox.layers.0.mlp.act-18
+------>
+gelu-60
+<------
+        <<GELUActivation-gpt_neox.layers.0.mlp.act-18
+        >>Linear-gpt_neox.layers.0.mlp.dense_4h_to_h-17
+------>
+view-61
+<------
+------>
+t-62
+<------
+------>
+addmm-63
+<------
+------>
+view-64
+<------
+        <<Linear-gpt_neox.layers.0.mlp.dense_4h_to_h-17
+      <<GPTNeoXMLP-gpt_neox.layers.0.mlp-15
+      >>Dropout-gpt_neox.layers.0.post_mlp_dropout-9
+      <<Dropout-gpt_neox.layers.0.post_mlp_dropout-9
+------>
+add-65
+<------
+------>
+add-66
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.0-5
+    >>GPTNeoXLayer-gpt_neox.layers.1-19
+      >>LayerNorm-gpt_neox.layers.1.input_layernorm-20
+------>
+native_layer_norm-67
+<------
+      <<LayerNorm-gpt_neox.layers.1.input_layernorm-20
+      >>GPTNeoXAttention-gpt_neox.layers.1.attention-24
+        >>Linear-gpt_neox.layers.1.attention.query_key_value-26
+------>
+view-68
+<------
+------>
+t-69
+<------
+------>
+addmm-70
+<------
+------>
+view-71
+<------
+        <<Linear-gpt_neox.layers.1.attention.query_key_value-26
+------>
+view-72
+<------
+------>
+slice-73
+<------
+------>
+permute-74
+<------
+------>
+slice-75
+<------
+------>
+permute-76
+<------
+------>
+slice-77
+<------
+------>
+permute-78
+<------
+------>
+slice-79
+<------
+------>
+slice-80
+<------
+------>
+slice-81
+<------
+------>
+slice-82
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.1.attention.rotary_emb-25
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.1.attention.rotary_emb-25
+------>
+mul-83
+<------
+------>
+slice-84
+<------
+------>
+slice-85
+<------
+------>
+neg-86
+<------
+------>
+cat-87
+<------
+------>
+mul-88
+<------
+------>
+add-89
+<------
+------>
+mul-90
+<------
+------>
+slice-91
+<------
+------>
+slice-92
+<------
+------>
+neg-93
+<------
+------>
+cat-94
+<------
+------>
+mul-95
+<------
+------>
+add-96
+<------
+------>
+cat-97
+<------
+------>
+cat-98
+<------
+------>
+view-99
+<------
+------>
+view-100
+<------
+------>
+transpose-101
+<------
+------>
+baddbmm-102
+<------
+------>
+view-103
+<------
+------>
+where-104
+<------
+------>
+add-105
+<------
+------>
+_softmax-106
+<------
+        >>Dropout-gpt_neox.layers.1.attention.attention_dropout-28
+        <<Dropout-gpt_neox.layers.1.attention.attention_dropout-28
+------>
+expand-107
+<------
+------>
+view-108
+<------
+------>
+expand-109
+<------
+------>
+clone-110
+<------
+------>
+_unsafe_view-111
+<------
+------>
+bmm-112
+<------
+------>
+_unsafe_view-113
+<------
+------>
+permute-114
+<------
+------>
+clone-115
+<------
+------>
+view-116
+<------
+        >>Linear-gpt_neox.layers.1.attention.dense-27
+------>
+view-117
+<------
+------>
+t-118
+<------
+------>
+addmm-119
+<------
+------>
+view-120
+<------
+        <<Linear-gpt_neox.layers.1.attention.dense-27
+      <<GPTNeoXAttention-gpt_neox.layers.1.attention-24
+      >>Dropout-gpt_neox.layers.1.post_attention_dropout-22
+      <<Dropout-gpt_neox.layers.1.post_attention_dropout-22
+      >>LayerNorm-gpt_neox.layers.1.post_attention_layernorm-21
+------>
+native_layer_norm-121
+<------
+      <<LayerNorm-gpt_neox.layers.1.post_attention_layernorm-21
+      >>GPTNeoXMLP-gpt_neox.layers.1.mlp-29
+        >>Linear-gpt_neox.layers.1.mlp.dense_h_to_4h-30
+------>
+view-122
+<------
+------>
+t-123
+<------
+------>
+addmm-124
+<------
+------>
+view-125
+<------
+        <<Linear-gpt_neox.layers.1.mlp.dense_h_to_4h-30
+        >>GELUActivation-gpt_neox.layers.1.mlp.act-32
+------>
+gelu-126
+<------
+        <<GELUActivation-gpt_neox.layers.1.mlp.act-32
+        >>Linear-gpt_neox.layers.1.mlp.dense_4h_to_h-31
+------>
+view-127
+<------
+------>
+t-128
+<------
+------>
+addmm-129
+<------
+------>
+view-130
+<------
+        <<Linear-gpt_neox.layers.1.mlp.dense_4h_to_h-31
+      <<GPTNeoXMLP-gpt_neox.layers.1.mlp-29
+      >>Dropout-gpt_neox.layers.1.post_mlp_dropout-23
+      <<Dropout-gpt_neox.layers.1.post_mlp_dropout-23
+------>
+add-131
+<------
+------>
+add-132
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.1-19
+    >>GPTNeoXLayer-gpt_neox.layers.2-33
+      >>LayerNorm-gpt_neox.layers.2.input_layernorm-34
+------>
+native_layer_norm-133
+<------
+      <<LayerNorm-gpt_neox.layers.2.input_layernorm-34
+      >>GPTNeoXAttention-gpt_neox.layers.2.attention-38
+        >>Linear-gpt_neox.layers.2.attention.query_key_value-40
+------>
+view-134
+<------
+------>
+t-135
+<------
+------>
+addmm-136
+<------
+------>
+view-137
+<------
+        <<Linear-gpt_neox.layers.2.attention.query_key_value-40
+------>
+view-138
+<------
+------>
+slice-139
+<------
+------>
+permute-140
+<------
+------>
+slice-141
+<------
+------>
+permute-142
+<------
+------>
+slice-143
+<------
+------>
+permute-144
+<------
+------>
+slice-145
+<------
+------>
+slice-146
+<------
+------>
+slice-147
+<------
+------>
+slice-148
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.2.attention.rotary_emb-39
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.2.attention.rotary_emb-39
+------>
+mul-149
+<------
+------>
+slice-150
+<------
+------>
+slice-151
+<------
+------>
+neg-152
+<------
+------>
+cat-153
+<------
+------>
+mul-154
+<------
+------>
+add-155
+<------
+------>
+mul-156
+<------
+------>
+slice-157
+<------
+------>
+slice-158
+<------
+------>
+neg-159
+<------
+------>
+cat-160
+<------
+------>
+mul-161
+<------
+------>
+add-162
+<------
+------>
+cat-163
+<------
+------>
+cat-164
+<------
+------>
+view-165
+<------
+------>
+view-166
+<------
+------>
+transpose-167
+<------
+------>
+baddbmm-168
+<------
+------>
+view-169
+<------
+------>
+where-170
+<------
+------>
+add-171
+<------
+------>
+_softmax-172
+<------
+        >>Dropout-gpt_neox.layers.2.attention.attention_dropout-42
+        <<Dropout-gpt_neox.layers.2.attention.attention_dropout-42
+------>
+expand-173
+<------
+------>
+view-174
+<------
+------>
+expand-175
+<------
+------>
+clone-176
+<------
+------>
+_unsafe_view-177
+<------
+------>
+bmm-178
+<------
+------>
+_unsafe_view-179
+<------
+------>
+permute-180
+<------
+------>
+clone-181
+<------
+------>
+view-182
+<------
+        >>Linear-gpt_neox.layers.2.attention.dense-41
+------>
+view-183
+<------
+------>
+t-184
+<------
+------>
+addmm-185
+<------
+------>
+view-186
+<------
+        <<Linear-gpt_neox.layers.2.attention.dense-41
+      <<GPTNeoXAttention-gpt_neox.layers.2.attention-38
+      >>Dropout-gpt_neox.layers.2.post_attention_dropout-36
+      <<Dropout-gpt_neox.layers.2.post_attention_dropout-36
+      >>LayerNorm-gpt_neox.layers.2.post_attention_layernorm-35
+------>
+native_layer_norm-187
+<------
+      <<LayerNorm-gpt_neox.layers.2.post_attention_layernorm-35
+      >>GPTNeoXMLP-gpt_neox.layers.2.mlp-43
+        >>Linear-gpt_neox.layers.2.mlp.dense_h_to_4h-44
+------>
+view-188
+<------
+------>
+t-189
+<------
+------>
+addmm-190
+<------
+------>
+view-191
+<------
+        <<Linear-gpt_neox.layers.2.mlp.dense_h_to_4h-44
+        >>GELUActivation-gpt_neox.layers.2.mlp.act-46
+------>
+gelu-192
+<------
+        <<GELUActivation-gpt_neox.layers.2.mlp.act-46
+        >>Linear-gpt_neox.layers.2.mlp.dense_4h_to_h-45
+------>
+view-193
+<------
+------>
+t-194
+<------
+------>
+addmm-195
+<------
+------>
+view-196
+<------
+        <<Linear-gpt_neox.layers.2.mlp.dense_4h_to_h-45
+      <<GPTNeoXMLP-gpt_neox.layers.2.mlp-43
+      >>Dropout-gpt_neox.layers.2.post_mlp_dropout-37
+      <<Dropout-gpt_neox.layers.2.post_mlp_dropout-37
+------>
+add-197
+<------
+------>
+add-198
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.2-33
+    >>GPTNeoXLayer-gpt_neox.layers.3-47
+      >>LayerNorm-gpt_neox.layers.3.input_layernorm-48
+------>
+native_layer_norm-199
+<------
+      <<LayerNorm-gpt_neox.layers.3.input_layernorm-48
+      >>GPTNeoXAttention-gpt_neox.layers.3.attention-52
+        >>Linear-gpt_neox.layers.3.attention.query_key_value-54
+------>
+view-200
+<------
+------>
+t-201
+<------
+------>
+addmm-202
+<------
+------>
+view-203
+<------
+        <<Linear-gpt_neox.layers.3.attention.query_key_value-54
+------>
+view-204
+<------
+------>
+slice-205
+<------
+------>
+permute-206
+<------
+------>
+slice-207
+<------
+------>
+permute-208
+<------
+------>
+slice-209
+<------
+------>
+permute-210
+<------
+------>
+slice-211
+<------
+------>
+slice-212
+<------
+------>
+slice-213
+<------
+------>
+slice-214
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.3.attention.rotary_emb-53
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.3.attention.rotary_emb-53
+------>
+mul-215
+<------
+------>
+slice-216
+<------
+------>
+slice-217
+<------
+------>
+neg-218
+<------
+------>
+cat-219
+<------
+------>
+mul-220
+<------
+------>
+add-221
+<------
+------>
+mul-222
+<------
+------>
+slice-223
+<------
+------>
+slice-224
+<------
+------>
+neg-225
+<------
+------>
+cat-226
+<------
+------>
+mul-227
+<------
+------>
+add-228
+<------
+------>
+cat-229
+<------
+------>
+cat-230
+<------
+------>
+view-231
+<------
+------>
+view-232
+<------
+------>
+transpose-233
+<------
+------>
+baddbmm-234
+<------
+------>
+view-235
+<------
+------>
+where-236
+<------
+------>
+add-237
+<------
+------>
+_softmax-238
+<------
+        >>Dropout-gpt_neox.layers.3.attention.attention_dropout-56
+        <<Dropout-gpt_neox.layers.3.attention.attention_dropout-56
+------>
+expand-239
+<------
+------>
+view-240
+<------
+------>
+expand-241
+<------
+------>
+clone-242
+<------
+------>
+_unsafe_view-243
+<------
+------>
+bmm-244
+<------
+------>
+_unsafe_view-245
+<------
+------>
+permute-246
+<------
+------>
+clone-247
+<------
+------>
+view-248
+<------
+        >>Linear-gpt_neox.layers.3.attention.dense-55
+------>
+view-249
+<------
+------>
+t-250
+<------
+------>
+addmm-251
+<------
+------>
+view-252
+<------
+        <<Linear-gpt_neox.layers.3.attention.dense-55
+      <<GPTNeoXAttention-gpt_neox.layers.3.attention-52
+      >>Dropout-gpt_neox.layers.3.post_attention_dropout-50
+      <<Dropout-gpt_neox.layers.3.post_attention_dropout-50
+      >>LayerNorm-gpt_neox.layers.3.post_attention_layernorm-49
+------>
+native_layer_norm-253
+<------
+      <<LayerNorm-gpt_neox.layers.3.post_attention_layernorm-49
+      >>GPTNeoXMLP-gpt_neox.layers.3.mlp-57
+        >>Linear-gpt_neox.layers.3.mlp.dense_h_to_4h-58
+------>
+view-254
+<------
+------>
+t-255
+<------
+------>
+addmm-256
+<------
+------>
+view-257
+<------
+        <<Linear-gpt_neox.layers.3.mlp.dense_h_to_4h-58
+        >>GELUActivation-gpt_neox.layers.3.mlp.act-60
+------>
+gelu-258
+<------
+        <<GELUActivation-gpt_neox.layers.3.mlp.act-60
+        >>Linear-gpt_neox.layers.3.mlp.dense_4h_to_h-59
+------>
+view-259
+<------
+------>
+t-260
+<------
+------>
+addmm-261
+<------
+------>
+view-262
+<------
+        <<Linear-gpt_neox.layers.3.mlp.dense_4h_to_h-59
+      <<GPTNeoXMLP-gpt_neox.layers.3.mlp-57
+      >>Dropout-gpt_neox.layers.3.post_mlp_dropout-51
+      <<Dropout-gpt_neox.layers.3.post_mlp_dropout-51
+------>
+add-263
+<------
+------>
+add-264
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.3-47
+    >>GPTNeoXLayer-gpt_neox.layers.4-61
+      >>LayerNorm-gpt_neox.layers.4.input_layernorm-62
+------>
+native_layer_norm-265
+<------
+      <<LayerNorm-gpt_neox.layers.4.input_layernorm-62
+      >>GPTNeoXAttention-gpt_neox.layers.4.attention-66
+        >>Linear-gpt_neox.layers.4.attention.query_key_value-68
+------>
+view-266
+<------
+------>
+t-267
+<------
+------>
+addmm-268
+<------
+------>
+view-269
+<------
+        <<Linear-gpt_neox.layers.4.attention.query_key_value-68
+------>
+view-270
+<------
+------>
+slice-271
+<------
+------>
+permute-272
+<------
+------>
+slice-273
+<------
+------>
+permute-274
+<------
+------>
+slice-275
+<------
+------>
+permute-276
+<------
+------>
+slice-277
+<------
+------>
+slice-278
+<------
+------>
+slice-279
+<------
+------>
+slice-280
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.4.attention.rotary_emb-67
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.4.attention.rotary_emb-67
+------>
+mul-281
+<------
+------>
+slice-282
+<------
+------>
+slice-283
+<------
+------>
+neg-284
+<------
+------>
+cat-285
+<------
+------>
+mul-286
+<------
+------>
+add-287
+<------
+------>
+mul-288
+<------
+------>
+slice-289
+<------
+------>
+slice-290
+<------
+------>
+neg-291
+<------
+------>
+cat-292
+<------
+------>
+mul-293
+<------
+------>
+add-294
+<------
+------>
+cat-295
+<------
+------>
+cat-296
+<------
+------>
+view-297
+<------
+------>
+view-298
+<------
+------>
+transpose-299
+<------
+------>
+baddbmm-300
+<------
+------>
+view-301
+<------
+------>
+where-302
+<------
+------>
+add-303
+<------
+------>
+_softmax-304
+<------
+        >>Dropout-gpt_neox.layers.4.attention.attention_dropout-70
+        <<Dropout-gpt_neox.layers.4.attention.attention_dropout-70
+------>
+expand-305
+<------
+------>
+view-306
+<------
+------>
+expand-307
+<------
+------>
+clone-308
+<------
+------>
+_unsafe_view-309
+<------
+------>
+bmm-310
+<------
+------>
+_unsafe_view-311
+<------
+------>
+permute-312
+<------
+------>
+clone-313
+<------
+------>
+view-314
+<------
+        >>Linear-gpt_neox.layers.4.attention.dense-69
+------>
+view-315
+<------
+------>
+t-316
+<------
+------>
+addmm-317
+<------
+------>
+view-318
+<------
+        <<Linear-gpt_neox.layers.4.attention.dense-69
+      <<GPTNeoXAttention-gpt_neox.layers.4.attention-66
+      >>Dropout-gpt_neox.layers.4.post_attention_dropout-64
+      <<Dropout-gpt_neox.layers.4.post_attention_dropout-64
+      >>LayerNorm-gpt_neox.layers.4.post_attention_layernorm-63
+------>
+native_layer_norm-319
+<------
+      <<LayerNorm-gpt_neox.layers.4.post_attention_layernorm-63
+      >>GPTNeoXMLP-gpt_neox.layers.4.mlp-71
+        >>Linear-gpt_neox.layers.4.mlp.dense_h_to_4h-72
+------>
+view-320
+<------
+------>
+t-321
+<------
+------>
+addmm-322
+<------
+------>
+view-323
+<------
+        <<Linear-gpt_neox.layers.4.mlp.dense_h_to_4h-72
+        >>GELUActivation-gpt_neox.layers.4.mlp.act-74
+------>
+gelu-324
+<------
+        <<GELUActivation-gpt_neox.layers.4.mlp.act-74
+        >>Linear-gpt_neox.layers.4.mlp.dense_4h_to_h-73
+------>
+view-325
+<------
+------>
+t-326
+<------
+------>
+addmm-327
+<------
+------>
+view-328
+<------
+        <<Linear-gpt_neox.layers.4.mlp.dense_4h_to_h-73
+      <<GPTNeoXMLP-gpt_neox.layers.4.mlp-71
+      >>Dropout-gpt_neox.layers.4.post_mlp_dropout-65
+      <<Dropout-gpt_neox.layers.4.post_mlp_dropout-65
+------>
+add-329
+<------
+------>
+add-330
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.4-61
+    >>GPTNeoXLayer-gpt_neox.layers.5-75
+      >>LayerNorm-gpt_neox.layers.5.input_layernorm-76
+------>
+native_layer_norm-331
+<------
+      <<LayerNorm-gpt_neox.layers.5.input_layernorm-76
+      >>GPTNeoXAttention-gpt_neox.layers.5.attention-80
+        >>Linear-gpt_neox.layers.5.attention.query_key_value-82
+------>
+view-332
+<------
+------>
+t-333
+<------
+------>
+addmm-334
+<------
+------>
+view-335
+<------
+        <<Linear-gpt_neox.layers.5.attention.query_key_value-82
+------>
+view-336
+<------
+------>
+slice-337
+<------
+------>
+permute-338
+<------
+------>
+slice-339
+<------
+------>
+permute-340
+<------
+------>
+slice-341
+<------
+------>
+permute-342
+<------
+------>
+slice-343
+<------
+------>
+slice-344
+<------
+------>
+slice-345
+<------
+------>
+slice-346
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.5.attention.rotary_emb-81
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.5.attention.rotary_emb-81
+------>
+mul-347
+<------
+------>
+slice-348
+<------
+------>
+slice-349
+<------
+------>
+neg-350
+<------
+------>
+cat-351
+<------
+------>
+mul-352
+<------
+------>
+add-353
+<------
+------>
+mul-354
+<------
+------>
+slice-355
+<------
+------>
+slice-356
+<------
+------>
+neg-357
+<------
+------>
+cat-358
+<------
+------>
+mul-359
+<------
+------>
+add-360
+<------
+------>
+cat-361
+<------
+------>
+cat-362
+<------
+------>
+view-363
+<------
+------>
+view-364
+<------
+------>
+transpose-365
+<------
+------>
+baddbmm-366
+<------
+------>
+view-367
+<------
+------>
+where-368
+<------
+------>
+add-369
+<------
+------>
+_softmax-370
+<------
+        >>Dropout-gpt_neox.layers.5.attention.attention_dropout-84
+        <<Dropout-gpt_neox.layers.5.attention.attention_dropout-84
+------>
+expand-371
+<------
+------>
+view-372
+<------
+------>
+expand-373
+<------
+------>
+clone-374
+<------
+------>
+_unsafe_view-375
+<------
+------>
+bmm-376
+<------
+------>
+_unsafe_view-377
+<------
+------>
+permute-378
+<------
+------>
+clone-379
+<------
+------>
+view-380
+<------
+        >>Linear-gpt_neox.layers.5.attention.dense-83
+------>
+view-381
+<------
+------>
+t-382
+<------
+------>
+addmm-383
+<------
+------>
+view-384
+<------
+        <<Linear-gpt_neox.layers.5.attention.dense-83
+      <<GPTNeoXAttention-gpt_neox.layers.5.attention-80
+      >>Dropout-gpt_neox.layers.5.post_attention_dropout-78
+      <<Dropout-gpt_neox.layers.5.post_attention_dropout-78
+      >>LayerNorm-gpt_neox.layers.5.post_attention_layernorm-77
+------>
+native_layer_norm-385
+<------
+      <<LayerNorm-gpt_neox.layers.5.post_attention_layernorm-77
+      >>GPTNeoXMLP-gpt_neox.layers.5.mlp-85
+        >>Linear-gpt_neox.layers.5.mlp.dense_h_to_4h-86
+------>
+view-386
+<------
+------>
+t-387
+<------
+------>
+addmm-388
+<------
+------>
+view-389
+<------
+        <<Linear-gpt_neox.layers.5.mlp.dense_h_to_4h-86
+        >>GELUActivation-gpt_neox.layers.5.mlp.act-88
+------>
+gelu-390
+<------
+        <<GELUActivation-gpt_neox.layers.5.mlp.act-88
+        >>Linear-gpt_neox.layers.5.mlp.dense_4h_to_h-87
+------>
+view-391
+<------
+------>
+t-392
+<------
+------>
+addmm-393
+<------
+------>
+view-394
+<------
+        <<Linear-gpt_neox.layers.5.mlp.dense_4h_to_h-87
+      <<GPTNeoXMLP-gpt_neox.layers.5.mlp-85
+      >>Dropout-gpt_neox.layers.5.post_mlp_dropout-79
+      <<Dropout-gpt_neox.layers.5.post_mlp_dropout-79
+------>
+add-395
+<------
+------>
+add-396
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.5-75
+    >>GPTNeoXLayer-gpt_neox.layers.6-89
+      >>LayerNorm-gpt_neox.layers.6.input_layernorm-90
+------>
+native_layer_norm-397
+<------
+      <<LayerNorm-gpt_neox.layers.6.input_layernorm-90
+      >>GPTNeoXAttention-gpt_neox.layers.6.attention-94
+        >>Linear-gpt_neox.layers.6.attention.query_key_value-96
+------>
+view-398
+<------
+------>
+t-399
+<------
+------>
+addmm-400
+<------
+------>
+view-401
+<------
+        <<Linear-gpt_neox.layers.6.attention.query_key_value-96
+------>
+view-402
+<------
+------>
+slice-403
+<------
+------>
+permute-404
+<------
+------>
+slice-405
+<------
+------>
+permute-406
+<------
+------>
+slice-407
+<------
+------>
+permute-408
+<------
+------>
+slice-409
+<------
+------>
+slice-410
+<------
+------>
+slice-411
+<------
+------>
+slice-412
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.6.attention.rotary_emb-95
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.6.attention.rotary_emb-95
+------>
+mul-413
+<------
+------>
+slice-414
+<------
+------>
+slice-415
+<------
+------>
+neg-416
+<------
+------>
+cat-417
+<------
+------>
+mul-418
+<------
+------>
+add-419
+<------
+------>
+mul-420
+<------
+------>
+slice-421
+<------
+------>
+slice-422
+<------
+------>
+neg-423
+<------
+------>
+cat-424
+<------
+------>
+mul-425
+<------
+------>
+add-426
+<------
+------>
+cat-427
+<------
+------>
+cat-428
+<------
+------>
+view-429
+<------
+------>
+view-430
+<------
+------>
+transpose-431
+<------
+------>
+baddbmm-432
+<------
+------>
+view-433
+<------
+------>
+where-434
+<------
+------>
+add-435
+<------
+------>
+_softmax-436
+<------
+        >>Dropout-gpt_neox.layers.6.attention.attention_dropout-98
+        <<Dropout-gpt_neox.layers.6.attention.attention_dropout-98
+------>
+expand-437
+<------
+------>
+view-438
+<------
+------>
+expand-439
+<------
+------>
+clone-440
+<------
+------>
+_unsafe_view-441
+<------
+------>
+bmm-442
+<------
+------>
+_unsafe_view-443
+<------
+------>
+permute-444
+<------
+------>
+clone-445
+<------
+------>
+view-446
+<------
+        >>Linear-gpt_neox.layers.6.attention.dense-97
+------>
+view-447
+<------
+------>
+t-448
+<------
+------>
+addmm-449
+<------
+------>
+view-450
+<------
+        <<Linear-gpt_neox.layers.6.attention.dense-97
+      <<GPTNeoXAttention-gpt_neox.layers.6.attention-94
+      >>Dropout-gpt_neox.layers.6.post_attention_dropout-92
+      <<Dropout-gpt_neox.layers.6.post_attention_dropout-92
+      >>LayerNorm-gpt_neox.layers.6.post_attention_layernorm-91
+------>
+native_layer_norm-451
+<------
+      <<LayerNorm-gpt_neox.layers.6.post_attention_layernorm-91
+      >>GPTNeoXMLP-gpt_neox.layers.6.mlp-99
+        >>Linear-gpt_neox.layers.6.mlp.dense_h_to_4h-100
+------>
+view-452
+<------
+------>
+t-453
+<------
+------>
+addmm-454
+<------
+------>
+view-455
+<------
+        <<Linear-gpt_neox.layers.6.mlp.dense_h_to_4h-100
+        >>GELUActivation-gpt_neox.layers.6.mlp.act-102
+------>
+gelu-456
+<------
+        <<GELUActivation-gpt_neox.layers.6.mlp.act-102
+        >>Linear-gpt_neox.layers.6.mlp.dense_4h_to_h-101
+------>
+view-457
+<------
+------>
+t-458
+<------
+------>
+addmm-459
+<------
+------>
+view-460
+<------
+        <<Linear-gpt_neox.layers.6.mlp.dense_4h_to_h-101
+      <<GPTNeoXMLP-gpt_neox.layers.6.mlp-99
+      >>Dropout-gpt_neox.layers.6.post_mlp_dropout-93
+      <<Dropout-gpt_neox.layers.6.post_mlp_dropout-93
+------>
+add-461
+<------
+------>
+add-462
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.6-89
+    >>GPTNeoXLayer-gpt_neox.layers.7-103
+      >>LayerNorm-gpt_neox.layers.7.input_layernorm-104
+------>
+native_layer_norm-463
+<------
+      <<LayerNorm-gpt_neox.layers.7.input_layernorm-104
+      >>GPTNeoXAttention-gpt_neox.layers.7.attention-108
+        >>Linear-gpt_neox.layers.7.attention.query_key_value-110
+------>
+view-464
+<------
+------>
+t-465
+<------
+------>
+addmm-466
+<------
+------>
+view-467
+<------
+        <<Linear-gpt_neox.layers.7.attention.query_key_value-110
+------>
+view-468
+<------
+------>
+slice-469
+<------
+------>
+permute-470
+<------
+------>
+slice-471
+<------
+------>
+permute-472
+<------
+------>
+slice-473
+<------
+------>
+permute-474
+<------
+------>
+slice-475
+<------
+------>
+slice-476
+<------
+------>
+slice-477
+<------
+------>
+slice-478
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.7.attention.rotary_emb-109
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.7.attention.rotary_emb-109
+------>
+mul-479
+<------
+------>
+slice-480
+<------
+------>
+slice-481
+<------
+------>
+neg-482
+<------
+------>
+cat-483
+<------
+------>
+mul-484
+<------
+------>
+add-485
+<------
+------>
+mul-486
+<------
+------>
+slice-487
+<------
+------>
+slice-488
+<------
+------>
+neg-489
+<------
+------>
+cat-490
+<------
+------>
+mul-491
+<------
+------>
+add-492
+<------
+------>
+cat-493
+<------
+------>
+cat-494
+<------
+------>
+view-495
+<------
+------>
+view-496
+<------
+------>
+transpose-497
+<------
+------>
+baddbmm-498
+<------
+------>
+view-499
+<------
+------>
+where-500
+<------
+------>
+add-501
+<------
+------>
+_softmax-502
+<------
+        >>Dropout-gpt_neox.layers.7.attention.attention_dropout-112
+        <<Dropout-gpt_neox.layers.7.attention.attention_dropout-112
+------>
+expand-503
+<------
+------>
+view-504
+<------
+------>
+expand-505
+<------
+------>
+clone-506
+<------
+------>
+_unsafe_view-507
+<------
+------>
+bmm-508
+<------
+------>
+_unsafe_view-509
+<------
+------>
+permute-510
+<------
+------>
+clone-511
+<------
+------>
+view-512
+<------
+        >>Linear-gpt_neox.layers.7.attention.dense-111
+------>
+view-513
+<------
+------>
+t-514
+<------
+------>
+addmm-515
+<------
+------>
+view-516
+<------
+        <<Linear-gpt_neox.layers.7.attention.dense-111
+      <<GPTNeoXAttention-gpt_neox.layers.7.attention-108
+      >>Dropout-gpt_neox.layers.7.post_attention_dropout-106
+      <<Dropout-gpt_neox.layers.7.post_attention_dropout-106
+      >>LayerNorm-gpt_neox.layers.7.post_attention_layernorm-105
+------>
+native_layer_norm-517
+<------
+      <<LayerNorm-gpt_neox.layers.7.post_attention_layernorm-105
+      >>GPTNeoXMLP-gpt_neox.layers.7.mlp-113
+        >>Linear-gpt_neox.layers.7.mlp.dense_h_to_4h-114
+------>
+view-518
+<------
+------>
+t-519
+<------
+------>
+addmm-520
+<------
+------>
+view-521
+<------
+        <<Linear-gpt_neox.layers.7.mlp.dense_h_to_4h-114
+        >>GELUActivation-gpt_neox.layers.7.mlp.act-116
+------>
+gelu-522
+<------
+        <<GELUActivation-gpt_neox.layers.7.mlp.act-116
+        >>Linear-gpt_neox.layers.7.mlp.dense_4h_to_h-115
+------>
+view-523
+<------
+------>
+t-524
+<------
+------>
+addmm-525
+<------
+------>
+view-526
+<------
+        <<Linear-gpt_neox.layers.7.mlp.dense_4h_to_h-115
+      <<GPTNeoXMLP-gpt_neox.layers.7.mlp-113
+      >>Dropout-gpt_neox.layers.7.post_mlp_dropout-107
+      <<Dropout-gpt_neox.layers.7.post_mlp_dropout-107
+------>
+add-527
+<------
+------>
+add-528
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.7-103
+    >>GPTNeoXLayer-gpt_neox.layers.8-117
+      >>LayerNorm-gpt_neox.layers.8.input_layernorm-118
+------>
+native_layer_norm-529
+<------
+      <<LayerNorm-gpt_neox.layers.8.input_layernorm-118
+      >>GPTNeoXAttention-gpt_neox.layers.8.attention-122
+        >>Linear-gpt_neox.layers.8.attention.query_key_value-124
+------>
+view-530
+<------
+------>
+t-531
+<------
+------>
+addmm-532
+<------
+------>
+view-533
+<------
+        <<Linear-gpt_neox.layers.8.attention.query_key_value-124
+------>
+view-534
+<------
+------>
+slice-535
+<------
+------>
+permute-536
+<------
+------>
+slice-537
+<------
+------>
+permute-538
+<------
+------>
+slice-539
+<------
+------>
+permute-540
+<------
+------>
+slice-541
+<------
+------>
+slice-542
+<------
+------>
+slice-543
+<------
+------>
+slice-544
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.8.attention.rotary_emb-123
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.8.attention.rotary_emb-123
+------>
+mul-545
+<------
+------>
+slice-546
+<------
+------>
+slice-547
+<------
+------>
+neg-548
+<------
+------>
+cat-549
+<------
+------>
+mul-550
+<------
+------>
+add-551
+<------
+------>
+mul-552
+<------
+------>
+slice-553
+<------
+------>
+slice-554
+<------
+------>
+neg-555
+<------
+------>
+cat-556
+<------
+------>
+mul-557
+<------
+------>
+add-558
+<------
+------>
+cat-559
+<------
+------>
+cat-560
+<------
+------>
+view-561
+<------
+------>
+view-562
+<------
+------>
+transpose-563
+<------
+------>
+baddbmm-564
+<------
+------>
+view-565
+<------
+------>
+where-566
+<------
+------>
+add-567
+<------
+------>
+_softmax-568
+<------
+        >>Dropout-gpt_neox.layers.8.attention.attention_dropout-126
+        <<Dropout-gpt_neox.layers.8.attention.attention_dropout-126
+------>
+expand-569
+<------
+------>
+view-570
+<------
+------>
+expand-571
+<------
+------>
+clone-572
+<------
+------>
+_unsafe_view-573
+<------
+------>
+bmm-574
+<------
+------>
+_unsafe_view-575
+<------
+------>
+permute-576
+<------
+------>
+clone-577
+<------
+------>
+view-578
+<------
+        >>Linear-gpt_neox.layers.8.attention.dense-125
+------>
+view-579
+<------
+------>
+t-580
+<------
+------>
+addmm-581
+<------
+------>
+view-582
+<------
+        <<Linear-gpt_neox.layers.8.attention.dense-125
+      <<GPTNeoXAttention-gpt_neox.layers.8.attention-122
+      >>Dropout-gpt_neox.layers.8.post_attention_dropout-120
+      <<Dropout-gpt_neox.layers.8.post_attention_dropout-120
+      >>LayerNorm-gpt_neox.layers.8.post_attention_layernorm-119
+------>
+native_layer_norm-583
+<------
+      <<LayerNorm-gpt_neox.layers.8.post_attention_layernorm-119
+      >>GPTNeoXMLP-gpt_neox.layers.8.mlp-127
+        >>Linear-gpt_neox.layers.8.mlp.dense_h_to_4h-128
+------>
+view-584
+<------
+------>
+t-585
+<------
+------>
+addmm-586
+<------
+------>
+view-587
+<------
+        <<Linear-gpt_neox.layers.8.mlp.dense_h_to_4h-128
+        >>GELUActivation-gpt_neox.layers.8.mlp.act-130
+------>
+gelu-588
+<------
+        <<GELUActivation-gpt_neox.layers.8.mlp.act-130
+        >>Linear-gpt_neox.layers.8.mlp.dense_4h_to_h-129
+------>
+view-589
+<------
+------>
+t-590
+<------
+------>
+addmm-591
+<------
+------>
+view-592
+<------
+        <<Linear-gpt_neox.layers.8.mlp.dense_4h_to_h-129
+      <<GPTNeoXMLP-gpt_neox.layers.8.mlp-127
+      >>Dropout-gpt_neox.layers.8.post_mlp_dropout-121
+      <<Dropout-gpt_neox.layers.8.post_mlp_dropout-121
+------>
+add-593
+<------
+------>
+add-594
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.8-117
+    >>GPTNeoXLayer-gpt_neox.layers.9-131
+      >>LayerNorm-gpt_neox.layers.9.input_layernorm-132
+------>
+native_layer_norm-595
+<------
+      <<LayerNorm-gpt_neox.layers.9.input_layernorm-132
+      >>GPTNeoXAttention-gpt_neox.layers.9.attention-136
+        >>Linear-gpt_neox.layers.9.attention.query_key_value-138
+------>
+view-596
+<------
+------>
+t-597
+<------
+------>
+addmm-598
+<------
+------>
+view-599
+<------
+        <<Linear-gpt_neox.layers.9.attention.query_key_value-138
+------>
+view-600
+<------
+------>
+slice-601
+<------
+------>
+permute-602
+<------
+------>
+slice-603
+<------
+------>
+permute-604
+<------
+------>
+slice-605
+<------
+------>
+permute-606
+<------
+------>
+slice-607
+<------
+------>
+slice-608
+<------
+------>
+slice-609
+<------
+------>
+slice-610
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.9.attention.rotary_emb-137
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.9.attention.rotary_emb-137
+------>
+mul-611
+<------
+------>
+slice-612
+<------
+------>
+slice-613
+<------
+------>
+neg-614
+<------
+------>
+cat-615
+<------
+------>
+mul-616
+<------
+------>
+add-617
+<------
+------>
+mul-618
+<------
+------>
+slice-619
+<------
+------>
+slice-620
+<------
+------>
+neg-621
+<------
+------>
+cat-622
+<------
+------>
+mul-623
+<------
+------>
+add-624
+<------
+------>
+cat-625
+<------
+------>
+cat-626
+<------
+------>
+view-627
+<------
+------>
+view-628
+<------
+------>
+transpose-629
+<------
+------>
+baddbmm-630
+<------
+------>
+view-631
+<------
+------>
+where-632
+<------
+------>
+add-633
+<------
+------>
+_softmax-634
+<------
+        >>Dropout-gpt_neox.layers.9.attention.attention_dropout-140
+        <<Dropout-gpt_neox.layers.9.attention.attention_dropout-140
+------>
+expand-635
+<------
+------>
+view-636
+<------
+------>
+expand-637
+<------
+------>
+clone-638
+<------
+------>
+_unsafe_view-639
+<------
+------>
+bmm-640
+<------
+------>
+_unsafe_view-641
+<------
+------>
+permute-642
+<------
+------>
+clone-643
+<------
+------>
+view-644
+<------
+        >>Linear-gpt_neox.layers.9.attention.dense-139
+------>
+view-645
+<------
+------>
+t-646
+<------
+------>
+addmm-647
+<------
+------>
+view-648
+<------
+        <<Linear-gpt_neox.layers.9.attention.dense-139
+      <<GPTNeoXAttention-gpt_neox.layers.9.attention-136
+      >>Dropout-gpt_neox.layers.9.post_attention_dropout-134
+      <<Dropout-gpt_neox.layers.9.post_attention_dropout-134
+      >>LayerNorm-gpt_neox.layers.9.post_attention_layernorm-133
+------>
+native_layer_norm-649
+<------
+      <<LayerNorm-gpt_neox.layers.9.post_attention_layernorm-133
+      >>GPTNeoXMLP-gpt_neox.layers.9.mlp-141
+        >>Linear-gpt_neox.layers.9.mlp.dense_h_to_4h-142
+------>
+view-650
+<------
+------>
+t-651
+<------
+------>
+addmm-652
+<------
+------>
+view-653
+<------
+        <<Linear-gpt_neox.layers.9.mlp.dense_h_to_4h-142
+        >>GELUActivation-gpt_neox.layers.9.mlp.act-144
+------>
+gelu-654
+<------
+        <<GELUActivation-gpt_neox.layers.9.mlp.act-144
+        >>Linear-gpt_neox.layers.9.mlp.dense_4h_to_h-143
+------>
+view-655
+<------
+------>
+t-656
+<------
+------>
+addmm-657
+<------
+------>
+view-658
+<------
+        <<Linear-gpt_neox.layers.9.mlp.dense_4h_to_h-143
+      <<GPTNeoXMLP-gpt_neox.layers.9.mlp-141
+      >>Dropout-gpt_neox.layers.9.post_mlp_dropout-135
+      <<Dropout-gpt_neox.layers.9.post_mlp_dropout-135
+------>
+add-659
+<------
+------>
+add-660
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.9-131
+    >>GPTNeoXLayer-gpt_neox.layers.10-145
+      >>LayerNorm-gpt_neox.layers.10.input_layernorm-146
+------>
+native_layer_norm-661
+<------
+      <<LayerNorm-gpt_neox.layers.10.input_layernorm-146
+      >>GPTNeoXAttention-gpt_neox.layers.10.attention-150
+        >>Linear-gpt_neox.layers.10.attention.query_key_value-152
+------>
+view-662
+<------
+------>
+t-663
+<------
+------>
+addmm-664
+<------
+------>
+view-665
+<------
+        <<Linear-gpt_neox.layers.10.attention.query_key_value-152
+------>
+view-666
+<------
+------>
+slice-667
+<------
+------>
+permute-668
+<------
+------>
+slice-669
+<------
+------>
+permute-670
+<------
+------>
+slice-671
+<------
+------>
+permute-672
+<------
+------>
+slice-673
+<------
+------>
+slice-674
+<------
+------>
+slice-675
+<------
+------>
+slice-676
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.10.attention.rotary_emb-151
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.10.attention.rotary_emb-151
+------>
+mul-677
+<------
+------>
+slice-678
+<------
+------>
+slice-679
+<------
+------>
+neg-680
+<------
+------>
+cat-681
+<------
+------>
+mul-682
+<------
+------>
+add-683
+<------
+------>
+mul-684
+<------
+------>
+slice-685
+<------
+------>
+slice-686
+<------
+------>
+neg-687
+<------
+------>
+cat-688
+<------
+------>
+mul-689
+<------
+------>
+add-690
+<------
+------>
+cat-691
+<------
+------>
+cat-692
+<------
+------>
+view-693
+<------
+------>
+view-694
+<------
+------>
+transpose-695
+<------
+------>
+baddbmm-696
+<------
+------>
+view-697
+<------
+------>
+where-698
+<------
+------>
+add-699
+<------
+------>
+_softmax-700
+<------
+        >>Dropout-gpt_neox.layers.10.attention.attention_dropout-154
+        <<Dropout-gpt_neox.layers.10.attention.attention_dropout-154
+------>
+expand-701
+<------
+------>
+view-702
+<------
+------>
+expand-703
+<------
+------>
+clone-704
+<------
+------>
+_unsafe_view-705
+<------
+------>
+bmm-706
+<------
+------>
+_unsafe_view-707
+<------
+------>
+permute-708
+<------
+------>
+clone-709
+<------
+------>
+view-710
+<------
+        >>Linear-gpt_neox.layers.10.attention.dense-153
+------>
+view-711
+<------
+------>
+t-712
+<------
+------>
+addmm-713
+<------
+------>
+view-714
+<------
+        <<Linear-gpt_neox.layers.10.attention.dense-153
+      <<GPTNeoXAttention-gpt_neox.layers.10.attention-150
+      >>Dropout-gpt_neox.layers.10.post_attention_dropout-148
+      <<Dropout-gpt_neox.layers.10.post_attention_dropout-148
+      >>LayerNorm-gpt_neox.layers.10.post_attention_layernorm-147
+------>
+native_layer_norm-715
+<------
+      <<LayerNorm-gpt_neox.layers.10.post_attention_layernorm-147
+      >>GPTNeoXMLP-gpt_neox.layers.10.mlp-155
+        >>Linear-gpt_neox.layers.10.mlp.dense_h_to_4h-156
+------>
+view-716
+<------
+------>
+t-717
+<------
+------>
+addmm-718
+<------
+------>
+view-719
+<------
+        <<Linear-gpt_neox.layers.10.mlp.dense_h_to_4h-156
+        >>GELUActivation-gpt_neox.layers.10.mlp.act-158
+------>
+gelu-720
+<------
+        <<GELUActivation-gpt_neox.layers.10.mlp.act-158
+        >>Linear-gpt_neox.layers.10.mlp.dense_4h_to_h-157
+------>
+view-721
+<------
+------>
+t-722
+<------
+------>
+addmm-723
+<------
+------>
+view-724
+<------
+        <<Linear-gpt_neox.layers.10.mlp.dense_4h_to_h-157
+      <<GPTNeoXMLP-gpt_neox.layers.10.mlp-155
+      >>Dropout-gpt_neox.layers.10.post_mlp_dropout-149
+      <<Dropout-gpt_neox.layers.10.post_mlp_dropout-149
+------>
+add-725
+<------
+------>
+add-726
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.10-145
+    >>GPTNeoXLayer-gpt_neox.layers.11-159
+      >>LayerNorm-gpt_neox.layers.11.input_layernorm-160
+------>
+native_layer_norm-727
+<------
+      <<LayerNorm-gpt_neox.layers.11.input_layernorm-160
+      >>GPTNeoXAttention-gpt_neox.layers.11.attention-164
+        >>Linear-gpt_neox.layers.11.attention.query_key_value-166
+------>
+view-728
+<------
+------>
+t-729
+<------
+------>
+addmm-730
+<------
+------>
+view-731
+<------
+        <<Linear-gpt_neox.layers.11.attention.query_key_value-166
+------>
+view-732
+<------
+------>
+slice-733
+<------
+------>
+permute-734
+<------
+------>
+slice-735
+<------
+------>
+permute-736
+<------
+------>
+slice-737
+<------
+------>
+permute-738
+<------
+------>
+slice-739
+<------
+------>
+slice-740
+<------
+------>
+slice-741
+<------
+------>
+slice-742
+<------
+        >>GPTNeoXRotaryEmbedding-gpt_neox.layers.11.attention.rotary_emb-165
+        <<GPTNeoXRotaryEmbedding-gpt_neox.layers.11.attention.rotary_emb-165
+------>
+mul-743
+<------
+------>
+slice-744
+<------
+------>
+slice-745
+<------
+------>
+neg-746
+<------
+------>
+cat-747
+<------
+------>
+mul-748
+<------
+------>
+add-749
+<------
+------>
+mul-750
+<------
+------>
+slice-751
+<------
+------>
+slice-752
+<------
+------>
+neg-753
+<------
+------>
+cat-754
+<------
+------>
+mul-755
+<------
+------>
+add-756
+<------
+------>
+cat-757
+<------
+------>
+cat-758
+<------
+------>
+view-759
+<------
+------>
+view-760
+<------
+------>
+transpose-761
+<------
+------>
+baddbmm-762
+<------
+------>
+view-763
+<------
+------>
+where-764
+<------
+------>
+add-765
+<------
+------>
+_softmax-766
+<------
+        >>Dropout-gpt_neox.layers.11.attention.attention_dropout-168
+        <<Dropout-gpt_neox.layers.11.attention.attention_dropout-168
+------>
+expand-767
+<------
+------>
+view-768
+<------
+------>
+expand-769
+<------
+------>
+clone-770
+<------
+------>
+_unsafe_view-771
+<------
+------>
+bmm-772
+<------
+------>
+_unsafe_view-773
+<------
+------>
+permute-774
+<------
+------>
+clone-775
+<------
+------>
+view-776
+<------
+        >>Linear-gpt_neox.layers.11.attention.dense-167
+------>
+view-777
+<------
+------>
+t-778
+<------
+------>
+addmm-779
+<------
+------>
+view-780
+<------
+        <<Linear-gpt_neox.layers.11.attention.dense-167
+      <<GPTNeoXAttention-gpt_neox.layers.11.attention-164
+      >>Dropout-gpt_neox.layers.11.post_attention_dropout-162
+      <<Dropout-gpt_neox.layers.11.post_attention_dropout-162
+      >>LayerNorm-gpt_neox.layers.11.post_attention_layernorm-161
+------>
+native_layer_norm-781
+<------
+      <<LayerNorm-gpt_neox.layers.11.post_attention_layernorm-161
+      >>GPTNeoXMLP-gpt_neox.layers.11.mlp-169
+        >>Linear-gpt_neox.layers.11.mlp.dense_h_to_4h-170
+------>
+view-782
+<------
+------>
+t-783
+<------
+------>
+addmm-784
+<------
+------>
+view-785
+<------
+        <<Linear-gpt_neox.layers.11.mlp.dense_h_to_4h-170
+        >>GELUActivation-gpt_neox.layers.11.mlp.act-172
+------>
+gelu-786
+<------
+        <<GELUActivation-gpt_neox.layers.11.mlp.act-172
+        >>Linear-gpt_neox.layers.11.mlp.dense_4h_to_h-171
+------>
+view-787
+<------
+------>
+t-788
+<------
+------>
+addmm-789
+<------
+------>
+view-790
+<------
+        <<Linear-gpt_neox.layers.11.mlp.dense_4h_to_h-171
+      <<GPTNeoXMLP-gpt_neox.layers.11.mlp-169
+      >>Dropout-gpt_neox.layers.11.post_mlp_dropout-163
+      <<Dropout-gpt_neox.layers.11.post_mlp_dropout-163
+------>
+add-791
+<------
+------>
+add-792
+<------
+    <<GPTNeoXLayer-gpt_neox.layers.11-159
+  >>LayerNorm-gpt_neox.final_layer_norm-173
+------>
+native_layer_norm-793
+<------
+  <<LayerNorm-gpt_neox.final_layer_norm-173
+<<GPTNeoXModel-gpt_neox-1
+>>Linear-embed_out-174
+------>
+t-794
+<------
+------>
+view-795
+<------
+------>
+mm-796
+<------
+------>
+_unsafe_view-797
+<------
+<<Linear-embed_out-174
+------>
+slice-798
+<------
+------>
+slice-799
+<------
+------>
+slice-800
+<------
+------>
+clone-801
+<------
+------>
+view-802
+<------
+------>
+_log_softmax-803
+<------
+------>
+nll_loss_forward-804
+<------
+<<GPTNeoXForCausalLM--0

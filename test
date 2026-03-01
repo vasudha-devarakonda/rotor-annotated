@@ -1,0 +1,242 @@
+GPTNeoXForCausalLM(
+  (embed_in): TokenEmbedding(
+    (embed_in): Embedding(50304, 768)
+  )
+  (emb_dropout): DropOutLayer(
+    (dropout): Dropout(p=0.0, inplace=False)
+  )
+  (layers): Sequential(
+    (0): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (1): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (2): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (3): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (4): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (5): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (6): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (7): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (8): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (9): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (10): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+    (11): GPTNeoXLayerWrapper(
+      (layer): GPTNeoXLayer(
+        (input_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (post_attention_dropout): Dropout(p=0.0, inplace=False)
+        (post_mlp_dropout): Dropout(p=0.0, inplace=False)
+        (attention): GPTNeoXAttention(
+          (rotary_emb): GPTNeoXRotaryEmbedding()
+          (query_key_value): Linear(in_features=768, out_features=2304, bias=True)
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (attention_dropout): Dropout(p=0.0, inplace=False)
+        )
+        (mlp): GPTNeoXMLP(
+          (dense_h_to_4h): Linear(in_features=768, out_features=3072, bias=True)
+          (dense_4h_to_h): Linear(in_features=3072, out_features=768, bias=True)
+          (act): GELUActivation()
+        )
+      )
+    )
+  )
+  (final_layer_norm): LayerNormWrapper(
+    (ln): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  )
+  (embed_out): Linear(in_features=768, out_features=50304, bias=False)
+)

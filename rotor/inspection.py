@@ -23,9 +23,9 @@ def is_really_sequential(m):
 ## Names are formatted with the same format as onnx does.
 def extract_children_from_sequential(m, name="", prefix=""):
     className = type(m).__name__
-    fullName = prefix + ("/" if prefix else "")
+    fullName = prefix + ("-" if prefix else "")
     fullName += className
-    if name: fullName += "[" + name + "]"
+    if name: fullName = name + "-" +fullName
     if not (is_really_sequential(m)):
         return [ (fullName, m) ]
     children = (extract_children_from_sequential(c, name=n, prefix=fullName) for (n, c) in m.named_children())
@@ -97,36 +97,98 @@ def compute_all_weights(model, x, nameList, warning=True, verbose=False):
 
 
 def tensorMsize(t):
-    if isinstance(t, torch.Tensor):
+    if t is None:
+        return 0  # ignore None values
+    elif isinstance(t, torch.Tensor):
         return t.element_size() * np.prod(t.shape)
+    elif isinstance(t, (list, tuple)):
+        return sum(tensorMsize(u) for u in t)  # recursively sum
     else:
-        return sum(tensorMsize(u) for u in t)
+        return 0  # ignore other types
+
+def print_tensor_info(x):
+    if isinstance(x, torch.Tensor):
+        print("Tensor:", x.shape, "dtype:", x.dtype, "requires_grad:", x.requires_grad)
+    elif isinstance(x, (list, tuple)):
+        print(f"{type(x)} of length {len(x)}")
+        for i, t in enumerate(x):
+            print(f" element {i}:")
+            print_tensor_info(t)
+    else:
+        print(f"Unknown type: {type(x)}")
+
+
 
 
 def make_gradient_for(x):
+    """
+    Recursively create grad_tensors matching x.
+    Only adds a tensor if it requires grad, else None.
+    Supports Tensor, list, or tuple.
+    """
     if isinstance(x, torch.Tensor):
-        return torch.ones_like(x)
+        if x.is_floating_point() and x.requires_grad:
+            return torch.ones_like(x)
+    elif isinstance(x, list):
+        return [make_gradient_for(t) for t in x]
+    elif isinstance(x, tuple):
+        return tuple(make_gradient_for(t) for t in x)
     else:
-        return tuple(torch.ones_like(u) for u in x)
+        raise RuntimeError(f"Unsupported type in make_gradient_for: {type(x).__name__}")
+def backward_safe(xbar):
+    """
+    Recursively flatten xbar and call backward only on tensors
+    that are floating-point and require grad.
+    """
+    def flatten_and_keep_grads(x):
+        if isinstance(x, torch.Tensor):
+            return [x] if x.is_floating_point() and x.requires_grad else []
+        elif isinstance(x, (list, tuple)):
+            result = []
+            for t in x:
+                result.extend(flatten_and_keep_grads(t))
+            return result
+        else:
+            return []
 
+    xbar_grad = flatten_and_keep_grads(xbar)
+    if xbar_grad:
+        args = [torch.ones_like(t) for t in xbar_grad]
+        torch.autograd.backward(xbar_grad, grad_tensors=args)
+    else:
+        print("Warning: no tensors require grad, skipping backward.")
 ## Measure execution time and memory usage
 ## just by running each block in sequence
-def measure_everything(named_modules, input, min_duration = 30):
+def measure_everything(named_modules, input, min_duration=30):
+    # Zero out grads
     for (_, m) in named_modules:
         for p in m.parameters():
             if p.requires_grad:
                 p.grad = torch.zeros_like(p)
 
+
     x = detach_variable(input, force_required_grad=False)
-    result_xbar = [ tensorMsize(input) ]
+    result_xbar = [tensorMsize(input)]
     result_fwdTime = []
     result_bwdTime = []
-    result_x = [ tensorMsize(input) ]
+    result_x = [tensorMsize(input)]
     result_tmpFwd = []
     result_tmpBwd = []
-    with torch.enable_grad(): 
+
+    with torch.enable_grad():
         y = named_modules[0][1](x)
-    torch.autograd.backward(y, grad_tensors = make_gradient_for(y))
+
+        # Filter tensors that can require gradients
+        if isinstance(y, (list, tuple)):
+            y_grad = [t for t in y if isinstance(t, torch.Tensor) and t.is_floating_point() and t.requires_grad]
+        else:
+            y_grad = [y] if y.is_floating_point() and y.requires_grad else []
+
+        if y_grad:
+            torch.autograd.backward(y_grad, grad_tensors=make_gradient_for(y_grad))
+        else:
+            print("Warning: no floating-point tensors require grad, skipping backward.")
+
     del y
 
     device = get_device(input)
@@ -154,6 +216,7 @@ def measure_everything(named_modules, input, min_duration = 30):
             xbar = None
             with torch.enable_grad(): 
                 xbar = module(x)
+                # print_tensor_info(xbar)
 
         fwd_duration, usage, maxUsageFwd = perform_measure(forwardOp)
 
@@ -169,8 +232,7 @@ def measure_everything(named_modules, input, min_duration = 30):
 
         def backwardOp():
             remove_gradients(x)
-            args = make_gradient_for(xbar)
-            torch.autograd.backward(xbar, grad_tensors=args)
+            backward_safe(xbar)
             # summary.backward()
 
         # memDisplay.printCurrentState("Measuring Bwd" + name)

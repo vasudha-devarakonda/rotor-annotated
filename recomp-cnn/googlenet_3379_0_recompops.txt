@@ -1,0 +1,8 @@
+max_pool2d_with_indices-172
+----------------------
+native_batch_norm-7
+----------------------
+relu_-8
+----------------------
+max_pool2d_with_indices-9
+----------------------

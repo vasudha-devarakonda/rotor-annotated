@@ -13,17 +13,28 @@ def detach_variable(inputs, force_required_grad=False):
             x.requires_grad = force_required_grad or inp.requires_grad
             out.append(x)
         return type(inputs)(out)  # preserves list/tuple type
+
+    elif isinstance(inputs, dict):
+        out = {}
+        for k, inp in inputs.items():
+            if isinstance(inp, torch.Tensor):
+                x = inp.detach()
+                x.requires_grad = force_required_grad or inp.requires_grad
+                out[k] = x
+            else:
+                out[k] = inp  # keep non-tensors as-is
+        return out
+
     elif isinstance(inputs, torch.Tensor):
         out = inputs.detach()
         out.requires_grad = force_required_grad or inputs.requires_grad
         return out
+
     else:
         raise RuntimeError(
-            "Only Tensor, list of Tensors, or tuple of Tensors is supported. Got Unsupported input type: ",
+            "Only Tensor, list of Tensors, tuple of Tensors, or dict of Tensors is supported. Got Unsupported input type: ",
             type(inputs).__name__,
         )
-
-    
 # Check that at least one input requires grad
 def does_require_grad(inputs):
     if isinstance(inputs, torch.Tensor):
@@ -32,6 +43,8 @@ def does_require_grad(inputs):
         return any(inp.requires_grad for inp in inputs)
     if isinstance(inputs, list):
         return any(inp.requires_grad for inp in inputs)
+    if isinstance(inputs, dict):
+        return any(inp.requires_grad for inp in inputs.values())
     raise RuntimeError(
         "Only Tensor or tuple of Tensors is supported. Got Unsupported input type: ", type(inputs).__name__)
 

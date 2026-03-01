@@ -582,18 +582,16 @@ class TokenEmbedding(nn.Module):
 
     def forward(
         self,
-        input_ids: torch.LongTensor = None,
-        attention_mask: Optional[torch.Tensor] = None,
-        head_mask: Optional[torch.Tensor] = None,
-        past_key_values: Optional[List[torch.FloatTensor]] = None,
-        inputs_embeds: Optional[torch.FloatTensor] = None,
-        use_cache: Optional[bool] = None,
-        output_attentions: Optional[bool] = None,
-        output_hidden_states: Optional[bool] = None,
-        return_dict: Optional[bool] = None,
+        input_ids,
+        attention_mask=None,
+        head_mask=None,
+        past_key_values=None,
+        inputs_embeds=None,
+        use_cache=None,
+        output_attentions=None,
+        output_hidden_states=None,
+        return_dict=None,
     ):
-
-
         if input_ids is None:
             raise ValueError("input_ids required for Sequential version")
 
@@ -610,7 +608,7 @@ class TokenEmbedding(nn.Module):
 
         mask_seq_length = past_key_values_length + seq_length
 
-
+        # ---- MASK LOGIC (from HF) ----
 
         if self._use_flash_attention_2:
             causal_attention_mask = (
@@ -645,6 +643,8 @@ class TokenEmbedding(nn.Module):
                 past_key_values_length,
             )
 
+        # ---- POSITION EMBEDDINGS ----
+
         pos_embeds = self.embed_positions(
             attention_mask,
             past_key_values_length,
@@ -655,10 +655,7 @@ class TokenEmbedding(nn.Module):
 
         hidden_states = inputs_embeds + pos_embeds
 
-        return {
-            "hidden_states": hidden_states,
-            "attention_mask": causal_attention_mask,
-        }
+        return (hidden_states, causal_attention_mask)
     
     
 class OPTDecoderLayerWrapper(nn.Module):
@@ -668,8 +665,8 @@ class OPTDecoderLayerWrapper(nn.Module):
         self.config = config
 
     def forward(self, inputs):
-        hidden_states = inputs["hidden_states"]
-        attention_mask = inputs["attention_mask"]
+        hidden_states,attention_mask = inputs
+
 
         outputs = self.layer(
             hidden_states=hidden_states,
@@ -678,10 +675,8 @@ class OPTDecoderLayerWrapper(nn.Module):
 
         hidden_states = outputs[0]
 
-        return {
-            "hidden_states": hidden_states,
-            "attention_mask": attention_mask,
-        }
+        return (hidden_states, attention_mask)
+    
         
         
 class OutputHead(nn.Module):
@@ -702,15 +697,13 @@ class OutputHead(nn.Module):
             self.project_out = nn.Identity()
 
     def forward(self, inputs):
-        hidden_states = inputs["hidden_states"]
+        hidden_states,attention_mask = inputs
 
-        hidden_states = self.ln_f(hidden_states)
+        # hidden_states = self.ln_f(hidden_states)
         hidden_states = self.project_out(hidden_states)
 
-        return {
-            "hidden_states": hidden_states,
-            "attention_mask": inputs.get("attention_mask", None),
-        }
+        return (hidden_states,attention_mask)
+        
 
 class LMHead(nn.Module):
     def __init__(self, config):
@@ -722,7 +715,7 @@ class LMHead(nn.Module):
         )
 
     def forward(self, inputs):
-        hidden_states = inputs["hidden_states"]
+        hidden_states, _ = inputs
         logits = self.lm_head(hidden_states)
         return logits
     
@@ -733,7 +726,7 @@ class OPTForCausalLM(nn.Sequential):
         self.add_module("token_emb", TokenEmbedding(config))
 
         self.add_module(
-            "layers",
+            "-model=decoder=layers",
             nn.Sequential(
                 *[
                     OPTDecoderLayerWrapper(

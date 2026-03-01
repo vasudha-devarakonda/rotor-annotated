@@ -1,0 +1,22 @@
+    net, sample = get_model_and_a_sample(args, num_classes_train, cifar100_test_loader)
+    net = rotor.Checkpointable(net)
+    net.measure(sample)
+    net.compute_sequence(mem_limit = args.budget * mega)
+    offline_time = time.time() - time_start
+    schedule_str = str(net.sequence)
+
+    # Verwijder de vierkante haken
+    schedule_str = schedule_str.strip("[]")
+
+    # Split op komma's en strip whitespace
+    schedule = [x.strip() for x in schedule_str.split(",")]
+
+    print(schedule)
+   
+    l_index = schedule.index("L")
+    
+    after_L = schedule[l_index + 1:]
+    f_after_L = [x for x in after_L if x.startswith("F")]
+
+    indices = [int(x.split("_")[1]) for x in f_after_L]
+    print(indices)

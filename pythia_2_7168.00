@@ -1,0 +1,3 @@
+num_recomp: 12
+recomp: [<class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>, <class 'rotor.models.pythia.DropOutLayer'>, <class 'rotor.models.pythia.GPTNeoXLayerWrapper'>]
+recomp_size (bytes): 6073.375 MB

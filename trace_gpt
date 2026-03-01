@@ -1,0 +1,2426 @@
+>>GPT2LMHeadModel--0
+>>GPT2Model-transformer-1
+  >>Embedding-transformer.wte-2
+------>
+embedding-0
+<------
+  <<Embedding-transformer.wte-2
+  >>Embedding-transformer.wpe-3
+------>
+embedding-1
+<------
+  <<Embedding-transformer.wpe-3
+------>
+add-2
+<------
+  >>Dropout-transformer.drop-4
+------>
+native_dropout-3
+<------
+  <<Dropout-transformer.drop-4
+    >>GPT2Block-transformer.h.0-6
+      >>LayerNorm-transformer.h.0.ln_1-7
+------>
+native_layer_norm-4
+<------
+      <<LayerNorm-transformer.h.0.ln_1-7
+      >>GPT2Attention-transformer.h.0.attn-8
+        >>Conv1D-transformer.h.0.attn.c_attn-9
+------>
+view-5
+<------
+------>
+addmm-6
+<------
+------>
+view-7
+<------
+        <<Conv1D-transformer.h.0.attn.c_attn-9
+------>
+split-8
+<------
+------>
+view-9
+<------
+------>
+permute-10
+<------
+------>
+view-11
+<------
+------>
+permute-12
+<------
+------>
+view-13
+<------
+------>
+permute-14
+<------
+------>
+transpose-15
+<------
+------>
+expand-16
+<------
+------>
+clone-17
+<------
+------>
+_unsafe_view-18
+<------
+------>
+expand-19
+<------
+------>
+clone-20
+<------
+------>
+_unsafe_view-21
+<------
+------>
+bmm-22
+<------
+------>
+_unsafe_view-23
+<------
+------>
+div-24
+<------
+------>
+where-25
+<------
+------>
+add-26
+<------
+------>
+_softmax-27
+<------
+        >>Dropout-transformer.h.0.attn.attn_dropout-11
+------>
+native_dropout-28
+<------
+        <<Dropout-transformer.h.0.attn.attn_dropout-11
+------>
+expand-29
+<------
+------>
+view-30
+<------
+------>
+expand-31
+<------
+------>
+clone-32
+<------
+------>
+_unsafe_view-33
+<------
+------>
+bmm-34
+<------
+------>
+_unsafe_view-35
+<------
+------>
+permute-36
+<------
+------>
+clone-37
+<------
+------>
+view-38
+<------
+        >>Conv1D-transformer.h.0.attn.c_proj-10
+------>
+view-39
+<------
+------>
+addmm-40
+<------
+------>
+view-41
+<------
+        <<Conv1D-transformer.h.0.attn.c_proj-10
+        >>Dropout-transformer.h.0.attn.resid_dropout-12
+------>
+native_dropout-42
+<------
+        <<Dropout-transformer.h.0.attn.resid_dropout-12
+      <<GPT2Attention-transformer.h.0.attn-8
+------>
+add-43
+<------
+      >>LayerNorm-transformer.h.0.ln_2-13
+------>
+native_layer_norm-44
+<------
+      <<LayerNorm-transformer.h.0.ln_2-13
+      >>GPT2MLP-transformer.h.0.mlp-14
+        >>Conv1D-transformer.h.0.mlp.c_fc-15
+------>
+view-45
+<------
+------>
+addmm-46
+<------
+------>
+view-47
+<------
+        <<Conv1D-transformer.h.0.mlp.c_fc-15
+        >>NewGELUActivation-transformer.h.0.mlp.act-17
+------>
+mul-48
+<------
+------>
+pow-49
+<------
+------>
+mul-50
+<------
+------>
+add-51
+<------
+------>
+mul-52
+<------
+------>
+tanh-53
+<------
+------>
+add-54
+<------
+------>
+mul-55
+<------
+        <<NewGELUActivation-transformer.h.0.mlp.act-17
+        >>Conv1D-transformer.h.0.mlp.c_proj-16
+------>
+view-56
+<------
+------>
+addmm-57
+<------
+------>
+view-58
+<------
+        <<Conv1D-transformer.h.0.mlp.c_proj-16
+        >>Dropout-transformer.h.0.mlp.dropout-18
+------>
+native_dropout-59
+<------
+        <<Dropout-transformer.h.0.mlp.dropout-18
+      <<GPT2MLP-transformer.h.0.mlp-14
+------>
+add-60
+<------
+    <<GPT2Block-transformer.h.0-6
+    >>GPT2Block-transformer.h.1-19
+      >>LayerNorm-transformer.h.1.ln_1-20
+------>
+native_layer_norm-61
+<------
+      <<LayerNorm-transformer.h.1.ln_1-20
+      >>GPT2Attention-transformer.h.1.attn-21
+        >>Conv1D-transformer.h.1.attn.c_attn-22
+------>
+view-62
+<------
+------>
+addmm-63
+<------
+------>
+view-64
+<------
+        <<Conv1D-transformer.h.1.attn.c_attn-22
+------>
+split-65
+<------
+------>
+view-66
+<------
+------>
+permute-67
+<------
+------>
+view-68
+<------
+------>
+permute-69
+<------
+------>
+view-70
+<------
+------>
+permute-71
+<------
+------>
+transpose-72
+<------
+------>
+expand-73
+<------
+------>
+clone-74
+<------
+------>
+_unsafe_view-75
+<------
+------>
+expand-76
+<------
+------>
+clone-77
+<------
+------>
+_unsafe_view-78
+<------
+------>
+bmm-79
+<------
+------>
+_unsafe_view-80
+<------
+------>
+div-81
+<------
+------>
+where-82
+<------
+------>
+add-83
+<------
+------>
+_softmax-84
+<------
+        >>Dropout-transformer.h.1.attn.attn_dropout-24
+------>
+native_dropout-85
+<------
+        <<Dropout-transformer.h.1.attn.attn_dropout-24
+------>
+expand-86
+<------
+------>
+view-87
+<------
+------>
+expand-88
+<------
+------>
+clone-89
+<------
+------>
+_unsafe_view-90
+<------
+------>
+bmm-91
+<------
+------>
+_unsafe_view-92
+<------
+------>
+permute-93
+<------
+------>
+clone-94
+<------
+------>
+view-95
+<------
+        >>Conv1D-transformer.h.1.attn.c_proj-23
+------>
+view-96
+<------
+------>
+addmm-97
+<------
+------>
+view-98
+<------
+        <<Conv1D-transformer.h.1.attn.c_proj-23
+        >>Dropout-transformer.h.1.attn.resid_dropout-25
+------>
+native_dropout-99
+<------
+        <<Dropout-transformer.h.1.attn.resid_dropout-25
+      <<GPT2Attention-transformer.h.1.attn-21
+------>
+add-100
+<------
+      >>LayerNorm-transformer.h.1.ln_2-26
+------>
+native_layer_norm-101
+<------
+      <<LayerNorm-transformer.h.1.ln_2-26
+      >>GPT2MLP-transformer.h.1.mlp-27
+        >>Conv1D-transformer.h.1.mlp.c_fc-28
+------>
+view-102
+<------
+------>
+addmm-103
+<------
+------>
+view-104
+<------
+        <<Conv1D-transformer.h.1.mlp.c_fc-28
+        >>NewGELUActivation-transformer.h.1.mlp.act-30
+------>
+mul-105
+<------
+------>
+pow-106
+<------
+------>
+mul-107
+<------
+------>
+add-108
+<------
+------>
+mul-109
+<------
+------>
+tanh-110
+<------
+------>
+add-111
+<------
+------>
+mul-112
+<------
+        <<NewGELUActivation-transformer.h.1.mlp.act-30
+        >>Conv1D-transformer.h.1.mlp.c_proj-29
+------>
+view-113
+<------
+------>
+addmm-114
+<------
+------>
+view-115
+<------
+        <<Conv1D-transformer.h.1.mlp.c_proj-29
+        >>Dropout-transformer.h.1.mlp.dropout-31
+------>
+native_dropout-116
+<------
+        <<Dropout-transformer.h.1.mlp.dropout-31
+      <<GPT2MLP-transformer.h.1.mlp-27
+------>
+add-117
+<------
+    <<GPT2Block-transformer.h.1-19
+    >>GPT2Block-transformer.h.2-32
+      >>LayerNorm-transformer.h.2.ln_1-33
+------>
+native_layer_norm-118
+<------
+      <<LayerNorm-transformer.h.2.ln_1-33
+      >>GPT2Attention-transformer.h.2.attn-34
+        >>Conv1D-transformer.h.2.attn.c_attn-35
+------>
+view-119
+<------
+------>
+addmm-120
+<------
+------>
+view-121
+<------
+        <<Conv1D-transformer.h.2.attn.c_attn-35
+------>
+split-122
+<------
+------>
+view-123
+<------
+------>
+permute-124
+<------
+------>
+view-125
+<------
+------>
+permute-126
+<------
+------>
+view-127
+<------
+------>
+permute-128
+<------
+------>
+transpose-129
+<------
+------>
+expand-130
+<------
+------>
+clone-131
+<------
+------>
+_unsafe_view-132
+<------
+------>
+expand-133
+<------
+------>
+clone-134
+<------
+------>
+_unsafe_view-135
+<------
+------>
+bmm-136
+<------
+------>
+_unsafe_view-137
+<------
+------>
+div-138
+<------
+------>
+where-139
+<------
+------>
+add-140
+<------
+------>
+_softmax-141
+<------
+        >>Dropout-transformer.h.2.attn.attn_dropout-37
+------>
+native_dropout-142
+<------
+        <<Dropout-transformer.h.2.attn.attn_dropout-37
+------>
+expand-143
+<------
+------>
+view-144
+<------
+------>
+expand-145
+<------
+------>
+clone-146
+<------
+------>
+_unsafe_view-147
+<------
+------>
+bmm-148
+<------
+------>
+_unsafe_view-149
+<------
+------>
+permute-150
+<------
+------>
+clone-151
+<------
+------>
+view-152
+<------
+        >>Conv1D-transformer.h.2.attn.c_proj-36
+------>
+view-153
+<------
+------>
+addmm-154
+<------
+------>
+view-155
+<------
+        <<Conv1D-transformer.h.2.attn.c_proj-36
+        >>Dropout-transformer.h.2.attn.resid_dropout-38
+------>
+native_dropout-156
+<------
+        <<Dropout-transformer.h.2.attn.resid_dropout-38
+      <<GPT2Attention-transformer.h.2.attn-34
+------>
+add-157
+<------
+      >>LayerNorm-transformer.h.2.ln_2-39
+------>
+native_layer_norm-158
+<------
+      <<LayerNorm-transformer.h.2.ln_2-39
+      >>GPT2MLP-transformer.h.2.mlp-40
+        >>Conv1D-transformer.h.2.mlp.c_fc-41
+------>
+view-159
+<------
+------>
+addmm-160
+<------
+------>
+view-161
+<------
+        <<Conv1D-transformer.h.2.mlp.c_fc-41
+        >>NewGELUActivation-transformer.h.2.mlp.act-43
+------>
+mul-162
+<------
+------>
+pow-163
+<------
+------>
+mul-164
+<------
+------>
+add-165
+<------
+------>
+mul-166
+<------
+------>
+tanh-167
+<------
+------>
+add-168
+<------
+------>
+mul-169
+<------
+        <<NewGELUActivation-transformer.h.2.mlp.act-43
+        >>Conv1D-transformer.h.2.mlp.c_proj-42
+------>
+view-170
+<------
+------>
+addmm-171
+<------
+------>
+view-172
+<------
+        <<Conv1D-transformer.h.2.mlp.c_proj-42
+        >>Dropout-transformer.h.2.mlp.dropout-44
+------>
+native_dropout-173
+<------
+        <<Dropout-transformer.h.2.mlp.dropout-44
+      <<GPT2MLP-transformer.h.2.mlp-40
+------>
+add-174
+<------
+    <<GPT2Block-transformer.h.2-32
+    >>GPT2Block-transformer.h.3-45
+      >>LayerNorm-transformer.h.3.ln_1-46
+------>
+native_layer_norm-175
+<------
+      <<LayerNorm-transformer.h.3.ln_1-46
+      >>GPT2Attention-transformer.h.3.attn-47
+        >>Conv1D-transformer.h.3.attn.c_attn-48
+------>
+view-176
+<------
+------>
+addmm-177
+<------
+------>
+view-178
+<------
+        <<Conv1D-transformer.h.3.attn.c_attn-48
+------>
+split-179
+<------
+------>
+view-180
+<------
+------>
+permute-181
+<------
+------>
+view-182
+<------
+------>
+permute-183
+<------
+------>
+view-184
+<------
+------>
+permute-185
+<------
+------>
+transpose-186
+<------
+------>
+expand-187
+<------
+------>
+clone-188
+<------
+------>
+_unsafe_view-189
+<------
+------>
+expand-190
+<------
+------>
+clone-191
+<------
+------>
+_unsafe_view-192
+<------
+------>
+bmm-193
+<------
+------>
+_unsafe_view-194
+<------
+------>
+div-195
+<------
+------>
+where-196
+<------
+------>
+add-197
+<------
+------>
+_softmax-198
+<------
+        >>Dropout-transformer.h.3.attn.attn_dropout-50
+------>
+native_dropout-199
+<------
+        <<Dropout-transformer.h.3.attn.attn_dropout-50
+------>
+expand-200
+<------
+------>
+view-201
+<------
+------>
+expand-202
+<------
+------>
+clone-203
+<------
+------>
+_unsafe_view-204
+<------
+------>
+bmm-205
+<------
+------>
+_unsafe_view-206
+<------
+------>
+permute-207
+<------
+------>
+clone-208
+<------
+------>
+view-209
+<------
+        >>Conv1D-transformer.h.3.attn.c_proj-49
+------>
+view-210
+<------
+------>
+addmm-211
+<------
+------>
+view-212
+<------
+        <<Conv1D-transformer.h.3.attn.c_proj-49
+        >>Dropout-transformer.h.3.attn.resid_dropout-51
+------>
+native_dropout-213
+<------
+        <<Dropout-transformer.h.3.attn.resid_dropout-51
+      <<GPT2Attention-transformer.h.3.attn-47
+------>
+add-214
+<------
+      >>LayerNorm-transformer.h.3.ln_2-52
+------>
+native_layer_norm-215
+<------
+      <<LayerNorm-transformer.h.3.ln_2-52
+      >>GPT2MLP-transformer.h.3.mlp-53
+        >>Conv1D-transformer.h.3.mlp.c_fc-54
+------>
+view-216
+<------
+------>
+addmm-217
+<------
+------>
+view-218
+<------
+        <<Conv1D-transformer.h.3.mlp.c_fc-54
+        >>NewGELUActivation-transformer.h.3.mlp.act-56
+------>
+mul-219
+<------
+------>
+pow-220
+<------
+------>
+mul-221
+<------
+------>
+add-222
+<------
+------>
+mul-223
+<------
+------>
+tanh-224
+<------
+------>
+add-225
+<------
+------>
+mul-226
+<------
+        <<NewGELUActivation-transformer.h.3.mlp.act-56
+        >>Conv1D-transformer.h.3.mlp.c_proj-55
+------>
+view-227
+<------
+------>
+addmm-228
+<------
+------>
+view-229
+<------
+        <<Conv1D-transformer.h.3.mlp.c_proj-55
+        >>Dropout-transformer.h.3.mlp.dropout-57
+------>
+native_dropout-230
+<------
+        <<Dropout-transformer.h.3.mlp.dropout-57
+      <<GPT2MLP-transformer.h.3.mlp-53
+------>
+add-231
+<------
+    <<GPT2Block-transformer.h.3-45
+    >>GPT2Block-transformer.h.4-58
+      >>LayerNorm-transformer.h.4.ln_1-59
+------>
+native_layer_norm-232
+<------
+      <<LayerNorm-transformer.h.4.ln_1-59
+      >>GPT2Attention-transformer.h.4.attn-60
+        >>Conv1D-transformer.h.4.attn.c_attn-61
+------>
+view-233
+<------
+------>
+addmm-234
+<------
+------>
+view-235
+<------
+        <<Conv1D-transformer.h.4.attn.c_attn-61
+------>
+split-236
+<------
+------>
+view-237
+<------
+------>
+permute-238
+<------
+------>
+view-239
+<------
+------>
+permute-240
+<------
+------>
+view-241
+<------
+------>
+permute-242
+<------
+------>
+transpose-243
+<------
+------>
+expand-244
+<------
+------>
+clone-245
+<------
+------>
+_unsafe_view-246
+<------
+------>
+expand-247
+<------
+------>
+clone-248
+<------
+------>
+_unsafe_view-249
+<------
+------>
+bmm-250
+<------
+------>
+_unsafe_view-251
+<------
+------>
+div-252
+<------
+------>
+where-253
+<------
+------>
+add-254
+<------
+------>
+_softmax-255
+<------
+        >>Dropout-transformer.h.4.attn.attn_dropout-63
+------>
+native_dropout-256
+<------
+        <<Dropout-transformer.h.4.attn.attn_dropout-63
+------>
+expand-257
+<------
+------>
+view-258
+<------
+------>
+expand-259
+<------
+------>
+clone-260
+<------
+------>
+_unsafe_view-261
+<------
+------>
+bmm-262
+<------
+------>
+_unsafe_view-263
+<------
+------>
+permute-264
+<------
+------>
+clone-265
+<------
+------>
+view-266
+<------
+        >>Conv1D-transformer.h.4.attn.c_proj-62
+------>
+view-267
+<------
+------>
+addmm-268
+<------
+------>
+view-269
+<------
+        <<Conv1D-transformer.h.4.attn.c_proj-62
+        >>Dropout-transformer.h.4.attn.resid_dropout-64
+------>
+native_dropout-270
+<------
+        <<Dropout-transformer.h.4.attn.resid_dropout-64
+      <<GPT2Attention-transformer.h.4.attn-60
+------>
+add-271
+<------
+      >>LayerNorm-transformer.h.4.ln_2-65
+------>
+native_layer_norm-272
+<------
+      <<LayerNorm-transformer.h.4.ln_2-65
+      >>GPT2MLP-transformer.h.4.mlp-66
+        >>Conv1D-transformer.h.4.mlp.c_fc-67
+------>
+view-273
+<------
+------>
+addmm-274
+<------
+------>
+view-275
+<------
+        <<Conv1D-transformer.h.4.mlp.c_fc-67
+        >>NewGELUActivation-transformer.h.4.mlp.act-69
+------>
+mul-276
+<------
+------>
+pow-277
+<------
+------>
+mul-278
+<------
+------>
+add-279
+<------
+------>
+mul-280
+<------
+------>
+tanh-281
+<------
+------>
+add-282
+<------
+------>
+mul-283
+<------
+        <<NewGELUActivation-transformer.h.4.mlp.act-69
+        >>Conv1D-transformer.h.4.mlp.c_proj-68
+------>
+view-284
+<------
+------>
+addmm-285
+<------
+------>
+view-286
+<------
+        <<Conv1D-transformer.h.4.mlp.c_proj-68
+        >>Dropout-transformer.h.4.mlp.dropout-70
+------>
+native_dropout-287
+<------
+        <<Dropout-transformer.h.4.mlp.dropout-70
+      <<GPT2MLP-transformer.h.4.mlp-66
+------>
+add-288
+<------
+    <<GPT2Block-transformer.h.4-58
+    >>GPT2Block-transformer.h.5-71
+      >>LayerNorm-transformer.h.5.ln_1-72
+------>
+native_layer_norm-289
+<------
+      <<LayerNorm-transformer.h.5.ln_1-72
+      >>GPT2Attention-transformer.h.5.attn-73
+        >>Conv1D-transformer.h.5.attn.c_attn-74
+------>
+view-290
+<------
+------>
+addmm-291
+<------
+------>
+view-292
+<------
+        <<Conv1D-transformer.h.5.attn.c_attn-74
+------>
+split-293
+<------
+------>
+view-294
+<------
+------>
+permute-295
+<------
+------>
+view-296
+<------
+------>
+permute-297
+<------
+------>
+view-298
+<------
+------>
+permute-299
+<------
+------>
+transpose-300
+<------
+------>
+expand-301
+<------
+------>
+clone-302
+<------
+------>
+_unsafe_view-303
+<------
+------>
+expand-304
+<------
+------>
+clone-305
+<------
+------>
+_unsafe_view-306
+<------
+------>
+bmm-307
+<------
+------>
+_unsafe_view-308
+<------
+------>
+div-309
+<------
+------>
+where-310
+<------
+------>
+add-311
+<------
+------>
+_softmax-312
+<------
+        >>Dropout-transformer.h.5.attn.attn_dropout-76
+------>
+native_dropout-313
+<------
+        <<Dropout-transformer.h.5.attn.attn_dropout-76
+------>
+expand-314
+<------
+------>
+view-315
+<------
+------>
+expand-316
+<------
+------>
+clone-317
+<------
+------>
+_unsafe_view-318
+<------
+------>
+bmm-319
+<------
+------>
+_unsafe_view-320
+<------
+------>
+permute-321
+<------
+------>
+clone-322
+<------
+------>
+view-323
+<------
+        >>Conv1D-transformer.h.5.attn.c_proj-75
+------>
+view-324
+<------
+------>
+addmm-325
+<------
+------>
+view-326
+<------
+        <<Conv1D-transformer.h.5.attn.c_proj-75
+        >>Dropout-transformer.h.5.attn.resid_dropout-77
+------>
+native_dropout-327
+<------
+        <<Dropout-transformer.h.5.attn.resid_dropout-77
+      <<GPT2Attention-transformer.h.5.attn-73
+------>
+add-328
+<------
+      >>LayerNorm-transformer.h.5.ln_2-78
+------>
+native_layer_norm-329
+<------
+      <<LayerNorm-transformer.h.5.ln_2-78
+      >>GPT2MLP-transformer.h.5.mlp-79
+        >>Conv1D-transformer.h.5.mlp.c_fc-80
+------>
+view-330
+<------
+------>
+addmm-331
+<------
+------>
+view-332
+<------
+        <<Conv1D-transformer.h.5.mlp.c_fc-80
+        >>NewGELUActivation-transformer.h.5.mlp.act-82
+------>
+mul-333
+<------
+------>
+pow-334
+<------
+------>
+mul-335
+<------
+------>
+add-336
+<------
+------>
+mul-337
+<------
+------>
+tanh-338
+<------
+------>
+add-339
+<------
+------>
+mul-340
+<------
+        <<NewGELUActivation-transformer.h.5.mlp.act-82
+        >>Conv1D-transformer.h.5.mlp.c_proj-81
+------>
+view-341
+<------
+------>
+addmm-342
+<------
+------>
+view-343
+<------
+        <<Conv1D-transformer.h.5.mlp.c_proj-81
+        >>Dropout-transformer.h.5.mlp.dropout-83
+------>
+native_dropout-344
+<------
+        <<Dropout-transformer.h.5.mlp.dropout-83
+      <<GPT2MLP-transformer.h.5.mlp-79
+------>
+add-345
+<------
+    <<GPT2Block-transformer.h.5-71
+    >>GPT2Block-transformer.h.6-84
+      >>LayerNorm-transformer.h.6.ln_1-85
+------>
+native_layer_norm-346
+<------
+      <<LayerNorm-transformer.h.6.ln_1-85
+      >>GPT2Attention-transformer.h.6.attn-86
+        >>Conv1D-transformer.h.6.attn.c_attn-87
+------>
+view-347
+<------
+------>
+addmm-348
+<------
+------>
+view-349
+<------
+        <<Conv1D-transformer.h.6.attn.c_attn-87
+------>
+split-350
+<------
+------>
+view-351
+<------
+------>
+permute-352
+<------
+------>
+view-353
+<------
+------>
+permute-354
+<------
+------>
+view-355
+<------
+------>
+permute-356
+<------
+------>
+transpose-357
+<------
+------>
+expand-358
+<------
+------>
+clone-359
+<------
+------>
+_unsafe_view-360
+<------
+------>
+expand-361
+<------
+------>
+clone-362
+<------
+------>
+_unsafe_view-363
+<------
+------>
+bmm-364
+<------
+------>
+_unsafe_view-365
+<------
+------>
+div-366
+<------
+------>
+where-367
+<------
+------>
+add-368
+<------
+------>
+_softmax-369
+<------
+        >>Dropout-transformer.h.6.attn.attn_dropout-89
+------>
+native_dropout-370
+<------
+        <<Dropout-transformer.h.6.attn.attn_dropout-89
+------>
+expand-371
+<------
+------>
+view-372
+<------
+------>
+expand-373
+<------
+------>
+clone-374
+<------
+------>
+_unsafe_view-375
+<------
+------>
+bmm-376
+<------
+------>
+_unsafe_view-377
+<------
+------>
+permute-378
+<------
+------>
+clone-379
+<------
+------>
+view-380
+<------
+        >>Conv1D-transformer.h.6.attn.c_proj-88
+------>
+view-381
+<------
+------>
+addmm-382
+<------
+------>
+view-383
+<------
+        <<Conv1D-transformer.h.6.attn.c_proj-88
+        >>Dropout-transformer.h.6.attn.resid_dropout-90
+------>
+native_dropout-384
+<------
+        <<Dropout-transformer.h.6.attn.resid_dropout-90
+      <<GPT2Attention-transformer.h.6.attn-86
+------>
+add-385
+<------
+      >>LayerNorm-transformer.h.6.ln_2-91
+------>
+native_layer_norm-386
+<------
+      <<LayerNorm-transformer.h.6.ln_2-91
+      >>GPT2MLP-transformer.h.6.mlp-92
+        >>Conv1D-transformer.h.6.mlp.c_fc-93
+------>
+view-387
+<------
+------>
+addmm-388
+<------
+------>
+view-389
+<------
+        <<Conv1D-transformer.h.6.mlp.c_fc-93
+        >>NewGELUActivation-transformer.h.6.mlp.act-95
+------>
+mul-390
+<------
+------>
+pow-391
+<------
+------>
+mul-392
+<------
+------>
+add-393
+<------
+------>
+mul-394
+<------
+------>
+tanh-395
+<------
+------>
+add-396
+<------
+------>
+mul-397
+<------
+        <<NewGELUActivation-transformer.h.6.mlp.act-95
+        >>Conv1D-transformer.h.6.mlp.c_proj-94
+------>
+view-398
+<------
+------>
+addmm-399
+<------
+------>
+view-400
+<------
+        <<Conv1D-transformer.h.6.mlp.c_proj-94
+        >>Dropout-transformer.h.6.mlp.dropout-96
+------>
+native_dropout-401
+<------
+        <<Dropout-transformer.h.6.mlp.dropout-96
+      <<GPT2MLP-transformer.h.6.mlp-92
+------>
+add-402
+<------
+    <<GPT2Block-transformer.h.6-84
+    >>GPT2Block-transformer.h.7-97
+      >>LayerNorm-transformer.h.7.ln_1-98
+------>
+native_layer_norm-403
+<------
+      <<LayerNorm-transformer.h.7.ln_1-98
+      >>GPT2Attention-transformer.h.7.attn-99
+        >>Conv1D-transformer.h.7.attn.c_attn-100
+------>
+view-404
+<------
+------>
+addmm-405
+<------
+------>
+view-406
+<------
+        <<Conv1D-transformer.h.7.attn.c_attn-100
+------>
+split-407
+<------
+------>
+view-408
+<------
+------>
+permute-409
+<------
+------>
+view-410
+<------
+------>
+permute-411
+<------
+------>
+view-412
+<------
+------>
+permute-413
+<------
+------>
+transpose-414
+<------
+------>
+expand-415
+<------
+------>
+clone-416
+<------
+------>
+_unsafe_view-417
+<------
+------>
+expand-418
+<------
+------>
+clone-419
+<------
+------>
+_unsafe_view-420
+<------
+------>
+bmm-421
+<------
+------>
+_unsafe_view-422
+<------
+------>
+div-423
+<------
+------>
+where-424
+<------
+------>
+add-425
+<------
+------>
+_softmax-426
+<------
+        >>Dropout-transformer.h.7.attn.attn_dropout-102
+------>
+native_dropout-427
+<------
+        <<Dropout-transformer.h.7.attn.attn_dropout-102
+------>
+expand-428
+<------
+------>
+view-429
+<------
+------>
+expand-430
+<------
+------>
+clone-431
+<------
+------>
+_unsafe_view-432
+<------
+------>
+bmm-433
+<------
+------>
+_unsafe_view-434
+<------
+------>
+permute-435
+<------
+------>
+clone-436
+<------
+------>
+view-437
+<------
+        >>Conv1D-transformer.h.7.attn.c_proj-101
+------>
+view-438
+<------
+------>
+addmm-439
+<------
+------>
+view-440
+<------
+        <<Conv1D-transformer.h.7.attn.c_proj-101
+        >>Dropout-transformer.h.7.attn.resid_dropout-103
+------>
+native_dropout-441
+<------
+        <<Dropout-transformer.h.7.attn.resid_dropout-103
+      <<GPT2Attention-transformer.h.7.attn-99
+------>
+add-442
+<------
+      >>LayerNorm-transformer.h.7.ln_2-104
+------>
+native_layer_norm-443
+<------
+      <<LayerNorm-transformer.h.7.ln_2-104
+      >>GPT2MLP-transformer.h.7.mlp-105
+        >>Conv1D-transformer.h.7.mlp.c_fc-106
+------>
+view-444
+<------
+------>
+addmm-445
+<------
+------>
+view-446
+<------
+        <<Conv1D-transformer.h.7.mlp.c_fc-106
+        >>NewGELUActivation-transformer.h.7.mlp.act-108
+------>
+mul-447
+<------
+------>
+pow-448
+<------
+------>
+mul-449
+<------
+------>
+add-450
+<------
+------>
+mul-451
+<------
+------>
+tanh-452
+<------
+------>
+add-453
+<------
+------>
+mul-454
+<------
+        <<NewGELUActivation-transformer.h.7.mlp.act-108
+        >>Conv1D-transformer.h.7.mlp.c_proj-107
+------>
+view-455
+<------
+------>
+addmm-456
+<------
+------>
+view-457
+<------
+        <<Conv1D-transformer.h.7.mlp.c_proj-107
+        >>Dropout-transformer.h.7.mlp.dropout-109
+------>
+native_dropout-458
+<------
+        <<Dropout-transformer.h.7.mlp.dropout-109
+      <<GPT2MLP-transformer.h.7.mlp-105
+------>
+add-459
+<------
+    <<GPT2Block-transformer.h.7-97
+    >>GPT2Block-transformer.h.8-110
+      >>LayerNorm-transformer.h.8.ln_1-111
+------>
+native_layer_norm-460
+<------
+      <<LayerNorm-transformer.h.8.ln_1-111
+      >>GPT2Attention-transformer.h.8.attn-112
+        >>Conv1D-transformer.h.8.attn.c_attn-113
+------>
+view-461
+<------
+------>
+addmm-462
+<------
+------>
+view-463
+<------
+        <<Conv1D-transformer.h.8.attn.c_attn-113
+------>
+split-464
+<------
+------>
+view-465
+<------
+------>
+permute-466
+<------
+------>
+view-467
+<------
+------>
+permute-468
+<------
+------>
+view-469
+<------
+------>
+permute-470
+<------
+------>
+transpose-471
+<------
+------>
+expand-472
+<------
+------>
+clone-473
+<------
+------>
+_unsafe_view-474
+<------
+------>
+expand-475
+<------
+------>
+clone-476
+<------
+------>
+_unsafe_view-477
+<------
+------>
+bmm-478
+<------
+------>
+_unsafe_view-479
+<------
+------>
+div-480
+<------
+------>
+where-481
+<------
+------>
+add-482
+<------
+------>
+_softmax-483
+<------
+        >>Dropout-transformer.h.8.attn.attn_dropout-115
+------>
+native_dropout-484
+<------
+        <<Dropout-transformer.h.8.attn.attn_dropout-115
+------>
+expand-485
+<------
+------>
+view-486
+<------
+------>
+expand-487
+<------
+------>
+clone-488
+<------
+------>
+_unsafe_view-489
+<------
+------>
+bmm-490
+<------
+------>
+_unsafe_view-491
+<------
+------>
+permute-492
+<------
+------>
+clone-493
+<------
+------>
+view-494
+<------
+        >>Conv1D-transformer.h.8.attn.c_proj-114
+------>
+view-495
+<------
+------>
+addmm-496
+<------
+------>
+view-497
+<------
+        <<Conv1D-transformer.h.8.attn.c_proj-114
+        >>Dropout-transformer.h.8.attn.resid_dropout-116
+------>
+native_dropout-498
+<------
+        <<Dropout-transformer.h.8.attn.resid_dropout-116
+      <<GPT2Attention-transformer.h.8.attn-112
+------>
+add-499
+<------
+      >>LayerNorm-transformer.h.8.ln_2-117
+------>
+native_layer_norm-500
+<------
+      <<LayerNorm-transformer.h.8.ln_2-117
+      >>GPT2MLP-transformer.h.8.mlp-118
+        >>Conv1D-transformer.h.8.mlp.c_fc-119
+------>
+view-501
+<------
+------>
+addmm-502
+<------
+------>
+view-503
+<------
+        <<Conv1D-transformer.h.8.mlp.c_fc-119
+        >>NewGELUActivation-transformer.h.8.mlp.act-121
+------>
+mul-504
+<------
+------>
+pow-505
+<------
+------>
+mul-506
+<------
+------>
+add-507
+<------
+------>
+mul-508
+<------
+------>
+tanh-509
+<------
+------>
+add-510
+<------
+------>
+mul-511
+<------
+        <<NewGELUActivation-transformer.h.8.mlp.act-121
+        >>Conv1D-transformer.h.8.mlp.c_proj-120
+------>
+view-512
+<------
+------>
+addmm-513
+<------
+------>
+view-514
+<------
+        <<Conv1D-transformer.h.8.mlp.c_proj-120
+        >>Dropout-transformer.h.8.mlp.dropout-122
+------>
+native_dropout-515
+<------
+        <<Dropout-transformer.h.8.mlp.dropout-122
+      <<GPT2MLP-transformer.h.8.mlp-118
+------>
+add-516
+<------
+    <<GPT2Block-transformer.h.8-110
+    >>GPT2Block-transformer.h.9-123
+      >>LayerNorm-transformer.h.9.ln_1-124
+------>
+native_layer_norm-517
+<------
+      <<LayerNorm-transformer.h.9.ln_1-124
+      >>GPT2Attention-transformer.h.9.attn-125
+        >>Conv1D-transformer.h.9.attn.c_attn-126
+------>
+view-518
+<------
+------>
+addmm-519
+<------
+------>
+view-520
+<------
+        <<Conv1D-transformer.h.9.attn.c_attn-126
+------>
+split-521
+<------
+------>
+view-522
+<------
+------>
+permute-523
+<------
+------>
+view-524
+<------
+------>
+permute-525
+<------
+------>
+view-526
+<------
+------>
+permute-527
+<------
+------>
+transpose-528
+<------
+------>
+expand-529
+<------
+------>
+clone-530
+<------
+------>
+_unsafe_view-531
+<------
+------>
+expand-532
+<------
+------>
+clone-533
+<------
+------>
+_unsafe_view-534
+<------
+------>
+bmm-535
+<------
+------>
+_unsafe_view-536
+<------
+------>
+div-537
+<------
+------>
+where-538
+<------
+------>
+add-539
+<------
+------>
+_softmax-540
+<------
+        >>Dropout-transformer.h.9.attn.attn_dropout-128
+------>
+native_dropout-541
+<------
+        <<Dropout-transformer.h.9.attn.attn_dropout-128
+------>
+expand-542
+<------
+------>
+view-543
+<------
+------>
+expand-544
+<------
+------>
+clone-545
+<------
+------>
+_unsafe_view-546
+<------
+------>
+bmm-547
+<------
+------>
+_unsafe_view-548
+<------
+------>
+permute-549
+<------
+------>
+clone-550
+<------
+------>
+view-551
+<------
+        >>Conv1D-transformer.h.9.attn.c_proj-127
+------>
+view-552
+<------
+------>
+addmm-553
+<------
+------>
+view-554
+<------
+        <<Conv1D-transformer.h.9.attn.c_proj-127
+        >>Dropout-transformer.h.9.attn.resid_dropout-129
+------>
+native_dropout-555
+<------
+        <<Dropout-transformer.h.9.attn.resid_dropout-129
+      <<GPT2Attention-transformer.h.9.attn-125
+------>
+add-556
+<------
+      >>LayerNorm-transformer.h.9.ln_2-130
+------>
+native_layer_norm-557
+<------
+      <<LayerNorm-transformer.h.9.ln_2-130
+      >>GPT2MLP-transformer.h.9.mlp-131
+        >>Conv1D-transformer.h.9.mlp.c_fc-132
+------>
+view-558
+<------
+------>
+addmm-559
+<------
+------>
+view-560
+<------
+        <<Conv1D-transformer.h.9.mlp.c_fc-132
+        >>NewGELUActivation-transformer.h.9.mlp.act-134
+------>
+mul-561
+<------
+------>
+pow-562
+<------
+------>
+mul-563
+<------
+------>
+add-564
+<------
+------>
+mul-565
+<------
+------>
+tanh-566
+<------
+------>
+add-567
+<------
+------>
+mul-568
+<------
+        <<NewGELUActivation-transformer.h.9.mlp.act-134
+        >>Conv1D-transformer.h.9.mlp.c_proj-133
+------>
+view-569
+<------
+------>
+addmm-570
+<------
+------>
+view-571
+<------
+        <<Conv1D-transformer.h.9.mlp.c_proj-133
+        >>Dropout-transformer.h.9.mlp.dropout-135
+------>
+native_dropout-572
+<------
+        <<Dropout-transformer.h.9.mlp.dropout-135
+      <<GPT2MLP-transformer.h.9.mlp-131
+------>
+add-573
+<------
+    <<GPT2Block-transformer.h.9-123
+    >>GPT2Block-transformer.h.10-136
+      >>LayerNorm-transformer.h.10.ln_1-137
+------>
+native_layer_norm-574
+<------
+      <<LayerNorm-transformer.h.10.ln_1-137
+      >>GPT2Attention-transformer.h.10.attn-138
+        >>Conv1D-transformer.h.10.attn.c_attn-139
+------>
+view-575
+<------
+------>
+addmm-576
+<------
+------>
+view-577
+<------
+        <<Conv1D-transformer.h.10.attn.c_attn-139
+------>
+split-578
+<------
+------>
+view-579
+<------
+------>
+permute-580
+<------
+------>
+view-581
+<------
+------>
+permute-582
+<------
+------>
+view-583
+<------
+------>
+permute-584
+<------
+------>
+transpose-585
+<------
+------>
+expand-586
+<------
+------>
+clone-587
+<------
+------>
+_unsafe_view-588
+<------
+------>
+expand-589
+<------
+------>
+clone-590
+<------
+------>
+_unsafe_view-591
+<------
+------>
+bmm-592
+<------
+------>
+_unsafe_view-593
+<------
+------>
+div-594
+<------
+------>
+where-595
+<------
+------>
+add-596
+<------
+------>
+_softmax-597
+<------
+        >>Dropout-transformer.h.10.attn.attn_dropout-141
+------>
+native_dropout-598
+<------
+        <<Dropout-transformer.h.10.attn.attn_dropout-141
+------>
+expand-599
+<------
+------>
+view-600
+<------
+------>
+expand-601
+<------
+------>
+clone-602
+<------
+------>
+_unsafe_view-603
+<------
+------>
+bmm-604
+<------
+------>
+_unsafe_view-605
+<------
+------>
+permute-606
+<------
+------>
+clone-607
+<------
+------>
+view-608
+<------
+        >>Conv1D-transformer.h.10.attn.c_proj-140
+------>
+view-609
+<------
+------>
+addmm-610
+<------
+------>
+view-611
+<------
+        <<Conv1D-transformer.h.10.attn.c_proj-140
+        >>Dropout-transformer.h.10.attn.resid_dropout-142
+------>
+native_dropout-612
+<------
+        <<Dropout-transformer.h.10.attn.resid_dropout-142
+      <<GPT2Attention-transformer.h.10.attn-138
+------>
+add-613
+<------
+      >>LayerNorm-transformer.h.10.ln_2-143
+------>
+native_layer_norm-614
+<------
+      <<LayerNorm-transformer.h.10.ln_2-143
+      >>GPT2MLP-transformer.h.10.mlp-144
+        >>Conv1D-transformer.h.10.mlp.c_fc-145
+------>
+view-615
+<------
+------>
+addmm-616
+<------
+------>
+view-617
+<------
+        <<Conv1D-transformer.h.10.mlp.c_fc-145
+        >>NewGELUActivation-transformer.h.10.mlp.act-147
+------>
+mul-618
+<------
+------>
+pow-619
+<------
+------>
+mul-620
+<------
+------>
+add-621
+<------
+------>
+mul-622
+<------
+------>
+tanh-623
+<------
+------>
+add-624
+<------
+------>
+mul-625
+<------
+        <<NewGELUActivation-transformer.h.10.mlp.act-147
+        >>Conv1D-transformer.h.10.mlp.c_proj-146
+------>
+view-626
+<------
+------>
+addmm-627
+<------
+------>
+view-628
+<------
+        <<Conv1D-transformer.h.10.mlp.c_proj-146
+        >>Dropout-transformer.h.10.mlp.dropout-148
+------>
+native_dropout-629
+<------
+        <<Dropout-transformer.h.10.mlp.dropout-148
+      <<GPT2MLP-transformer.h.10.mlp-144
+------>
+add-630
+<------
+    <<GPT2Block-transformer.h.10-136
+    >>GPT2Block-transformer.h.11-149
+      >>LayerNorm-transformer.h.11.ln_1-150
+------>
+native_layer_norm-631
+<------
+      <<LayerNorm-transformer.h.11.ln_1-150
+      >>GPT2Attention-transformer.h.11.attn-151
+        >>Conv1D-transformer.h.11.attn.c_attn-152
+------>
+view-632
+<------
+------>
+addmm-633
+<------
+------>
+view-634
+<------
+        <<Conv1D-transformer.h.11.attn.c_attn-152
+------>
+split-635
+<------
+------>
+view-636
+<------
+------>
+permute-637
+<------
+------>
+view-638
+<------
+------>
+permute-639
+<------
+------>
+view-640
+<------
+------>
+permute-641
+<------
+------>
+transpose-642
+<------
+------>
+expand-643
+<------
+------>
+clone-644
+<------
+------>
+_unsafe_view-645
+<------
+------>
+expand-646
+<------
+------>
+clone-647
+<------
+------>
+_unsafe_view-648
+<------
+------>
+bmm-649
+<------
+------>
+_unsafe_view-650
+<------
+------>
+div-651
+<------
+------>
+where-652
+<------
+------>
+add-653
+<------
+------>
+_softmax-654
+<------
+        >>Dropout-transformer.h.11.attn.attn_dropout-154
+------>
+native_dropout-655
+<------
+        <<Dropout-transformer.h.11.attn.attn_dropout-154
+------>
+expand-656
+<------
+------>
+view-657
+<------
+------>
+expand-658
+<------
+------>
+clone-659
+<------
+------>
+_unsafe_view-660
+<------
+------>
+bmm-661
+<------
+------>
+_unsafe_view-662
+<------
+------>
+permute-663
+<------
+------>
+clone-664
+<------
+------>
+view-665
+<------
+        >>Conv1D-transformer.h.11.attn.c_proj-153
+------>
+view-666
+<------
+------>
+addmm-667
+<------
+------>
+view-668
+<------
+        <<Conv1D-transformer.h.11.attn.c_proj-153
+        >>Dropout-transformer.h.11.attn.resid_dropout-155
+------>
+native_dropout-669
+<------
+        <<Dropout-transformer.h.11.attn.resid_dropout-155
+      <<GPT2Attention-transformer.h.11.attn-151
+------>
+add-670
+<------
+      >>LayerNorm-transformer.h.11.ln_2-156
+------>
+native_layer_norm-671
+<------
+      <<LayerNorm-transformer.h.11.ln_2-156
+      >>GPT2MLP-transformer.h.11.mlp-157
+        >>Conv1D-transformer.h.11.mlp.c_fc-158
+------>
+view-672
+<------
+------>
+addmm-673
+<------
+------>
+view-674
+<------
+        <<Conv1D-transformer.h.11.mlp.c_fc-158
+        >>NewGELUActivation-transformer.h.11.mlp.act-160
+------>
+mul-675
+<------
+------>
+pow-676
+<------
+------>
+mul-677
+<------
+------>
+add-678
+<------
+------>
+mul-679
+<------
+------>
+tanh-680
+<------
+------>
+add-681
+<------
+------>
+mul-682
+<------
+        <<NewGELUActivation-transformer.h.11.mlp.act-160
+        >>Conv1D-transformer.h.11.mlp.c_proj-159
+------>
+view-683
+<------
+------>
+addmm-684
+<------
+------>
+view-685
+<------
+        <<Conv1D-transformer.h.11.mlp.c_proj-159
+        >>Dropout-transformer.h.11.mlp.dropout-161
+------>
+native_dropout-686
+<------
+        <<Dropout-transformer.h.11.mlp.dropout-161
+      <<GPT2MLP-transformer.h.11.mlp-157
+------>
+add-687
+<------
+    <<GPT2Block-transformer.h.11-149
+  >>LayerNorm-transformer.ln_f-162
+------>
+native_layer_norm-688
+<------
+  <<LayerNorm-transformer.ln_f-162
+------>
+view-689
+<------
+<<GPT2Model-transformer-1
+>>Linear-lm_head-163
+------>
+t-690
+<------
+------>
+view-691
+<------
+------>
+mm-692
+<------
+------>
+_unsafe_view-693
+<------
+<<Linear-lm_head-163
+------>
+slice-694
+<------
+------>
+slice-695
+<------
+------>
+clone-696
+<------
+------>
+view-697
+<------
+------>
+_log_softmax-698
+<------
+------>
+nll_loss_forward-699
+<------
+<<GPT2LMHeadModel--0
