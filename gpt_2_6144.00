@@ -1,0 +1,3 @@
+num_recomp: 8
+recomp: [<class 'rotor.models.gpt2.GPT2Block'>, <class 'rotor.models.gpt2.GPT2Block'>, <class 'rotor.models.gpt2.GPT2Block'>, <class 'rotor.models.gpt2.GPT2Block'>, <class 'rotor.models.gpt2.GPT2Block'>, <class 'rotor.models.gpt2.GPT2Block'>, <class 'rotor.models.gpt2.GPT2Block'>, <class 'rotor.models.gpt2.GPT2Block'>]
+recomp_size (bytes): 4466.75390625 MB

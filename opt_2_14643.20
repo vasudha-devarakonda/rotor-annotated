@@ -1,0 +1,3 @@
+num_recomp: 4
+recomp: [<class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OutputHead'>]
+recomp_size (bytes): 1376.18896484375 MB

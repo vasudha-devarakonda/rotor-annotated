@@ -1,528 +1,415 @@
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-mv: cannot stat 'test.txt': No such file or directory
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
   warnings.warn(
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
 You may ignore this warning if your `pad_token_id` (0) is identical to the `bos_token_id` (0), `eos_token_id` (0), or the `sep_token_id` (None), and your input is not padded.
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+  warnings.warn(
 Using GPU device 0
 Using device: cuda
 50304
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 1034, in forward
-    outputs = self.gpt_neox(
-              ^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 925, in forward
-    outputs = layer(
-              ^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 690, in forward
-    attention_layer_outputs = self.attention(
-                              ^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 211, in forward
-    attn_output, attn_weights = self._attn(query, key, value, attention_mask, head_mask)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 268, in _attn
-    attn_scores = torch.baddbmm(
-                  ^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 192.00 MiB. GPU 
-mv: cannot stat 'test.txt': No such file or directory
+3137.9228515625 we have
+the memroy consumption of loss 3290350592 for EleutherAI/pythia-160m
+3137.9228515625 we have
+the new budget is 4225842176.0
+================================== 4225842176.0 =================================
+[Fe_0, Fe_1, CF_2, Fn_3, Fn_4, Fn_5, Fn_6, CF_7, Fn_8, Fn_9, Fn_10, Fn_11, Fn_12, Fe_13, Fe_14, Fe_15, L, B_15, B_14, B_13, Fe_7, Fe_8, Fe_9, Fe_10, Fe_11, Fe_12, B_12, B_11, B_10, B_9, B_8, B_7, Fe_2, Fe_3, Fe_4, Fe_5, Fe_6, B_6, B_5, B_4, B_3, B_2, B_1, B_0]
+trace_pythia
+['Fe_0', 'Fe_1', 'CF_2', 'Fn_3', 'Fn_4', 'Fn_5', 'Fn_6', 'CF_7', 'Fn_8', 'Fn_9', 'Fn_10', 'Fn_11', 'Fn_12', 'Fe_13', 'Fe_14', 'Fe_15', 'L', 'B_15', 'B_14', 'B_13', 'Fe_7', 'Fe_8', 'Fe_9', 'Fe_10', 'Fe_11', 'Fe_12', 'B_12', 'B_11', 'B_10', 'B_9', 'B_8', 'B_7', 'Fe_2', 'Fe_3', 'Fe_4', 'Fe_5', 'Fe_6', 'B_6', 'B_5', 'B_4', 'B_3', 'B_2', 'B_1', 'B_0']
+[7, 8, 9, 10, 11, 12, 2, 3, 4, 5, 6]
+['5-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '6-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '7-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '8-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '9-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '10-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '0-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '1-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '2-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '3-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '4-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper']
+trace_pythia
+=======================
+GPTNeoXLayer-gpt_neox.layers.5: ['native_layer_norm-331', 'view-332', 't-333', 'addmm-334', 'view-335', 'view-336', 'slice-337', 'permute-338', 'slice-339', 'permute-340', 'slice-341', 'permute-342', 'slice-343', 'slice-344', 'slice-345', 'slice-346', 'mul-347', 'slice-348', 'slice-349', 'neg-350', 'cat-351', 'mul-352', 'add-353', 'mul-354', 'slice-355', 'slice-356', 'neg-357', 'cat-358', 'mul-359', 'add-360', 'cat-361', 'cat-362', 'view-363', 'view-364', 'transpose-365', 'baddbmm-366', 'view-367', 'where-368', 'add-369', '_softmax-370', 'expand-371', 'view-372', 'expand-373', 'clone-374', '_unsafe_view-375', 'bmm-376', '_unsafe_view-377', 'permute-378', 'clone-379', 'view-380', 'view-381', 't-382', 'addmm-383', 'view-384', 'native_layer_norm-385', 'view-386', 't-387', 'addmm-388', 'view-389', 'gelu-390', 'view-391', 't-392', 'addmm-393', 'view-394', 'add-395', 'add-396']
+GPTNeoXLayer-gpt_neox.layers.6: ['native_layer_norm-397', 'view-398', 't-399', 'addmm-400', 'view-401', 'view-402', 'slice-403', 'permute-404', 'slice-405', 'permute-406', 'slice-407', 'permute-408', 'slice-409', 'slice-410', 'slice-411', 'slice-412', 'mul-413', 'slice-414', 'slice-415', 'neg-416', 'cat-417', 'mul-418', 'add-419', 'mul-420', 'slice-421', 'slice-422', 'neg-423', 'cat-424', 'mul-425', 'add-426', 'cat-427', 'cat-428', 'view-429', 'view-430', 'transpose-431', 'baddbmm-432', 'view-433', 'where-434', 'add-435', '_softmax-436', 'expand-437', 'view-438', 'expand-439', 'clone-440', '_unsafe_view-441', 'bmm-442', '_unsafe_view-443', 'permute-444', 'clone-445', 'view-446', 'view-447', 't-448', 'addmm-449', 'view-450', 'native_layer_norm-451', 'view-452', 't-453', 'addmm-454', 'view-455', 'gelu-456', 'view-457', 't-458', 'addmm-459', 'view-460', 'add-461', 'add-462']
+GPTNeoXLayer-gpt_neox.layers.7: ['native_layer_norm-463', 'view-464', 't-465', 'addmm-466', 'view-467', 'view-468', 'slice-469', 'permute-470', 'slice-471', 'permute-472', 'slice-473', 'permute-474', 'slice-475', 'slice-476', 'slice-477', 'slice-478', 'mul-479', 'slice-480', 'slice-481', 'neg-482', 'cat-483', 'mul-484', 'add-485', 'mul-486', 'slice-487', 'slice-488', 'neg-489', 'cat-490', 'mul-491', 'add-492', 'cat-493', 'cat-494', 'view-495', 'view-496', 'transpose-497', 'baddbmm-498', 'view-499', 'where-500', 'add-501', '_softmax-502', 'expand-503', 'view-504', 'expand-505', 'clone-506', '_unsafe_view-507', 'bmm-508', '_unsafe_view-509', 'permute-510', 'clone-511', 'view-512', 'view-513', 't-514', 'addmm-515', 'view-516', 'native_layer_norm-517', 'view-518', 't-519', 'addmm-520', 'view-521', 'gelu-522', 'view-523', 't-524', 'addmm-525', 'view-526', 'add-527', 'add-528']
+GPTNeoXLayer-gpt_neox.layers.8: ['native_layer_norm-529', 'view-530', 't-531', 'addmm-532', 'view-533', 'view-534', 'slice-535', 'permute-536', 'slice-537', 'permute-538', 'slice-539', 'permute-540', 'slice-541', 'slice-542', 'slice-543', 'slice-544', 'mul-545', 'slice-546', 'slice-547', 'neg-548', 'cat-549', 'mul-550', 'add-551', 'mul-552', 'slice-553', 'slice-554', 'neg-555', 'cat-556', 'mul-557', 'add-558', 'cat-559', 'cat-560', 'view-561', 'view-562', 'transpose-563', 'baddbmm-564', 'view-565', 'where-566', 'add-567', '_softmax-568', 'expand-569', 'view-570', 'expand-571', 'clone-572', '_unsafe_view-573', 'bmm-574', '_unsafe_view-575', 'permute-576', 'clone-577', 'view-578', 'view-579', 't-580', 'addmm-581', 'view-582', 'native_layer_norm-583', 'view-584', 't-585', 'addmm-586', 'view-587', 'gelu-588', 'view-589', 't-590', 'addmm-591', 'view-592', 'add-593', 'add-594']
+GPTNeoXLayer-gpt_neox.layers.9: ['native_layer_norm-595', 'view-596', 't-597', 'addmm-598', 'view-599', 'view-600', 'slice-601', 'permute-602', 'slice-603', 'permute-604', 'slice-605', 'permute-606', 'slice-607', 'slice-608', 'slice-609', 'slice-610', 'mul-611', 'slice-612', 'slice-613', 'neg-614', 'cat-615', 'mul-616', 'add-617', 'mul-618', 'slice-619', 'slice-620', 'neg-621', 'cat-622', 'mul-623', 'add-624', 'cat-625', 'cat-626', 'view-627', 'view-628', 'transpose-629', 'baddbmm-630', 'view-631', 'where-632', 'add-633', '_softmax-634', 'expand-635', 'view-636', 'expand-637', 'clone-638', '_unsafe_view-639', 'bmm-640', '_unsafe_view-641', 'permute-642', 'clone-643', 'view-644', 'view-645', 't-646', 'addmm-647', 'view-648', 'native_layer_norm-649', 'view-650', 't-651', 'addmm-652', 'view-653', 'gelu-654', 'view-655', 't-656', 'addmm-657', 'view-658', 'add-659', 'add-660']
+GPTNeoXLayer-gpt_neox.layers.10: ['native_layer_norm-661', 'view-662', 't-663', 'addmm-664', 'view-665', 'view-666', 'slice-667', 'permute-668', 'slice-669', 'permute-670', 'slice-671', 'permute-672', 'slice-673', 'slice-674', 'slice-675', 'slice-676', 'mul-677', 'slice-678', 'slice-679', 'neg-680', 'cat-681', 'mul-682', 'add-683', 'mul-684', 'slice-685', 'slice-686', 'neg-687', 'cat-688', 'mul-689', 'add-690', 'cat-691', 'cat-692', 'view-693', 'view-694', 'transpose-695', 'baddbmm-696', 'view-697', 'where-698', 'add-699', '_softmax-700', 'expand-701', 'view-702', 'expand-703', 'clone-704', '_unsafe_view-705', 'bmm-706', '_unsafe_view-707', 'permute-708', 'clone-709', 'view-710', 'view-711', 't-712', 'addmm-713', 'view-714', 'native_layer_norm-715', 'view-716', 't-717', 'addmm-718', 'view-719', 'gelu-720', 'view-721', 't-722', 'addmm-723', 'view-724', 'add-725', 'add-726']
+GPTNeoXLayer-gpt_neox.layers.0: ['native_layer_norm-1', 'view-2', 't-3', 'addmm-4', 'view-5', 'view-6', 'slice-7', 'permute-8', 'slice-9', 'permute-10', 'slice-11', 'permute-12', 'slice-13', 'slice-14', 'slice-15', 'slice-16', 'mul-17', 'slice-18', 'slice-19', 'neg-20', 'cat-21', 'mul-22', 'add-23', 'mul-24', 'slice-25', 'slice-26', 'neg-27', 'cat-28', 'mul-29', 'add-30', 'cat-31', 'cat-32', 'view-33', 'view-34', 'transpose-35', 'baddbmm-36', 'view-37', 'where-38', 'add-39', '_softmax-40', 'expand-41', 'view-42', 'expand-43', 'clone-44', '_unsafe_view-45', 'bmm-46', '_unsafe_view-47', 'permute-48', 'clone-49', 'view-50', 'view-51', 't-52', 'addmm-53', 'view-54', 'native_layer_norm-55', 'view-56', 't-57', 'addmm-58', 'view-59', 'gelu-60', 'view-61', 't-62', 'addmm-63', 'view-64', 'add-65', 'add-66']
+GPTNeoXLayer-gpt_neox.layers.1: ['native_layer_norm-67', 'view-68', 't-69', 'addmm-70', 'view-71', 'view-72', 'slice-73', 'permute-74', 'slice-75', 'permute-76', 'slice-77', 'permute-78', 'slice-79', 'slice-80', 'slice-81', 'slice-82', 'mul-83', 'slice-84', 'slice-85', 'neg-86', 'cat-87', 'mul-88', 'add-89', 'mul-90', 'slice-91', 'slice-92', 'neg-93', 'cat-94', 'mul-95', 'add-96', 'cat-97', 'cat-98', 'view-99', 'view-100', 'transpose-101', 'baddbmm-102', 'view-103', 'where-104', 'add-105', '_softmax-106', 'expand-107', 'view-108', 'expand-109', 'clone-110', '_unsafe_view-111', 'bmm-112', '_unsafe_view-113', 'permute-114', 'clone-115', 'view-116', 'view-117', 't-118', 'addmm-119', 'view-120', 'native_layer_norm-121', 'view-122', 't-123', 'addmm-124', 'view-125', 'gelu-126', 'view-127', 't-128', 'addmm-129', 'view-130', 'add-131', 'add-132']
+GPTNeoXLayer-gpt_neox.layers.2: ['native_layer_norm-133', 'view-134', 't-135', 'addmm-136', 'view-137', 'view-138', 'slice-139', 'permute-140', 'slice-141', 'permute-142', 'slice-143', 'permute-144', 'slice-145', 'slice-146', 'slice-147', 'slice-148', 'mul-149', 'slice-150', 'slice-151', 'neg-152', 'cat-153', 'mul-154', 'add-155', 'mul-156', 'slice-157', 'slice-158', 'neg-159', 'cat-160', 'mul-161', 'add-162', 'cat-163', 'cat-164', 'view-165', 'view-166', 'transpose-167', 'baddbmm-168', 'view-169', 'where-170', 'add-171', '_softmax-172', 'expand-173', 'view-174', 'expand-175', 'clone-176', '_unsafe_view-177', 'bmm-178', '_unsafe_view-179', 'permute-180', 'clone-181', 'view-182', 'view-183', 't-184', 'addmm-185', 'view-186', 'native_layer_norm-187', 'view-188', 't-189', 'addmm-190', 'view-191', 'gelu-192', 'view-193', 't-194', 'addmm-195', 'view-196', 'add-197', 'add-198']
+GPTNeoXLayer-gpt_neox.layers.3: ['native_layer_norm-199', 'view-200', 't-201', 'addmm-202', 'view-203', 'view-204', 'slice-205', 'permute-206', 'slice-207', 'permute-208', 'slice-209', 'permute-210', 'slice-211', 'slice-212', 'slice-213', 'slice-214', 'mul-215', 'slice-216', 'slice-217', 'neg-218', 'cat-219', 'mul-220', 'add-221', 'mul-222', 'slice-223', 'slice-224', 'neg-225', 'cat-226', 'mul-227', 'add-228', 'cat-229', 'cat-230', 'view-231', 'view-232', 'transpose-233', 'baddbmm-234', 'view-235', 'where-236', 'add-237', '_softmax-238', 'expand-239', 'view-240', 'expand-241', 'clone-242', '_unsafe_view-243', 'bmm-244', '_unsafe_view-245', 'permute-246', 'clone-247', 'view-248', 'view-249', 't-250', 'addmm-251', 'view-252', 'native_layer_norm-253', 'view-254', 't-255', 'addmm-256', 'view-257', 'gelu-258', 'view-259', 't-260', 'addmm-261', 'view-262', 'add-263', 'add-264']
+GPTNeoXLayer-gpt_neox.layers.4: ['native_layer_norm-265', 'view-266', 't-267', 'addmm-268', 'view-269', 'view-270', 'slice-271', 'permute-272', 'slice-273', 'permute-274', 'slice-275', 'permute-276', 'slice-277', 'slice-278', 'slice-279', 'slice-280', 'mul-281', 'slice-282', 'slice-283', 'neg-284', 'cat-285', 'mul-286', 'add-287', 'mul-288', 'slice-289', 'slice-290', 'neg-291', 'cat-292', 'mul-293', 'add-294', 'cat-295', 'cat-296', 'view-297', 'view-298', 'transpose-299', 'baddbmm-300', 'view-301', 'where-302', 'add-303', '_softmax-304', 'expand-305', 'view-306', 'expand-307', 'clone-308', '_unsafe_view-309', 'bmm-310', '_unsafe_view-311', 'permute-312', 'clone-313', 'view-314', 'view-315', 't-316', 'addmm-317', 'view-318', 'native_layer_norm-319', 'view-320', 't-321', 'addmm-322', 'view-323', 'gelu-324', 'view-325', 't-326', 'addmm-327', 'view-328', 'add-329', 'add-330']
+============================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:00<01:09,  1.42it/s]Training Epoch 0:   2%|▏         | 2/100 [00:01<01:15,  1.30it/s]Training Epoch 0:   3%|▎         | 3/100 [00:02<01:16,  1.26it/s]Training Epoch 0:   4%|▍         | 4/100 [00:03<01:17,  1.24it/s]Training Epoch 0:   5%|▌         | 5/100 [00:03<01:16,  1.24it/s]Training Epoch 0:   6%|▌         | 6/100 [00:04<01:16,  1.23it/s]Training Epoch 0:   7%|▋         | 7/100 [00:05<01:16,  1.22it/s]Training Epoch 0:   8%|▊         | 8/100 [00:06<01:15,  1.22it/s]Training Epoch 0:   9%|▉         | 9/100 [00:07<01:14,  1.22it/s]Training Epoch 0:  10%|█         | 10/100 [00:08<01:13,  1.22it/s]Training Epoch 0:  11%|█         | 11/100 [00:08<01:13,  1.22it/s]Training Epoch 0:  12%|█▏        | 12/100 [00:09<01:12,  1.21it/s]Training Epoch 0:  13%|█▎        | 13/100 [00:10<01:11,  1.22it/s]Training Epoch 0:  14%|█▍        | 14/100 [00:11<01:10,  1.22it/s]Training Epoch 0:  15%|█▌        | 15/100 [00:12<01:10,  1.21it/s]Training Epoch 0:  16%|█▌        | 16/100 [00:13<01:09,  1.21it/s]Training Epoch 0:  17%|█▋        | 17/100 [00:13<01:08,  1.21it/s]Training Epoch 0:  18%|█▊        | 18/100 [00:14<01:07,  1.21it/s]Training Epoch 0:  19%|█▉        | 19/100 [00:15<01:06,  1.21it/s]Training Epoch 0:  20%|██        | 20/100 [00:16<01:05,  1.21it/s]Training Epoch 0:  21%|██        | 21/100 [00:17<01:05,  1.21it/s]Training Epoch 0:  22%|██▏       | 22/100 [00:17<01:04,  1.21it/s]Training Epoch 0:  23%|██▎       | 23/100 [00:18<01:03,  1.21it/s]Training Epoch 0:  24%|██▍       | 24/100 [00:19<01:02,  1.21it/s]Training Epoch 0:  25%|██▌       | 25/100 [00:20<01:01,  1.21it/s]Training Epoch 0:  26%|██▌       | 26/100 [00:21<01:01,  1.21it/s]Training Epoch 0:  27%|██▋       | 27/100 [00:22<01:00,  1.21it/s]Training Epoch 0:  28%|██▊       | 28/100 [00:22<00:59,  1.21it/s]Training Epoch 0:  29%|██▉       | 29/100 [00:23<00:58,  1.21it/s]Training Epoch 0:  30%|███       | 30/100 [00:24<00:57,  1.21it/s]Training Epoch 0:  31%|███       | 31/100 [00:25<00:57,  1.21it/s]Training Epoch 0:  32%|███▏      | 32/100 [00:26<00:56,  1.21it/s]Training Epoch 0:  33%|███▎      | 33/100 [00:27<00:55,  1.21it/s]Training Epoch 0:  34%|███▍      | 34/100 [00:27<00:54,  1.21it/s]Training Epoch 0:  35%|███▌      | 35/100 [00:28<00:53,  1.21it/s]Training Epoch 0:  36%|███▌      | 36/100 [00:29<00:53,  1.20it/s]Training Epoch 0:  37%|███▋      | 37/100 [00:30<00:52,  1.21it/s]Training Epoch 0:  38%|███▊      | 38/100 [00:31<00:51,  1.21it/s]Training Epoch 0:  39%|███▉      | 39/100 [00:32<00:50,  1.21it/s]Training Epoch 0:  40%|████      | 40/100 [00:32<00:49,  1.21it/s]Training Epoch 0:  41%|████      | 41/100 [00:33<00:48,  1.20it/s]Training Epoch 0:  42%|████▏     | 42/100 [00:34<00:48,  1.21it/s]Training Epoch 0:  43%|████▎     | 43/100 [00:35<00:47,  1.20it/s]Training Epoch 0:  44%|████▍     | 44/100 [00:36<00:46,  1.20it/s]Training Epoch 0:  45%|████▌     | 45/100 [00:37<00:45,  1.20it/s]Training Epoch 0:  46%|████▌     | 46/100 [00:37<00:44,  1.20it/s]Training Epoch 0:  47%|████▋     | 47/100 [00:38<00:43,  1.20it/s]Training Epoch 0:  48%|████▊     | 48/100 [00:39<00:43,  1.20it/s]Training Epoch 0:  49%|████▉     | 49/100 [00:40<00:42,  1.20it/s]Training Epoch 0:  50%|█████     | 50/100 [00:41<00:41,  1.20it/s]Training Epoch 0:  51%|█████     | 51/100 [00:42<00:40,  1.20it/s]Training Epoch 0:  52%|█████▏    | 52/100 [00:42<00:39,  1.20it/s]Training Epoch 0:  53%|█████▎    | 53/100 [00:43<00:39,  1.20it/s]Training Epoch 0:  54%|█████▍    | 54/100 [00:44<00:38,  1.20it/s]Training Epoch 0:  55%|█████▌    | 55/100 [00:45<00:37,  1.20it/s]Training Epoch 0:  56%|█████▌    | 56/100 [00:46<00:36,  1.20it/s]Training Epoch 0:  57%|█████▋    | 57/100 [00:47<00:35,  1.20it/s]Training Epoch 0:  58%|█████▊    | 58/100 [00:47<00:34,  1.20it/s]Training Epoch 0:  59%|█████▉    | 59/100 [00:48<00:34,  1.20it/s]Training Epoch 0:  60%|██████    | 60/100 [00:49<00:33,  1.20it/s]Training Epoch 0:  61%|██████    | 61/100 [00:50<00:32,  1.20it/s]Training Epoch 0:  62%|██████▏   | 62/100 [00:51<00:31,  1.20it/s]Training Epoch 0:  63%|██████▎   | 63/100 [00:52<00:30,  1.20it/s]Training Epoch 0:  64%|██████▍   | 64/100 [00:52<00:30,  1.20it/s]Training Epoch 0:  65%|██████▌   | 65/100 [00:53<00:29,  1.20it/s]Training Epoch 0:  66%|██████▌   | 66/100 [00:54<00:28,  1.20it/s]Training Epoch 0:  67%|██████▋   | 67/100 [00:55<00:27,  1.20it/s]Training Epoch 0:  68%|██████▊   | 68/100 [00:56<00:26,  1.20it/s]Training Epoch 0:  69%|██████▉   | 69/100 [00:57<00:25,  1.20it/s]Training Epoch 0:  70%|███████   | 70/100 [00:57<00:25,  1.20it/s]Training Epoch 0:  71%|███████   | 71/100 [00:58<00:24,  1.20it/s]Training Epoch 0:  72%|███████▏  | 72/100 [00:59<00:23,  1.20it/s]Training Epoch 0:  73%|███████▎  | 73/100 [01:00<00:22,  1.19it/s]Training Epoch 0:  74%|███████▍  | 74/100 [01:01<00:21,  1.20it/s]Training Epoch 0:  75%|███████▌  | 75/100 [01:02<00:20,  1.20it/s]Training Epoch 0:  76%|███████▌  | 76/100 [01:02<00:20,  1.20it/s]Training Epoch 0:  77%|███████▋  | 77/100 [01:03<00:19,  1.19it/s]Training Epoch 0:  78%|███████▊  | 78/100 [01:04<00:18,  1.20it/s]Training Epoch 0:  79%|███████▉  | 79/100 [01:05<00:17,  1.19it/s]Training Epoch 0:  80%|████████  | 80/100 [01:06<00:16,  1.19it/s]Training Epoch 0:  81%|████████  | 81/100 [01:07<00:15,  1.20it/s]Training Epoch 0:  82%|████████▏ | 82/100 [01:07<00:15,  1.19it/s]Training Epoch 0:  83%|████████▎ | 83/100 [01:08<00:14,  1.19it/s]Training Epoch 0:  84%|████████▍ | 84/100 [01:09<00:13,  1.19it/s]Training Epoch 0:  85%|████████▌ | 85/100 [01:10<00:12,  1.19it/s]Training Epoch 0:  86%|████████▌ | 86/100 [01:11<00:11,  1.19it/s]Training Epoch 0:  87%|████████▋ | 87/100 [01:12<00:10,  1.19it/s]Training Epoch 0:  88%|████████▊ | 88/100 [01:12<00:10,  1.19it/s]Training Epoch 0:  89%|████████▉ | 89/100 [01:13<00:09,  1.19it/s]Training Epoch 0:  90%|█████████ | 90/100 [01:14<00:08,  1.19it/s]Training Epoch 0:  91%|█████████ | 91/100 [01:15<00:07,  1.19it/s]Training Epoch 0:  92%|█████████▏| 92/100 [01:16<00:06,  1.19it/s]Training Epoch 0:  93%|█████████▎| 93/100 [01:17<00:05,  1.19it/s]Training Epoch 0:  94%|█████████▍| 94/100 [01:17<00:05,  1.19it/s]Training Epoch 0:  95%|█████████▌| 95/100 [01:18<00:04,  1.19it/s]Training Epoch 0:  96%|█████████▌| 96/100 [01:19<00:03,  1.19it/s]Training Epoch 0:  97%|█████████▋| 97/100 [01:20<00:02,  1.19it/s]Training Epoch 0:  98%|█████████▊| 98/100 [01:21<00:01,  1.19it/s]Training Epoch 0:  99%|█████████▉| 99/100 [01:22<00:00,  1.19it/s]                                                                  Step 0 Time elapsed: 0.70s
+epoch 0 training time consumed: 82.33s
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
   warnings.warn(
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
 You may ignore this warning if your `pad_token_id` (0) is identical to the `bos_token_id` (0), `eos_token_id` (0), or the `sep_token_id` (None), and your input is not padded.
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+  warnings.warn(
 Using GPU device 0
 Using device: cuda
 50304
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 1034, in forward
-    outputs = self.gpt_neox(
-              ^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 925, in forward
-    outputs = layer(
-              ^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 690, in forward
-    attention_layer_outputs = self.attention(
-                              ^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 211, in forward
-    attn_output, attn_weights = self._attn(query, key, value, attention_mask, head_mask)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 268, in _attn
-    attn_scores = torch.baddbmm(
-                  ^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 192.00 MiB. GPU 
-mv: cannot stat 'test.txt': No such file or directory
+3137.9228515625 we have
+the memroy consumption of loss 3290350592 for EleutherAI/pythia-160m
+3137.9228515625 we have
+the new budget is 7232319283.200001
+================================== 7232319283.200001 =================================
+[Fe_0, Fe_1, CF_2, Fn_3, Fn_4, Fn_5, Fe_6, Fe_7, CF_8, Fe_9, Fe_10, Fe_11, Fe_12, CF_13, Fe_14, Fe_15, L, B_15, B_14, Fe_13, B_13, B_12, B_11, B_10, B_9, Fe_8, B_8, B_7, B_6, Fe_2, Fe_3, Fe_4, Fe_5, B_5, B_4, B_3, B_2, B_1, B_0]
+trace_pythia
+['Fe_0', 'Fe_1', 'CF_2', 'Fn_3', 'Fn_4', 'Fn_5', 'Fe_6', 'Fe_7', 'CF_8', 'Fe_9', 'Fe_10', 'Fe_11', 'Fe_12', 'CF_13', 'Fe_14', 'Fe_15', 'L', 'B_15', 'B_14', 'Fe_13', 'B_13', 'B_12', 'B_11', 'B_10', 'B_9', 'Fe_8', 'B_8', 'B_7', 'B_6', 'Fe_2', 'Fe_3', 'Fe_4', 'Fe_5', 'B_5', 'B_4', 'B_3', 'B_2', 'B_1', 'B_0']
+[13, 8, 2, 3, 4, 5]
+['11-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '6-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '0-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '1-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '2-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper', '3-gpt_neox=layers-GPTNeoXForCausalLM-Sequential-GPTNeoXLayerWrapper']
+trace_pythia
+=======================
+GPTNeoXLayer-gpt_neox.layers.11: ['native_layer_norm-727', 'view-728', 't-729', 'addmm-730', 'view-731', 'view-732', 'slice-733', 'permute-734', 'slice-735', 'permute-736', 'slice-737', 'permute-738', 'slice-739', 'slice-740', 'slice-741', 'slice-742', 'mul-743', 'slice-744', 'slice-745', 'neg-746', 'cat-747', 'mul-748', 'add-749', 'mul-750', 'slice-751', 'slice-752', 'neg-753', 'cat-754', 'mul-755', 'add-756', 'cat-757', 'cat-758', 'view-759', 'view-760', 'transpose-761', 'baddbmm-762', 'view-763', 'where-764', 'add-765', '_softmax-766', 'expand-767', 'view-768', 'expand-769', 'clone-770', '_unsafe_view-771', 'bmm-772', '_unsafe_view-773', 'permute-774', 'clone-775', 'view-776', 'view-777', 't-778', 'addmm-779', 'view-780', 'native_layer_norm-781', 'view-782', 't-783', 'addmm-784', 'view-785', 'gelu-786', 'view-787', 't-788', 'addmm-789', 'view-790', 'add-791', 'add-792']
+GPTNeoXLayer-gpt_neox.layers.6: ['native_layer_norm-397', 'view-398', 't-399', 'addmm-400', 'view-401', 'view-402', 'slice-403', 'permute-404', 'slice-405', 'permute-406', 'slice-407', 'permute-408', 'slice-409', 'slice-410', 'slice-411', 'slice-412', 'mul-413', 'slice-414', 'slice-415', 'neg-416', 'cat-417', 'mul-418', 'add-419', 'mul-420', 'slice-421', 'slice-422', 'neg-423', 'cat-424', 'mul-425', 'add-426', 'cat-427', 'cat-428', 'view-429', 'view-430', 'transpose-431', 'baddbmm-432', 'view-433', 'where-434', 'add-435', '_softmax-436', 'expand-437', 'view-438', 'expand-439', 'clone-440', '_unsafe_view-441', 'bmm-442', '_unsafe_view-443', 'permute-444', 'clone-445', 'view-446', 'view-447', 't-448', 'addmm-449', 'view-450', 'native_layer_norm-451', 'view-452', 't-453', 'addmm-454', 'view-455', 'gelu-456', 'view-457', 't-458', 'addmm-459', 'view-460', 'add-461', 'add-462']
+GPTNeoXLayer-gpt_neox.layers.0: ['native_layer_norm-1', 'view-2', 't-3', 'addmm-4', 'view-5', 'view-6', 'slice-7', 'permute-8', 'slice-9', 'permute-10', 'slice-11', 'permute-12', 'slice-13', 'slice-14', 'slice-15', 'slice-16', 'mul-17', 'slice-18', 'slice-19', 'neg-20', 'cat-21', 'mul-22', 'add-23', 'mul-24', 'slice-25', 'slice-26', 'neg-27', 'cat-28', 'mul-29', 'add-30', 'cat-31', 'cat-32', 'view-33', 'view-34', 'transpose-35', 'baddbmm-36', 'view-37', 'where-38', 'add-39', '_softmax-40', 'expand-41', 'view-42', 'expand-43', 'clone-44', '_unsafe_view-45', 'bmm-46', '_unsafe_view-47', 'permute-48', 'clone-49', 'view-50', 'view-51', 't-52', 'addmm-53', 'view-54', 'native_layer_norm-55', 'view-56', 't-57', 'addmm-58', 'view-59', 'gelu-60', 'view-61', 't-62', 'addmm-63', 'view-64', 'add-65', 'add-66']
+GPTNeoXLayer-gpt_neox.layers.1: ['native_layer_norm-67', 'view-68', 't-69', 'addmm-70', 'view-71', 'view-72', 'slice-73', 'permute-74', 'slice-75', 'permute-76', 'slice-77', 'permute-78', 'slice-79', 'slice-80', 'slice-81', 'slice-82', 'mul-83', 'slice-84', 'slice-85', 'neg-86', 'cat-87', 'mul-88', 'add-89', 'mul-90', 'slice-91', 'slice-92', 'neg-93', 'cat-94', 'mul-95', 'add-96', 'cat-97', 'cat-98', 'view-99', 'view-100', 'transpose-101', 'baddbmm-102', 'view-103', 'where-104', 'add-105', '_softmax-106', 'expand-107', 'view-108', 'expand-109', 'clone-110', '_unsafe_view-111', 'bmm-112', '_unsafe_view-113', 'permute-114', 'clone-115', 'view-116', 'view-117', 't-118', 'addmm-119', 'view-120', 'native_layer_norm-121', 'view-122', 't-123', 'addmm-124', 'view-125', 'gelu-126', 'view-127', 't-128', 'addmm-129', 'view-130', 'add-131', 'add-132']
+GPTNeoXLayer-gpt_neox.layers.2: ['native_layer_norm-133', 'view-134', 't-135', 'addmm-136', 'view-137', 'view-138', 'slice-139', 'permute-140', 'slice-141', 'permute-142', 'slice-143', 'permute-144', 'slice-145', 'slice-146', 'slice-147', 'slice-148', 'mul-149', 'slice-150', 'slice-151', 'neg-152', 'cat-153', 'mul-154', 'add-155', 'mul-156', 'slice-157', 'slice-158', 'neg-159', 'cat-160', 'mul-161', 'add-162', 'cat-163', 'cat-164', 'view-165', 'view-166', 'transpose-167', 'baddbmm-168', 'view-169', 'where-170', 'add-171', '_softmax-172', 'expand-173', 'view-174', 'expand-175', 'clone-176', '_unsafe_view-177', 'bmm-178', '_unsafe_view-179', 'permute-180', 'clone-181', 'view-182', 'view-183', 't-184', 'addmm-185', 'view-186', 'native_layer_norm-187', 'view-188', 't-189', 'addmm-190', 'view-191', 'gelu-192', 'view-193', 't-194', 'addmm-195', 'view-196', 'add-197', 'add-198']
+GPTNeoXLayer-gpt_neox.layers.3: ['native_layer_norm-199', 'view-200', 't-201', 'addmm-202', 'view-203', 'view-204', 'slice-205', 'permute-206', 'slice-207', 'permute-208', 'slice-209', 'permute-210', 'slice-211', 'slice-212', 'slice-213', 'slice-214', 'mul-215', 'slice-216', 'slice-217', 'neg-218', 'cat-219', 'mul-220', 'add-221', 'mul-222', 'slice-223', 'slice-224', 'neg-225', 'cat-226', 'mul-227', 'add-228', 'cat-229', 'cat-230', 'view-231', 'view-232', 'transpose-233', 'baddbmm-234', 'view-235', 'where-236', 'add-237', '_softmax-238', 'expand-239', 'view-240', 'expand-241', 'clone-242', '_unsafe_view-243', 'bmm-244', '_unsafe_view-245', 'permute-246', 'clone-247', 'view-248', 'view-249', 't-250', 'addmm-251', 'view-252', 'native_layer_norm-253', 'view-254', 't-255', 'addmm-256', 'view-257', 'gelu-258', 'view-259', 't-260', 'addmm-261', 'view-262', 'add-263', 'add-264']
+============================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+66
+===========================================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:00<01:05,  1.51it/s]Training Epoch 0:   2%|▏         | 2/100 [00:01<01:10,  1.39it/s]Training Epoch 0:   3%|▎         | 3/100 [00:02<01:11,  1.35it/s]Training Epoch 0:   4%|▍         | 4/100 [00:02<01:12,  1.33it/s]Training Epoch 0:   5%|▌         | 5/100 [00:03<01:12,  1.32it/s]Training Epoch 0:   6%|▌         | 6/100 [00:04<01:11,  1.31it/s]Training Epoch 0:   7%|▋         | 7/100 [00:05<01:11,  1.31it/s]Training Epoch 0:   8%|▊         | 8/100 [00:06<01:10,  1.31it/s]Training Epoch 0:   9%|▉         | 9/100 [00:06<01:09,  1.30it/s]Training Epoch 0:  10%|█         | 10/100 [00:07<01:09,  1.30it/s]Training Epoch 0:  11%|█         | 11/100 [00:08<01:08,  1.30it/s]Training Epoch 0:  12%|█▏        | 12/100 [00:09<01:07,  1.30it/s]Training Epoch 0:  13%|█▎        | 13/100 [00:09<01:06,  1.30it/s]Training Epoch 0:  14%|█▍        | 14/100 [00:10<01:06,  1.30it/s]Training Epoch 0:  15%|█▌        | 15/100 [00:11<01:05,  1.30it/s]Training Epoch 0:  16%|█▌        | 16/100 [00:12<01:04,  1.30it/s]Training Epoch 0:  17%|█▋        | 17/100 [00:12<01:03,  1.30it/s]Training Epoch 0:  18%|█▊        | 18/100 [00:13<01:03,  1.30it/s]Training Epoch 0:  19%|█▉        | 19/100 [00:14<01:02,  1.30it/s]Training Epoch 0:  20%|██        | 20/100 [00:15<01:01,  1.30it/s]Training Epoch 0:  21%|██        | 21/100 [00:16<01:00,  1.30it/s]Training Epoch 0:  22%|██▏       | 22/100 [00:16<00:59,  1.30it/s]Training Epoch 0:  23%|██▎       | 23/100 [00:17<00:59,  1.30it/s]Training Epoch 0:  24%|██▍       | 24/100 [00:18<00:58,  1.30it/s]Training Epoch 0:  25%|██▌       | 25/100 [00:19<00:57,  1.30it/s]Training Epoch 0:  26%|██▌       | 26/100 [00:19<00:56,  1.30it/s]Training Epoch 0:  27%|██▋       | 27/100 [00:20<00:56,  1.30it/s]Training Epoch 0:  28%|██▊       | 28/100 [00:21<00:55,  1.30it/s]Training Epoch 0:  29%|██▉       | 29/100 [00:22<00:54,  1.30it/s]Training Epoch 0:  30%|███       | 30/100 [00:22<00:53,  1.30it/s]Training Epoch 0:  31%|███       | 31/100 [00:23<00:53,  1.30it/s]Training Epoch 0:  32%|███▏      | 32/100 [00:24<00:52,  1.30it/s]Training Epoch 0:  33%|███▎      | 33/100 [00:25<00:51,  1.30it/s]Training Epoch 0:  34%|███▍      | 34/100 [00:26<00:50,  1.30it/s]Training Epoch 0:  35%|███▌      | 35/100 [00:26<00:50,  1.30it/s]Training Epoch 0:  36%|███▌      | 36/100 [00:27<00:49,  1.30it/s]Training Epoch 0:  37%|███▋      | 37/100 [00:28<00:48,  1.30it/s]Training Epoch 0:  38%|███▊      | 38/100 [00:29<00:47,  1.30it/s]Training Epoch 0:  39%|███▉      | 39/100 [00:29<00:46,  1.30it/s]Training Epoch 0:  40%|████      | 40/100 [00:30<00:46,  1.30it/s]Training Epoch 0:  41%|████      | 41/100 [00:31<00:45,  1.30it/s]Training Epoch 0:  42%|████▏     | 42/100 [00:32<00:44,  1.30it/s]Training Epoch 0:  43%|████▎     | 43/100 [00:32<00:43,  1.30it/s]Training Epoch 0:  44%|████▍     | 44/100 [00:33<00:43,  1.30it/s]Training Epoch 0:  45%|████▌     | 45/100 [00:34<00:42,  1.30it/s]Training Epoch 0:  46%|████▌     | 46/100 [00:35<00:41,  1.30it/s]Training Epoch 0:  47%|████▋     | 47/100 [00:36<00:40,  1.30it/s]Training Epoch 0:  48%|████▊     | 48/100 [00:36<00:40,  1.30it/s]Training Epoch 0:  49%|████▉     | 49/100 [00:37<00:39,  1.30it/s]Training Epoch 0:  50%|█████     | 50/100 [00:38<00:38,  1.30it/s]Training Epoch 0:  51%|█████     | 51/100 [00:39<00:37,  1.30it/s]Training Epoch 0:  52%|█████▏    | 52/100 [00:39<00:36,  1.30it/s]Training Epoch 0:  53%|█████▎    | 53/100 [00:40<00:36,  1.30it/s]Training Epoch 0:  54%|█████▍    | 54/100 [00:41<00:35,  1.30it/s]Training Epoch 0:  55%|█████▌    | 55/100 [00:42<00:34,  1.30it/s]Training Epoch 0:  56%|█████▌    | 56/100 [00:42<00:33,  1.30it/s]Training Epoch 0:  57%|█████▋    | 57/100 [00:43<00:33,  1.30it/s]Training Epoch 0:  58%|█████▊    | 58/100 [00:44<00:32,  1.30it/s]Training Epoch 0:  59%|█████▉    | 59/100 [00:45<00:31,  1.30it/s]Training Epoch 0:  60%|██████    | 60/100 [00:46<00:30,  1.30it/s]Training Epoch 0:  61%|██████    | 61/100 [00:46<00:30,  1.30it/s]Training Epoch 0:  62%|██████▏   | 62/100 [00:47<00:29,  1.30it/s]Training Epoch 0:  63%|██████▎   | 63/100 [00:48<00:28,  1.30it/s]Training Epoch 0:  64%|██████▍   | 64/100 [00:49<00:27,  1.30it/s]Training Epoch 0:  65%|██████▌   | 65/100 [00:49<00:26,  1.30it/s]Training Epoch 0:  66%|██████▌   | 66/100 [00:50<00:26,  1.30it/s]Training Epoch 0:  67%|██████▋   | 67/100 [00:51<00:25,  1.30it/s]Training Epoch 0:  68%|██████▊   | 68/100 [00:52<00:24,  1.30it/s]Training Epoch 0:  69%|██████▉   | 69/100 [00:52<00:23,  1.30it/s]Training Epoch 0:  70%|███████   | 70/100 [00:53<00:23,  1.30it/s]Training Epoch 0:  71%|███████   | 71/100 [00:54<00:22,  1.30it/s]Training Epoch 0:  72%|███████▏  | 72/100 [00:55<00:21,  1.30it/s]Training Epoch 0:  73%|███████▎  | 73/100 [00:56<00:20,  1.30it/s]Training Epoch 0:  74%|███████▍  | 74/100 [00:56<00:20,  1.30it/s]Training Epoch 0:  75%|███████▌  | 75/100 [00:57<00:19,  1.30it/s]Training Epoch 0:  76%|███████▌  | 76/100 [00:58<00:18,  1.30it/s]Training Epoch 0:  77%|███████▋  | 77/100 [00:59<00:17,  1.30it/s]Training Epoch 0:  78%|███████▊  | 78/100 [00:59<00:16,  1.30it/s]Training Epoch 0:  79%|███████▉  | 79/100 [01:00<00:16,  1.30it/s]Training Epoch 0:  80%|████████  | 80/100 [01:01<00:15,  1.30it/s]Training Epoch 0:  81%|████████  | 81/100 [01:02<00:14,  1.30it/s]Training Epoch 0:  82%|████████▏ | 82/100 [01:03<00:13,  1.29it/s]Training Epoch 0:  83%|████████▎ | 83/100 [01:03<00:13,  1.30it/s]Training Epoch 0:  84%|████████▍ | 84/100 [01:04<00:12,  1.29it/s]Training Epoch 0:  85%|████████▌ | 85/100 [01:05<00:11,  1.29it/s]Training Epoch 0:  86%|████████▌ | 86/100 [01:06<00:10,  1.30it/s]Training Epoch 0:  87%|████████▋ | 87/100 [01:06<00:10,  1.30it/s]Training Epoch 0:  88%|████████▊ | 88/100 [01:07<00:09,  1.30it/s]Training Epoch 0:  89%|████████▉ | 89/100 [01:08<00:08,  1.29it/s]Training Epoch 0:  90%|█████████ | 90/100 [01:09<00:07,  1.29it/s]Training Epoch 0:  91%|█████████ | 91/100 [01:09<00:06,  1.29it/s]Training Epoch 0:  92%|█████████▏| 92/100 [01:10<00:06,  1.29it/s]Training Epoch 0:  93%|█████████▎| 93/100 [01:11<00:05,  1.29it/s]Training Epoch 0:  94%|█████████▍| 94/100 [01:12<00:04,  1.29it/s]Training Epoch 0:  95%|█████████▌| 95/100 [01:13<00:03,  1.29it/s]Training Epoch 0:  96%|█████████▌| 96/100 [01:13<00:03,  1.29it/s]Training Epoch 0:  97%|█████████▋| 97/100 [01:14<00:02,  1.29it/s]Training Epoch 0:  98%|█████████▊| 98/100 [01:15<00:01,  1.29it/s]Training Epoch 0:  99%|█████████▉| 99/100 [01:16<00:00,  1.29it/s]                                                                  Step 0 Time elapsed: 0.66s
+epoch 0 training time consumed: 76.25s
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
   warnings.warn(
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
 You may ignore this warning if your `pad_token_id` (0) is identical to the `bos_token_id` (0), `eos_token_id` (0), or the `sep_token_id` (None), and your input is not padded.
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+  warnings.warn(
 Using GPU device 0
 Using device: cuda
 50304
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 1034, in forward
-    outputs = self.gpt_neox(
-              ^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 925, in forward
-    outputs = layer(
-              ^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 690, in forward
-    attention_layer_outputs = self.attention(
-                              ^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 211, in forward
-    attn_output, attn_weights = self._attn(query, key, value, attention_mask, head_mask)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py", line 268, in _attn
-    attn_scores = torch.baddbmm(
-                  ^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 192.00 MiB. GPU 
+3137.9228515625 we have
+the memroy consumption of loss 3290350592 for EleutherAI/pythia-160m
+3137.9228515625 we have
+the new budget is 10990415667.2
+================================== 10990415667.2 =================================
+[Fe_0, Fe_1, Fe_2, Fe_3, Fe_4, Fe_5, Fe_6, Fe_7, Fe_8, Fe_9, Fe_10, Fe_11, Fe_12, Fe_13, Fe_14, Fe_15, L, B_15, B_14, B_13, B_12, B_11, B_10, B_9, B_8, B_7, B_6, B_5, B_4, B_3, B_2, B_1, B_0]
+trace_pythia
+['Fe_0', 'Fe_1', 'Fe_2', 'Fe_3', 'Fe_4', 'Fe_5', 'Fe_6', 'Fe_7', 'Fe_8', 'Fe_9', 'Fe_10', 'Fe_11', 'Fe_12', 'Fe_13', 'Fe_14', 'Fe_15', 'L', 'B_15', 'B_14', 'B_13', 'B_12', 'B_11', 'B_10', 'B_9', 'B_8', 'B_7', 'B_6', 'B_5', 'B_4', 'B_3', 'B_2', 'B_1', 'B_0']
+[]
+[]
+trace_pythia
+=======================
+============================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:00<00:44,  2.20it/s]Training Epoch 0:   2%|▏         | 2/100 [00:00<00:43,  2.27it/s]Training Epoch 0:   3%|▎         | 3/100 [00:01<00:53,  1.81it/s]Training Epoch 0:   4%|▍         | 4/100 [00:02<00:58,  1.64it/s]Training Epoch 0:   5%|▌         | 5/100 [00:02<01:00,  1.57it/s]Training Epoch 0:   6%|▌         | 6/100 [00:03<01:01,  1.52it/s]Training Epoch 0:   7%|▋         | 7/100 [00:04<01:02,  1.50it/s]Training Epoch 0:   8%|▊         | 8/100 [00:05<01:02,  1.48it/s]Training Epoch 0:   9%|▉         | 9/100 [00:05<01:01,  1.47it/s]Training Epoch 0:  10%|█         | 10/100 [00:06<01:01,  1.46it/s]Training Epoch 0:  11%|█         | 11/100 [00:07<01:01,  1.46it/s]Training Epoch 0:  12%|█▏        | 12/100 [00:07<01:00,  1.45it/s]Training Epoch 0:  13%|█▎        | 13/100 [00:08<01:00,  1.45it/s]Training Epoch 0:  14%|█▍        | 14/100 [00:09<00:59,  1.45it/s]Training Epoch 0:  15%|█▌        | 15/100 [00:09<00:58,  1.45it/s]Training Epoch 0:  16%|█▌        | 16/100 [00:10<00:58,  1.44it/s]Training Epoch 0:  17%|█▋        | 17/100 [00:11<00:57,  1.44it/s]Training Epoch 0:  18%|█▊        | 18/100 [00:11<00:56,  1.44it/s]Training Epoch 0:  19%|█▉        | 19/100 [00:12<00:56,  1.44it/s]Training Epoch 0:  20%|██        | 20/100 [00:13<00:55,  1.44it/s]Training Epoch 0:  21%|██        | 21/100 [00:14<00:54,  1.44it/s]Training Epoch 0:  22%|██▏       | 22/100 [00:14<00:54,  1.44it/s]Training Epoch 0:  23%|██▎       | 23/100 [00:15<00:53,  1.44it/s]Training Epoch 0:  24%|██▍       | 24/100 [00:16<00:52,  1.44it/s]Training Epoch 0:  25%|██▌       | 25/100 [00:16<00:51,  1.44it/s]Training Epoch 0:  26%|██▌       | 26/100 [00:17<00:51,  1.44it/s]Training Epoch 0:  27%|██▋       | 27/100 [00:18<00:50,  1.44it/s]Training Epoch 0:  28%|██▊       | 28/100 [00:18<00:49,  1.44it/s]Training Epoch 0:  29%|██▉       | 29/100 [00:19<00:49,  1.44it/s]Training Epoch 0:  30%|███       | 30/100 [00:20<00:48,  1.44it/s]Training Epoch 0:  31%|███       | 31/100 [00:20<00:47,  1.44it/s]Training Epoch 0:  32%|███▏      | 32/100 [00:21<00:47,  1.44it/s]Training Epoch 0:  33%|███▎      | 33/100 [00:22<00:46,  1.44it/s]Training Epoch 0:  34%|███▍      | 34/100 [00:23<00:45,  1.44it/s]Training Epoch 0:  35%|███▌      | 35/100 [00:23<00:45,  1.44it/s]Training Epoch 0:  36%|███▌      | 36/100 [00:24<00:44,  1.44it/s]Training Epoch 0:  37%|███▋      | 37/100 [00:25<00:43,  1.44it/s]Training Epoch 0:  38%|███▊      | 38/100 [00:25<00:43,  1.44it/s]Training Epoch 0:  39%|███▉      | 39/100 [00:26<00:42,  1.44it/s]Training Epoch 0:  40%|████      | 40/100 [00:27<00:41,  1.44it/s]Training Epoch 0:  41%|████      | 41/100 [00:27<00:40,  1.44it/s]Training Epoch 0:  42%|████▏     | 42/100 [00:28<00:40,  1.44it/s]Training Epoch 0:  43%|████▎     | 43/100 [00:29<00:39,  1.44it/s]Training Epoch 0:  44%|████▍     | 44/100 [00:30<00:38,  1.44it/s]Training Epoch 0:  45%|████▌     | 45/100 [00:30<00:38,  1.44it/s]Training Epoch 0:  46%|████▌     | 46/100 [00:31<00:37,  1.44it/s]Training Epoch 0:  47%|████▋     | 47/100 [00:32<00:36,  1.44it/s]Training Epoch 0:  48%|████▊     | 48/100 [00:32<00:36,  1.44it/s]Training Epoch 0:  49%|████▉     | 49/100 [00:33<00:35,  1.44it/s]Training Epoch 0:  50%|█████     | 50/100 [00:34<00:34,  1.44it/s]Training Epoch 0:  51%|█████     | 51/100 [00:34<00:34,  1.44it/s]Training Epoch 0:  52%|█████▏    | 52/100 [00:35<00:33,  1.44it/s]Training Epoch 0:  53%|█████▎    | 53/100 [00:36<00:32,  1.44it/s]Training Epoch 0:  54%|█████▍    | 54/100 [00:36<00:31,  1.44it/s]Training Epoch 0:  55%|█████▌    | 55/100 [00:37<00:31,  1.44it/s]Training Epoch 0:  56%|█████▌    | 56/100 [00:38<00:30,  1.44it/s]Training Epoch 0:  57%|█████▋    | 57/100 [00:39<00:29,  1.44it/s]Training Epoch 0:  58%|█████▊    | 58/100 [00:39<00:29,  1.44it/s]Training Epoch 0:  59%|█████▉    | 59/100 [00:40<00:28,  1.44it/s]Training Epoch 0:  60%|██████    | 60/100 [00:41<00:27,  1.44it/s]Training Epoch 0:  61%|██████    | 61/100 [00:41<00:27,  1.44it/s]Training Epoch 0:  62%|██████▏   | 62/100 [00:42<00:26,  1.44it/s]Training Epoch 0:  63%|██████▎   | 63/100 [00:43<00:25,  1.44it/s]Training Epoch 0:  64%|██████▍   | 64/100 [00:43<00:25,  1.44it/s]Training Epoch 0:  65%|██████▌   | 65/100 [00:44<00:24,  1.44it/s]Training Epoch 0:  66%|██████▌   | 66/100 [00:45<00:23,  1.44it/s]Training Epoch 0:  67%|██████▋   | 67/100 [00:46<00:22,  1.44it/s]Training Epoch 0:  68%|██████▊   | 68/100 [00:46<00:22,  1.44it/s]Training Epoch 0:  69%|██████▉   | 69/100 [00:47<00:21,  1.44it/s]Training Epoch 0:  70%|███████   | 70/100 [00:48<00:20,  1.44it/s]Training Epoch 0:  71%|███████   | 71/100 [00:48<00:20,  1.44it/s]Training Epoch 0:  72%|███████▏  | 72/100 [00:49<00:19,  1.44it/s]Training Epoch 0:  73%|███████▎  | 73/100 [00:50<00:18,  1.44it/s]Training Epoch 0:  74%|███████▍  | 74/100 [00:50<00:18,  1.44it/s]Training Epoch 0:  75%|███████▌  | 75/100 [00:51<00:17,  1.44it/s]Training Epoch 0:  76%|███████▌  | 76/100 [00:52<00:16,  1.44it/s]Training Epoch 0:  77%|███████▋  | 77/100 [00:52<00:16,  1.44it/s]Training Epoch 0:  78%|███████▊  | 78/100 [00:53<00:15,  1.44it/s]Training Epoch 0:  79%|███████▉  | 79/100 [00:54<00:14,  1.44it/s]Training Epoch 0:  80%|████████  | 80/100 [00:55<00:13,  1.44it/s]Training Epoch 0:  81%|████████  | 81/100 [00:55<00:13,  1.44it/s]Training Epoch 0:  82%|████████▏ | 82/100 [00:56<00:12,  1.44it/s]Training Epoch 0:  83%|████████▎ | 83/100 [00:57<00:11,  1.44it/s]Training Epoch 0:  84%|████████▍ | 84/100 [00:57<00:11,  1.44it/s]Training Epoch 0:  85%|████████▌ | 85/100 [00:58<00:10,  1.44it/s]Training Epoch 0:  86%|████████▌ | 86/100 [00:59<00:09,  1.44it/s]Training Epoch 0:  87%|████████▋ | 87/100 [00:59<00:09,  1.44it/s]Training Epoch 0:  88%|████████▊ | 88/100 [01:00<00:08,  1.44it/s]Training Epoch 0:  89%|████████▉ | 89/100 [01:01<00:07,  1.44it/s]Training Epoch 0:  90%|█████████ | 90/100 [01:02<00:06,  1.44it/s]Training Epoch 0:  91%|█████████ | 91/100 [01:02<00:06,  1.43it/s]Training Epoch 0:  92%|█████████▏| 92/100 [01:03<00:05,  1.44it/s]Training Epoch 0:  93%|█████████▎| 93/100 [01:04<00:04,  1.44it/s]Training Epoch 0:  94%|█████████▍| 94/100 [01:04<00:04,  1.43it/s]Training Epoch 0:  95%|█████████▌| 95/100 [01:05<00:03,  1.43it/s]Training Epoch 0:  96%|█████████▌| 96/100 [01:06<00:02,  1.43it/s]Training Epoch 0:  97%|█████████▋| 97/100 [01:06<00:02,  1.43it/s]Training Epoch 0:  98%|█████████▊| 98/100 [01:07<00:01,  1.43it/s]Training Epoch 0:  99%|█████████▉| 99/100 [01:08<00:00,  1.43it/s]                                                                  Step 0 Time elapsed: 0.46s
+epoch 0 training time consumed: 68.80s
 mv: cannot stat 'test.txt': No such file or directory
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
   warnings.warn(
 Using GPU device 0
 Using device: cuda
 50272
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 1120, in forward
-    outputs = self.model.decoder(
-              ^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 886, in forward
-    layer_outputs = decoder_layer(
-                    ^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 527, in forward
-    hidden_states, self_attn_weights, present_key_value = self.self_attn(
-                                                          ^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 207, in forward
-    attn_weights = attn_weights.view(bsz, self.num_heads, tgt_len, src_len) + attention_mask
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 128.00 MiB. GPU 
-mv: cannot stat 'test.txt': No such file or directory
+1568.0322265625 we have
+the memroy consumption of loss 1644200960 for facebook/opt-350m
+3136.064453125 we have
+the new budget is 5301532672.0
+================================== 5301532672.0 =================================
+[CF_0, Fn_1, Fn_2, Fn_3, Fn_4, Fn_5, Fn_6, Fn_7, Fn_8, Fe_9, CF_10, Fn_11, Fn_12, Fn_13, Fn_14, Fn_15, Fn_16, Fn_17, Fn_18, Fe_19, Fe_20, Fe_21, Fe_22, Fe_23, Fe_24, Fe_25, Fe_26, L, B_26, B_25, B_24, B_23, B_22, B_21, B_20, B_19, Fe_10, Fe_11, Fe_12, Fe_13, Fe_14, Fe_15, Fe_16, Fe_17, Fe_18, B_18, B_17, B_16, B_15, B_14, B_13, B_12, B_11, B_10, B_9, Fe_0, Fe_1, Fe_2, Fe_3, Fe_4, Fe_5, Fe_6, Fe_7, Fe_8, B_8, B_7, B_6, B_5, B_4, B_3, B_2, B_1, B_0]
+trace_opt
+['CF_0', 'Fn_1', 'Fn_2', 'Fn_3', 'Fn_4', 'Fn_5', 'Fn_6', 'Fn_7', 'Fn_8', 'Fe_9', 'CF_10', 'Fn_11', 'Fn_12', 'Fn_13', 'Fn_14', 'Fn_15', 'Fn_16', 'Fn_17', 'Fn_18', 'Fe_19', 'Fe_20', 'Fe_21', 'Fe_22', 'Fe_23', 'Fe_24', 'Fe_25', 'Fe_26', 'L', 'B_26', 'B_25', 'B_24', 'B_23', 'B_22', 'B_21', 'B_20', 'B_19', 'Fe_10', 'Fe_11', 'Fe_12', 'Fe_13', 'Fe_14', 'Fe_15', 'Fe_16', 'Fe_17', 'Fe_18', 'B_18', 'B_17', 'B_16', 'B_15', 'B_14', 'B_13', 'B_12', 'B_11', 'B_10', 'B_9', 'Fe_0', 'Fe_1', 'Fe_2', 'Fe_3', 'Fe_4', 'Fe_5', 'Fe_6', 'Fe_7', 'Fe_8', 'B_8', 'B_7', 'B_6', 'B_5', 'B_4', 'B_3', 'B_2', 'B_1', 'B_0']
+[10, 11, 12, 13, 14, 15, 16, 17, 18, 0, 1, 2, 3, 4, 5, 6, 7, 8]
+['9--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '10--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '11--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '12--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '13--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '14--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '15--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '16--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '17--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', 'token_emb-OPTForCausalLM-TokenEmbedding', '0--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '1--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '2--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '3--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '4--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '5--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '6--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '7--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper']
+trace_opt
+=======================
+OPTDecoderLayer-model.decoder.layers.9: ['view-493', 't-494', 'addmm-495', 'view-496', 'mul-497', 'view-498', 't-499', 'addmm-500', 'view-501', 'view-502', 'transpose-503', 'clone-504', 'view-505', 't-506', 'addmm-507', 'view-508', 'view-509', 'transpose-510', 'clone-511', 'view-512', 'transpose-513', 'clone-514', 'view-515', 'view-516', 'view-517', 'transpose-518', 'bmm-519', 'view-520', 'add-521', 'maximum-522', 'view-523', '_softmax-524', 'bmm-525', 'view-526', 'transpose-527', 'clone-528', '_unsafe_view-529', 'view-530', 't-531', 'addmm-532', 'view-533', 'native_dropout-534', 'add-535', 'native_layer_norm-536', 'view-537', 't-538', 'addmm-539', 'relu-540', 't-541', 'addmm-542', 'native_dropout-543', 'add-544', 'view-545', 'native_layer_norm-546']
+OPTDecoderLayer-model.decoder.layers.10: ['view-547', 't-548', 'addmm-549', 'view-550', 'mul-551', 'view-552', 't-553', 'addmm-554', 'view-555', 'view-556', 'transpose-557', 'clone-558', 'view-559', 't-560', 'addmm-561', 'view-562', 'view-563', 'transpose-564', 'clone-565', 'view-566', 'transpose-567', 'clone-568', 'view-569', 'view-570', 'view-571', 'transpose-572', 'bmm-573', 'view-574', 'add-575', 'maximum-576', 'view-577', '_softmax-578', 'bmm-579', 'view-580', 'transpose-581', 'clone-582', '_unsafe_view-583', 'view-584', 't-585', 'addmm-586', 'view-587', 'native_dropout-588', 'add-589', 'native_layer_norm-590', 'view-591', 't-592', 'addmm-593', 'relu-594', 't-595', 'addmm-596', 'native_dropout-597', 'add-598', 'view-599', 'native_layer_norm-600']
+OPTDecoderLayer-model.decoder.layers.11: ['view-601', 't-602', 'addmm-603', 'view-604', 'mul-605', 'view-606', 't-607', 'addmm-608', 'view-609', 'view-610', 'transpose-611', 'clone-612', 'view-613', 't-614', 'addmm-615', 'view-616', 'view-617', 'transpose-618', 'clone-619', 'view-620', 'transpose-621', 'clone-622', 'view-623', 'view-624', 'view-625', 'transpose-626', 'bmm-627', 'view-628', 'add-629', 'maximum-630', 'view-631', '_softmax-632', 'bmm-633', 'view-634', 'transpose-635', 'clone-636', '_unsafe_view-637', 'view-638', 't-639', 'addmm-640', 'view-641', 'native_dropout-642', 'add-643', 'native_layer_norm-644', 'view-645', 't-646', 'addmm-647', 'relu-648', 't-649', 'addmm-650', 'native_dropout-651', 'add-652', 'view-653', 'native_layer_norm-654']
+OPTDecoderLayer-model.decoder.layers.12: ['view-655', 't-656', 'addmm-657', 'view-658', 'mul-659', 'view-660', 't-661', 'addmm-662', 'view-663', 'view-664', 'transpose-665', 'clone-666', 'view-667', 't-668', 'addmm-669', 'view-670', 'view-671', 'transpose-672', 'clone-673', 'view-674', 'transpose-675', 'clone-676', 'view-677', 'view-678', 'view-679', 'transpose-680', 'bmm-681', 'view-682', 'add-683', 'maximum-684', 'view-685', '_softmax-686', 'bmm-687', 'view-688', 'transpose-689', 'clone-690', '_unsafe_view-691', 'view-692', 't-693', 'addmm-694', 'view-695', 'native_dropout-696', 'add-697', 'native_layer_norm-698', 'view-699', 't-700', 'addmm-701', 'relu-702', 't-703', 'addmm-704', 'native_dropout-705', 'add-706', 'view-707', 'native_layer_norm-708']
+OPTDecoderLayer-model.decoder.layers.13: ['view-709', 't-710', 'addmm-711', 'view-712', 'mul-713', 'view-714', 't-715', 'addmm-716', 'view-717', 'view-718', 'transpose-719', 'clone-720', 'view-721', 't-722', 'addmm-723', 'view-724', 'view-725', 'transpose-726', 'clone-727', 'view-728', 'transpose-729', 'clone-730', 'view-731', 'view-732', 'view-733', 'transpose-734', 'bmm-735', 'view-736', 'add-737', 'maximum-738', 'view-739', '_softmax-740', 'bmm-741', 'view-742', 'transpose-743', 'clone-744', '_unsafe_view-745', 'view-746', 't-747', 'addmm-748', 'view-749', 'native_dropout-750', 'add-751', 'native_layer_norm-752', 'view-753', 't-754', 'addmm-755', 'relu-756', 't-757', 'addmm-758', 'native_dropout-759', 'add-760', 'view-761', 'native_layer_norm-762']
+OPTDecoderLayer-model.decoder.layers.14: ['view-763', 't-764', 'addmm-765', 'view-766', 'mul-767', 'view-768', 't-769', 'addmm-770', 'view-771', 'view-772', 'transpose-773', 'clone-774', 'view-775', 't-776', 'addmm-777', 'view-778', 'view-779', 'transpose-780', 'clone-781', 'view-782', 'transpose-783', 'clone-784', 'view-785', 'view-786', 'view-787', 'transpose-788', 'bmm-789', 'view-790', 'add-791', 'maximum-792', 'view-793', '_softmax-794', 'bmm-795', 'view-796', 'transpose-797', 'clone-798', '_unsafe_view-799', 'view-800', 't-801', 'addmm-802', 'view-803', 'native_dropout-804', 'add-805', 'native_layer_norm-806', 'view-807', 't-808', 'addmm-809', 'relu-810', 't-811', 'addmm-812', 'native_dropout-813', 'add-814', 'view-815', 'native_layer_norm-816']
+OPTDecoderLayer-model.decoder.layers.15: ['view-817', 't-818', 'addmm-819', 'view-820', 'mul-821', 'view-822', 't-823', 'addmm-824', 'view-825', 'view-826', 'transpose-827', 'clone-828', 'view-829', 't-830', 'addmm-831', 'view-832', 'view-833', 'transpose-834', 'clone-835', 'view-836', 'transpose-837', 'clone-838', 'view-839', 'view-840', 'view-841', 'transpose-842', 'bmm-843', 'view-844', 'add-845', 'maximum-846', 'view-847', '_softmax-848', 'bmm-849', 'view-850', 'transpose-851', 'clone-852', '_unsafe_view-853', 'view-854', 't-855', 'addmm-856', 'view-857', 'native_dropout-858', 'add-859', 'native_layer_norm-860', 'view-861', 't-862', 'addmm-863', 'relu-864', 't-865', 'addmm-866', 'native_dropout-867', 'add-868', 'view-869', 'native_layer_norm-870']
+OPTDecoderLayer-model.decoder.layers.16: ['view-871', 't-872', 'addmm-873', 'view-874', 'mul-875', 'view-876', 't-877', 'addmm-878', 'view-879', 'view-880', 'transpose-881', 'clone-882', 'view-883', 't-884', 'addmm-885', 'view-886', 'view-887', 'transpose-888', 'clone-889', 'view-890', 'transpose-891', 'clone-892', 'view-893', 'view-894', 'view-895', 'transpose-896', 'bmm-897', 'view-898', 'add-899', 'maximum-900', 'view-901', '_softmax-902', 'bmm-903', 'view-904', 'transpose-905', 'clone-906', '_unsafe_view-907', 'view-908', 't-909', 'addmm-910', 'view-911', 'native_dropout-912', 'add-913', 'native_layer_norm-914', 'view-915', 't-916', 'addmm-917', 'relu-918', 't-919', 'addmm-920', 'native_dropout-921', 'add-922', 'view-923', 'native_layer_norm-924']
+OPTDecoderLayer-model.decoder.layers.17: ['view-925', 't-926', 'addmm-927', 'view-928', 'mul-929', 'view-930', 't-931', 'addmm-932', 'view-933', 'view-934', 'transpose-935', 'clone-936', 'view-937', 't-938', 'addmm-939', 'view-940', 'view-941', 'transpose-942', 'clone-943', 'view-944', 'transpose-945', 'clone-946', 'view-947', 'view-948', 'view-949', 'transpose-950', 'bmm-951', 'view-952', 'add-953', 'maximum-954', 'view-955', '_softmax-956', 'bmm-957', 'view-958', 'transpose-959', 'clone-960', '_unsafe_view-961', 'view-962', 't-963', 'addmm-964', 'view-965', 'native_dropout-966', 'add-967', 'native_layer_norm-968', 'view-969', 't-970', 'addmm-971', 'relu-972', 't-973', 'addmm-974', 'native_dropout-975', 'add-976', 'view-977', 'native_layer_norm-978']
+TokenEmbedding-OPTForCausalLM-token_emb: ['embedding-0', 'embedding-1', 't-2', 'view-3', 'mm-4', '_unsafe_view-5', 'add-6']
+OPTDecoderLayer-model.decoder.layers.0: ['view-7', 't-8', 'addmm-9', 'view-10', 'mul-11', 'view-12', 't-13', 'addmm-14', 'view-15', 'view-16', 'transpose-17', 'clone-18', 'view-19', 't-20', 'addmm-21', 'view-22', 'view-23', 'transpose-24', 'clone-25', 'view-26', 'transpose-27', 'clone-28', 'view-29', 'view-30', 'view-31', 'transpose-32', 'bmm-33', 'view-34', 'add-35', 'maximum-36', 'view-37', '_softmax-38', 'bmm-39', 'view-40', 'transpose-41', 'clone-42', '_unsafe_view-43', 'view-44', 't-45', 'addmm-46', 'view-47', 'native_dropout-48', 'add-49', 'native_layer_norm-50', 'view-51', 't-52', 'addmm-53', 'relu-54', 't-55', 'addmm-56', 'native_dropout-57', 'add-58', 'view-59', 'native_layer_norm-60']
+OPTDecoderLayer-model.decoder.layers.1: ['view-61', 't-62', 'addmm-63', 'view-64', 'mul-65', 'view-66', 't-67', 'addmm-68', 'view-69', 'view-70', 'transpose-71', 'clone-72', 'view-73', 't-74', 'addmm-75', 'view-76', 'view-77', 'transpose-78', 'clone-79', 'view-80', 'transpose-81', 'clone-82', 'view-83', 'view-84', 'view-85', 'transpose-86', 'bmm-87', 'view-88', 'add-89', 'maximum-90', 'view-91', '_softmax-92', 'bmm-93', 'view-94', 'transpose-95', 'clone-96', '_unsafe_view-97', 'view-98', 't-99', 'addmm-100', 'view-101', 'native_dropout-102', 'add-103', 'native_layer_norm-104', 'view-105', 't-106', 'addmm-107', 'relu-108', 't-109', 'addmm-110', 'native_dropout-111', 'add-112', 'view-113', 'native_layer_norm-114']
+OPTDecoderLayer-model.decoder.layers.2: ['view-115', 't-116', 'addmm-117', 'view-118', 'mul-119', 'view-120', 't-121', 'addmm-122', 'view-123', 'view-124', 'transpose-125', 'clone-126', 'view-127', 't-128', 'addmm-129', 'view-130', 'view-131', 'transpose-132', 'clone-133', 'view-134', 'transpose-135', 'clone-136', 'view-137', 'view-138', 'view-139', 'transpose-140', 'bmm-141', 'view-142', 'add-143', 'maximum-144', 'view-145', '_softmax-146', 'bmm-147', 'view-148', 'transpose-149', 'clone-150', '_unsafe_view-151', 'view-152', 't-153', 'addmm-154', 'view-155', 'native_dropout-156', 'add-157', 'native_layer_norm-158', 'view-159', 't-160', 'addmm-161', 'relu-162', 't-163', 'addmm-164', 'native_dropout-165', 'add-166', 'view-167', 'native_layer_norm-168']
+OPTDecoderLayer-model.decoder.layers.3: ['view-169', 't-170', 'addmm-171', 'view-172', 'mul-173', 'view-174', 't-175', 'addmm-176', 'view-177', 'view-178', 'transpose-179', 'clone-180', 'view-181', 't-182', 'addmm-183', 'view-184', 'view-185', 'transpose-186', 'clone-187', 'view-188', 'transpose-189', 'clone-190', 'view-191', 'view-192', 'view-193', 'transpose-194', 'bmm-195', 'view-196', 'add-197', 'maximum-198', 'view-199', '_softmax-200', 'bmm-201', 'view-202', 'transpose-203', 'clone-204', '_unsafe_view-205', 'view-206', 't-207', 'addmm-208', 'view-209', 'native_dropout-210', 'add-211', 'native_layer_norm-212', 'view-213', 't-214', 'addmm-215', 'relu-216', 't-217', 'addmm-218', 'native_dropout-219', 'add-220', 'view-221', 'native_layer_norm-222']
+OPTDecoderLayer-model.decoder.layers.4: ['view-223', 't-224', 'addmm-225', 'view-226', 'mul-227', 'view-228', 't-229', 'addmm-230', 'view-231', 'view-232', 'transpose-233', 'clone-234', 'view-235', 't-236', 'addmm-237', 'view-238', 'view-239', 'transpose-240', 'clone-241', 'view-242', 'transpose-243', 'clone-244', 'view-245', 'view-246', 'view-247', 'transpose-248', 'bmm-249', 'view-250', 'add-251', 'maximum-252', 'view-253', '_softmax-254', 'bmm-255', 'view-256', 'transpose-257', 'clone-258', '_unsafe_view-259', 'view-260', 't-261', 'addmm-262', 'view-263', 'native_dropout-264', 'add-265', 'native_layer_norm-266', 'view-267', 't-268', 'addmm-269', 'relu-270', 't-271', 'addmm-272', 'native_dropout-273', 'add-274', 'view-275', 'native_layer_norm-276']
+OPTDecoderLayer-model.decoder.layers.5: ['view-277', 't-278', 'addmm-279', 'view-280', 'mul-281', 'view-282', 't-283', 'addmm-284', 'view-285', 'view-286', 'transpose-287', 'clone-288', 'view-289', 't-290', 'addmm-291', 'view-292', 'view-293', 'transpose-294', 'clone-295', 'view-296', 'transpose-297', 'clone-298', 'view-299', 'view-300', 'view-301', 'transpose-302', 'bmm-303', 'view-304', 'add-305', 'maximum-306', 'view-307', '_softmax-308', 'bmm-309', 'view-310', 'transpose-311', 'clone-312', '_unsafe_view-313', 'view-314', 't-315', 'addmm-316', 'view-317', 'native_dropout-318', 'add-319', 'native_layer_norm-320', 'view-321', 't-322', 'addmm-323', 'relu-324', 't-325', 'addmm-326', 'native_dropout-327', 'add-328', 'view-329', 'native_layer_norm-330']
+OPTDecoderLayer-model.decoder.layers.6: ['view-331', 't-332', 'addmm-333', 'view-334', 'mul-335', 'view-336', 't-337', 'addmm-338', 'view-339', 'view-340', 'transpose-341', 'clone-342', 'view-343', 't-344', 'addmm-345', 'view-346', 'view-347', 'transpose-348', 'clone-349', 'view-350', 'transpose-351', 'clone-352', 'view-353', 'view-354', 'view-355', 'transpose-356', 'bmm-357', 'view-358', 'add-359', 'maximum-360', 'view-361', '_softmax-362', 'bmm-363', 'view-364', 'transpose-365', 'clone-366', '_unsafe_view-367', 'view-368', 't-369', 'addmm-370', 'view-371', 'native_dropout-372', 'add-373', 'native_layer_norm-374', 'view-375', 't-376', 'addmm-377', 'relu-378', 't-379', 'addmm-380', 'native_dropout-381', 'add-382', 'view-383', 'native_layer_norm-384']
+OPTDecoderLayer-model.decoder.layers.7: ['view-385', 't-386', 'addmm-387', 'view-388', 'mul-389', 'view-390', 't-391', 'addmm-392', 'view-393', 'view-394', 'transpose-395', 'clone-396', 'view-397', 't-398', 'addmm-399', 'view-400', 'view-401', 'transpose-402', 'clone-403', 'view-404', 'transpose-405', 'clone-406', 'view-407', 'view-408', 'view-409', 'transpose-410', 'bmm-411', 'view-412', 'add-413', 'maximum-414', 'view-415', '_softmax-416', 'bmm-417', 'view-418', 'transpose-419', 'clone-420', '_unsafe_view-421', 'view-422', 't-423', 'addmm-424', 'view-425', 'native_dropout-426', 'add-427', 'native_layer_norm-428', 'view-429', 't-430', 'addmm-431', 'relu-432', 't-433', 'addmm-434', 'native_dropout-435', 'add-436', 'view-437', 'native_layer_norm-438']
+============================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+7
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:01<01:46,  1.08s/it]Training Epoch 0:   2%|▏         | 2/100 [00:02<01:41,  1.03s/it]Training Epoch 0:   3%|▎         | 3/100 [00:03<01:45,  1.09s/it]Training Epoch 0:   4%|▍         | 4/100 [00:04<01:46,  1.11s/it]Training Epoch 0:   5%|▌         | 5/100 [00:05<01:46,  1.12s/it]Training Epoch 0:   6%|▌         | 6/100 [00:06<01:46,  1.13s/it]Training Epoch 0:   7%|▋         | 7/100 [00:07<01:45,  1.14s/it]Training Epoch 0:   8%|▊         | 8/100 [00:08<01:45,  1.14s/it]Training Epoch 0:   9%|▉         | 9/100 [00:10<01:43,  1.14s/it]Training Epoch 0:  10%|█         | 10/100 [00:11<01:42,  1.14s/it]Training Epoch 0:  11%|█         | 11/100 [00:12<01:41,  1.14s/it]Training Epoch 0:  12%|█▏        | 12/100 [00:13<01:41,  1.15s/it]Training Epoch 0:  13%|█▎        | 13/100 [00:14<01:39,  1.15s/it]Training Epoch 0:  14%|█▍        | 14/100 [00:15<01:38,  1.15s/it]Training Epoch 0:  15%|█▌        | 15/100 [00:17<01:37,  1.15s/it]Training Epoch 0:  16%|█▌        | 16/100 [00:18<01:36,  1.15s/it]Training Epoch 0:  17%|█▋        | 17/100 [00:19<01:35,  1.15s/it]Training Epoch 0:  18%|█▊        | 18/100 [00:20<01:34,  1.15s/it]Training Epoch 0:  19%|█▉        | 19/100 [00:21<01:33,  1.15s/it]Training Epoch 0:  20%|██        | 20/100 [00:22<01:31,  1.15s/it]Training Epoch 0:  21%|██        | 21/100 [00:23<01:30,  1.15s/it]Training Epoch 0:  22%|██▏       | 22/100 [00:25<01:29,  1.15s/it]Training Epoch 0:  23%|██▎       | 23/100 [00:26<01:28,  1.15s/it]Training Epoch 0:  24%|██▍       | 24/100 [00:27<01:27,  1.15s/it]Training Epoch 0:  25%|██▌       | 25/100 [00:28<01:26,  1.15s/it]Training Epoch 0:  26%|██▌       | 26/100 [00:29<01:25,  1.15s/it]Training Epoch 0:  27%|██▋       | 27/100 [00:30<01:24,  1.15s/it]Training Epoch 0:  28%|██▊       | 28/100 [00:31<01:22,  1.15s/it]Training Epoch 0:  29%|██▉       | 29/100 [00:33<01:21,  1.15s/it]Training Epoch 0:  30%|███       | 30/100 [00:34<01:20,  1.15s/it]Training Epoch 0:  31%|███       | 31/100 [00:35<01:19,  1.15s/it]Training Epoch 0:  32%|███▏      | 32/100 [00:36<01:18,  1.15s/it]Training Epoch 0:  33%|███▎      | 33/100 [00:37<01:17,  1.15s/it]Training Epoch 0:  34%|███▍      | 34/100 [00:38<01:15,  1.15s/it]Training Epoch 0:  35%|███▌      | 35/100 [00:40<01:14,  1.15s/it]Training Epoch 0:  36%|███▌      | 36/100 [00:41<01:13,  1.15s/it]Training Epoch 0:  37%|███▋      | 37/100 [00:42<01:12,  1.15s/it]Training Epoch 0:  38%|███▊      | 38/100 [00:43<01:11,  1.15s/it]Training Epoch 0:  39%|███▉      | 39/100 [00:44<01:10,  1.15s/it]Training Epoch 0:  40%|████      | 40/100 [00:45<01:09,  1.15s/it]Training Epoch 0:  41%|████      | 41/100 [00:46<01:08,  1.15s/it]Training Epoch 0:  42%|████▏     | 42/100 [00:48<01:06,  1.15s/it]Training Epoch 0:  43%|████▎     | 43/100 [00:49<01:05,  1.15s/it]Training Epoch 0:  44%|████▍     | 44/100 [00:50<01:04,  1.15s/it]Training Epoch 0:  45%|████▌     | 45/100 [00:51<01:03,  1.15s/it]Training Epoch 0:  46%|████▌     | 46/100 [00:52<01:02,  1.15s/it]Training Epoch 0:  47%|████▋     | 47/100 [00:53<01:01,  1.15s/it]Training Epoch 0:  48%|████▊     | 48/100 [00:54<00:59,  1.15s/it]Training Epoch 0:  49%|████▉     | 49/100 [00:56<00:58,  1.15s/it]Training Epoch 0:  50%|█████     | 50/100 [00:57<00:57,  1.15s/it]Training Epoch 0:  51%|█████     | 51/100 [00:58<00:56,  1.15s/it]Training Epoch 0:  52%|█████▏    | 52/100 [00:59<00:55,  1.16s/it]Training Epoch 0:  53%|█████▎    | 53/100 [01:00<00:54,  1.16s/it]Training Epoch 0:  54%|█████▍    | 54/100 [01:01<00:53,  1.15s/it]Training Epoch 0:  55%|█████▌    | 55/100 [01:03<00:51,  1.15s/it]Training Epoch 0:  56%|█████▌    | 56/100 [01:04<00:50,  1.15s/it]Training Epoch 0:  57%|█████▋    | 57/100 [01:05<00:49,  1.16s/it]Training Epoch 0:  58%|█████▊    | 58/100 [01:06<00:48,  1.15s/it]Training Epoch 0:  59%|█████▉    | 59/100 [01:07<00:47,  1.16s/it]Training Epoch 0:  60%|██████    | 60/100 [01:08<00:46,  1.16s/it]Training Epoch 0:  61%|██████    | 61/100 [01:09<00:44,  1.15s/it]Training Epoch 0:  62%|██████▏   | 62/100 [01:11<00:43,  1.16s/it]Training Epoch 0:  63%|██████▎   | 63/100 [01:12<00:42,  1.15s/it]Training Epoch 0:  64%|██████▍   | 64/100 [01:13<00:41,  1.16s/it]Training Epoch 0:  65%|██████▌   | 65/100 [01:14<00:40,  1.15s/it]Training Epoch 0:  66%|██████▌   | 66/100 [01:15<00:39,  1.15s/it]Training Epoch 0:  67%|██████▋   | 67/100 [01:16<00:38,  1.15s/it]Training Epoch 0:  68%|██████▊   | 68/100 [01:18<00:36,  1.15s/it]Training Epoch 0:  69%|██████▉   | 69/100 [01:19<00:35,  1.16s/it]Training Epoch 0:  70%|███████   | 70/100 [01:20<00:34,  1.16s/it]Training Epoch 0:  71%|███████   | 71/100 [01:21<00:33,  1.15s/it]Training Epoch 0:  72%|███████▏  | 72/100 [01:22<00:32,  1.16s/it]Training Epoch 0:  73%|███████▎  | 73/100 [01:23<00:31,  1.15s/it]Training Epoch 0:  74%|███████▍  | 74/100 [01:25<00:30,  1.16s/it]Training Epoch 0:  75%|███████▌  | 75/100 [01:26<00:28,  1.15s/it]Training Epoch 0:  76%|███████▌  | 76/100 [01:27<00:27,  1.15s/it]Training Epoch 0:  77%|███████▋  | 77/100 [01:28<00:26,  1.16s/it]Training Epoch 0:  78%|███████▊  | 78/100 [01:29<00:25,  1.16s/it]Training Epoch 0:  79%|███████▉  | 79/100 [01:30<00:24,  1.15s/it]Training Epoch 0:  80%|████████  | 80/100 [01:31<00:23,  1.15s/it]Training Epoch 0:  81%|████████  | 81/100 [01:33<00:21,  1.16s/it]Training Epoch 0:  82%|████████▏ | 82/100 [01:34<00:20,  1.15s/it]Training Epoch 0:  83%|████████▎ | 83/100 [01:35<00:19,  1.15s/it]Training Epoch 0:  84%|████████▍ | 84/100 [01:36<00:18,  1.15s/it]Training Epoch 0:  85%|████████▌ | 85/100 [01:37<00:17,  1.16s/it]Training Epoch 0:  86%|████████▌ | 86/100 [01:38<00:16,  1.15s/it]Training Epoch 0:  87%|████████▋ | 87/100 [01:40<00:14,  1.15s/it]Training Epoch 0:  88%|████████▊ | 88/100 [01:41<00:13,  1.16s/it]Training Epoch 0:  89%|████████▉ | 89/100 [01:42<00:12,  1.15s/it]Training Epoch 0:  90%|█████████ | 90/100 [01:43<00:11,  1.15s/it]Training Epoch 0:  91%|█████████ | 91/100 [01:44<00:10,  1.16s/it]Training Epoch 0:  92%|█████████▏| 92/100 [01:45<00:09,  1.16s/it]Training Epoch 0:  93%|█████████▎| 93/100 [01:46<00:08,  1.15s/it]Training Epoch 0:  94%|█████████▍| 94/100 [01:48<00:06,  1.15s/it]Training Epoch 0:  95%|█████████▌| 95/100 [01:49<00:05,  1.16s/it]Training Epoch 0:  96%|█████████▌| 96/100 [01:50<00:04,  1.15s/it]Training Epoch 0:  97%|█████████▋| 97/100 [01:51<00:03,  1.15s/it]Training Epoch 0:  98%|█████████▊| 98/100 [01:52<00:02,  1.15s/it]Training Epoch 0:  99%|█████████▉| 99/100 [01:53<00:01,  1.15s/it]                                                                  Step 0 Time elapsed: 1.08s
+epoch 0 training time consumed: 114.08s
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
   warnings.warn(
 Using GPU device 0
 Using device: cuda
 50272
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 1120, in forward
-    outputs = self.model.decoder(
-              ^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 886, in forward
-    layer_outputs = decoder_layer(
-                    ^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 527, in forward
-    hidden_states, self_attn_weights, present_key_value = self.self_attn(
-                                                          ^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 207, in forward
-    attn_weights = attn_weights.view(bsz, self.num_heads, tgt_len, src_len) + attention_mask
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 128.00 MiB. GPU 
-mv: cannot stat 'test.txt': No such file or directory
+1568.0322265625 we have
+the memroy consumption of loss 1644200960 for facebook/opt-350m
+3136.064453125 we have
+the new budget is 8308009779.200001
+================================== 8308009779.200001 =================================
+[Fe_0, Fe_1, Fe_2, Fe_3, Fe_4, Fe_5, CF_6, Fn_7, Fn_8, Fn_9, Fe_10, Fe_11, Fe_12, Fe_13, CF_14, Fe_15, CF_16, Fn_17, Fn_18, Fn_19, Fn_20, Fe_21, CF_22, Fe_23, Fe_24, Fe_25, Fe_26, L, B_26, B_25, B_24, B_23, Fe_22, B_22, B_21, Fe_16, Fe_17, Fe_18, Fe_19, Fe_20, B_20, B_19, B_18, B_17, B_16, B_15, Fe_14, B_14, B_13, B_12, B_11, B_10, Fe_6, Fe_7, Fe_8, Fe_9, B_9, B_8, B_7, B_6, B_5, B_4, B_3, B_2, B_1, B_0]
+trace_opt
+['Fe_0', 'Fe_1', 'Fe_2', 'Fe_3', 'Fe_4', 'Fe_5', 'CF_6', 'Fn_7', 'Fn_8', 'Fn_9', 'Fe_10', 'Fe_11', 'Fe_12', 'Fe_13', 'CF_14', 'Fe_15', 'CF_16', 'Fn_17', 'Fn_18', 'Fn_19', 'Fn_20', 'Fe_21', 'CF_22', 'Fe_23', 'Fe_24', 'Fe_25', 'Fe_26', 'L', 'B_26', 'B_25', 'B_24', 'B_23', 'Fe_22', 'B_22', 'B_21', 'Fe_16', 'Fe_17', 'Fe_18', 'Fe_19', 'Fe_20', 'B_20', 'B_19', 'B_18', 'B_17', 'B_16', 'B_15', 'Fe_14', 'B_14', 'B_13', 'B_12', 'B_11', 'B_10', 'Fe_6', 'Fe_7', 'Fe_8', 'Fe_9', 'B_9', 'B_8', 'B_7', 'B_6', 'B_5', 'B_4', 'B_3', 'B_2', 'B_1', 'B_0']
+[22, 16, 17, 18, 19, 20, 14, 6, 7, 8, 9]
+['21--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '15--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '16--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '17--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '18--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '19--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '13--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '5--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '6--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '7--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '8--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper']
+trace_opt
+=======================
+OPTDecoderLayer-model.decoder.layers.21: ['view-1141', 't-1142', 'addmm-1143', 'view-1144', 'mul-1145', 'view-1146', 't-1147', 'addmm-1148', 'view-1149', 'view-1150', 'transpose-1151', 'clone-1152', 'view-1153', 't-1154', 'addmm-1155', 'view-1156', 'view-1157', 'transpose-1158', 'clone-1159', 'view-1160', 'transpose-1161', 'clone-1162', 'view-1163', 'view-1164', 'view-1165', 'transpose-1166', 'bmm-1167', 'view-1168', 'add-1169', 'maximum-1170', 'view-1171', '_softmax-1172', 'bmm-1173', 'view-1174', 'transpose-1175', 'clone-1176', '_unsafe_view-1177', 'view-1178', 't-1179', 'addmm-1180', 'view-1181', 'native_dropout-1182', 'add-1183', 'native_layer_norm-1184', 'view-1185', 't-1186', 'addmm-1187', 'relu-1188', 't-1189', 'addmm-1190', 'native_dropout-1191', 'add-1192', 'view-1193', 'native_layer_norm-1194']
+OPTDecoderLayer-model.decoder.layers.15: ['view-817', 't-818', 'addmm-819', 'view-820', 'mul-821', 'view-822', 't-823', 'addmm-824', 'view-825', 'view-826', 'transpose-827', 'clone-828', 'view-829', 't-830', 'addmm-831', 'view-832', 'view-833', 'transpose-834', 'clone-835', 'view-836', 'transpose-837', 'clone-838', 'view-839', 'view-840', 'view-841', 'transpose-842', 'bmm-843', 'view-844', 'add-845', 'maximum-846', 'view-847', '_softmax-848', 'bmm-849', 'view-850', 'transpose-851', 'clone-852', '_unsafe_view-853', 'view-854', 't-855', 'addmm-856', 'view-857', 'native_dropout-858', 'add-859', 'native_layer_norm-860', 'view-861', 't-862', 'addmm-863', 'relu-864', 't-865', 'addmm-866', 'native_dropout-867', 'add-868', 'view-869', 'native_layer_norm-870']
+OPTDecoderLayer-model.decoder.layers.16: ['view-871', 't-872', 'addmm-873', 'view-874', 'mul-875', 'view-876', 't-877', 'addmm-878', 'view-879', 'view-880', 'transpose-881', 'clone-882', 'view-883', 't-884', 'addmm-885', 'view-886', 'view-887', 'transpose-888', 'clone-889', 'view-890', 'transpose-891', 'clone-892', 'view-893', 'view-894', 'view-895', 'transpose-896', 'bmm-897', 'view-898', 'add-899', 'maximum-900', 'view-901', '_softmax-902', 'bmm-903', 'view-904', 'transpose-905', 'clone-906', '_unsafe_view-907', 'view-908', 't-909', 'addmm-910', 'view-911', 'native_dropout-912', 'add-913', 'native_layer_norm-914', 'view-915', 't-916', 'addmm-917', 'relu-918', 't-919', 'addmm-920', 'native_dropout-921', 'add-922', 'view-923', 'native_layer_norm-924']
+OPTDecoderLayer-model.decoder.layers.17: ['view-925', 't-926', 'addmm-927', 'view-928', 'mul-929', 'view-930', 't-931', 'addmm-932', 'view-933', 'view-934', 'transpose-935', 'clone-936', 'view-937', 't-938', 'addmm-939', 'view-940', 'view-941', 'transpose-942', 'clone-943', 'view-944', 'transpose-945', 'clone-946', 'view-947', 'view-948', 'view-949', 'transpose-950', 'bmm-951', 'view-952', 'add-953', 'maximum-954', 'view-955', '_softmax-956', 'bmm-957', 'view-958', 'transpose-959', 'clone-960', '_unsafe_view-961', 'view-962', 't-963', 'addmm-964', 'view-965', 'native_dropout-966', 'add-967', 'native_layer_norm-968', 'view-969', 't-970', 'addmm-971', 'relu-972', 't-973', 'addmm-974', 'native_dropout-975', 'add-976', 'view-977', 'native_layer_norm-978']
+OPTDecoderLayer-model.decoder.layers.18: ['view-979', 't-980', 'addmm-981', 'view-982', 'mul-983', 'view-984', 't-985', 'addmm-986', 'view-987', 'view-988', 'transpose-989', 'clone-990', 'view-991', 't-992', 'addmm-993', 'view-994', 'view-995', 'transpose-996', 'clone-997', 'view-998', 'transpose-999', 'clone-1000', 'view-1001', 'view-1002', 'view-1003', 'transpose-1004', 'bmm-1005', 'view-1006', 'add-1007', 'maximum-1008', 'view-1009', '_softmax-1010', 'bmm-1011', 'view-1012', 'transpose-1013', 'clone-1014', '_unsafe_view-1015', 'view-1016', 't-1017', 'addmm-1018', 'view-1019', 'native_dropout-1020', 'add-1021', 'native_layer_norm-1022', 'view-1023', 't-1024', 'addmm-1025', 'relu-1026', 't-1027', 'addmm-1028', 'native_dropout-1029', 'add-1030', 'view-1031', 'native_layer_norm-1032']
+OPTDecoderLayer-model.decoder.layers.19: ['view-1033', 't-1034', 'addmm-1035', 'view-1036', 'mul-1037', 'view-1038', 't-1039', 'addmm-1040', 'view-1041', 'view-1042', 'transpose-1043', 'clone-1044', 'view-1045', 't-1046', 'addmm-1047', 'view-1048', 'view-1049', 'transpose-1050', 'clone-1051', 'view-1052', 'transpose-1053', 'clone-1054', 'view-1055', 'view-1056', 'view-1057', 'transpose-1058', 'bmm-1059', 'view-1060', 'add-1061', 'maximum-1062', 'view-1063', '_softmax-1064', 'bmm-1065', 'view-1066', 'transpose-1067', 'clone-1068', '_unsafe_view-1069', 'view-1070', 't-1071', 'addmm-1072', 'view-1073', 'native_dropout-1074', 'add-1075', 'native_layer_norm-1076', 'view-1077', 't-1078', 'addmm-1079', 'relu-1080', 't-1081', 'addmm-1082', 'native_dropout-1083', 'add-1084', 'view-1085', 'native_layer_norm-1086']
+OPTDecoderLayer-model.decoder.layers.13: ['view-709', 't-710', 'addmm-711', 'view-712', 'mul-713', 'view-714', 't-715', 'addmm-716', 'view-717', 'view-718', 'transpose-719', 'clone-720', 'view-721', 't-722', 'addmm-723', 'view-724', 'view-725', 'transpose-726', 'clone-727', 'view-728', 'transpose-729', 'clone-730', 'view-731', 'view-732', 'view-733', 'transpose-734', 'bmm-735', 'view-736', 'add-737', 'maximum-738', 'view-739', '_softmax-740', 'bmm-741', 'view-742', 'transpose-743', 'clone-744', '_unsafe_view-745', 'view-746', 't-747', 'addmm-748', 'view-749', 'native_dropout-750', 'add-751', 'native_layer_norm-752', 'view-753', 't-754', 'addmm-755', 'relu-756', 't-757', 'addmm-758', 'native_dropout-759', 'add-760', 'view-761', 'native_layer_norm-762']
+OPTDecoderLayer-model.decoder.layers.5: ['view-277', 't-278', 'addmm-279', 'view-280', 'mul-281', 'view-282', 't-283', 'addmm-284', 'view-285', 'view-286', 'transpose-287', 'clone-288', 'view-289', 't-290', 'addmm-291', 'view-292', 'view-293', 'transpose-294', 'clone-295', 'view-296', 'transpose-297', 'clone-298', 'view-299', 'view-300', 'view-301', 'transpose-302', 'bmm-303', 'view-304', 'add-305', 'maximum-306', 'view-307', '_softmax-308', 'bmm-309', 'view-310', 'transpose-311', 'clone-312', '_unsafe_view-313', 'view-314', 't-315', 'addmm-316', 'view-317', 'native_dropout-318', 'add-319', 'native_layer_norm-320', 'view-321', 't-322', 'addmm-323', 'relu-324', 't-325', 'addmm-326', 'native_dropout-327', 'add-328', 'view-329', 'native_layer_norm-330']
+OPTDecoderLayer-model.decoder.layers.6: ['view-331', 't-332', 'addmm-333', 'view-334', 'mul-335', 'view-336', 't-337', 'addmm-338', 'view-339', 'view-340', 'transpose-341', 'clone-342', 'view-343', 't-344', 'addmm-345', 'view-346', 'view-347', 'transpose-348', 'clone-349', 'view-350', 'transpose-351', 'clone-352', 'view-353', 'view-354', 'view-355', 'transpose-356', 'bmm-357', 'view-358', 'add-359', 'maximum-360', 'view-361', '_softmax-362', 'bmm-363', 'view-364', 'transpose-365', 'clone-366', '_unsafe_view-367', 'view-368', 't-369', 'addmm-370', 'view-371', 'native_dropout-372', 'add-373', 'native_layer_norm-374', 'view-375', 't-376', 'addmm-377', 'relu-378', 't-379', 'addmm-380', 'native_dropout-381', 'add-382', 'view-383', 'native_layer_norm-384']
+OPTDecoderLayer-model.decoder.layers.7: ['view-385', 't-386', 'addmm-387', 'view-388', 'mul-389', 'view-390', 't-391', 'addmm-392', 'view-393', 'view-394', 'transpose-395', 'clone-396', 'view-397', 't-398', 'addmm-399', 'view-400', 'view-401', 'transpose-402', 'clone-403', 'view-404', 'transpose-405', 'clone-406', 'view-407', 'view-408', 'view-409', 'transpose-410', 'bmm-411', 'view-412', 'add-413', 'maximum-414', 'view-415', '_softmax-416', 'bmm-417', 'view-418', 'transpose-419', 'clone-420', '_unsafe_view-421', 'view-422', 't-423', 'addmm-424', 'view-425', 'native_dropout-426', 'add-427', 'native_layer_norm-428', 'view-429', 't-430', 'addmm-431', 'relu-432', 't-433', 'addmm-434', 'native_dropout-435', 'add-436', 'view-437', 'native_layer_norm-438']
+OPTDecoderLayer-model.decoder.layers.8: ['view-439', 't-440', 'addmm-441', 'view-442', 'mul-443', 'view-444', 't-445', 'addmm-446', 'view-447', 'view-448', 'transpose-449', 'clone-450', 'view-451', 't-452', 'addmm-453', 'view-454', 'view-455', 'transpose-456', 'clone-457', 'view-458', 'transpose-459', 'clone-460', 'view-461', 'view-462', 'view-463', 'transpose-464', 'bmm-465', 'view-466', 'add-467', 'maximum-468', 'view-469', '_softmax-470', 'bmm-471', 'view-472', 'transpose-473', 'clone-474', '_unsafe_view-475', 'view-476', 't-477', 'addmm-478', 'view-479', 'native_dropout-480', 'add-481', 'native_layer_norm-482', 'view-483', 't-484', 'addmm-485', 'relu-486', 't-487', 'addmm-488', 'native_dropout-489', 'add-490', 'view-491', 'native_layer_norm-492']
+============================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:01<01:39,  1.01s/it]Training Epoch 0:   2%|▏         | 2/100 [00:01<01:33,  1.05it/s]Training Epoch 0:   3%|▎         | 3/100 [00:02<01:37,  1.00s/it]Training Epoch 0:   4%|▍         | 4/100 [00:04<01:39,  1.04s/it]Training Epoch 0:   5%|▌         | 5/100 [00:05<01:39,  1.05s/it]Training Epoch 0:   6%|▌         | 6/100 [00:06<01:39,  1.06s/it]Training Epoch 0:   7%|▋         | 7/100 [00:07<01:38,  1.06s/it]Training Epoch 0:   8%|▊         | 8/100 [00:08<01:38,  1.07s/it]Training Epoch 0:   9%|▉         | 9/100 [00:09<01:37,  1.07s/it]Training Epoch 0:  10%|█         | 10/100 [00:10<01:36,  1.07s/it]Training Epoch 0:  11%|█         | 11/100 [00:11<01:35,  1.07s/it]Training Epoch 0:  12%|█▏        | 12/100 [00:12<01:34,  1.07s/it]Training Epoch 0:  13%|█▎        | 13/100 [00:13<01:33,  1.08s/it]Training Epoch 0:  14%|█▍        | 14/100 [00:14<01:32,  1.07s/it]Training Epoch 0:  15%|█▌        | 15/100 [00:15<01:31,  1.07s/it]Training Epoch 0:  16%|█▌        | 16/100 [00:16<01:30,  1.07s/it]Training Epoch 0:  17%|█▋        | 17/100 [00:18<01:29,  1.08s/it]Training Epoch 0:  18%|█▊        | 18/100 [00:19<01:28,  1.08s/it]Training Epoch 0:  19%|█▉        | 19/100 [00:20<01:27,  1.08s/it]Training Epoch 0:  20%|██        | 20/100 [00:21<01:25,  1.07s/it]Training Epoch 0:  21%|██        | 21/100 [00:22<01:25,  1.08s/it]Training Epoch 0:  22%|██▏       | 22/100 [00:23<01:23,  1.08s/it]Training Epoch 0:  23%|██▎       | 23/100 [00:24<01:22,  1.08s/it]Training Epoch 0:  24%|██▍       | 24/100 [00:25<01:21,  1.08s/it]Training Epoch 0:  25%|██▌       | 25/100 [00:26<01:20,  1.08s/it]Training Epoch 0:  26%|██▌       | 26/100 [00:27<01:19,  1.08s/it]Training Epoch 0:  27%|██▋       | 27/100 [00:28<01:18,  1.08s/it]Training Epoch 0:  28%|██▊       | 28/100 [00:29<01:17,  1.08s/it]Training Epoch 0:  29%|██▉       | 29/100 [00:30<01:16,  1.08s/it]Training Epoch 0:  30%|███       | 30/100 [00:32<01:15,  1.08s/it]Training Epoch 0:  31%|███       | 31/100 [00:33<01:14,  1.08s/it]Training Epoch 0:  32%|███▏      | 32/100 [00:34<01:13,  1.08s/it]Training Epoch 0:  33%|███▎      | 33/100 [00:35<01:12,  1.08s/it]Training Epoch 0:  34%|███▍      | 34/100 [00:36<01:11,  1.08s/it]Training Epoch 0:  35%|███▌      | 35/100 [00:37<01:10,  1.08s/it]Training Epoch 0:  36%|███▌      | 36/100 [00:38<01:09,  1.08s/it]Training Epoch 0:  37%|███▋      | 37/100 [00:39<01:07,  1.08s/it]Training Epoch 0:  38%|███▊      | 38/100 [00:40<01:06,  1.08s/it]Training Epoch 0:  39%|███▉      | 39/100 [00:41<01:05,  1.08s/it]Training Epoch 0:  40%|████      | 40/100 [00:42<01:04,  1.08s/it]Training Epoch 0:  41%|████      | 41/100 [00:43<01:03,  1.08s/it]Training Epoch 0:  42%|████▏     | 42/100 [00:44<01:02,  1.08s/it]Training Epoch 0:  43%|████▎     | 43/100 [00:46<01:01,  1.08s/it]Training Epoch 0:  44%|████▍     | 44/100 [00:47<01:00,  1.08s/it]Training Epoch 0:  45%|████▌     | 45/100 [00:48<00:59,  1.08s/it]Training Epoch 0:  46%|████▌     | 46/100 [00:49<00:58,  1.08s/it]Training Epoch 0:  47%|████▋     | 47/100 [00:50<00:57,  1.08s/it]Training Epoch 0:  48%|████▊     | 48/100 [00:51<00:56,  1.08s/it]Training Epoch 0:  49%|████▉     | 49/100 [00:52<00:55,  1.08s/it]Training Epoch 0:  50%|█████     | 50/100 [00:53<00:54,  1.08s/it]Training Epoch 0:  51%|█████     | 51/100 [00:54<00:52,  1.08s/it]Training Epoch 0:  52%|█████▏    | 52/100 [00:55<00:51,  1.08s/it]Training Epoch 0:  53%|█████▎    | 53/100 [00:56<00:50,  1.08s/it]Training Epoch 0:  54%|█████▍    | 54/100 [00:57<00:49,  1.08s/it]Training Epoch 0:  55%|█████▌    | 55/100 [00:59<00:48,  1.08s/it]Training Epoch 0:  56%|█████▌    | 56/100 [01:00<00:47,  1.08s/it]Training Epoch 0:  57%|█████▋    | 57/100 [01:01<00:46,  1.08s/it]Training Epoch 0:  58%|█████▊    | 58/100 [01:02<00:45,  1.08s/it]Training Epoch 0:  59%|█████▉    | 59/100 [01:03<00:44,  1.08s/it]Training Epoch 0:  60%|██████    | 60/100 [01:04<00:43,  1.08s/it]Training Epoch 0:  61%|██████    | 61/100 [01:05<00:42,  1.08s/it]Training Epoch 0:  62%|██████▏   | 62/100 [01:06<00:41,  1.08s/it]Training Epoch 0:  63%|██████▎   | 63/100 [01:07<00:39,  1.08s/it]Training Epoch 0:  64%|██████▍   | 64/100 [01:08<00:38,  1.08s/it]Training Epoch 0:  65%|██████▌   | 65/100 [01:09<00:37,  1.08s/it]Training Epoch 0:  66%|██████▌   | 66/100 [01:10<00:36,  1.08s/it]Training Epoch 0:  67%|██████▋   | 67/100 [01:11<00:35,  1.08s/it]Training Epoch 0:  68%|██████▊   | 68/100 [01:13<00:34,  1.08s/it]Training Epoch 0:  69%|██████▉   | 69/100 [01:14<00:33,  1.08s/it]Training Epoch 0:  70%|███████   | 70/100 [01:15<00:32,  1.08s/it]Training Epoch 0:  71%|███████   | 71/100 [01:16<00:31,  1.08s/it]Training Epoch 0:  72%|███████▏  | 72/100 [01:17<00:30,  1.08s/it]Training Epoch 0:  73%|███████▎  | 73/100 [01:18<00:29,  1.08s/it]Training Epoch 0:  74%|███████▍  | 74/100 [01:19<00:28,  1.08s/it]Training Epoch 0:  75%|███████▌  | 75/100 [01:20<00:27,  1.08s/it]Training Epoch 0:  76%|███████▌  | 76/100 [01:21<00:25,  1.08s/it]Training Epoch 0:  77%|███████▋  | 77/100 [01:22<00:24,  1.08s/it]Training Epoch 0:  78%|███████▊  | 78/100 [01:23<00:23,  1.08s/it]Training Epoch 0:  79%|███████▉  | 79/100 [01:24<00:22,  1.08s/it]Training Epoch 0:  80%|████████  | 80/100 [01:26<00:21,  1.08s/it]Training Epoch 0:  81%|████████  | 81/100 [01:27<00:20,  1.08s/it]Training Epoch 0:  82%|████████▏ | 82/100 [01:28<00:19,  1.08s/it]Training Epoch 0:  83%|████████▎ | 83/100 [01:29<00:18,  1.08s/it]Training Epoch 0:  84%|████████▍ | 84/100 [01:30<00:17,  1.08s/it]Training Epoch 0:  85%|████████▌ | 85/100 [01:31<00:16,  1.08s/it]Training Epoch 0:  86%|████████▌ | 86/100 [01:32<00:15,  1.08s/it]Training Epoch 0:  87%|████████▋ | 87/100 [01:33<00:14,  1.08s/it]Training Epoch 0:  88%|████████▊ | 88/100 [01:34<00:12,  1.08s/it]Training Epoch 0:  89%|████████▉ | 89/100 [01:35<00:11,  1.08s/it]Training Epoch 0:  90%|█████████ | 90/100 [01:36<00:10,  1.08s/it]Training Epoch 0:  91%|█████████ | 91/100 [01:37<00:09,  1.08s/it]Training Epoch 0:  92%|█████████▏| 92/100 [01:39<00:08,  1.08s/it]Training Epoch 0:  93%|█████████▎| 93/100 [01:40<00:07,  1.08s/it]Training Epoch 0:  94%|█████████▍| 94/100 [01:41<00:06,  1.08s/it]Training Epoch 0:  95%|█████████▌| 95/100 [01:42<00:05,  1.08s/it]Training Epoch 0:  96%|█████████▌| 96/100 [01:43<00:04,  1.08s/it]Training Epoch 0:  97%|█████████▋| 97/100 [01:44<00:03,  1.08s/it]Training Epoch 0:  98%|█████████▊| 98/100 [01:45<00:02,  1.08s/it]Training Epoch 0:  99%|█████████▉| 99/100 [01:46<00:01,  1.08s/it]                                                                  Step 0 Time elapsed: 1.01s
+epoch 0 training time consumed: 106.80s
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
   warnings.warn(
 Using GPU device 0
 Using device: cuda
 50272
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 1120, in forward
-    outputs = self.model.decoder(
-              ^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 886, in forward
-    layer_outputs = decoder_layer(
-                    ^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 527, in forward
-    hidden_states, self_attn_weights, present_key_value = self.self_attn(
-                                                          ^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/opt/modeling_opt.py", line 207, in forward
-    attn_weights = attn_weights.view(bsz, self.num_heads, tgt_len, src_len) + attention_mask
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 128.00 MiB. GPU 
-mv: cannot stat 'test.txt': No such file or directory
+1568.0322265625 we have
+the memroy consumption of loss 1644200960 for facebook/opt-350m
+3136.064453125 we have
+the new budget is 12066106163.2
+================================== 12066106163.2 =================================
+[Fe_0, Fe_1, Fe_2, Fe_3, Fe_4, Fe_5, Fe_6, Fe_7, Fe_8, Fe_9, Fe_10, Fe_11, Fe_12, Fe_13, Fe_14, Fe_15, Fe_16, Fe_17, Fe_18, Fe_19, Fe_20, Fe_21, CF_22, Fn_23, Fn_24, Fn_25, Fe_26, L, B_26, Fe_22, Fe_23, Fe_24, Fe_25, B_25, B_24, B_23, B_22, B_21, B_20, B_19, B_18, B_17, B_16, B_15, B_14, B_13, B_12, B_11, B_10, B_9, B_8, B_7, B_6, B_5, B_4, B_3, B_2, B_1, B_0]
+trace_opt
+['Fe_0', 'Fe_1', 'Fe_2', 'Fe_3', 'Fe_4', 'Fe_5', 'Fe_6', 'Fe_7', 'Fe_8', 'Fe_9', 'Fe_10', 'Fe_11', 'Fe_12', 'Fe_13', 'Fe_14', 'Fe_15', 'Fe_16', 'Fe_17', 'Fe_18', 'Fe_19', 'Fe_20', 'Fe_21', 'CF_22', 'Fn_23', 'Fn_24', 'Fn_25', 'Fe_26', 'L', 'B_26', 'Fe_22', 'Fe_23', 'Fe_24', 'Fe_25', 'B_25', 'B_24', 'B_23', 'B_22', 'B_21', 'B_20', 'B_19', 'B_18', 'B_17', 'B_16', 'B_15', 'B_14', 'B_13', 'B_12', 'B_11', 'B_10', 'B_9', 'B_8', 'B_7', 'B_6', 'B_5', 'B_4', 'B_3', 'B_2', 'B_1', 'B_0']
+[22, 23, 24, 25]
+['21--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '22--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', '23--model=decoder=layers-OPTForCausalLM-Sequential-OPTDecoderLayerWrapper', 'output_head-OPTForCausalLM-OutputHead']
+trace_opt
+=======================
+OPTDecoderLayer-model.decoder.layers.21: ['view-1141', 't-1142', 'addmm-1143', 'view-1144', 'mul-1145', 'view-1146', 't-1147', 'addmm-1148', 'view-1149', 'view-1150', 'transpose-1151', 'clone-1152', 'view-1153', 't-1154', 'addmm-1155', 'view-1156', 'view-1157', 'transpose-1158', 'clone-1159', 'view-1160', 'transpose-1161', 'clone-1162', 'view-1163', 'view-1164', 'view-1165', 'transpose-1166', 'bmm-1167', 'view-1168', 'add-1169', 'maximum-1170', 'view-1171', '_softmax-1172', 'bmm-1173', 'view-1174', 'transpose-1175', 'clone-1176', '_unsafe_view-1177', 'view-1178', 't-1179', 'addmm-1180', 'view-1181', 'native_dropout-1182', 'add-1183', 'native_layer_norm-1184', 'view-1185', 't-1186', 'addmm-1187', 'relu-1188', 't-1189', 'addmm-1190', 'native_dropout-1191', 'add-1192', 'view-1193', 'native_layer_norm-1194']
+OPTDecoderLayer-model.decoder.layers.22: ['view-1195', 't-1196', 'addmm-1197', 'view-1198', 'mul-1199', 'view-1200', 't-1201', 'addmm-1202', 'view-1203', 'view-1204', 'transpose-1205', 'clone-1206', 'view-1207', 't-1208', 'addmm-1209', 'view-1210', 'view-1211', 'transpose-1212', 'clone-1213', 'view-1214', 'transpose-1215', 'clone-1216', 'view-1217', 'view-1218', 'view-1219', 'transpose-1220', 'bmm-1221', 'view-1222', 'add-1223', 'maximum-1224', 'view-1225', '_softmax-1226', 'bmm-1227', 'view-1228', 'transpose-1229', 'clone-1230', '_unsafe_view-1231', 'view-1232', 't-1233', 'addmm-1234', 'view-1235', 'native_dropout-1236', 'add-1237', 'native_layer_norm-1238', 'view-1239', 't-1240', 'addmm-1241', 'relu-1242', 't-1243', 'addmm-1244', 'native_dropout-1245', 'add-1246', 'view-1247', 'native_layer_norm-1248']
+OPTDecoderLayer-model.decoder.layers.23: ['view-1249', 't-1250', 'addmm-1251', 'view-1252', 'mul-1253', 'view-1254', 't-1255', 'addmm-1256', 'view-1257', 'view-1258', 'transpose-1259', 'clone-1260', 'view-1261', 't-1262', 'addmm-1263', 'view-1264', 'view-1265', 'transpose-1266', 'clone-1267', 'view-1268', 'transpose-1269', 'clone-1270', 'view-1271', 'view-1272', 'view-1273', 'transpose-1274', 'bmm-1275', 'view-1276', 'add-1277', 'maximum-1278', 'view-1279', '_softmax-1280', 'bmm-1281', 'view-1282', 'transpose-1283', 'clone-1284', '_unsafe_view-1285', 'view-1286', 't-1287', 'addmm-1288', 'view-1289', 'native_dropout-1290', 'add-1291', 'native_layer_norm-1292', 'view-1293', 't-1294', 'addmm-1295', 'relu-1296', 't-1297', 'addmm-1298', 'native_dropout-1299', 'add-1300', 'view-1301', 'native_layer_norm-1302']
+OutputHead-OPTForCausalLM-output_head: ['t-1303', 'view-1304', 'mm-1305', '_unsafe_view-1306']
+============================
+54
+===========================================
+54
+===========================================
+54
+===========================================
+4
+===========================================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:00<01:30,  1.10it/s]Training Epoch 0:   2%|▏         | 2/100 [00:01<01:16,  1.28it/s]Training Epoch 0:   3%|▎         | 3/100 [00:02<01:24,  1.14it/s]Training Epoch 0:   4%|▍         | 4/100 [00:03<01:27,  1.09it/s]Training Epoch 0:   5%|▌         | 5/100 [00:04<01:29,  1.06it/s]Training Epoch 0:   6%|▌         | 6/100 [00:05<01:29,  1.05it/s]Training Epoch 0:   7%|▋         | 7/100 [00:06<01:29,  1.04it/s]Training Epoch 0:   8%|▊         | 8/100 [00:07<01:29,  1.03it/s]Training Epoch 0:   9%|▉         | 9/100 [00:08<01:28,  1.03it/s]Training Epoch 0:  10%|█         | 10/100 [00:09<01:27,  1.03it/s]Training Epoch 0:  11%|█         | 11/100 [00:10<01:26,  1.02it/s]Training Epoch 0:  12%|█▏        | 12/100 [00:11<01:26,  1.02it/s]Training Epoch 0:  13%|█▎        | 13/100 [00:12<01:25,  1.02it/s]Training Epoch 0:  14%|█▍        | 14/100 [00:13<01:24,  1.02it/s]Training Epoch 0:  15%|█▌        | 15/100 [00:14<01:23,  1.02it/s]Training Epoch 0:  16%|█▌        | 16/100 [00:15<01:22,  1.02it/s]Training Epoch 0:  17%|█▋        | 17/100 [00:16<01:21,  1.02it/s]Training Epoch 0:  18%|█▊        | 18/100 [00:17<01:20,  1.02it/s]Training Epoch 0:  19%|█▉        | 19/100 [00:18<01:19,  1.02it/s]Training Epoch 0:  20%|██        | 20/100 [00:19<01:18,  1.02it/s]Training Epoch 0:  21%|██        | 21/100 [00:20<01:17,  1.02it/s]Training Epoch 0:  22%|██▏       | 22/100 [00:21<01:16,  1.02it/s]Training Epoch 0:  23%|██▎       | 23/100 [00:22<01:15,  1.02it/s]Training Epoch 0:  24%|██▍       | 24/100 [00:23<01:14,  1.02it/s]Training Epoch 0:  25%|██▌       | 25/100 [00:24<01:13,  1.02it/s]Training Epoch 0:  26%|██▌       | 26/100 [00:25<01:12,  1.02it/s]Training Epoch 0:  27%|██▋       | 27/100 [00:26<01:11,  1.02it/s]Training Epoch 0:  28%|██▊       | 28/100 [00:27<01:10,  1.02it/s]Training Epoch 0:  29%|██▉       | 29/100 [00:28<01:09,  1.02it/s]Training Epoch 0:  30%|███       | 30/100 [00:29<01:08,  1.02it/s]Training Epoch 0:  31%|███       | 31/100 [00:30<01:07,  1.02it/s]Training Epoch 0:  32%|███▏      | 32/100 [00:31<01:06,  1.02it/s]Training Epoch 0:  33%|███▎      | 33/100 [00:32<01:05,  1.02it/s]Training Epoch 0:  34%|███▍      | 34/100 [00:33<01:04,  1.02it/s]Training Epoch 0:  35%|███▌      | 35/100 [00:34<01:03,  1.02it/s]Training Epoch 0:  36%|███▌      | 36/100 [00:34<01:02,  1.02it/s]Training Epoch 0:  37%|███▋      | 37/100 [00:35<01:01,  1.02it/s]Training Epoch 0:  38%|███▊      | 38/100 [00:36<01:00,  1.02it/s]Training Epoch 0:  39%|███▉      | 39/100 [00:37<00:59,  1.02it/s]Training Epoch 0:  40%|████      | 40/100 [00:38<00:59,  1.02it/s]Training Epoch 0:  41%|████      | 41/100 [00:39<00:58,  1.02it/s]Training Epoch 0:  42%|████▏     | 42/100 [00:40<00:57,  1.02it/s]Training Epoch 0:  43%|████▎     | 43/100 [00:41<00:56,  1.02it/s]Training Epoch 0:  44%|████▍     | 44/100 [00:42<00:55,  1.02it/s]Training Epoch 0:  45%|████▌     | 45/100 [00:43<00:54,  1.01it/s]Training Epoch 0:  46%|████▌     | 46/100 [00:44<00:53,  1.01it/s]Training Epoch 0:  47%|████▋     | 47/100 [00:45<00:52,  1.01it/s]Training Epoch 0:  48%|████▊     | 48/100 [00:46<00:51,  1.01it/s]Training Epoch 0:  49%|████▉     | 49/100 [00:47<00:50,  1.01it/s]Training Epoch 0:  50%|█████     | 50/100 [00:48<00:49,  1.01it/s]Training Epoch 0:  51%|█████     | 51/100 [00:49<00:48,  1.01it/s]Training Epoch 0:  52%|█████▏    | 52/100 [00:50<00:47,  1.01it/s]Training Epoch 0:  53%|█████▎    | 53/100 [00:51<00:46,  1.02it/s]Training Epoch 0:  54%|█████▍    | 54/100 [00:52<00:45,  1.01it/s]Training Epoch 0:  55%|█████▌    | 55/100 [00:53<00:44,  1.01it/s]Training Epoch 0:  56%|█████▌    | 56/100 [00:54<00:43,  1.01it/s]Training Epoch 0:  57%|█████▋    | 57/100 [00:55<00:42,  1.01it/s]Training Epoch 0:  58%|█████▊    | 58/100 [00:56<00:41,  1.01it/s]Training Epoch 0:  59%|█████▉    | 59/100 [00:57<00:40,  1.02it/s]Training Epoch 0:  60%|██████    | 60/100 [00:58<00:39,  1.01it/s]Training Epoch 0:  61%|██████    | 61/100 [00:59<00:38,  1.02it/s]Training Epoch 0:  62%|██████▏   | 62/100 [01:00<00:37,  1.01it/s]Training Epoch 0:  63%|██████▎   | 63/100 [01:01<00:36,  1.01it/s]Training Epoch 0:  64%|██████▍   | 64/100 [01:02<00:35,  1.01it/s]Training Epoch 0:  65%|██████▌   | 65/100 [01:03<00:34,  1.01it/s]Training Epoch 0:  66%|██████▌   | 66/100 [01:04<00:33,  1.01it/s]Training Epoch 0:  67%|██████▋   | 67/100 [01:05<00:32,  1.01it/s]Training Epoch 0:  68%|██████▊   | 68/100 [01:06<00:31,  1.01it/s]Training Epoch 0:  69%|██████▉   | 69/100 [01:07<00:30,  1.01it/s]Training Epoch 0:  70%|███████   | 70/100 [01:08<00:29,  1.01it/s]Training Epoch 0:  71%|███████   | 71/100 [01:09<00:28,  1.01it/s]Training Epoch 0:  72%|███████▏  | 72/100 [01:10<00:27,  1.01it/s]Training Epoch 0:  73%|███████▎  | 73/100 [01:11<00:26,  1.01it/s]Training Epoch 0:  74%|███████▍  | 74/100 [01:12<00:25,  1.01it/s]Training Epoch 0:  75%|███████▌  | 75/100 [01:13<00:24,  1.01it/s]Training Epoch 0:  76%|███████▌  | 76/100 [01:14<00:23,  1.01it/s]Training Epoch 0:  77%|███████▋  | 77/100 [01:15<00:22,  1.01it/s]Training Epoch 0:  78%|███████▊  | 78/100 [01:16<00:21,  1.01it/s]Training Epoch 0:  79%|███████▉  | 79/100 [01:17<00:20,  1.01it/s]Training Epoch 0:  80%|████████  | 80/100 [01:18<00:19,  1.01it/s]Training Epoch 0:  81%|████████  | 81/100 [01:19<00:18,  1.01it/s]Training Epoch 0:  82%|████████▏ | 82/100 [01:20<00:17,  1.01it/s]Training Epoch 0:  83%|████████▎ | 83/100 [01:21<00:16,  1.01it/s]Training Epoch 0:  84%|████████▍ | 84/100 [01:22<00:15,  1.01it/s]Training Epoch 0:  85%|████████▌ | 85/100 [01:23<00:14,  1.01it/s]Training Epoch 0:  86%|████████▌ | 86/100 [01:24<00:13,  1.01it/s]Training Epoch 0:  87%|████████▋ | 87/100 [01:25<00:12,  1.01it/s]Training Epoch 0:  88%|████████▊ | 88/100 [01:26<00:11,  1.01it/s]Training Epoch 0:  89%|████████▉ | 89/100 [01:27<00:10,  1.01it/s]Training Epoch 0:  90%|█████████ | 90/100 [01:28<00:09,  1.01it/s]Training Epoch 0:  91%|█████████ | 91/100 [01:29<00:08,  1.01it/s]Training Epoch 0:  92%|█████████▏| 92/100 [01:30<00:07,  1.01it/s]Training Epoch 0:  93%|█████████▎| 93/100 [01:31<00:06,  1.01it/s]Training Epoch 0:  94%|█████████▍| 94/100 [01:32<00:05,  1.01it/s]Training Epoch 0:  95%|█████████▌| 95/100 [01:33<00:04,  1.01it/s]Training Epoch 0:  96%|█████████▌| 96/100 [01:34<00:03,  1.01it/s]Training Epoch 0:  97%|█████████▋| 97/100 [01:35<00:02,  1.01it/s]Training Epoch 0:  98%|█████████▊| 98/100 [01:36<00:01,  1.01it/s]Training Epoch 0:  99%|█████████▉| 99/100 [01:37<00:00,  1.01it/s]                                                                  Step 0 Time elapsed: 0.91s
+epoch 0 training time consumed: 97.44s
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
   warnings.warn(
 We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
 You may ignore this warning if your `pad_token_id` (50256) is identical to the `bos_token_id` (50256), `eos_token_id` (50256), or the `sep_token_id` (None), and your input is not padded.
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+  warnings.warn(
 Using GPU device 0
 Using device: cuda
 50257
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1305, in forward
-    transformer_outputs = self.transformer(
-                          ^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1119, in forward
-    outputs = block(
-              ^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 617, in forward
-    attn_outputs = self.attn(
-                   ^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 347, in forward
-    attn_output, attn_weights = self._attn(query, key, value, attention_mask, head_mask)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 199, in _attn
-    attn_weights = torch.matmul(query, key.transpose(-1, -2))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 96.00 MiB. GPU 
-mv: cannot stat 'test.txt': No such file or directory
+1568.0322265625 we have
+the memroy consumption of loss 1644200960 for openai-community/gpt2
+1568.0322265625 we have
+the new budget is 4798249984.0
+================================== 4798249984.0 =================================
+[Fe_0, Fe_1, Fe_2, CF_3, CF_4, CF_5, CF_6, Fe_7, CF_8, CF_9, CF_10, CF_11, Fe_12, Fe_13, Fe_14, Fe_15, L, B_15, B_14, B_13, B_12, Fe_11, B_11, Fe_10, B_10, Fe_9, B_9, Fe_8, B_8, B_7, Fe_6, B_6, Fe_5, B_5, Fe_4, B_4, Fe_3, B_3, B_2, B_1, B_0]
+trace_gpt
+['Fe_0', 'Fe_1', 'Fe_2', 'CF_3', 'CF_4', 'CF_5', 'CF_6', 'Fe_7', 'CF_8', 'CF_9', 'CF_10', 'CF_11', 'Fe_12', 'Fe_13', 'Fe_14', 'Fe_15', 'L', 'B_15', 'B_14', 'B_13', 'B_12', 'Fe_11', 'B_11', 'Fe_10', 'B_10', 'Fe_9', 'B_9', 'Fe_8', 'B_8', 'B_7', 'Fe_6', 'B_6', 'Fe_5', 'B_5', 'Fe_4', 'B_4', 'Fe_3', 'B_3', 'B_2', 'B_1', 'B_0']
+[11, 10, 9, 8, 6, 5, 4, 3]
+['9-transformer=h-GPT2-Sequential-GPT2Block', '8-transformer=h-GPT2-Sequential-GPT2Block', '7-transformer=h-GPT2-Sequential-GPT2Block', '6-transformer=h-GPT2-Sequential-GPT2Block', '4-transformer=h-GPT2-Sequential-GPT2Block', '3-transformer=h-GPT2-Sequential-GPT2Block', '2-transformer=h-GPT2-Sequential-GPT2Block', '1-transformer=h-GPT2-Sequential-GPT2Block']
+trace_gpt
+=======================
+GPT2Block-transformer.h.9: ['native_layer_norm-517', 'view-518', 'addmm-519', 'view-520', 'split-521', 'view-522', 'permute-523', 'view-524', 'permute-525', 'view-526', 'permute-527', 'transpose-528', 'expand-529', 'clone-530', '_unsafe_view-531', 'expand-532', 'clone-533', '_unsafe_view-534', 'bmm-535', '_unsafe_view-536', 'div-537', 'where-538', 'add-539', '_softmax-540', 'native_dropout-541', 'expand-542', 'view-543', 'expand-544', 'clone-545', '_unsafe_view-546', 'bmm-547', '_unsafe_view-548', 'permute-549', 'clone-550', 'view-551', 'view-552', 'addmm-553', 'view-554', 'native_dropout-555', 'add-556', 'native_layer_norm-557', 'view-558', 'addmm-559', 'view-560', 'mul-561', 'pow-562', 'mul-563', 'add-564', 'mul-565', 'tanh-566', 'add-567', 'mul-568', 'view-569', 'addmm-570', 'view-571', 'native_dropout-572', 'add-573']
+GPT2Block-transformer.h.8: ['native_layer_norm-460', 'view-461', 'addmm-462', 'view-463', 'split-464', 'view-465', 'permute-466', 'view-467', 'permute-468', 'view-469', 'permute-470', 'transpose-471', 'expand-472', 'clone-473', '_unsafe_view-474', 'expand-475', 'clone-476', '_unsafe_view-477', 'bmm-478', '_unsafe_view-479', 'div-480', 'where-481', 'add-482', '_softmax-483', 'native_dropout-484', 'expand-485', 'view-486', 'expand-487', 'clone-488', '_unsafe_view-489', 'bmm-490', '_unsafe_view-491', 'permute-492', 'clone-493', 'view-494', 'view-495', 'addmm-496', 'view-497', 'native_dropout-498', 'add-499', 'native_layer_norm-500', 'view-501', 'addmm-502', 'view-503', 'mul-504', 'pow-505', 'mul-506', 'add-507', 'mul-508', 'tanh-509', 'add-510', 'mul-511', 'view-512', 'addmm-513', 'view-514', 'native_dropout-515', 'add-516']
+GPT2Block-transformer.h.7: ['native_layer_norm-403', 'view-404', 'addmm-405', 'view-406', 'split-407', 'view-408', 'permute-409', 'view-410', 'permute-411', 'view-412', 'permute-413', 'transpose-414', 'expand-415', 'clone-416', '_unsafe_view-417', 'expand-418', 'clone-419', '_unsafe_view-420', 'bmm-421', '_unsafe_view-422', 'div-423', 'where-424', 'add-425', '_softmax-426', 'native_dropout-427', 'expand-428', 'view-429', 'expand-430', 'clone-431', '_unsafe_view-432', 'bmm-433', '_unsafe_view-434', 'permute-435', 'clone-436', 'view-437', 'view-438', 'addmm-439', 'view-440', 'native_dropout-441', 'add-442', 'native_layer_norm-443', 'view-444', 'addmm-445', 'view-446', 'mul-447', 'pow-448', 'mul-449', 'add-450', 'mul-451', 'tanh-452', 'add-453', 'mul-454', 'view-455', 'addmm-456', 'view-457', 'native_dropout-458', 'add-459']
+GPT2Block-transformer.h.6: ['native_layer_norm-346', 'view-347', 'addmm-348', 'view-349', 'split-350', 'view-351', 'permute-352', 'view-353', 'permute-354', 'view-355', 'permute-356', 'transpose-357', 'expand-358', 'clone-359', '_unsafe_view-360', 'expand-361', 'clone-362', '_unsafe_view-363', 'bmm-364', '_unsafe_view-365', 'div-366', 'where-367', 'add-368', '_softmax-369', 'native_dropout-370', 'expand-371', 'view-372', 'expand-373', 'clone-374', '_unsafe_view-375', 'bmm-376', '_unsafe_view-377', 'permute-378', 'clone-379', 'view-380', 'view-381', 'addmm-382', 'view-383', 'native_dropout-384', 'add-385', 'native_layer_norm-386', 'view-387', 'addmm-388', 'view-389', 'mul-390', 'pow-391', 'mul-392', 'add-393', 'mul-394', 'tanh-395', 'add-396', 'mul-397', 'view-398', 'addmm-399', 'view-400', 'native_dropout-401', 'add-402']
+GPT2Block-transformer.h.4: ['native_layer_norm-232', 'view-233', 'addmm-234', 'view-235', 'split-236', 'view-237', 'permute-238', 'view-239', 'permute-240', 'view-241', 'permute-242', 'transpose-243', 'expand-244', 'clone-245', '_unsafe_view-246', 'expand-247', 'clone-248', '_unsafe_view-249', 'bmm-250', '_unsafe_view-251', 'div-252', 'where-253', 'add-254', '_softmax-255', 'native_dropout-256', 'expand-257', 'view-258', 'expand-259', 'clone-260', '_unsafe_view-261', 'bmm-262', '_unsafe_view-263', 'permute-264', 'clone-265', 'view-266', 'view-267', 'addmm-268', 'view-269', 'native_dropout-270', 'add-271', 'native_layer_norm-272', 'view-273', 'addmm-274', 'view-275', 'mul-276', 'pow-277', 'mul-278', 'add-279', 'mul-280', 'tanh-281', 'add-282', 'mul-283', 'view-284', 'addmm-285', 'view-286', 'native_dropout-287', 'add-288']
+GPT2Block-transformer.h.3: ['native_layer_norm-175', 'view-176', 'addmm-177', 'view-178', 'split-179', 'view-180', 'permute-181', 'view-182', 'permute-183', 'view-184', 'permute-185', 'transpose-186', 'expand-187', 'clone-188', '_unsafe_view-189', 'expand-190', 'clone-191', '_unsafe_view-192', 'bmm-193', '_unsafe_view-194', 'div-195', 'where-196', 'add-197', '_softmax-198', 'native_dropout-199', 'expand-200', 'view-201', 'expand-202', 'clone-203', '_unsafe_view-204', 'bmm-205', '_unsafe_view-206', 'permute-207', 'clone-208', 'view-209', 'view-210', 'addmm-211', 'view-212', 'native_dropout-213', 'add-214', 'native_layer_norm-215', 'view-216', 'addmm-217', 'view-218', 'mul-219', 'pow-220', 'mul-221', 'add-222', 'mul-223', 'tanh-224', 'add-225', 'mul-226', 'view-227', 'addmm-228', 'view-229', 'native_dropout-230', 'add-231']
+GPT2Block-transformer.h.2: ['native_layer_norm-118', 'view-119', 'addmm-120', 'view-121', 'split-122', 'view-123', 'permute-124', 'view-125', 'permute-126', 'view-127', 'permute-128', 'transpose-129', 'expand-130', 'clone-131', '_unsafe_view-132', 'expand-133', 'clone-134', '_unsafe_view-135', 'bmm-136', '_unsafe_view-137', 'div-138', 'where-139', 'add-140', '_softmax-141', 'native_dropout-142', 'expand-143', 'view-144', 'expand-145', 'clone-146', '_unsafe_view-147', 'bmm-148', '_unsafe_view-149', 'permute-150', 'clone-151', 'view-152', 'view-153', 'addmm-154', 'view-155', 'native_dropout-156', 'add-157', 'native_layer_norm-158', 'view-159', 'addmm-160', 'view-161', 'mul-162', 'pow-163', 'mul-164', 'add-165', 'mul-166', 'tanh-167', 'add-168', 'mul-169', 'view-170', 'addmm-171', 'view-172', 'native_dropout-173', 'add-174']
+GPT2Block-transformer.h.1: ['native_layer_norm-61', 'view-62', 'addmm-63', 'view-64', 'split-65', 'view-66', 'permute-67', 'view-68', 'permute-69', 'view-70', 'permute-71', 'transpose-72', 'expand-73', 'clone-74', '_unsafe_view-75', 'expand-76', 'clone-77', '_unsafe_view-78', 'bmm-79', '_unsafe_view-80', 'div-81', 'where-82', 'add-83', '_softmax-84', 'native_dropout-85', 'expand-86', 'view-87', 'expand-88', 'clone-89', '_unsafe_view-90', 'bmm-91', '_unsafe_view-92', 'permute-93', 'clone-94', 'view-95', 'view-96', 'addmm-97', 'view-98', 'native_dropout-99', 'add-100', 'native_layer_norm-101', 'view-102', 'addmm-103', 'view-104', 'mul-105', 'pow-106', 'mul-107', 'add-108', 'mul-109', 'tanh-110', 'add-111', 'mul-112', 'view-113', 'addmm-114', 'view-115', 'native_dropout-116', 'add-117']
+============================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:00<00:43,  2.28it/s]Training Epoch 0:   2%|▏         | 2/100 [00:00<00:43,  2.23it/s]Training Epoch 0:   3%|▎         | 3/100 [00:01<00:44,  2.19it/s]Training Epoch 0:   4%|▍         | 4/100 [00:01<00:44,  2.17it/s]Training Epoch 0:   5%|▌         | 5/100 [00:02<00:43,  2.16it/s]Training Epoch 0:   6%|▌         | 6/100 [00:02<00:43,  2.15it/s]Training Epoch 0:   7%|▋         | 7/100 [00:03<00:43,  2.14it/s]Training Epoch 0:   8%|▊         | 8/100 [00:03<00:42,  2.15it/s]Training Epoch 0:   9%|▉         | 9/100 [00:04<00:42,  2.14it/s]Training Epoch 0:  10%|█         | 10/100 [00:04<00:42,  2.14it/s]Training Epoch 0:  11%|█         | 11/100 [00:05<00:41,  2.13it/s]Training Epoch 0:  12%|█▏        | 12/100 [00:05<00:41,  2.14it/s]Training Epoch 0:  13%|█▎        | 13/100 [00:06<00:40,  2.13it/s]Training Epoch 0:  14%|█▍        | 14/100 [00:06<00:40,  2.14it/s]Training Epoch 0:  15%|█▌        | 15/100 [00:06<00:39,  2.14it/s]Training Epoch 0:  16%|█▌        | 16/100 [00:07<00:39,  2.13it/s]Training Epoch 0:  17%|█▋        | 17/100 [00:07<00:38,  2.13it/s]Training Epoch 0:  18%|█▊        | 18/100 [00:08<00:38,  2.14it/s]Training Epoch 0:  19%|█▉        | 19/100 [00:08<00:37,  2.14it/s]Training Epoch 0:  20%|██        | 20/100 [00:09<00:37,  2.14it/s]Training Epoch 0:  21%|██        | 21/100 [00:09<00:37,  2.13it/s]Training Epoch 0:  22%|██▏       | 22/100 [00:10<00:36,  2.14it/s]Training Epoch 0:  23%|██▎       | 23/100 [00:10<00:35,  2.14it/s]Training Epoch 0:  24%|██▍       | 24/100 [00:11<00:35,  2.13it/s]Training Epoch 0:  25%|██▌       | 25/100 [00:11<00:35,  2.13it/s]Training Epoch 0:  26%|██▌       | 26/100 [00:12<00:34,  2.13it/s]Training Epoch 0:  27%|██▋       | 27/100 [00:12<00:34,  2.13it/s]Training Epoch 0:  28%|██▊       | 28/100 [00:13<00:33,  2.14it/s]Training Epoch 0:  29%|██▉       | 29/100 [00:13<00:33,  2.14it/s]Training Epoch 0:  30%|███       | 30/100 [00:14<00:32,  2.13it/s]Training Epoch 0:  31%|███       | 31/100 [00:14<00:32,  2.14it/s]Training Epoch 0:  32%|███▏      | 32/100 [00:14<00:31,  2.14it/s]Training Epoch 0:  33%|███▎      | 33/100 [00:15<00:31,  2.14it/s]Training Epoch 0:  34%|███▍      | 34/100 [00:15<00:30,  2.14it/s]Training Epoch 0:  35%|███▌      | 35/100 [00:16<00:30,  2.14it/s]Training Epoch 0:  36%|███▌      | 36/100 [00:16<00:30,  2.13it/s]Training Epoch 0:  37%|███▋      | 37/100 [00:17<00:29,  2.14it/s]Training Epoch 0:  38%|███▊      | 38/100 [00:17<00:29,  2.13it/s]Training Epoch 0:  39%|███▉      | 39/100 [00:18<00:28,  2.13it/s]Training Epoch 0:  40%|████      | 40/100 [00:18<00:28,  2.14it/s]Training Epoch 0:  41%|████      | 41/100 [00:19<00:27,  2.14it/s]Training Epoch 0:  42%|████▏     | 42/100 [00:19<00:27,  2.14it/s]Training Epoch 0:  43%|████▎     | 43/100 [00:20<00:26,  2.13it/s]Training Epoch 0:  44%|████▍     | 44/100 [00:20<00:26,  2.13it/s]Training Epoch 0:  45%|████▌     | 45/100 [00:21<00:25,  2.13it/s]Training Epoch 0:  46%|████▌     | 46/100 [00:21<00:25,  2.13it/s]Training Epoch 0:  47%|████▋     | 47/100 [00:21<00:24,  2.14it/s]Training Epoch 0:  48%|████▊     | 48/100 [00:22<00:24,  2.14it/s]Training Epoch 0:  49%|████▉     | 49/100 [00:22<00:23,  2.13it/s]Training Epoch 0:  50%|█████     | 50/100 [00:23<00:23,  2.14it/s]Training Epoch 0:  51%|█████     | 51/100 [00:23<00:22,  2.14it/s]Training Epoch 0:  52%|█████▏    | 52/100 [00:24<00:22,  2.13it/s]Training Epoch 0:  53%|█████▎    | 53/100 [00:24<00:22,  2.13it/s]Training Epoch 0:  54%|█████▍    | 54/100 [00:25<00:21,  2.13it/s]Training Epoch 0:  55%|█████▌    | 55/100 [00:25<00:21,  2.13it/s]Training Epoch 0:  56%|█████▌    | 56/100 [00:26<00:20,  2.14it/s]Training Epoch 0:  57%|█████▋    | 57/100 [00:26<00:20,  2.14it/s]Training Epoch 0:  58%|█████▊    | 58/100 [00:27<00:19,  2.13it/s]Training Epoch 0:  59%|█████▉    | 59/100 [00:27<00:19,  2.13it/s]Training Epoch 0:  60%|██████    | 60/100 [00:28<00:18,  2.13it/s]Training Epoch 0:  61%|██████    | 61/100 [00:28<00:18,  2.14it/s]Training Epoch 0:  62%|██████▏   | 62/100 [00:28<00:17,  2.13it/s]Training Epoch 0:  63%|██████▎   | 63/100 [00:29<00:17,  2.14it/s]Training Epoch 0:  64%|██████▍   | 64/100 [00:29<00:16,  2.13it/s]Training Epoch 0:  65%|██████▌   | 65/100 [00:30<00:16,  2.13it/s]Training Epoch 0:  66%|██████▌   | 66/100 [00:30<00:15,  2.13it/s]Training Epoch 0:  67%|██████▋   | 67/100 [00:31<00:15,  2.13it/s]Training Epoch 0:  68%|██████▊   | 68/100 [00:31<00:15,  2.13it/s]Training Epoch 0:  69%|██████▉   | 69/100 [00:32<00:14,  2.14it/s]Training Epoch 0:  70%|███████   | 70/100 [00:32<00:14,  2.13it/s]Training Epoch 0:  71%|███████   | 71/100 [00:33<00:13,  2.13it/s]Training Epoch 0:  72%|███████▏  | 72/100 [00:33<00:13,  2.13it/s]Training Epoch 0:  73%|███████▎  | 73/100 [00:34<00:12,  2.13it/s]Training Epoch 0:  74%|███████▍  | 74/100 [00:34<00:12,  2.14it/s]Training Epoch 0:  75%|███████▌  | 75/100 [00:35<00:11,  2.13it/s]Training Epoch 0:  76%|███████▌  | 76/100 [00:35<00:11,  2.13it/s]Training Epoch 0:  77%|███████▋  | 77/100 [00:36<00:10,  2.13it/s]Training Epoch 0:  78%|███████▊  | 78/100 [00:36<00:10,  2.13it/s]Training Epoch 0:  79%|███████▉  | 79/100 [00:36<00:09,  2.13it/s]Training Epoch 0:  80%|████████  | 80/100 [00:37<00:09,  2.13it/s]Training Epoch 0:  81%|████████  | 81/100 [00:37<00:08,  2.13it/s]Training Epoch 0:  82%|████████▏ | 82/100 [00:38<00:08,  2.14it/s]Training Epoch 0:  83%|████████▎ | 83/100 [00:38<00:07,  2.13it/s]Training Epoch 0:  84%|████████▍ | 84/100 [00:39<00:07,  2.13it/s]Training Epoch 0:  85%|████████▌ | 85/100 [00:39<00:07,  2.13it/s]Training Epoch 0:  86%|████████▌ | 86/100 [00:40<00:06,  2.13it/s]Training Epoch 0:  87%|████████▋ | 87/100 [00:40<00:06,  2.14it/s]Training Epoch 0:  88%|████████▊ | 88/100 [00:41<00:05,  2.13it/s]Training Epoch 0:  89%|████████▉ | 89/100 [00:41<00:05,  2.13it/s]Training Epoch 0:  90%|█████████ | 90/100 [00:42<00:04,  2.13it/s]Training Epoch 0:  91%|█████████ | 91/100 [00:42<00:04,  2.13it/s]Training Epoch 0:  92%|█████████▏| 92/100 [00:43<00:03,  2.13it/s]Training Epoch 0:  93%|█████████▎| 93/100 [00:43<00:03,  2.13it/s]Training Epoch 0:  94%|█████████▍| 94/100 [00:44<00:02,  2.13it/s]Training Epoch 0:  95%|█████████▌| 95/100 [00:44<00:02,  2.13it/s]Training Epoch 0:  96%|█████████▌| 96/100 [00:44<00:01,  2.12it/s]Training Epoch 0:  97%|█████████▋| 97/100 [00:45<00:01,  2.13it/s]Training Epoch 0:  98%|█████████▊| 98/100 [00:45<00:00,  2.13it/s]Training Epoch 0:  99%|█████████▉| 99/100 [00:46<00:00,  2.13it/s]                                                                  Step 0 Time elapsed: 0.44s
+epoch 0 training time consumed: 46.40s
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
   warnings.warn(
 We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
 You may ignore this warning if your `pad_token_id` (50256) is identical to the `bos_token_id` (50256), `eos_token_id` (50256), or the `sep_token_id` (None), and your input is not padded.
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+  warnings.warn(
 Using GPU device 0
 Using device: cuda
 50257
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1305, in forward
-    transformer_outputs = self.transformer(
-                          ^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1119, in forward
-    outputs = block(
-              ^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 617, in forward
-    attn_outputs = self.attn(
-                   ^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 347, in forward
-    attn_output, attn_weights = self._attn(query, key, value, attention_mask, head_mask)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 199, in _attn
-    attn_weights = torch.matmul(query, key.transpose(-1, -2))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 96.00 MiB. GPU 
-mv: cannot stat 'test.txt': No such file or directory
+1568.0322265625 we have
+the memroy consumption of loss 1644200960 for openai-community/gpt2
+1568.0322265625 we have
+the new budget is 6559186575.36
+================================== 6559186575.36 =================================
+[Fe_0, Fe_1, Fe_2, CF_3, CF_4, Fe_5, CF_6, Fe_7, CF_8, Fe_9, Fe_10, Fe_11, CF_12, Fe_13, Fe_14, Fe_15, L, B_15, B_14, B_13, Fe_12, B_12, B_11, B_10, B_9, Fe_8, B_8, B_7, Fe_6, B_6, B_5, Fe_4, B_4, Fe_3, B_3, B_2, B_1, B_0]
+trace_gpt
+['Fe_0', 'Fe_1', 'Fe_2', 'CF_3', 'CF_4', 'Fe_5', 'CF_6', 'Fe_7', 'CF_8', 'Fe_9', 'Fe_10', 'Fe_11', 'CF_12', 'Fe_13', 'Fe_14', 'Fe_15', 'L', 'B_15', 'B_14', 'B_13', 'Fe_12', 'B_12', 'B_11', 'B_10', 'B_9', 'Fe_8', 'B_8', 'B_7', 'Fe_6', 'B_6', 'B_5', 'Fe_4', 'B_4', 'Fe_3', 'B_3', 'B_2', 'B_1', 'B_0']
+[12, 8, 6, 4, 3]
+['10-transformer=h-GPT2-Sequential-GPT2Block', '6-transformer=h-GPT2-Sequential-GPT2Block', '4-transformer=h-GPT2-Sequential-GPT2Block', '2-transformer=h-GPT2-Sequential-GPT2Block', '1-transformer=h-GPT2-Sequential-GPT2Block']
+trace_gpt
+=======================
+GPT2Block-transformer.h.10: ['native_layer_norm-574', 'view-575', 'addmm-576', 'view-577', 'split-578', 'view-579', 'permute-580', 'view-581', 'permute-582', 'view-583', 'permute-584', 'transpose-585', 'expand-586', 'clone-587', '_unsafe_view-588', 'expand-589', 'clone-590', '_unsafe_view-591', 'bmm-592', '_unsafe_view-593', 'div-594', 'where-595', 'add-596', '_softmax-597', 'native_dropout-598', 'expand-599', 'view-600', 'expand-601', 'clone-602', '_unsafe_view-603', 'bmm-604', '_unsafe_view-605', 'permute-606', 'clone-607', 'view-608', 'view-609', 'addmm-610', 'view-611', 'native_dropout-612', 'add-613', 'native_layer_norm-614', 'view-615', 'addmm-616', 'view-617', 'mul-618', 'pow-619', 'mul-620', 'add-621', 'mul-622', 'tanh-623', 'add-624', 'mul-625', 'view-626', 'addmm-627', 'view-628', 'native_dropout-629', 'add-630']
+GPT2Block-transformer.h.6: ['native_layer_norm-346', 'view-347', 'addmm-348', 'view-349', 'split-350', 'view-351', 'permute-352', 'view-353', 'permute-354', 'view-355', 'permute-356', 'transpose-357', 'expand-358', 'clone-359', '_unsafe_view-360', 'expand-361', 'clone-362', '_unsafe_view-363', 'bmm-364', '_unsafe_view-365', 'div-366', 'where-367', 'add-368', '_softmax-369', 'native_dropout-370', 'expand-371', 'view-372', 'expand-373', 'clone-374', '_unsafe_view-375', 'bmm-376', '_unsafe_view-377', 'permute-378', 'clone-379', 'view-380', 'view-381', 'addmm-382', 'view-383', 'native_dropout-384', 'add-385', 'native_layer_norm-386', 'view-387', 'addmm-388', 'view-389', 'mul-390', 'pow-391', 'mul-392', 'add-393', 'mul-394', 'tanh-395', 'add-396', 'mul-397', 'view-398', 'addmm-399', 'view-400', 'native_dropout-401', 'add-402']
+GPT2Block-transformer.h.4: ['native_layer_norm-232', 'view-233', 'addmm-234', 'view-235', 'split-236', 'view-237', 'permute-238', 'view-239', 'permute-240', 'view-241', 'permute-242', 'transpose-243', 'expand-244', 'clone-245', '_unsafe_view-246', 'expand-247', 'clone-248', '_unsafe_view-249', 'bmm-250', '_unsafe_view-251', 'div-252', 'where-253', 'add-254', '_softmax-255', 'native_dropout-256', 'expand-257', 'view-258', 'expand-259', 'clone-260', '_unsafe_view-261', 'bmm-262', '_unsafe_view-263', 'permute-264', 'clone-265', 'view-266', 'view-267', 'addmm-268', 'view-269', 'native_dropout-270', 'add-271', 'native_layer_norm-272', 'view-273', 'addmm-274', 'view-275', 'mul-276', 'pow-277', 'mul-278', 'add-279', 'mul-280', 'tanh-281', 'add-282', 'mul-283', 'view-284', 'addmm-285', 'view-286', 'native_dropout-287', 'add-288']
+GPT2Block-transformer.h.2: ['native_layer_norm-118', 'view-119', 'addmm-120', 'view-121', 'split-122', 'view-123', 'permute-124', 'view-125', 'permute-126', 'view-127', 'permute-128', 'transpose-129', 'expand-130', 'clone-131', '_unsafe_view-132', 'expand-133', 'clone-134', '_unsafe_view-135', 'bmm-136', '_unsafe_view-137', 'div-138', 'where-139', 'add-140', '_softmax-141', 'native_dropout-142', 'expand-143', 'view-144', 'expand-145', 'clone-146', '_unsafe_view-147', 'bmm-148', '_unsafe_view-149', 'permute-150', 'clone-151', 'view-152', 'view-153', 'addmm-154', 'view-155', 'native_dropout-156', 'add-157', 'native_layer_norm-158', 'view-159', 'addmm-160', 'view-161', 'mul-162', 'pow-163', 'mul-164', 'add-165', 'mul-166', 'tanh-167', 'add-168', 'mul-169', 'view-170', 'addmm-171', 'view-172', 'native_dropout-173', 'add-174']
+GPT2Block-transformer.h.1: ['native_layer_norm-61', 'view-62', 'addmm-63', 'view-64', 'split-65', 'view-66', 'permute-67', 'view-68', 'permute-69', 'view-70', 'permute-71', 'transpose-72', 'expand-73', 'clone-74', '_unsafe_view-75', 'expand-76', 'clone-77', '_unsafe_view-78', 'bmm-79', '_unsafe_view-80', 'div-81', 'where-82', 'add-83', '_softmax-84', 'native_dropout-85', 'expand-86', 'view-87', 'expand-88', 'clone-89', '_unsafe_view-90', 'bmm-91', '_unsafe_view-92', 'permute-93', 'clone-94', 'view-95', 'view-96', 'addmm-97', 'view-98', 'native_dropout-99', 'add-100', 'native_layer_norm-101', 'view-102', 'addmm-103', 'view-104', 'mul-105', 'pow-106', 'mul-107', 'add-108', 'mul-109', 'tanh-110', 'add-111', 'mul-112', 'view-113', 'addmm-114', 'view-115', 'native_dropout-116', 'add-117']
+============================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+57
+===========================================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:00<00:40,  2.45it/s]Training Epoch 0:   2%|▏         | 2/100 [00:00<00:41,  2.37it/s]Training Epoch 0:   3%|▎         | 3/100 [00:01<00:41,  2.32it/s]Training Epoch 0:   4%|▍         | 4/100 [00:01<00:41,  2.29it/s]Training Epoch 0:   5%|▌         | 5/100 [00:02<00:41,  2.28it/s]Training Epoch 0:   6%|▌         | 6/100 [00:02<00:41,  2.27it/s]Training Epoch 0:   7%|▋         | 7/100 [00:03<00:40,  2.27it/s]Training Epoch 0:   8%|▊         | 8/100 [00:03<00:40,  2.27it/s]Training Epoch 0:   9%|▉         | 9/100 [00:03<00:40,  2.27it/s]Training Epoch 0:  10%|█         | 10/100 [00:04<00:39,  2.27it/s]Training Epoch 0:  11%|█         | 11/100 [00:04<00:39,  2.27it/s]Training Epoch 0:  12%|█▏        | 12/100 [00:05<00:38,  2.26it/s]Training Epoch 0:  13%|█▎        | 13/100 [00:05<00:38,  2.26it/s]Training Epoch 0:  14%|█▍        | 14/100 [00:06<00:37,  2.27it/s]Training Epoch 0:  15%|█▌        | 15/100 [00:06<00:37,  2.26it/s]Training Epoch 0:  16%|█▌        | 16/100 [00:07<00:37,  2.26it/s]Training Epoch 0:  17%|█▋        | 17/100 [00:07<00:36,  2.26it/s]Training Epoch 0:  18%|█▊        | 18/100 [00:07<00:36,  2.27it/s]Training Epoch 0:  19%|█▉        | 19/100 [00:08<00:35,  2.26it/s]Training Epoch 0:  20%|██        | 20/100 [00:08<00:35,  2.26it/s]Training Epoch 0:  21%|██        | 21/100 [00:09<00:34,  2.26it/s]Training Epoch 0:  22%|██▏       | 22/100 [00:09<00:34,  2.26it/s]Training Epoch 0:  23%|██▎       | 23/100 [00:10<00:34,  2.26it/s]Training Epoch 0:  24%|██▍       | 24/100 [00:10<00:33,  2.26it/s]Training Epoch 0:  25%|██▌       | 25/100 [00:11<00:33,  2.26it/s]Training Epoch 0:  26%|██▌       | 26/100 [00:11<00:32,  2.26it/s]Training Epoch 0:  27%|██▋       | 27/100 [00:11<00:32,  2.26it/s]Training Epoch 0:  28%|██▊       | 28/100 [00:12<00:31,  2.26it/s]Training Epoch 0:  29%|██▉       | 29/100 [00:12<00:31,  2.26it/s]Training Epoch 0:  30%|███       | 30/100 [00:13<00:30,  2.26it/s]Training Epoch 0:  31%|███       | 31/100 [00:13<00:30,  2.26it/s]Training Epoch 0:  32%|███▏      | 32/100 [00:14<00:30,  2.26it/s]Training Epoch 0:  33%|███▎      | 33/100 [00:14<00:29,  2.26it/s]Training Epoch 0:  34%|███▍      | 34/100 [00:14<00:29,  2.26it/s]Training Epoch 0:  35%|███▌      | 35/100 [00:15<00:28,  2.26it/s]Training Epoch 0:  36%|███▌      | 36/100 [00:15<00:28,  2.25it/s]Training Epoch 0:  37%|███▋      | 37/100 [00:16<00:27,  2.25it/s]Training Epoch 0:  38%|███▊      | 38/100 [00:16<00:27,  2.26it/s]Training Epoch 0:  39%|███▉      | 39/100 [00:17<00:27,  2.26it/s]Training Epoch 0:  40%|████      | 40/100 [00:17<00:26,  2.26it/s]Training Epoch 0:  41%|████      | 41/100 [00:18<00:26,  2.26it/s]Training Epoch 0:  42%|████▏     | 42/100 [00:18<00:25,  2.26it/s]Training Epoch 0:  43%|████▎     | 43/100 [00:18<00:25,  2.26it/s]Training Epoch 0:  44%|████▍     | 44/100 [00:19<00:24,  2.26it/s]Training Epoch 0:  45%|████▌     | 45/100 [00:19<00:24,  2.26it/s]Training Epoch 0:  46%|████▌     | 46/100 [00:20<00:23,  2.26it/s]Training Epoch 0:  47%|████▋     | 47/100 [00:20<00:23,  2.26it/s]Training Epoch 0:  48%|████▊     | 48/100 [00:21<00:23,  2.26it/s]Training Epoch 0:  49%|████▉     | 49/100 [00:21<00:22,  2.26it/s]Training Epoch 0:  50%|█████     | 50/100 [00:22<00:22,  2.26it/s]Training Epoch 0:  51%|█████     | 51/100 [00:22<00:21,  2.26it/s]Training Epoch 0:  52%|█████▏    | 52/100 [00:22<00:21,  2.26it/s]Training Epoch 0:  53%|█████▎    | 53/100 [00:23<00:20,  2.25it/s]Training Epoch 0:  54%|█████▍    | 54/100 [00:23<00:20,  2.26it/s]Training Epoch 0:  55%|█████▌    | 55/100 [00:24<00:19,  2.25it/s]Training Epoch 0:  56%|█████▌    | 56/100 [00:24<00:19,  2.26it/s]Training Epoch 0:  57%|█████▋    | 57/100 [00:25<00:19,  2.26it/s]Training Epoch 0:  58%|█████▊    | 58/100 [00:25<00:18,  2.26it/s]Training Epoch 0:  59%|█████▉    | 59/100 [00:26<00:18,  2.26it/s]Training Epoch 0:  60%|██████    | 60/100 [00:26<00:17,  2.26it/s]Training Epoch 0:  61%|██████    | 61/100 [00:26<00:17,  2.26it/s]Training Epoch 0:  62%|██████▏   | 62/100 [00:27<00:16,  2.25it/s]Training Epoch 0:  63%|██████▎   | 63/100 [00:27<00:16,  2.26it/s]Training Epoch 0:  64%|██████▍   | 64/100 [00:28<00:15,  2.25it/s]Training Epoch 0:  65%|██████▌   | 65/100 [00:28<00:15,  2.26it/s]Training Epoch 0:  66%|██████▌   | 66/100 [00:29<00:15,  2.26it/s]Training Epoch 0:  67%|██████▋   | 67/100 [00:29<00:14,  2.25it/s]Training Epoch 0:  68%|██████▊   | 68/100 [00:30<00:14,  2.26it/s]Training Epoch 0:  69%|██████▉   | 69/100 [00:30<00:13,  2.25it/s]Training Epoch 0:  70%|███████   | 70/100 [00:30<00:13,  2.26it/s]Training Epoch 0:  71%|███████   | 71/100 [00:31<00:12,  2.25it/s]Training Epoch 0:  72%|███████▏  | 72/100 [00:31<00:12,  2.26it/s]Training Epoch 0:  73%|███████▎  | 73/100 [00:32<00:11,  2.25it/s]Training Epoch 0:  74%|███████▍  | 74/100 [00:32<00:11,  2.26it/s]Training Epoch 0:  75%|███████▌  | 75/100 [00:33<00:11,  2.26it/s]Training Epoch 0:  76%|███████▌  | 76/100 [00:33<00:10,  2.26it/s]Training Epoch 0:  77%|███████▋  | 77/100 [00:34<00:10,  2.25it/s]Training Epoch 0:  78%|███████▊  | 78/100 [00:34<00:09,  2.25it/s]Training Epoch 0:  79%|███████▉  | 79/100 [00:34<00:09,  2.26it/s]Training Epoch 0:  80%|████████  | 80/100 [00:35<00:08,  2.25it/s]Training Epoch 0:  81%|████████  | 81/100 [00:35<00:08,  2.26it/s]Training Epoch 0:  82%|████████▏ | 82/100 [00:36<00:07,  2.25it/s]Training Epoch 0:  83%|████████▎ | 83/100 [00:36<00:07,  2.26it/s]Training Epoch 0:  84%|████████▍ | 84/100 [00:37<00:07,  2.25it/s]Training Epoch 0:  85%|████████▌ | 85/100 [00:37<00:06,  2.25it/s]Training Epoch 0:  86%|████████▌ | 86/100 [00:38<00:06,  2.26it/s]Training Epoch 0:  87%|████████▋ | 87/100 [00:38<00:05,  2.26it/s]Training Epoch 0:  88%|████████▊ | 88/100 [00:38<00:05,  2.26it/s]Training Epoch 0:  89%|████████▉ | 89/100 [00:39<00:04,  2.25it/s]Training Epoch 0:  90%|█████████ | 90/100 [00:39<00:04,  2.26it/s]Training Epoch 0:  91%|█████████ | 91/100 [00:40<00:03,  2.26it/s]Training Epoch 0:  92%|█████████▏| 92/100 [00:40<00:03,  2.25it/s]Training Epoch 0:  93%|█████████▎| 93/100 [00:41<00:03,  2.25it/s]Training Epoch 0:  94%|█████████▍| 94/100 [00:41<00:02,  2.25it/s]Training Epoch 0:  95%|█████████▌| 95/100 [00:42<00:02,  2.25it/s]Training Epoch 0:  96%|█████████▌| 96/100 [00:42<00:01,  2.25it/s]Training Epoch 0:  97%|█████████▋| 97/100 [00:42<00:01,  2.25it/s]Training Epoch 0:  98%|█████████▊| 98/100 [00:43<00:00,  2.25it/s]Training Epoch 0:  99%|█████████▉| 99/100 [00:43<00:00,  2.25it/s]                                                                  Step 0 Time elapsed: 0.41s
+epoch 0 training time consumed: 43.86s
 /home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
   warnings.warn(
 We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
 You may ignore this warning if your `pad_token_id` (50256) is identical to the `bos_token_id` (50256), `eos_token_id` (50256), or the `sep_token_id` (None), and your input is not padded.
+/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/cuda/memory.py:330: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+  warnings.warn(
 Using GPU device 0
 Using device: cuda
 50257
-Traceback (most recent call last):
-  File "/home/cc/rotor-annotated/./train_llm.py", line 298, in <module>
-    loss_hf, mem_loss = test_model_memory(model, sample, labels,device)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/rotor-annotated/./train_llm.py", line 185, in test_model_memory
-    outputs = model(input_ids)
-              ^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1305, in forward
-    transformer_outputs = self.transformer(
-                          ^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1119, in forward
-    outputs = block(
-              ^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 617, in forward
-    attn_outputs = self.attn(
-                   ^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 347, in forward
-    attn_output, attn_weights = self._attn(query, key, value, attention_mask, head_mask)
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/cc/miniconda3/envs/pytorch-2.3.0-env/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 199, in _attn
-    attn_weights = torch.matmul(query, key.transpose(-1, -2))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 96.00 MiB. GPU 
-mv: cannot stat 'test.txt': No such file or directory
+1568.0322265625 we have
+the memroy consumption of loss 1644200960 for openai-community/gpt2
+1568.0322265625 we have
+the new budget is 8760357314.56
+================================== 8760357314.56 =================================
+[Fe_0, Fe_1, Fe_2, Fe_3, Fe_4, Fe_5, Fe_6, Fe_7, CF_8, Fe_9, Fe_10, Fe_11, Fe_12, Fe_13, Fe_14, Fe_15, L, B_15, B_14, B_13, B_12, B_11, B_10, B_9, Fe_8, B_8, B_7, B_6, B_5, B_4, B_3, B_2, B_1, B_0]
+trace_gpt
+['Fe_0', 'Fe_1', 'Fe_2', 'Fe_3', 'Fe_4', 'Fe_5', 'Fe_6', 'Fe_7', 'CF_8', 'Fe_9', 'Fe_10', 'Fe_11', 'Fe_12', 'Fe_13', 'Fe_14', 'Fe_15', 'L', 'B_15', 'B_14', 'B_13', 'B_12', 'B_11', 'B_10', 'B_9', 'Fe_8', 'B_8', 'B_7', 'B_6', 'B_5', 'B_4', 'B_3', 'B_2', 'B_1', 'B_0']
+[8]
+['6-transformer=h-GPT2-Sequential-GPT2Block']
+trace_gpt
+=======================
+GPT2Block-transformer.h.6: ['native_layer_norm-346', 'view-347', 'addmm-348', 'view-349', 'split-350', 'view-351', 'permute-352', 'view-353', 'permute-354', 'view-355', 'permute-356', 'transpose-357', 'expand-358', 'clone-359', '_unsafe_view-360', 'expand-361', 'clone-362', '_unsafe_view-363', 'bmm-364', '_unsafe_view-365', 'div-366', 'where-367', 'add-368', '_softmax-369', 'native_dropout-370', 'expand-371', 'view-372', 'expand-373', 'clone-374', '_unsafe_view-375', 'bmm-376', '_unsafe_view-377', 'permute-378', 'clone-379', 'view-380', 'view-381', 'addmm-382', 'view-383', 'native_dropout-384', 'add-385', 'native_layer_norm-386', 'view-387', 'addmm-388', 'view-389', 'mul-390', 'pow-391', 'mul-392', 'add-393', 'mul-394', 'tanh-395', 'add-396', 'mul-397', 'view-398', 'addmm-399', 'view-400', 'native_dropout-401', 'add-402']
+============================
+57
+===========================================
+Epoch 1/1
+Training Epoch 0:   0%|          | 0/100 [00:00<?, ?it/s]Training Epoch 0:   1%|          | 1/100 [00:00<00:30,  3.25it/s]Training Epoch 0:   2%|▏         | 2/100 [00:00<00:35,  2.79it/s]Training Epoch 0:   3%|▎         | 3/100 [00:01<00:36,  2.62it/s]Training Epoch 0:   4%|▍         | 4/100 [00:01<00:37,  2.54it/s]Training Epoch 0:   5%|▌         | 5/100 [00:01<00:37,  2.51it/s]Training Epoch 0:   6%|▌         | 6/100 [00:02<00:37,  2.49it/s]Training Epoch 0:   7%|▋         | 7/100 [00:02<00:37,  2.48it/s]Training Epoch 0:   8%|▊         | 8/100 [00:03<00:37,  2.47it/s]Training Epoch 0:   9%|▉         | 9/100 [00:03<00:36,  2.46it/s]Training Epoch 0:  10%|█         | 10/100 [00:03<00:36,  2.45it/s]Training Epoch 0:  11%|█         | 11/100 [00:04<00:36,  2.46it/s]Training Epoch 0:  12%|█▏        | 12/100 [00:04<00:35,  2.45it/s]Training Epoch 0:  13%|█▎        | 13/100 [00:05<00:35,  2.45it/s]Training Epoch 0:  14%|█▍        | 14/100 [00:05<00:35,  2.45it/s]Training Epoch 0:  15%|█▌        | 15/100 [00:06<00:34,  2.44it/s]Training Epoch 0:  16%|█▌        | 16/100 [00:06<00:34,  2.45it/s]Training Epoch 0:  17%|█▋        | 17/100 [00:06<00:33,  2.45it/s]Training Epoch 0:  18%|█▊        | 18/100 [00:07<00:33,  2.45it/s]Training Epoch 0:  19%|█▉        | 19/100 [00:07<00:33,  2.44it/s]Training Epoch 0:  20%|██        | 20/100 [00:08<00:32,  2.44it/s]Training Epoch 0:  21%|██        | 21/100 [00:08<00:32,  2.44it/s]Training Epoch 0:  22%|██▏       | 22/100 [00:08<00:31,  2.44it/s]Training Epoch 0:  23%|██▎       | 23/100 [00:09<00:31,  2.44it/s]Training Epoch 0:  24%|██▍       | 24/100 [00:09<00:31,  2.44it/s]Training Epoch 0:  25%|██▌       | 25/100 [00:10<00:30,  2.44it/s]Training Epoch 0:  26%|██▌       | 26/100 [00:10<00:30,  2.45it/s]Training Epoch 0:  27%|██▋       | 27/100 [00:10<00:29,  2.45it/s]Training Epoch 0:  28%|██▊       | 28/100 [00:11<00:29,  2.44it/s]Training Epoch 0:  29%|██▉       | 29/100 [00:11<00:29,  2.44it/s]Training Epoch 0:  30%|███       | 30/100 [00:12<00:28,  2.44it/s]Training Epoch 0:  31%|███       | 31/100 [00:12<00:28,  2.45it/s]Training Epoch 0:  32%|███▏      | 32/100 [00:12<00:27,  2.45it/s]Training Epoch 0:  33%|███▎      | 33/100 [00:13<00:27,  2.44it/s]Training Epoch 0:  34%|███▍      | 34/100 [00:13<00:26,  2.45it/s]Training Epoch 0:  35%|███▌      | 35/100 [00:14<00:26,  2.44it/s]Training Epoch 0:  36%|███▌      | 36/100 [00:14<00:26,  2.45it/s]Training Epoch 0:  37%|███▋      | 37/100 [00:15<00:25,  2.44it/s]Training Epoch 0:  38%|███▊      | 38/100 [00:15<00:25,  2.45it/s]Training Epoch 0:  39%|███▉      | 39/100 [00:15<00:24,  2.44it/s]Training Epoch 0:  40%|████      | 40/100 [00:16<00:24,  2.44it/s]Training Epoch 0:  41%|████      | 41/100 [00:16<00:24,  2.44it/s]Training Epoch 0:  42%|████▏     | 42/100 [00:17<00:23,  2.44it/s]Training Epoch 0:  43%|████▎     | 43/100 [00:17<00:23,  2.44it/s]Training Epoch 0:  44%|████▍     | 44/100 [00:17<00:22,  2.45it/s]Training Epoch 0:  45%|████▌     | 45/100 [00:18<00:22,  2.44it/s]Training Epoch 0:  46%|████▌     | 46/100 [00:18<00:22,  2.44it/s]Training Epoch 0:  47%|████▋     | 47/100 [00:19<00:21,  2.45it/s]Training Epoch 0:  48%|████▊     | 48/100 [00:19<00:21,  2.45it/s]Training Epoch 0:  49%|████▉     | 49/100 [00:19<00:20,  2.44it/s]Training Epoch 0:  50%|█████     | 50/100 [00:20<00:20,  2.44it/s]Training Epoch 0:  51%|█████     | 51/100 [00:20<00:20,  2.44it/s]Training Epoch 0:  52%|█████▏    | 52/100 [00:21<00:19,  2.44it/s]Training Epoch 0:  53%|█████▎    | 53/100 [00:21<00:19,  2.44it/s]Training Epoch 0:  54%|█████▍    | 54/100 [00:21<00:18,  2.44it/s]Training Epoch 0:  55%|█████▌    | 55/100 [00:22<00:18,  2.45it/s]Training Epoch 0:  56%|█████▌    | 56/100 [00:22<00:18,  2.44it/s]Training Epoch 0:  57%|█████▋    | 57/100 [00:23<00:17,  2.44it/s]Training Epoch 0:  58%|█████▊    | 58/100 [00:23<00:17,  2.44it/s]Training Epoch 0:  59%|█████▉    | 59/100 [00:24<00:16,  2.44it/s]Training Epoch 0:  60%|██████    | 60/100 [00:24<00:16,  2.45it/s]Training Epoch 0:  61%|██████    | 61/100 [00:24<00:16,  2.43it/s]Training Epoch 0:  62%|██████▏   | 62/100 [00:25<00:15,  2.44it/s]Training Epoch 0:  63%|██████▎   | 63/100 [00:25<00:15,  2.44it/s]Training Epoch 0:  64%|██████▍   | 64/100 [00:26<00:14,  2.44it/s]Training Epoch 0:  65%|██████▌   | 65/100 [00:26<00:14,  2.45it/s]Training Epoch 0:  66%|██████▌   | 66/100 [00:26<00:13,  2.44it/s]Training Epoch 0:  67%|██████▋   | 67/100 [00:27<00:13,  2.44it/s]Training Epoch 0:  68%|██████▊   | 68/100 [00:27<00:13,  2.44it/s]Training Epoch 0:  69%|██████▉   | 69/100 [00:28<00:12,  2.44it/s]Training Epoch 0:  70%|███████   | 70/100 [00:28<00:12,  2.44it/s]Training Epoch 0:  71%|███████   | 71/100 [00:28<00:11,  2.44it/s]Training Epoch 0:  72%|███████▏  | 72/100 [00:29<00:11,  2.44it/s]Training Epoch 0:  73%|███████▎  | 73/100 [00:29<00:11,  2.44it/s]Training Epoch 0:  74%|███████▍  | 74/100 [00:30<00:10,  2.43it/s]Training Epoch 0:  75%|███████▌  | 75/100 [00:30<00:10,  2.44it/s]Training Epoch 0:  76%|███████▌  | 76/100 [00:30<00:09,  2.44it/s]Training Epoch 0:  77%|███████▋  | 77/100 [00:31<00:09,  2.44it/s]Training Epoch 0:  78%|███████▊  | 78/100 [00:31<00:09,  2.44it/s]Training Epoch 0:  79%|███████▉  | 79/100 [00:32<00:08,  2.44it/s]Training Epoch 0:  80%|████████  | 80/100 [00:32<00:08,  2.44it/s]Training Epoch 0:  81%|████████  | 81/100 [00:33<00:07,  2.44it/s]Training Epoch 0:  82%|████████▏ | 82/100 [00:33<00:07,  2.44it/s]Training Epoch 0:  83%|████████▎ | 83/100 [00:33<00:06,  2.44it/s]Training Epoch 0:  84%|████████▍ | 84/100 [00:34<00:06,  2.44it/s]Training Epoch 0:  85%|████████▌ | 85/100 [00:34<00:06,  2.44it/s]Training Epoch 0:  86%|████████▌ | 86/100 [00:35<00:05,  2.44it/s]Training Epoch 0:  87%|████████▋ | 87/100 [00:35<00:05,  2.43it/s]Training Epoch 0:  88%|████████▊ | 88/100 [00:35<00:04,  2.43it/s]Training Epoch 0:  89%|████████▉ | 89/100 [00:36<00:04,  2.43it/s]Training Epoch 0:  90%|█████████ | 90/100 [00:36<00:04,  2.44it/s]Training Epoch 0:  91%|█████████ | 91/100 [00:37<00:03,  2.44it/s]Training Epoch 0:  92%|█████████▏| 92/100 [00:37<00:03,  2.44it/s]Training Epoch 0:  93%|█████████▎| 93/100 [00:37<00:02,  2.44it/s]Training Epoch 0:  94%|█████████▍| 94/100 [00:38<00:02,  2.43it/s]Training Epoch 0:  95%|█████████▌| 95/100 [00:38<00:02,  2.44it/s]Training Epoch 0:  96%|█████████▌| 96/100 [00:39<00:01,  2.44it/s]Training Epoch 0:  97%|█████████▋| 97/100 [00:39<00:01,  2.43it/s]Training Epoch 0:  98%|█████████▊| 98/100 [00:40<00:00,  2.44it/s]Training Epoch 0:  99%|█████████▉| 99/100 [00:40<00:00,  2.44it/s]                                                                  Step 0 Time elapsed: 0.31s
+epoch 0 training time consumed: 40.55s

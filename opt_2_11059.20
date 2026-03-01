@@ -1,0 +1,3 @@
+num_recomp: 11
+recomp: [<class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>, <class 'rotor.models.opt.OPTDecoderLayerWrapper'>]
+recomp_size (bytes): 5016.70068359375 MB
